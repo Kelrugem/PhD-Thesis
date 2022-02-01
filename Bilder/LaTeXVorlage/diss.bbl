@@ -1,0 +1,11 @@
+\begin{thebibliography}{1}
+
+\bibitem{Autor1:02}
+V{.~}Nachname, \emph{Journalname} \textbf{74}  (2002), 241.
+
+\bibitem{Autor2:01}
+V{.~}Nachname1 und V{.~}Nachname2.
+\newblock \emph{Titel des Artikels} (2001).
+\newblock Erscheint in Journalname.
+
+\end{thebibliography}
