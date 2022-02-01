@@ -1,0 +1,1713 @@
+\chapter{Gauge theory}
+\label{ClassicGaugeTheory}
+\section{Lie algebras and their actions}\label{LieAlgebraActions}
+
+In the following we will shortly introduce the basic setup of infinitesimal gauge theory where a trivial principal bundle is assumed and, thus, omitted. Equivalently, we assume a global gauge or we just look at some open neighbourhood of the spacetime admitting a local gauge. We will follow \cite{hamilton}.
+
+Moreover, we will especially focus on the infinitesimal behaviour of gauge theory. That is, we will mainly concentrate on Lie algebras and not Lie groups. The following will also not be a deep discussion of the defined notions, just providing the very needed definitions, especially those which are going to be generalized later. Thus, it is in general recommended to have already knowledge about how gauge theory is mathematically formulated, especially Yang-Mills-Higgs gauge theory.
+
+\begin{definitions}{Lie group, \cite[Definition 1.1.4; page 6]{hamilton}}{HamLieGroup}
+A \textbf{Lie group} $G$ is a group which is also a smooth manifold such that 
+\bas
+G \times G &\to G, \\
+(g,h) &\mapsto g \cdot h
+\eas
+is smooth, where $G \times G$ has the canonical smooth structure of a product manifold inherited by the smooth structure of $G$.
+\end{definitions}
+
+\begin{remark}
+\leavevmode\newline
+Usually, the definition of Lie groups contains also the condition about that the inverse map, $G\ni g \mapsto g^{-1}$, is smooth, which can be combined with the smoothness of the multiplication map to that 
+\bas
+G \times G &\to G, \\
+(g,h) &\mapsto g \cdot h^{-1},
+\eas
+shall be smooth as a single condition for the definition of Lie groups. However, that is not needed as pointed out in \cite[Remark 1.1.8, page 7; see also Exercise 1.9.5, page 76f.]{hamilton}, which is why we just need to ask for smoothness of the product. 
+%The idea for it is the following sketch of a proof: One first shows that $\mu: G \times G \to G, \mu(g,h) \coloneqq g \cdot h$, is a submersion, which is shown as usual by observing that
+%\bas
+%\mathrm{D}_{(g,h)}\mu(X, Y)
+%&=
+%\mathrm{D}_h L_g (Y)
+	%+ \mathrm{D}_g R_h (X)
+%\eas
+%for all $(g,h) \in G \times G$ and $(X, Y) \in \mathrm{T}_{(g,h)}(G \times G) \cong \mathrm{T}_g G \oplus \mathrm{T}_h G$, where $L_g$ and $R_g$ denotes the left- and right-multiplication with $g \in G$, respectively. Trivially, by the smoothness of $\mu$ the left-multiplication $L_g$ and $L_{g^{-1}}$ are smooth and inverse to each other, hence, $L_g$ is as expected and known a diffeomorphism such that $\mathrm{D}_h L_g$ is an isomorphism, especially having a rank of $\mathrm{dim}(G)$. Thus, $\mathrm{D}_{(g,h)}\mu$ is a submersion.
+%
+%By the regular value theorem (the submersion theorem) one can conclude that for all $(g,h) \in G \times G$ there is an open neighbourhood $U$ of $(g,h)$ and $V$ of $g \cdot h$ in such a way that there is a section $s$ of $\mu$, that is $s: V \to U$ smooth, satisfying
+%\bas
+%s(g\cdot h)
+%&=
+%(g, h),
+%\\
+%\mu \circ s 
+%&=
+%\mathds{1}_V.
+%\eas
+%Also due to the fact that $\mu$ is a submersion, we know that $\mu^{-1}(e)$
+\end{remark}
+
+As known, the set of left invariant vector fields\footnote{This can be identified with the tangent space at the unit element as it is well-known.} on a Lie group form a Lie algebra.
+
+\begin{definitions}{Lie algebra, \cite[Definition 1.4.1, page 36]{hamilton}}{HamLieAlgebra}
+%\leavevmode\newline
+Let $\gls{g1}$ be a vector space together with a map
+\bas
+\gls{0[]g}: \mathfrak{g} \times \mathfrak{g} &\to \mathfrak{g}, \\
+(x, y) &\mapsto \mleft[ x, y \mright]_\mathfrak{g}.
+\eas
+This pair $\mleft( \mathfrak{g}, \mleft[ \cdot, \cdot \mright]_\mathfrak{g} \mright)$ is called a \textbf{Lie algebra} with \textbf{Lie bracket} $\mleft[ \cdot, \cdot \mright]_\mathfrak{g}$ when the following hold:
+\begin{itemize}
+	\item $\mleft[ \cdot, \cdot \mright]_\mathfrak{g}$ is bilinear.
+	\item $\mleft[ \cdot, \cdot \mright]_\mathfrak{g}$ is antisymmetric.
+	\item $\mleft[ \cdot, \cdot \mright]_\mathfrak{g}$ satisfies the \textbf{Jacobi identity}, \textit{i.e.}
+	\bas
+	\mleft[ x, \mleft[ y, z \mright]_\mathfrak{g} \mright]_\mathfrak{g}
+		+ \mleft[ y, \mleft[ z, x \mright]_\mathfrak{g} \mright]_\mathfrak{g}
+		+ \mleft[ z, \mleft[ x, y \mright]_\mathfrak{g} \mright]_\mathfrak{g}
+	&=0
+	\eas
+	for all $x, y, z \in \mathfrak{g}$.
+\end{itemize}
+\end{definitions}
+
+Such an algebra is characterized by the following constants.
+
+\begin{definitions}{Structure constants, \cite[Definition 1.4.17; page 38]{hamilton}}{StructureConstants}
+Let $\mleft( \mathfrak{g}, \mleft[ \cdot, \cdot \mright]_\mathfrak{g} \mright)$ be a Lie algebra. Then the \textbf{structure constants} $\gls{Cbca} \in C^\infty(\mathbb{R})$ are defined by
+\ba
+\mleft[ e_a, e_b \mright]_\mathfrak{g}
+&=
+C_{ab}^c e_c
+\ea
+for a given basis $\mleft( e_a \mright)_a$.
+\end{definitions}
+
+\begin{remark} \cite[Definition 1.4.17 \textit{et seq.}; page 38]{hamilton}
+\leavevmode\newline
+The antisymmetry and Jacobi identity of $\mleft[ \cdot, \cdot \mright]_\mathfrak{g}$ imply
+\ba
+C^a_{bc} &= - C^a_{cb}, \\
+0
+&=
+C^d_{ae} C^e_{bc} + C^d_{be} C^e_{ca} + C^d_{ce} C^e_{ab}.
+\ea
+\end{remark}
+
+For defining couplings we also need Lie group and Lie algebra representations.
+
+\begin{definitions}{Lie group representation, \cite[Definition 2.1.1; page 84]{hamilton}}{LieGroupRepresentation}
+Let $G$ be a Lie group and $W$ a vector space. Then a \textbf{representation} of $G$ on $W$ is a Lie group homomorphism
+\bas
+\Psi: G \to \mathrm{Aut}(W).
+\eas
+\end{definitions}
+
+\begin{definitions}{Lie algebra representation \cite[Definition 2.1.5; page 85]{hamilton}}{LiealgebraRepresentation}
+Let $\mathfrak{g}$ be a Lie algebra and $W$ a vector space. Then a \textbf{representation} of $\mathfrak{g}$ on $W$ is a Lie algebra homomorphism
+\bas
+\psi: \mathfrak{g} \to \mathrm{End}(W).
+\eas
+\end{definitions}
+
+As known, these can be related as in the following lemma.
+
+\begin{lemmata}{Every Lie group representation induces a Lie algebra representation \cite[Proposition 2.1.12; page 86]{hamilton}}{LieGroupRepInducesLieAlgRep}
+Every representation $\Psi$ of a Lie group $G$ on $W$ defines a Lie algebra representation $\psi$ by $\psi \coloneqq \Psi_* \coloneqq \mathrm{D}_e \Psi$, where $e$ is the unit element of $G$.
+\end{lemmata}
+
+We will focus on the following examples of Lie algebra representations. The first example shows the homomorphism property directly, while the second one uses Lemma \ref{lem:LieGroupRepInducesLieAlgRep}.
+
+\begin{examples}{$\mathrm{su}(2)$-action, \newline \cite[\S 6.2 \textit{et seq.}, page 586ff.; and \S 6.6 \textit{et seq.}; page 633ff.]{cohen2006quantum}}{sutwoliealgactionasLiealg}
+Here we will view the Lie algebra $\mathfrak{g} = \mathrm{su}(2)$ as $\mathbb{R}^3$: Let $e_1, e_2, e_3$ denote the standard unit vectors corresponding to the coordinates $x^1, x^2, x^3$. Then the Lie bracket is given by the cross product, \textit{i.e.}~
+\ba
+\mleft[ e_i, e_j \mright]_{\mathrm{su}(2)} \coloneqq e_i \times e_j = \epsilon_{ijk} e_k,
+\ea
+where $\gls{1epsilonijk}$ is the Levi-Civita tensor. The representation on $W \coloneqq \mathbb{R}^3$ is given by
+\ba
+\psi(v)(w)
+&\coloneqq
+v \times w
+=
+\epsilon_{ijk} v^i w^j e_k
+\ea
+for all $v, w \in \mathbb{R}^3$. This is a homomorphism by 
+\bas
+\psi\mleft( \mleft[ u, v \mright]_{\mathrm{su}(2)} \mright)(w)
+&=
+u^i v^j w^k \underbrace{\epsilon_{ijl} \epsilon_{lkm}}_{\mathclap{= \delta_{ik} \delta_{jm} - \delta_{im} \delta_{jk}}} e_m
+=
+u^i w^i v^j e_j
+	-  u^i w^j v^j e_i,
+\eas
+where $\gls{1deltaijz}$ is the Kronecker delta, and
+\bas
+\mleft( \mleft[ \psi(u), \psi(v) \mright]_{\mathrm{End}(\mathbb{R}^3)} \mright)(w)
+&=
+\mleft( u^i v^j \epsilon_{ilm} \epsilon_{jkl}
+	- u^i v^j \epsilon_{jlm} \epsilon_{ikl} \mright) w^k e_m \\
+&=
+\mleft( - u^i v^i + u^i v^i \mright) w^m e_m
++ u^i v^j w^i e_j - u^i v^j w^j e_i \\
+&=
+\psi\mleft( \mleft[ u, v \mright]_{\mathrm{su}(2)} \mright)(w)
+\eas
+for all $u, v, w \in \mathbb{R}^3$.
+\end{examples}
+
+\begin{examples}{Electroweak interaction coupled to a Higgs field, \newline\cite[Example 8.1.9; page 449f.; and \S 8.3.1; page 465ff.]{hamilton}}{electroweakinteractionasLiealg}
+The \textbf{electroweak interaction coupled to a Higgs field} is defined as $\mathfrak{g} \coloneqq \mathrm{su}(2) \oplus \mathrm{u}(1)$ acting on $W \coloneqq \mathbb{C}^2 (\cong \mathbb{R}^4)$. Let $\mathrm{i}$ be the imaginary number and $n_\gamma$ be a non-zero natural number (a normalization constant). The Lie algebra representation $\psi$ is then defined as the induced representation $\Psi_*$ of the Lie group representation $\Psi$ given by
+	\bas
+	(\mathrm{SU}(2) \times \mathrm{U}(1)) \times \mathbb{C}^2 &\to \mathbb{C}^2, \\
+	\mleft(A, \e^{\mathrm{i} \alpha}, w\mright) &\mapsto \Psi\mleft( A, \e^{\mathrm{i} \alpha} \mright)(w) \coloneqq \mleft(A, \e^{\mathrm{i} \alpha}\mright) \cdot w
+	\coloneqq
+	\e^{\mathrm{i} n_\gamma \alpha} A w
+	\eas
+	for all $w \in \mathbb{C}^2$. This is clearly a Lie group representation.
+\end{examples}
+
+Another important examples are the adjoint representations.
+
+\begin{examples}{Adjoint representations, \newline \cite[Theorem 2.1.45 and abstract before that; page 101]{hamilton} \& \cite[Theorem 2.1.52; page 105]{hamilton}}{AdjointReps}
+We have the well-known \textbf{adjoint representation of a Lie group $G$}: For an element $g \in G$ we define the \textbf{conjugation $c_g$} as a map by
+\bas
+G &\to G,
+\\
+h
+&\mapsto
+c_g(h)
+\coloneqq
+ghg^{-1}.
+\eas
+It is easy to check that $c_g$ is a Lie group automorphism, \textit{i.e.}~a diffeomorphism and a homomorphism; moreover, the map $G \times G \to G, (g, h) \mapsto c_g(h),$ is a left action of $G$ on itself, especially we have $c_{gh} = c_g \circ c_h$ for all $g,h \in G$. All of those properties lead to the definition of the adjoint representation (of $G$) $\mathrm{Ad}: G \to \mathrm{Aut}(\mathfrak{g})$, a $G$-representation on $\mathfrak{g}$ defined as map by
+\bas
+G &\to \mathrm{Aut}(\mathfrak{g}),
+\\
+g
+&\mapsto
+\mathrm{Ad}(g)
+\coloneqq
+\mathrm{D}_e c_g,
+\eas
+where $e \in G$ is the neutral element; we defined Lie group representations with values in vector bundle automorphisms, but due to the properties of the conjugation one can also understand $\mathrm{Aut}(\mathfrak{g})$ here as the space of Lie algebra automorphisms, especially $\mathrm{Ad}(g)$ is additionally a homomorphism of the Lie bracket of $\mathfrak{g}$ for all $g \in G$.
+
+The induced Lie algebra representation of $\mathrm{Ad}$ is given by $\gls{ad}: \mathfrak{g} \to \mathrm{End}(\mathfrak{g}), X \mapsto \mleft[ X, \cdot \mright]_{\mathfrak{g}}$, the \textbf{adjoint representation of $\mathfrak{g}$}.
+\end{examples}
+
+
+Representations can be generalized to actions on manifolds $N$.
+
+\begin{definitions}{Left action on manifold, \cite[\S 3.2, Definition 3.2.1; page 130]{hamilton}}{LieGroupAction}
+A \textbf{smooth left action} of a Lie group $G$ on a smooth manifold $N$ is a smooth map
+\bas
+G \times N &\to N, \\
+(g, p) &\mapsto g \cdot p = gp,
+\eas
+where $G \times N$ is equipped with the canonical product structure, and we demand:
+\begin{itemize}
+	\item For all $g, h \in G$ and $p\in N$
+		\bas
+			(g \cdot h) \cdot p &= g \cdot (h \cdot p).
+		\eas
+	\item For all $p \in N$ and $e$ the neutral element of $G$
+		\bas
+			e \cdot p &= p.
+		\eas
+\end{itemize}
+\end{definitions}
+
+\begin{remark} \cite[\S 3.4; page 141ff.]{hamilton}\label{FundamentalVectorFields}
+\leavevmode\newline
+One may try to think about a left action as a generalization of Lie group representation when replacing the space of automorphisms of a vector space $W$ with the space of diffeomorphisms $N$, $\mathrm{Diff}(N)$, and then rewriting the left action as a map $G \to \mathrm{Diff}(N), g \mapsto \mleft[ p \mapsto gp \mright] \in \mathrm{Diff}(N)$. The definition of a left action then implies that this map would be a group homomorphism. 
+
+Keep in mind that the definition of a representation of a Lie group demands smoothness of the representation such that we would need to define a smooth structure on (in general) infinite-dimensional sets like $\mathrm{Diff}(N)$ which we would like to avoid. Hence, when we also want to derive a Lie algebra action we just motivate it in the following way. Denote the action by $(g, p) \mapsto \Psi(g, p) \coloneqq g \cdot p$, then take any Lie algebra element $X \in \mathfrak{g}$ to conclude for $t, s \in \mathbb{R}$, by using Def.~\ref{def:LieGroupAction},
+\bas
+\mleft.\Psi\mleft( \e^{t X}, p \mright)\mright|_{t=0}
+&=
+e \cdot p
+= p, \\
+\Psi\mleft( \e^{(t+s) X}, p \mright)
+&=
+\Psi\mleft( \e^{t X} \cdot \e^{s X}, p \mright)
+=
+\Psi\mleft( \e^{t X}, \Psi\mleft( \e^{s X}, p \mright) \mright),
+\eas
+where $t \mapsto \e^{t X}$ denotes the 1-parameter subgroup through $X$. Thence, $\mathbb{R} \times N \to N, (t, p) \mapsto \Psi\mleft( \e^{tX}, p \mright)$ defines the flow of a (complete) vector field $\gamma(-X) \in \mathfrak{X}(N)$, defined at $p$ by $\gamma(-X)_p \coloneqq \mleft. \frac{\mathrm{d}}{\mathrm{d}t}\mright|_{t=0} \mleft[ t \mapsto \Psi\mleft( \e^{t X}, p \mright)\mright]$. This defines a map $\mathfrak{g} \to \mathfrak{X}(N), X \mapsto \gamma(X)$, which is known as the map to \textbf{fundamental vector fields}, and the change of the sign is needed to define $\gamma$ as a homomorphism of Lie algebras, see \textit{e.g.}~\cite[Proposition 3.4.4; page 144]{hamilton}. In fact, we are going to prove that in Prop.~\ref{prop:LieRepAndLieAct}, too, in the special situation of $N=W$ for some vector space $W$.
+\end{remark}
+
+Thence, we motivated the following definition.
+
+\begin{definitions}{Lie algebra action, \cite[\S 16.2, Example 5; page 114]{DaSilva}}{LieAlgebraAction}
+A \textbf{Lie algebra action} of a Lie algebra $\mathfrak{g}$ on a smooth manifold $N$ is a Lie algebra homomorphism 
+\bas
+\gls{1cammaz}: \mathfrak{g} \to \mathfrak{X}(N)
+\eas
+such that the map
+\bas
+N \times \mathfrak{g} &\to \mathrm{T}N, \\
+(p, X) &\mapsto \gamma(X)_p
+\eas
+is smooth, equipping $N \times \mathfrak{g}$ with the canonical structure of product manifolds.
+\end{definitions}
+
+\begin{remark}
+\leavevmode\newline
+If $\gamma$ is induced by a (left) Lie group action as in Remark \ref{FundamentalVectorFields}, then we also call $\gamma$ the \textbf{induced Lie algebra action}.
+\end{remark}
+
+We can show that all Lie algebra representations define a Lie algebra action, not assuming any integrability to a Lie group representation.
+
+\begin{propositions}{Lie algebra representation $\rightarrow$ Lie algebra action, \newline \cite[generalisation of parts of Example 3.4.2; page 143f.]{hamilton}}{LieRepAndLieAct}
+Every Lie algebra representation $\psi$ on a vector space $W$ defines a Lie algebra action $\gamma$ by
+\ba
+\gamma(X)_v &\coloneqq - \psi(X)(v)
+\ea
+for all $X \in \mathfrak{g}$ and $v \in W$, where we view the right hand side as an element of $\mathrm{T}_vW$, making use of $\mathrm{T}_vW \cong W$.
+\end{propositions}
+
+\begin{remarks}{}{}
+We then say that \textbf{$\gamma$ is induced by $\psi$}.
+\end{remarks}
+
+\begin{remark}\label{RemTVGleichV}
+\leavevmode\newline
+A few words about using $\mathrm{T}_vW \cong W$: In the following we will denote a basis of $W$ by $\mleft(e_a\mright)_a$, $v = v^a e_a$ for all $v \in W$, which we will also identify as a (constant) frame of $\mathrm{T}W$, \textit{i.e.}~$\partial_a \leftrightarrow e_a$ for some coordinate vector fields $\mleft( \partial_a \mright)_a$. Then the definition contained in Prop. \ref{prop:LieRepAndLieAct} reads
+\bas
+\gamma(X) &\coloneqq - \overline{\psi(X)},
+\eas
+where $\overline{T} \in \mathfrak{X}(W)$ for $T \in \mathrm{End}(W)$ is defined by
+\bas
+W &\to \mathrm{T}W, \\
+v &\mapsto
+\overline{T}(v)
+\coloneqq
+T^a_b v^b \mleft.\partial_a\mright|_v.
+\eas
+Normally, we will omit this notation most of the time and write $\overline{T} = T$ since the identification in $\mathrm{T}_vW \cong W$ is very natural. But until the proof of Prop. \ref{prop:LieRepAndLieAct} we are going to keep this notation.
+\end{remark}
+
+To prove Prop. \ref{prop:LieRepAndLieAct} we need to show the following Lemma and Corollary; these are basically the statements as for fundamental vector fields, \cite[\S 3.4; page 141ff.]{hamilton}, but just looking at $\mathfrak{g}= \mathrm{End}(W)$ with $\psi = \mathds{1}_{\mathrm{End}(W)}$ as representation on $W$, which is all one needs to prove Prop.~\ref{prop:LieRepAndLieAct}.
+
+\begin{lemmata}{$\overline{\mathrm{End}(W)}$ a Lie subalgebra of $\mathfrak{X}(W)$, \newline \cite[\S 3.4; page 141ff.; especially second equation in Remark 3.4.5; page 145]{hamilton}}{LemmaEndGleichMinusVectorField}
+Let $W$ be a vector space. Then $\overline{\mathrm{End}(W)}$ is a Lie subalgebra of $\mathfrak{X}(W)$, and we have
+\ba
+\overline{\mleft[ T, L \mright]}_{\mathrm{End}(W)}
+&=
+-\mleft[ \overline{T}, \overline{L} \mright]
+\ea
+for all $T, L \in \mathrm{End}(W)$. 
+\end{lemmata}
+
+\begin{proof}
+\leavevmode\newline
+That it is a subspace is clear due to $0 \in \overline{\mathrm{End}(W)}$ and
+\bas
+\overline{a T + b L}
+&=
+a \overline {T} + b \overline{L}
+\eas
+for all $T, L \in \mathrm{End}(W)$ and $a, b \in \mathbb{R}$. We also get for $v = v^a e_a \in W$
+\bas
+\mleft[ \overline{T}, \overline{L} \mright]_v
+&=
+\Big( 
+\overline{T}^b ~ \underbrace{\partial_b \overline{L}^a}
+_{\mathclap{= \partial_b \mleft[ v \mapsto L^a_c v^c \mright] = L^a_b}}
+ - \overline{L}^b ~ \partial_b \overline{T}^a
+\Big)\Big|_v ~ \mleft.\partial_a\mright|_v
+=
+- \mleft[T, L \mright]^a_{\mathrm{End}(W)}(v) ~ \mleft.\partial_a \mright|_v
+=
+- \mleft.\overline{\mleft[T, L \mright]}_{\mathrm{End}(W)} \mright|_v,
+\eas
+which also shows that it is a subalgebra.
+\end{proof}
+
+In fact, we can identify the endomorphisms of $W$ with this subalgebra.
+
+\begin{corollaries}{Lie algebra isomorphism $\mathrm{End}(W) \cong \overline{\mathrm{End}(W)}$, \newline \cite[simplified Proposition 3.4.3; page 144]{hamilton}}{EndVGleichBarEndV}
+Let $W$ be a vector space. Then there is a natural Lie algebra isomorphism 
+\ba
+\mathrm{End}(W) \cong \overline{\mathrm{End}(W)}. 
+\ea
+\end{corollaries}
+
+\begin{proof}
+\leavevmode\newline
+Define $F: \mathrm{End}(W) \to \overline{\mathrm{End}(W)}$ by
+\ba\label{defSuperEasyPeasyDefinitionvonhomomderactionsundReps}
+F(L)
+&\coloneqq
+-\overline{L}
+\ea
+for all $L \in \mathrm{End}(W)$. Then observe for $T, L \in \mathrm{End}(W)$ that
+\bas
+\mleft[ F(T), F(L) \mright]
+&=
+\mleft[ \overline{T}, \overline{L} \mright]
+\stackrel{\text{Lem. \ref{lem:LemmaEndGleichMinusVectorField}}}{=}
+- \overline{\mleft[ T, L \mright]}_{\mathrm{End}(W)}
+=
+F\mleft(\mleft[ T, L \mright]_{\mathrm{End}(W)}\mright),
+\eas
+hence, $F$ is a homomorphism of Lie algebras, and it is clearly an isomorphism by definition \eqref{defSuperEasyPeasyDefinitionvonhomomderactionsundReps}.
+\end{proof}
+
+Using Lemma \ref{lem:LemmaEndGleichMinusVectorField} we can finally prove Prop. \ref{prop:LieRepAndLieAct}.
+
+\begin{proof}[Proof of Prop. \ref{prop:LieRepAndLieAct}]
+\leavevmode\newline
+Smoothness is clearly inherited by the smoothness of $\psi$. We need to show that $\gamma$ defined by $\gamma(X) \coloneqq - \overline{\psi(X)}$ for all $X \in \mathfrak{g}$ is a homomorphism of Lie algebras. Then use the sign change of Lemma \ref{lem:LemmaEndGleichMinusVectorField} to show for $X, Y \in \mathfrak{g}$
+\bas
+\gamma\mleft(\mleft[ X, Y \mright]_{\mathfrak{g}}\mright)
+&=
+-\overline{\psi\mleft(\mleft[ X, Y \mright]_{\mathfrak{g}}\mright)}
+\stackrel{\psi \text{ Homom.}}{=}
+-\overline{\mleft[ \psi(X), \psi(Y) \mright]}_{\mathrm{End}(W)}
+\stackrel{\ref{lem:LemmaEndGleichMinusVectorField}}{=}
+\mleft[ \overline{\psi(X)}, \overline{\psi(Y)} \mright]
+=
+\mleft[ \gamma(X), \gamma(Y) \mright].
+\eas
+\end{proof}
+
+Prop. \ref{prop:LieRepAndLieAct} immediately implies the following corollary.
+
+\begin{corollaries}{Lie group representation defines actions, \newline \cite[Example 3.4.2, page 143f.]{hamilton}}{LieGroupRepsImplyActionStuff}
+Every Lie group representation $\Psi$ on a vector space $W$ defines a Lie group and Lie algebra action on $W$.
+\end{corollaries}
+
+\begin{proof}
+\leavevmode\newline
+As it is well-known, every Lie group representation $\Psi$ defines a left action by
+\bas
+G \times W &\to W, \\
+(g,v) &\mapsto g \cdot v \coloneqq \Psi(g)(v).
+\eas
+The Lie algebra action $\gamma$ is canonically given by the fundamental vector fields related to this action,
+\bas
+\gamma(X)_v 
+&\coloneqq
+\mleft. \frac{\mathrm{d}}{\mathrm{d}t}\mright|_{t=0}
+\mleft[ t \mapsto \mleft( \e^{-t X} \cdot v \mright) \mright]
+=
+- \Psi_*(X)(v)
+\eas
+for $t \in \mathbb{R}$, for all $X \in \mathfrak{g}$ and $v \in W$. This is a Lie algebra action by Prop. \ref{prop:LieRepAndLieAct}.
+\end{proof}
+
+\section{Isotropy}\label{IsotropyClassical}
+
+Of a special importance in this work will be the isotropy subalgebra of a Lie algebra $\mathfrak{g}$. We will define this without using group actions because we won't assume integrability in general throughout this work.
+
+\begin{definitions}{The Isotropy Subalgebra, \newline \cite[infinitesimal version of Definition 3.2.4; page 132]{hamilton}}{IsotropySubalgebra}
+Let $\mathfrak{g}$ be a Lie algebra, and $\gamma: \mathfrak{g} \to \mathfrak{X}(N)$ a Lie algebra action on a smooth manifold $N$. Then the \textbf{isotropy subalgebra $\mathfrak{g}_p$ at $p \in N$} is defined as
+\ba
+\mathfrak{g}_p
+&\coloneqq
+\left\{ X \in \mathfrak{g} ~\middle|~
+\gamma(X)_p = 0
+\right\}.
+\ea
+We also often call it just \textbf{isotropy (at $p$)}.
+
+When we have a Lie algebra representation $\psi: \mathfrak{g} \to \mathrm{End}(W)$ on a vector space $W$, then its isotropy is related to its induced Lie algebra action as given in Prop.~\ref{prop:LieRepAndLieAct}.
+\end{definitions}
+
+\begin{remark}\label{ClassicalIsotropy}
+\leavevmode\newline
+Normally the isotropy subalgebra is defined by assuming a (left) Lie group action $\Psi: G \times N \to N, \Psi(g,p) = g\cdot p,$ of a Lie group $G$. Then the \textbf{isotropy group at $p \in N$}, \cite[Definition 3.2.4; page 132]{hamilton}, is defined as 
+\ba
+G_p
+&\coloneqq
+\left\{ g \in G ~ \middle|~
+g \cdot p = p
+\right\}.
+\ea
+By \cite[Proposition 3.2.9; page 134]{hamilton}, $G_p$ is an embedded Lie subgroup of $G$, and, by \cite[Proposition 3.2.10; page 134]{hamilton}, one can show that the Lie algebra of $G_p$ is the kernel of a map $\mathfrak{g} \to \mathrm{T}_pN$, defined by
+\bas
+X
+&\mapsto
+\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_{t=0}\mleft[
+t \mapsto \Psi\mleft( \e^{-tX}, p \mright)
+\mright],
+\eas
+which is precisely the canonical action of fundamental vector fields defined by $\Psi$, evaluated at $p$. That is the motivation for Def.~\ref{def:IsotropySubalgebra}.
+\end{remark}
+
+In case of an integrable Lie algebra action we have the following relationship of isotropies.
+
+\begin{corollaries}{Isotropy of integrable Lie algebra actions, \newline \cite[infinitesimal version of the abstract before Proposition 3.2.10; page 134]{hamilton}}{IsotropyVonLieAlgMitAdjoint}
+Let $G$ be a Lie group with a (left) Lie group action $\Psi: G \times N \to N, (g,p) \mapsto \psi(g, p) = gp,$ on a smooth manifold $N$. Then
+\ba
+\mathrm{Ad}\mleft(g\mright)(\mathfrak{g}_p) = \mathfrak{g}_{gp}
+\ea
+for all $g \in G$ and $p \in N$, where $\mathfrak{g}_p$ and $\mathfrak{g}_{gp}$ are the corresponding isotropy subalgebras related to the Lie algebra action induced by $\Psi$. Especially, $\mathfrak{g}_p$ and $\mathfrak{g}_{gp}$ are isomorphic as Lie algebras.
+\end{corollaries}
+
+\begin{proof}
+\leavevmode\newline
+This corollary is the infinitesimal version of the other well-known relationship of isotropy groups, see \cite[abstract before Proposition 3.2.10; page 134]{hamilton},
+\ba\label{isotropygrouprelation}
+c_{g}(G_p)
+&=
+G_{gp}
+\ea
+for all $g \in G$ and $p \in N$, especially, $c_g: G_p \to G_{gp}$ is a Lie group isomorphism; this is easy to check. Because the isotropy algebras are here now induced by the Lie group action, we know that the induced Lie algebra action $\gamma$ is given by the fundamental vector fields, and, so, the isotropy subalgebras are the Lie algebras of the isotropy groups, recall Remark \ref{ClassicalIsotropy}.
+
+First let us show that $\mathrm{Ad}\mleft(g\mright)(\mathfrak{g}_p) \subset \mathfrak{g}_{gp}$. Observe, making use of Eq.~\eqref{isotropygrouprelation},
+\bas
+c_g\mleft(
+	\e^{tX}
+\mright)
+&\in
+G_{gp}
+%\mleft.\gamma\bigl(\mathrm{Ad}(g)(X)\bigr)\mright|_p
+%&=
+%\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_{t=0}\mleft[
+%t \mapsto \Psi\mleft( \e^{-t ~\mathrm{Ad}(g)(X)}, p \mright)
+%\mright]
+\eas
+for all $g \in G$, $p\in N$, $X \in \mathfrak{g}_p$, and $t \in \mathbb{R}$. $\mleft[ \mathbb{R} \ni t \mapsto c_g\mleft( 	\e^{tX} \mright) \in G_{gp} \mright]$ is clearly a Lie group homomorphism as a composition of homomorphisms, especially a 1-parameter subgroup. Hence,
+\bas
+\mathfrak{g}_{gp}
+&\ni
+\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_{t=0}
+\mleft[
+t \mapsto 
+c_g\mleft(
+	\e^{tX}
+\mright)
+\mright]
+=
+\mathrm{Ad}(g)(X),
+\eas
+and therefore $\mathrm{Ad}\mleft(g\mright)(\mathfrak{g}_p) \subset \mathfrak{g}_{gp}$.\footnote{Alternatively, use the well-known equation $c_g\mleft(\exp(tX) \mright) = \exp(t \mathrm{Ad}(g)(X))$, see \cite[Theorem 1.7.16; page 59]{hamilton}.}
+
+That we have $\mathrm{Ad}\mleft(g\mright)(\mathfrak{g}_p) = \mathfrak{g}_{gp}$ simply comes from the fact that everything is finite-dimensional, so, $\mathrm{Ad}\mleft(g\mright)(\mathfrak{g}_p)$ is a finite-dimensional subspace of $\mathfrak{g}_{gp}$, and by the Lie group isomorphism in Eq.~\eqref{isotropygrouprelation} we have $\mathrm{dim}(\mathfrak{g}_p) = \mathrm{dim}(\mathfrak{g}_{gp})$. Thus, $\mathrm{Ad}\mleft(g\mright)(\mathfrak{g}_p) = \mathfrak{g}_{gp}$ follows, and that describes a Lie algebra automorphism $\mathfrak{g}_p \cong \mathfrak{g}_{gp}$ because $\mathrm{Ad}\mleft(g\mright)$ is a Lie algebra automorphism.
+%
+%Sketchy: By "previous statement" about Lie group actions, $g \in G$ and $p \in N$, $G_{gp} = \mathrm{Ad}(g)(G_p)$, where $G_p \coloneqq \left\{ q \in G ~ \middle| ~ qp=p \right\}$ is the isotropy group at $p$
+%Just a sketch at the moment:
+%We also have, for $g \in G$ and $p \in N$, $G_{gp} = \mathrm{Ad}(g)(G_p)$, where $G_p \coloneqq \left\{ q \in G ~ \middle| ~ qp=p \right\}$ is the isotropy group at $p$; (see ... add reference later)
+%\bas
+%\forall q \in G: ~
+%K_p
+%&=
+%K_{qp},
+%\eas
+%\textit{i.e.}~infinitesimally for $v \in \mathfrak{g}$
+%\bas
+%&&&\forall t \in \mathbb{R}: ~
+%K_p
+%=
+%\mathrm{Ad}(\exp(tv))(K_p) \\
+%&\Rightarrow&
+%&\forall w \in K_p: ~
+%\mathrm{Ad}(\exp(tv))(w)
+%\in K_p \\
+%&\stackrel{\mathclap{K_p \text{ closed subalgebra of } \mathfrak{g}}}{\Rightarrow}&
+%&\forall v \in \mathfrak{g}: ~ \forall w \in K_p: ~
+%\mleft[ v, w \mright]_{\mathfrak{g}}
+%\in K_p,
+%\eas
+\end{proof}
+
+For the last statement we needed integrability. One may assume that isotropy subalgebras are in general ideals of the Lie algebra $\mathfrak{g}$ due to that result, by using that the induced Lie algebra representation of $\mathrm{Ad}$ is given by $\mathrm{ad}$. But the isotropy subalgebra is in general not an ideal, \textit{i.e.}~we have in general \textbf{not} $\mleft[ X, Y \mright]_{\mathfrak{g}} \in \mathfrak{g}_p$ for all $p \in N$, $X \in \mathfrak{g}_p$ and $Y \in \mathfrak{g}$. Given those, fix local coordinates $\mleft(\partial_i\mright)_i$ on $N$ around $p$ and a $\mathfrak{g}$-action $\gamma$ on $N$, then 
+\bas
+\gamma\mleft( \mleft[ X, Y \mright]_{\mathfrak{g}} \mright)_p
+&=
+\mleft.\mleft[ \gamma(X), \gamma(Y) \mright]\mright|_p
+\\
+&=
+\biggl(
+	\underbrace{\mleft.\mathcal{L}_{\gamma(X)}\mright|_p}_{=0}\mleft(\gamma^i(Y)\mright) 
+	- \mleft.\mathcal{L}_{\gamma(Y)}\mright|_p\mleft(\gamma^i(X)\mright) 
+\biggr) ~\partial_i
+\\
+&=
+- \mleft.\mathcal{L}_{\gamma(Y)}\mright|_p\mleft(\gamma^i(X)\mright) ~\partial_i
+\eas
+for all $p \in N$, $X \in \mathfrak{g}_p$ and $Y \in \mathfrak{g}$, where we locally write $\gamma = \gamma^i ~ \partial_i$.
+Therefore $\mathfrak{g}_p$ would be an ideal, if there is a coordinate system such that $\gamma^i(X)$ are constant along $\gamma$ around $p$; we will come back to this condition about constancy in another chapter. However, we will later see that the isotropy subalgebra is always an ideal of another Lie bracket, the bracket of a vector bundle which we will call a Lie algebroid. But let us now first shortly introduce the physical quantities.
+
+\section{Yang-Mills-Higgs gauge theory}\label{YMHGT}
+
+As introduced, we will only assume trivial principal bundles. Hence, the \textbf{field of gauge bosons} will be represented by an element $\gls{a0} \in \Omega^1(M; \mathfrak{g})$, where $\mathfrak{g}$ is a Lie algebra and $M$ is usually a spacetime (but often just a smooth manifold in the following).
+
+We also need the following definition.
+
+\begin{definitions}{Graded extension of the Lie bracket, \newline \cite[generalization of Definition 5.5.3; page 275]{hamilton}}{GradedExtensionOfBracket}
+Let $M$ be a smooth manifold, $W$ and $W^\prime$ vector spaces and $F \in \bigwedge^2 W^* \otimes W^\prime$. Then for $\omega \in \Omega^k(M; W)$ and $\eta \in \Omega^l(M; W)$ ($k, l \in \mathbb{N}_0$) we define $F\mleft(\omega \stackrel{\wedge}{,} \eta\mright)$ as an element of $\Omega^{k+l}(M; W^\prime)$ by
+\ba
+&\bigl(F\mleft(\omega \stackrel{\wedge}{,} \eta\mright)\bigr)\mleft( X_1, \dotsc, X_{k+l} \mright)
+\nonumber\\
+&\coloneqq
+\frac{1}{k!l!} \sum_{\sigma \in S_{k+l}}
+	\mathrm{sgn}(\sigma) F\mleft( 
+	\omega\mleft(X_{\sigma(1)}, \dotsc, X_{\sigma(k)}\mright),
+	\eta\mleft(X_{\sigma(k+1)}, \dotsc, X_{\sigma(k+l)}\mright)
+	\mright)
+\ea
+for all $X_1, \dotsc, X_{k+l} \in \mathfrak{X}(M)$, where $S_{k+l}$ is the group of permutations of $\{1, \dotsc, k+l\}$.
+
+When either $\omega$ or $\eta$ is a zero-form, then we may also write $F(w, \eta)$ instead.
+\end{definitions}
+
+\begin{remark}
+\leavevmode\newline
+It is easy to check that $F\mleft(\omega \stackrel{\wedge}{,} \eta\mright)$ is well-defined, \textit{i.e.}~that it is an element of $\Omega^{k+l}(M; W^\prime)$ by construction. 
+
+For $W = \mathfrak{g}$ and $F = \mleft[ \cdot, \cdot \mright]_{\mathfrak{g}}$ observe that we have for $A \in \Omega^1(M;\mathfrak{g})$
+\bas
+\mleft[ A \stackrel{\wedge}{,} A \mright]_{\mathfrak{g}}(X, Y)
+&\coloneqq
+F\mleft(A \stackrel{\wedge}{,} A\mright) (X, Y)
+=
+\mleft[ A(X), A(Y) \mright]_{\mathfrak{g}}
+	- \mleft[ A(Y), A(X) \mright]_{\mathfrak{g}}
+=
+2 ~ \mleft[ A(X), A(Y) \mright]_{\mathfrak{g}}
+\eas
+for all $X, Y \in \mathfrak{X}(M)$. Making use of the structure constants $C^c_{ab}$ with respect to a given basis $\mleft( e_a \mright)_a$ of $\mathfrak{g}$, we can also write
+\ba\label{LokaleFormVonAwedgeAClassical}
+\mleft[ A \stackrel{\wedge}{,} A \mright]_{\mathfrak{g}}
+&=
+A^a \wedge A^b \otimes \mleft[ e_a, e_b \mright]_{\mathfrak{g}}
+=
+A^a \wedge A^b \otimes C^c_{ab} e_c.
+\ea
+\end{remark}
+
+Let us now define the field strength.
+
+\begin{definitions}{Field strength, \cite[Theorem 5.5.4; page 275]{hamilton}}{ClassicFieldStrength}
+Let $\mathfrak{g}$ be a Lie algebra and $M$ a smooth manifold. The \textbf{field strength $\gls{F}(A)$ of $A \in \Omega^1(M; \mathfrak{g})$} is defined by
+\ba
+F(A)
+&\coloneqq
+\mathrm{d}A
+	+ \frac{1}{2} \mleft[ A \stackrel{\wedge}{,} A \mright]_{\mathfrak{g}}.
+\ea
+We view the field strength also as a map $F: \Omega^1(M; \mathfrak{g}) \to \Omega^2(M; \mathfrak{g}), A \mapsto F(A)$.
+\end{definitions}
+
+The field strength satisfies the Bianchi Identity, encoding the homogeneous Maxwell equations in the case of electromagnetism.
+
+\begin{theorems}{Bianchi identity of the field strength, \newline \cite[Theorem 5.14.2; page 311]{hamilton}}{ClassicBianchiIdenityOfFieldstrength}
+Let $\mathfrak{g}$ be a Lie algebra and $M$ a smooth manifold. Then the field strength $F$ satisfies the \textbf{Bianchi Identity}
+\ba
+\mathrm{d}\bigl(F(A) \bigr)
+	+ \mleft[ A \stackrel{\wedge}{,} F(A) \mright]_{\mathfrak{g}}
+&=
+0
+\ea
+for all $A \in \Omega^1(M; \mathfrak{g})$.
+\end{theorems}
+
+\begin{remark}
+\leavevmode\newline
+See the reference for a proof for now. We will later prove a more general Bianchi identity which will recover this statement; see Thm.~\ref{thm:BianchiIdentityOfFieldStrength}.
+\end{remark}
+
+Let us now define the needed Lagrangians; we are going to state later the typical conditions for gauge invariance, which is why we do not yet clarify any invariance of the used scalar products in the following.
+
+\begin{definitions}{Yang-Mills Lagrangian, \cite[Definition 7.3.1; page 414]{hamilton}}{ClassicYMLagrangian}
+Let $\mathfrak{g}$ be a Lie algebra, equipped with a scalar product $\kappa$, and $M$ a spacetime with spacetime metric $\eta$. Then we define the \textbf{Yang-Mills Lagrangian $\mathfrak{L}_{\mathrm{YM}}$} as a map $\Omega^1(M; \mathfrak{g}) \to \Omega^{\mathrm{dim}(M)}(M)$ by 
+\ba
+\mathfrak{L}_{\mathrm{YM}}(A)
+&\coloneqq
+-\frac{1}{2} ~ \kappa\bigl( F(A) \stackrel{\wedge}{,} * F(A) \bigr)
+\ea
+for all $A \in \Omega^1(M; \mathfrak{g})$, where $*$ is the Hodge star operator with respect to $\eta$.\footnote{As a reference, see for example \cite[Definition 7.2.4; page 408]{hamilton}.}
+\end{definitions}
+
+We also want to look at the Higgs field. The Higgs field is a map $\gls{1vhi} \in C^\infty(M;W)$, where $W$ is some vector space, and the field of gauge bosons $A$ are coupled to fields like the Higgs field via the minimal coupling.
+
+\begin{definitions}{Minimal coupling, \newline \cite[Definition 5.9.3; page 292; Definition 7.5.5 \textit{et seq.}; page 426]{hamilton}}{ClassicMinimalCoupling}
+Let $\mathfrak{g}$ be a Lie algebra, $M$ a smooth manifold, and $W$ a vector space. Furthermore, let $\psi: \mathfrak{g} \to \mathrm{End}(W)$ be a $\mathfrak{g}$-representation on $W$. Then we define the \textbf{minimal coupling $\mathfrak{D}$} as a map given by
+\ba
+C^\infty(M; W) \times \Omega^1(M; \mathfrak{g})
+&\to
+\Omega^1(M; W),
+\nonumber \\
+(\Phi, A)
+&\mapsto
+\mathfrak{D}(\Phi,A)
+\coloneqq
+\gls{DAPhi}
+=
+\mathrm{d}\Phi
+	+ \psi(A)(\Phi),
+\ea
+where $\psi(A)(\Phi)$ is an element of $\Omega^1(M; W)$ given by
+\bas
+\bigl(\psi(A)(\Phi)\bigr)_p(Y)
+=
+\psi\bigl(A_p(Y)\bigr)\bigl(\Phi(p)\bigr)
+\eas
+for all $p \in M$ and $Y \in \mathrm{T}_pM$.
+\end{definitions}
+
+\begin{remark}
+\leavevmode\newline
+In \cite{hamilton} and other literature, minimal coupling also often just refers to the term $\psi(A)(\Psi)$.
+\end{remark}
+
+With that we can now define the Yang-Mills-Higgs Lagrangian.
+
+\begin{definitions}{Yang-Mills-Higgs Lagrangian, \cite[Definition 8.1.1; page 446f.]{hamilton}}{ClassicYMHLagrangian}
+Let $\mathfrak{g}$ be a Lie algebra, equipped with a scalar product $\kappa$, $M$ a spacetime with spacetime metric $\eta$, and $W$ a vector space, also equipped with a scalar product $g$. Furthermore, let $V \in C^\infty(W)$, the \textbf{potential of the Higgs field}, and $\psi: \mathfrak{g} \to \mathrm{End}(W)$ be a $\mathfrak{g}$-representation on $W$.
+Then we define the \textbf{Yang-Mills-Higgs Lagrangian $\gls{LYMH}$} as a map $C^\infty(M; W) \times \Omega^1(M; \mathfrak{g}) \to \Omega^{\mathrm{dim}(M)}(M)$ by 
+\ba
+\mathfrak{L}_{\mathrm{YMH}}(\Phi, A)
+&\coloneqq
+-\frac{1}{2} ~ \kappa\bigl( F(A) \stackrel{\wedge}{,} * F(A) \bigr)
+	+ g\mleft( \mathfrak{D}^A\Phi \stackrel{\wedge}{,} * \mathfrak{D}^A\Phi \mright)
+	- *\bigl( V \circ \Phi \bigr)
+\ea
+for all $(\Phi, A) \in C^\infty(M; W) \times \Omega^1(M; \mathfrak{g})$, where $*$ is the Hodge star operator with respect to $\eta$.
+\end{definitions}
+
+The Higgs mechanism is needed for allowing masses of gauge bosons while keeping gauge invariance. We will not introduce and discuss this because it would exceed the scope of this thesis and it is already elaborated elsewhere, see for example \cite[\S 8; page 445ff.]{hamilton}. However, let us summarize the Higgs effect: The essential idea and result is that the components of $A$ along the isotropy subalgebras $\mathfrak{g}_p$ ($p \in W$) describe the massless gauge bosons, while the other components may describe the bosons with masses due to a non-trivial minimal coupling. That is, fix a point $p \in W$, take a basis $\mleft( f_\alpha \mright)_\alpha$ of $\mathfrak{g}_p$, and extend that basis to a basis of $\mathfrak{g}$, denoted by $\mleft( e_a \mright)_a$. Then write $A = A^a \otimes e_a$ and define $A_{\mathrm{iso}} \coloneqq A^\alpha \otimes f_\alpha$, and denote with $\gamma$ the Lie algebra action induced by $\psi$ as in Prop.~\ref{prop:LieRepAndLieAct}, such that
+\bas
+\gamma\bigl(A_{\mathrm{iso}}|_p(Y)\bigr)_p
+&=
+A_{\mathrm{iso}}^\alpha|_p(Y) \otimes \underbrace{\gamma(f_\alpha)_p}_{=0}
+=
+0
+\eas
+for all $p \in U$ and $Y \in \mathrm{T}_pM$. It is possible to extend that argument to certain open subsets of $W$, leading to that $A_{\mathrm{iso}}$ has a trivial (=0) coupling to any $\Phi$ such that $A_{\mathrm{iso}}$ is going to describe the massless gauge bosons like the photon and the gluons. While the remaining components of $A$ may be massive. Thus, in order to allow masses of gauge boson, one needs that the isotropy subalgebras are non-trivial subalgebras of $\mathfrak{g}$ at certain subsets of $W$ (especially around the minimum of the potential $V$). That is called \textbf{symmetry breaking}.
+
+However, that is not the only factor needed, on one hand one needs a special form of the potential, and on the other hand there is also the known \textbf{unitary gauge} which essentially fixes the components of the Higgs field along the orbits of $\psi$ such that the gauge bosons only really couple to the components along the transversal structure. The components of the Higgs field along the orbits of $\psi$ generally describe the Nambu-Goldstone bosons, while the transversal components are the actual Higgs bosons. Therefore we would not have a Higgs effect without a transversal structure, and, thus, no masses of gauge bosons.
+
+As mentioned, we will not prove or introduce anything of this in detail; see the given reference for an elaborated discussion. But after we will have introduced the generalized and new gauge theory, using Lie algebroids, we will very shortly revisit this behaviour, and it will be easier to formulate due to the fact that the new formulation supports Lie algebra bundles and vector bundles known as action Lie algebroids.
+
+\section{Infinitesimal Gauge Invariance}\label{InfGaugeTrafoClassical}
+Let us now turn to gauge invariance. We will only focus on its infinitesimal formulation because the generalized gauge theory we want to go to will not assume integrability in general. We will still follow \cite[especially \S 5; page 257ff.]{hamilton}, while we first give the observed space of fields in order to make following notations more compact.
+
+\begin{definitions}{The space of fields}{ClassicSpaceofFieldsAgain}
+Let $M$ be a smooth manifold, $W$ a vector space, and $\mathfrak{g}$ a Lie algebra. Then we define the \textbf{space of fields} by
+\ba
+\mathfrak{M}_{\mathfrak{g}}(M; W)
+&\coloneqq
+\left\{ (\Phi, A)
+~\middle|~
+\Phi \in C^\infty(M;W) \text{ and } A \in \Omega^1(M; \mathfrak{g})
+\right\}.
+\ea
+\end{definitions}
+
+\begin{definitions}{Infinitesimal gauge transformation of the Higgs field and the field of gauge bosons, \newline \cite[infinitesimal version of Theorem 5.3.9, see also comment afterwards; page 269f.]{hamilton} and \cite[infinitesimal version of Theorem 5.4.4; page 273]{hamilton}}{ClassicTrafos}
+Let $M$ be a smooth manifold, $W$ a vector space, and $\mathfrak{g}$ a Lie algebra, equipped with a Lie algebra representation $\psi: \mathfrak{g} \to \mathrm{End}(W)$. Moreover, let $\varepsilon \in C^\infty(M; \mathfrak{g})$.
+
+Then we define the \textbf{infinitesimal gauge transformation $\delta_\varepsilon \Phi$ of the Higgs field $\Phi \in C^\infty(M;W)$} also as an element of $C^\infty(M; W)$ by
+\ba
+\delta_\varepsilon \Phi
+&\coloneqq
+\psi(\varepsilon)(\Phi).
+\ea
+The \textbf{infinitesimal gauge transformation $\delta_\varepsilon A$ of the field of gauge bosons $A \in \Omega^1(M; \mathfrak{g})$} is defined as an element of $\Omega^1(M; \mathfrak{g})$ by
+\ba
+\delta_\varepsilon A
+&\coloneqq
+\mleft[ \varepsilon, A \mright]_{\mathfrak{g}}
+	- \mathrm{d}\varepsilon.
+\ea
+\end{definitions}
+
+With that one can define the infinitesimal gauge transformation of functionals.
+
+\begin{definitions}{Infinitesimal gauge transformation of functionals, \newline \cite[motivated by statements like Theorem 7.3.2; page 414ff.]{hamilton}}{ClassFunctionalGaugeTrafoBlag}
+Let $M$ be a smooth manifold, $W, K$ vector spaces, and $\mathfrak{g}$ a Lie algebra, equipped with a Lie algebra representation $\psi: \mathfrak{g} \to \mathrm{End}(W)$. Moreover, let $\varepsilon \in C^\infty(M; \mathfrak{g})$.
+
+Then we define the \textbf{infinitesimal gauge transformation $\delta_\varepsilon L$ of $L: \mathfrak{M}_{\mathfrak{g}}(M; W) \to \Omega^k(M; K)$ ($k \in \mathbb{N}_0$)} as a map $\mathfrak{M}_{\mathfrak{g}}(M; W) \to \Omega^k(M;K)$ by
+\ba
+\mleft(\delta_\varepsilon L\mright)(\Phi, A)
+&\coloneqq
+\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_{t=0}
+\mleft[ t \mapsto
+	L\mleft(
+		\Phi + t \delta_\varepsilon \Phi,
+		A + t \delta_\varepsilon A
+	\mright)
+\mright]
+\ea
+for $t \in \mathbb{R}$, where $\mathrm{d}/\mathrm{d}t$ is defined using the canonical flat connection on $M \times K \to M$.
+\end{definitions}
+
+\begin{remark}\label{RemabouttheddtOfClassicTrafos}
+\leavevmode\newline
+This definition leads to $(\delta_\varepsilon L)(\Phi,A) \in \Omega^k(M;K)$, because the vector space $W$ is viewed as a trivial vector bundle over $M$ such that one uses the canonical flat connection for the definition of $\mathrm{d}/\mathrm{d}t$, that is, one fixes a global trivialization, and then differentiates the components with respect to that trivialization separately. Thus, one actually uses a very trivial horizontal projection in that definition.
+
+This definition is basically nothing else than a differential of functionals along the direction given by $(\delta_\varepsilon \Phi, \delta_\varepsilon A)$. But we want to keep it as presented in order to emphasize something later.
+\end{remark}
+
+One then calculates the typical formulas of the infinitesimal gauge transformations of the field strength and minimal coupling
+
+\begin{propositions}{Infinitesimal gauge transformations of the field strength and minimal coupling, \newline \cite[infinitesimal version of Theorem 5.6.3; page 280]{hamilton} and \cite[infinitesimal version of Lemma 7.5.8; page 428]{hamilton}}{ClassicGaugeTrafoOfFieldStrengthAndMinimalCoupling}
+Let $M$ be a smooth manifold, $W$ a vector space, and $\mathfrak{g}$ a Lie algebra, equipped with a Lie algebra representation $\psi: \mathfrak{g} \to \mathrm{End}(W)$. Moreover, let $\varepsilon \in C^\infty(M; \mathfrak{g})$.
+
+Then we have
+\ba
+\mleft(\delta_\varepsilon F\mright)(\Phi, A)
+&=
+\mleft[ \varepsilon, F(A) \mright]_{\mathfrak{g}},
+\\
+\mleft(\delta_\varepsilon \mathfrak{D}\mright)(\Phi, A)
+&=
+\psi(\varepsilon)\mleft( \mathfrak{D}^A \Phi \mright)
+\ea
+for all $(\Phi, A) \in \mathfrak{M}_{\mathfrak{g}}(M; W)$.
+\end{propositions}
+
+\begin{remark}
+\leavevmode\newline
+The infinitesimal gauge transformation of $A$ can also motivated by conditioning that the gauge transformation of the minimal coupling has to look like as in this proposition. We will discuss this later in more detail in the general setting.
+\end{remark}
+
+\begin{proof}[Proof of Prop.~\ref{prop:ClassicGaugeTrafoOfFieldStrengthAndMinimalCoupling}]
+\leavevmode\newline
+We get\footnote{$F$ is independent of $\Phi$, so, one can omit it there.}
+\bas
+\mleft(\delta_\varepsilon F\mright)(A)
+&=
+\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_{t=0}
+\mleft[ t \mapsto	
+	F\mleft(
+		A + t \delta_\varepsilon A
+	\mright)
+\mright]
+\\
+&=
+\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_{t=0}
+\mleft[ t \mapsto	
+	\mathrm{d}\mleft(A + t \delta_\varepsilon A\mright)
+	+ \frac{1}{2} \mleft[ A + t \delta_\varepsilon A \stackrel{\wedge}{,} A + t \delta_\varepsilon A \mright]_{\mathfrak{g}}
+\mright]
+\\
+&=
+\mathrm{d} \underbrace{\delta_\varepsilon A}
+_{\mathclap{ = \mleft[ \varepsilon, A \mright]_{\mathfrak{g}} - \mathrm{d}\varepsilon }}
+	+ \frac{1}{2} \mleft[ \delta_\varepsilon A \stackrel{\wedge}{,} A \mright]_{\mathfrak{g}}
+	+ \frac{1}{2} \mleft[ A \stackrel{\wedge}{,} \delta_\varepsilon A \mright]_{\mathfrak{g}}
+\\
+&=
+\mleft[ \mathrm{d}\varepsilon, A \mright]_{\mathfrak{g}}
+	+ \mleft[ \varepsilon, \mathrm{d}A \mright]_{\mathfrak{g}}
+	+ \mleft[ \mleft[ \varepsilon, A \mright]_{\mathfrak{g}} - \mathrm{d}\varepsilon \stackrel{\wedge}{,} A \mright]_{\mathfrak{g}}
+\\
+&=
+	\mleft[ \varepsilon, \mathrm{d}A \mright]_{\mathfrak{g}}
+	+ \mleft[ \mleft[ \varepsilon, A \mright]_{\mathfrak{g}} \stackrel{\wedge}{,} A \mright]_{\mathfrak{g}}
+\eas
+making use of Eq.~\eqref{LokaleFormVonAwedgeAClassical} which implies that we have a product rule with respect to the two arguments in $\mleft[ \cdot \stackrel{\wedge}{,} \cdot \mright]_{\mathfrak{g}}$ in sense of wedge products and the differential, and we clearly have $\mleft[ \omega \stackrel{\wedge}{,} \eta \mright]_{\mathfrak{g}} = \mleft[ \eta \stackrel{\wedge}{,} \omega \mright]_{\mathfrak{g}}$ for all $\omega, \eta \in \Omega^1(M; \mathfrak{g})$ due to the antisymmetry of the Lie bracket; see also Appendix \ref{CalculusIdentitiesNeeded} for their proof (as slightly generalized versions). Again using Eq.~\eqref{LokaleFormVonAwedgeAClassical}, the Jacobi identity of the Lie bracket and a basis $\mleft( e_a \mright)_a$ of $\mathfrak{g}$, we arrive
+\bas
+&&
+\mleft[ \mleft[ \varepsilon, A \mright]_{\mathfrak{g}} \stackrel{\wedge}{,} A \mright]_{\mathfrak{g}}
+&=
+\varepsilon^a A^b \wedge A^c \otimes \mleft[ \mleft[ e_a, e_b \mright]_{\mathfrak{g}}, e_c \mright]_{\mathfrak{g}}
+\\
+&&
+&=
+\varepsilon^a A^b \wedge A^c \otimes \mleft(
+	\mleft[ e_a, \mleft[ e_b, e_c \mright]_{\mathfrak{g}} \mright]_{\mathfrak{g}}
+	+ \mleft[ \mleft[ e_a, e_c \mright]_{\mathfrak{g}}, e_b \mright]_{\mathfrak{g}}
+\mright)
+\\
+&&
+&=
+\mleft[ \varepsilon, \mleft[ A \stackrel{\wedge}{,} A \mright]_{\mathfrak{g}} \mright]_{\mathfrak{g}}
+	- \mleft[ \mleft[ \varepsilon, A \mright]_{\mathfrak{g}} \stackrel{\wedge}{,} A \mright]_{\mathfrak{g}}
+\\
+&\Leftrightarrow&
+\mleft[ \mleft[ \varepsilon, A \mright]_{\mathfrak{g}} \stackrel{\wedge}{,} A \mright]_{\mathfrak{g}}
+&=
+\frac{1}{2} \mleft[ \varepsilon, \mleft[ A \stackrel{\wedge}{,} A \mright]_{\mathfrak{g}} \mright]_{\mathfrak{g}},
+\eas
+hence, 
+\bas
+\mleft(\delta_\varepsilon F\mright)(A)
+&=
+\mleft[ \varepsilon, \mathrm{d}A + \frac{1}{2} \mleft[ A \stackrel{\wedge}{,} A \mright]_{\mathfrak{g}} \mright]_{\mathfrak{g}}
+=
+\mleft[ \varepsilon, F(A) \mright]_{\mathfrak{g}}.
+\eas
+
+For the minimal coupling observe, also now using additionally a basis $\mleft( f_\alpha \mright)_\alpha$ of $W$,
+\bas
+\mathrm{d}\delta_\varepsilon \Phi
+&=
+\mathrm{d}\bigl( \psi(\varepsilon) (\Phi) \bigr)
+\\
+&=
+\mathrm{d}\bigl( \varepsilon^a \Phi^\alpha \underbrace{\psi(e_a) (f_\alpha)}_{\in \mathfrak{g}} \bigr)
+\\
+&=
+\mathrm{d}\varepsilon^a ~ \Phi^\alpha \psi(e_a) (f_\alpha)
+	+ \varepsilon^a \mathrm{d}\Phi^\alpha \psi(e_a) (f_\alpha)
+\\
+&=
+\psi(\mathrm{d}\varepsilon) (\Phi)
+	+ \psi(\varepsilon) (\mathrm{d}\Phi),
+\eas
+and, thus,
+\bas
+\mleft(\delta_\varepsilon \mathfrak{D}\mright)(\Phi, A)
+&=
+\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_{t=0}
+\mleft[ t \mapsto	
+	\mathrm{d}\mleft( \Phi + t \delta_\varepsilon \Phi \mright)
+	+ \psi\mleft( A + t \delta_\varepsilon A \mright) \mleft( \Phi + t \delta_\varepsilon \Phi \mright)
+\mright]
+\\
+&=
+\mathrm{d}\delta_\varepsilon \Phi
+	+ \psi\mleft( \delta_\varepsilon A \mright) \mleft( \Phi \mright)
+	+ \psi\mleft( A \mright) \mleft( \delta_\varepsilon \Phi \mright)
+\\
+&=
+\psi(\mathrm{d}\varepsilon) (\Phi)
+	+ \psi(\varepsilon) (\mathrm{d}\Phi)
+	+ \psi\mleft( \mleft[ \varepsilon, A \mright]_{\mathfrak{g}} - \mathrm{d}\varepsilon \mright) \mleft( \Phi \mright)
+	+ \psi\mleft( A \mright) \mleft( \psi(\varepsilon) (\Phi) \mright)
+\\
+&=
+\psi(\varepsilon) (\mathrm{d}\Phi)
+	+ \underbrace{\mleft[ \psi(\varepsilon), \psi(A) \mright]_{\mathfrak{g}}
+	+ \psi\mleft( A \mright) \mleft( \psi(\varepsilon) (\Phi) \mright)}
+	_{= \psi\mleft( \varepsilon \mright) \mleft( \psi(A) (\Phi) \mright)}
+\\
+&=
+\psi(\varepsilon)\mleft( \mathfrak{D}^A \Phi \mright),
+\eas
+where we used that $\psi$ is a homomorphism of Lie brackets.
+\end{proof}
+
+That leads to the typical well-known statement about the infinitesimal gauge invariance of the Yang-Mills-Higgs Lagrangian. For that we shortly recall what it means that a scalar product is invariant under a Lie algebra representation.
+
+\begin{definitions}{Scalar products invariant under Lie algebra representations, \newline \cite[Definition 2.1.36; page 96]{hamilton}}{ClassicInvariance of metrics}
+Let $\mathfrak{g}$ be a Lie algebra, $W$ a vector space and $\psi: \mathfrak{g} \to \mathrm{End}(W)$ a $\mathfrak{g}$-representation on $W$. Then we say that a scalar product $g$ on $W$ is \textbf{$\psi$-invariant}
+\ba
+g\mleft( \psi(X)(v), w \mright)
+	+ g\mleft( v, \psi(X)(w) \mright)
+&=
+0
+\ea
+for all $X \in \mathfrak{g}$ and $v, w \in W$.
+\end{definitions}
+
+\begin{theorems}{Infinitesimal gauge invariance of the Yang-Mills-Higgs Lagrangian, \newline \cite[infinitesimal version of Theorem 7.3.2; page 414]{hamilton} and \cite[infinitesimal version of Theorem 7.5.10; page 429]{hamilton}}{ClassicGaugeInvarOfYMHLagrangians}
+Let $\mathfrak{g}$ be a Lie algebra, equipped with a scalar product $\kappa$, $M$ a spacetime with spacetime metric $\eta$, and $W$ a vector space, also equipped with a scalar product $g$. Furthermore, let $V \in C^\infty(W)$ and $\psi: \mathfrak{g} \to \mathrm{End}(W)$ be a $\mathfrak{g}$-representation on $W$, whose induced Lie algebra action is denoted by $\gamma$. If we have
+\ba
+\kappa &\text{ is $\mathrm{ad}$-invariant},
+\\
+g &\text{ is $\psi$-invariant},
+\\
+0
+&=
+\mathcal{L}_{\gamma(\varepsilon)} V \circ \Phi\label{ClassicPotential}
+\ea
+for all $\varepsilon \in C^\infty(M; \mathfrak{g})$ and $\Phi \in C^\infty(M;W)$, then
+\ba
+\delta_\varepsilon \mathfrak{L}_{\mathrm{YMH}}
+&=
+0
+\ea
+for all $\varepsilon \in C^\infty(M; \mathfrak{g})$.
+\end{theorems}
+
+\begin{remark}
+\leavevmode\newline
+Condition \eqref{ClassicPotential} may be reduced to $\mathcal{L}_{\gamma(\varepsilon)}V = 0$; however, we will not discuss the potential, and that "weaker" formulation may be a good starting point if one wants to restrict the set of $\Phi$.
+\end{remark}
+
+\begin{proof}[Proof of Thm.~\ref{thm:ClassicGaugeInvarOfYMHLagrangians}]
+\leavevmode\newline
+We will prove the more general statement in more detail later, see Thm.~\ref{thm:GaugeInvariantStandardLagrangian}, but it is a trivial consequence of Prop.~\ref{prop:ClassicGaugeTrafoOfFieldStrengthAndMinimalCoupling}: We need to calculate
+\bas
+\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_{t=0}
+\mleft[
+	\mathbb{R} \ni t \mapsto
+	\mathfrak{L}_{\mathrm{YMH}}
+	\mleft(
+		\Phi + t \delta_\varepsilon \Phi,
+		A + t \delta_\varepsilon A
+	\mright)
+\mright]
+\eas
+and we can do that on each summand in Def.~\ref{def:ClassicYMHLagrangian} separately. Applying the product rule when calculating $\frac{\mathrm{d}}{\mathrm{d}t}$ and using Prop.~\ref{prop:ClassicGaugeTrafoOfFieldStrengthAndMinimalCoupling}, it is clear that the first two summands, the Yang-Mills Lagrangian and the kinetic part of the Higgs field, vanish because of the imposed invariances on $\kappa$ and $g$. For the potential $V$ observe
+\bas
+\mleft.\mleft(\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_{t=0}
+\mleft[
+	t \mapsto
+	V
+	\mleft(
+		\Phi + t \delta_\varepsilon \Phi
+	\mright)
+\mright]\mright)\mright|_p
+&=
+\mleft(\mathrm{d}_{\Phi(p)}V\mright)\mleft( \psi\bigl(\varepsilon(p)\bigr)\bigl(\Phi(p)\bigr) \mright)
+\stackrel{\text{ Prop.~\ref{prop:LieRepAndLieAct} } }{=}
+- \mleft.\mathcal{L}_{\gamma\mleft(\epsilon(p)\mright)} V \mright|_{\Phi(p)},
+\eas
+which is also zero by the assumed condition on the potential. Hence, the infinitesimal gauge transformation of all three summands of the Yang-Mills-Higgs Lagrangian is zero.\footnote{The Hodge star operator can be ignored because the spacetime metric is independent of the fields $\Phi$ and $A$.}
+\end{proof}
+
+\begin{remark}
+\leavevmode\newline
+In \cite{hamilton} one assumes a function $\widetilde{V} \in C^\infty(\mathbb{R})$ instead of the general potential we took. There the potential is then given by $V (w) \coloneqq \widetilde{V} \bigl( g(w,w) \bigr)$ for all $w \in W$, \textit{e.g.}~$\widetilde{V}$ is a polynomial of the scalar product on $W$. Due to the $\psi$-invariance of $g$ we get
+\bas
+\mleft.\mleft(\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_{t=0}
+\mleft[
+	t \mapsto
+	V
+	\mleft(
+		\Phi + t \delta_\varepsilon \Phi
+	\mright)
+\mright]\mright)\mright|_p
+&=
+\mathrm{D}_{g(\Phi(p), \Phi(p))}\widetilde{V}\biggl(  
+	g\Bigl( \psi(\varepsilon)(\Phi)|_p, \Phi(p) \Bigr)
+	+ g\Bigl( \Phi(p), \psi(\varepsilon)(\Phi)|_p \Bigr)
+\biggr)
+\\
+&=
+0
+\eas
+for all $\Phi \in C^\infty(M;W)$, $\varepsilon \in C^\infty(M; \mathfrak{g})$ and $p \in M$. In the proof we also have seen
+\bas
+\mleft.\mleft(\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_{t=0}
+\mleft[
+	t \mapsto
+	V
+	\mleft(
+		\Phi + t \delta_\varepsilon \Phi
+	\mright)
+\mright]\mright)\mright|_p
+&=
+- \mleft.\mathcal{L}_{\gamma\mleft(\epsilon(p)\mright)} V \mright|_{\Phi(p)},
+\eas
+thus, Eq.~\eqref{ClassicPotential} is satisfied for such potentials. See \cite[\S 8; especially also the box at the top of page 450]{hamilton} for a thorough discussion about how the potential looks like for Yang-Mills-Higgs Lagrangians; in this work the potential will not play any important role, and besides conditions like Eq.~\eqref{ClassicPotential} it is not going to appear anywhere here.
+\end{remark}
+
+\section{Infinitesimal Gauge Invariance using connections}\label{NewInfGaugeTrafoTrafos}
+
+We want to introduce and redefine infinitesimal gauge invariance in a different way now, already pointing out what the next sections will be about. Therefore this section also serves as a first step towards Lie algebroids and the new gauge theory. As we have seen, the common idea is to interpret infinitesimal gauge transformations as derivations of functionals, parametrised by Lie algebra valued functions $\varepsilon$. 
+
+In this section we want to show that the infinitesimal gauge transformations can be viewed as a "connection-like" object on the infinite-dimensional spaces arising in the calculus of variations, but the connection will be inherited by a connection of a finite-dimensional vector bundle. Before we discuss this, let us introduce the connections we look at in the finite-dimensional situation; those will be a first step towards a generalization of typical vector bundle connections. In some sense, those are like Lie algebra actions, but as connections instead of a Lie derivative along a vector field.
+
+\begin{definitions}{Lie algebra connection, \newline \cite[special situation of \S2, Definition 2.2]{basicconn}}{FirstStepLieDerivativeOfAnchors}
+Let $\mathfrak{g}$ be a Lie algebra, and $\gamma: \mathfrak{g} \to \mathfrak{X}(N)$ be a Lie algebra action on a smooth manifold $N$. Then a \textbf{$\mathfrak{g}$-connection} on a vector bundle $E \to N$ is an $\mathbb{R}$-bilinear map ${}^\mathfrak{g}\nabla$
+\bas
+\mathfrak{g} \times \Gamma(E) &\to \Gamma(E), 
+\\
+(X, \nu) &\mapsto {}^\mathfrak{g}\nabla_X \nu,
+\eas
+satisfying
+\ba\label{FirstStepToEDerivatives}
+{}^\mathfrak{g}\nabla_X (f \nu)
+&=
+f ~ {}^\mathfrak{g}\nabla_X \nu
+	+ \mathcal{L}_{\gamma(X)}(f) ~ \nu
+\ea
+for all $X \in \mathfrak{g}, \nu \in \Gamma(E)$ and $f \in C^\infty(N)$, where $\mathcal{L}_{\gamma(X)}(f)$ is the action of the vector field $\gamma(X)$ on the function $f$ by derivation.
+\end{definitions}
+
+\begin{remark}\label{DifferenceOfLieAlgConnections}
+\leavevmode\newline
+Similar to typical vector bundle connections, the Leibniz rule in the difference of two $\mathfrak{g}$-connections will cancel each other, resulting into an $\mathbb{R}$-linear map $\mathfrak{g} \to \sEnd(E)$; this is trivial to check. 
+
+It is on purpose that there is no separate imposed $C^\infty(N)$-linearity in the $\mathfrak{g}$-argument, it is then in more alignment with the definition of $\mathfrak{g}$-actions. However, that is quickly recovered by defining 
+\bas
+\mleft.\mleft({}^{\mathfrak{g}}\nabla_{\varepsilon} \nu\mright)\mright|_p
+&\coloneqq
+\mleft.\mleft({}^{\mathfrak{g}}\nabla_{\varepsilon(p)} \nu\mright)\mright|_p
+\eas
+for all $\varepsilon \in C^\infty(N; \mathfrak{g})$, $\nu \in \Gamma(E)$ and $p \in N$. Furthermore, we will generalize this and the following concepts to Lie algebroid connections which will look more familiar again with the typical definition.
+\end{remark}
+
+\begin{examples}{Lie algebra action as a Lie algebra connection, \newline \cite[special situation of first example in Example 2.8]{ELeviCivita}}{LieAlgActionIsAConnection}
+A major example is the Lie algebra action $\gamma$ itself: Let $E \to N$ be a trivial vector bundle over a smooth manifold $N$, whose global trivialization we denote by $\mleft( e_a \mright)_a$. As usual, also let $\mathfrak{g}$ be a Lie algebra, and $\gamma: \mathfrak{g} \to \mathfrak{X}(N)$ be a Lie algebra action on $N$. Then define ${}^\mathfrak{g}\nabla$ by
+\bas
+{}^\mathfrak{g}\nabla_X \nu
+&\coloneqq
+\mathcal{L}_{\gamma(X)}(\nu^a) ~ e_a
+\eas
+for all $X \in \mathfrak{g}$ and $\nu = \nu^a e_a \in \Gamma(E)$. 
+%It is trivial to check that this satisfies the conditions in Def.~\ref{def:FirstStepLieDerivativeOfAnchors}.
+Consider the canonical flat connection $\nabla$ of $E$ with respect to the chosen trivialization, \textit{i.e.}~defined by $\nabla e_a = 0$, then 
+\bas
+{}^\mathfrak{g}\nabla_X \nu
+&=
+\mathcal{L}_{\gamma(X)}(\nu^a) ~ e_a
+=
+\nabla_{\gamma(X)} \nu
+\eas
+for all $X \in \mathfrak{g}$ and $\nu \in \Gamma(E)$. This also proves that this defines a $\mathfrak{g}$-connection because it is trivial to check that all vector bundle connections $\nabla^\prime$ give rise to a $\mathfrak{g}$-connection defined by ${}^{\mathfrak{g}}\nabla^\prime_X = \nabla^\prime_{\gamma(X)}$ for all $X \in \mathfrak{g}$, regardless of triviality of $E$ or flatness of $\nabla^\prime$.
+
+In general we therefore denote such connections by
+\bas
+{}^{\mathfrak{g}}\nabla^\prime
+&=
+\nabla^\prime_\gamma.
+\eas
+%
+%Another canonical example is the so-called \textbf{basic connection $\nabla^{\mathrm{bas}}$}, which we will introduce with more details later and which is very important in this work. It is defined by
+%\ba
+%\mleft.\nabla^{\mathrm{bas}}_X \nu\mright|_p
+%&\coloneqq
+%\mleft[ X, \nu_p \mright]_{\mathfrak{g}}
+	%+ \mleft.\nabla_{\gamma(X)} \nu\mright|_p
+%\ea
+\end{examples}
+
+\begin{examples}{Basic connection, \newline \cite[special situation of \S2, Definition 2.9]{basicconn}}{ClassicAdRepIsAConnection}
+Let $E = N \times W \to N$ be again a trivial bundle over $N$ with fibre type $W$, denote with $\mleft( e_a \mright)_a$ a global constant frame of $E$, and with $\nabla$ its canonical flat connection. Also now assume that the Lie algebra action $\gamma$ is induced by a Lie algebra representation $\psi: \mathfrak{g} \to \mathrm{End}(W)$. Then define a $\mathfrak{g}$-connection on $E$, denoted as $\nabla^{\mathrm{bas}}$, by
+\ba
+\mleft.\nabla^{\mathrm{bas}}_X \nu\mright|_p
+&\coloneqq
+\psi(X)(\nu_p)
+	+ \mleft.\nabla_{\gamma(X)} \nu\mright|_p
+\ea
+for all $X \in \mathfrak{g}$, $\nu \in \Gamma(E)$ and $p \in N$. This defines clearly a $\mathfrak{g}$-connection, viewing $\psi(X)(\nu)$ as an element of $\Gamma(E)$ by $p \mapsto \psi(X)(\nu_p)$ such that we can view $\psi$ as an $\mathbb{R}$-linear map $\mathfrak{g} \to \sEnd(E)$; for this recall Rem.~\ref{DifferenceOfLieAlgConnections}.
+
+Observe that for constant sections $\nu$ we get
+\bas
+\nabla^{\mathrm{bas}}_X \nu
+&=
+\psi(X)(\nu).
+\eas
+Of special importance is $W = \mathfrak{g}$ and $\psi = \mathrm{ad}$. 
+
+Those $\mathfrak{g}$-connections are related to the notion of what is known as \textbf{basic connections}, which we will introduce with more details later and which will be very important throughout this work.
+\end{examples}
+
+Let us now assume that $N$ is a vector space $W$. Recall Def.~\ref{def:ClassFunctionalGaugeTrafoBlag} and Rem.~\ref{RemabouttheddtOfClassicTrafos}; the infinitesimal gauge transformation was essentially defined by expressing the differential as a derivative along a certain curve in $\mathfrak{M}_{\mathfrak{g}}(M; W)$, differentiating with $\mathrm{d}/\mathrm{d}t$ using a canonical flat connection of the involved finite-dimensional trivial vector bundles. However, especially because the aim of this work is also to present a covariantized formulation of gauge theory, one might want to reformulate this using general connections, not just the canonical flat connection, naturally supporting general vector bundles and manifolds as a result, while avoiding the problem of having horizontal components in some tangent bundle. The connections we want to use for that for now are the $\mathfrak{g}$-connections. But those are defined for vector bundles over $N=W$, not for a vector bundle over the spacetime $M$ (in which our functionals have values in); that is simply due to that the image of a Lie algebra action, used in the Leibniz rule, is a vector field on $N$. Therefore, in order to define a $\mathfrak{g}$-connection acting on forms of the spacetime $M$, we need to make a pullback to $M$, and the only map we have so far from $M$ to $N = W$ is $\Phi$. In other words, we want to define a "connection-like" object on functionals, which is inherited by a connection of some finite-dimensional vector bundle by making a pullback, and the differentiation of such a connection on functionals is along $\mathfrak{M}_{\mathfrak{g}}(M; W)$. Moreover, one could naively view functionals $L: \mathfrak{M}_{\mathfrak{g}}(M; W) \to \Omega^k(M; K)$ ($k \in \mathbb{N}_0$, $K$ a vector space) as sections of a bundle over $\mathfrak{M}_{\mathfrak{g}}(M; W)$ which has in general an infinite rank; more about that in a later chapter. Thus, we want to construct a "connection" on infinite-dimensional bundles coming from a finite-dimensional world.
+
+Let us only focus on pullbacks along curves in this section for simplicity. By the Leibniz rule Eq.~\eqref{FirstStepToEDerivatives} the direction of the derivative is along the Lie algebra action $\gamma$, while the idea of a pullback of a connection is that it differentiates pullbacks of sections along the differential of the curve. Hence, one expects a technical obstacle when allowing every curve for the pullback, because the typical motivation is that the Leibniz rule is inherited by the pullbacked connection. So, we just allow certain curves, whose differential is in alignment with $\gamma$.
+
+\begin{definitions}{Lie algebra paths, \newline \cite[\S 2, special situation of the Definition 2.4]{ELeviCivita}}{LieAlgebraPfadeKurvi}
+Let $\mathfrak{g}$ be a Lie algebra, and $\gamma: \mathfrak{g} \to \mathfrak{X}(N)$ be a Lie algebra action on a smooth manifold $N$. Then a \textbf{$\mathfrak{g}$-path $\alpha$ with base path $\beta$} is a pair of smooth curves $(\alpha, \beta)$, where $\alpha: I \to \mathfrak{g}$ and $\beta: I \to N$, $I$ an open interval of $\mathbb{R}$, such that
+\ba
+\dot{\beta}(t)
+&\coloneqq
+\mleft.\frac{\mathrm{d}}{\mathrm{d}t} \beta\mright|_t
+=
+\mleft.\beta^*\Bigl(\gamma \bigl(\alpha(t)\bigr)\Bigr)\mright|_t
+=
+\mleft.\gamma \bigl(\alpha(t)\bigr)\mright|_{\beta(t)}.
+\ea
+We also say that \textbf{$\beta$ is lifted to $\alpha$}.
+\end{definitions}
+
+\begin{remark}\label{GpathBeiRep}
+\leavevmode\newline
+If $N = W$ is a vector space and $\gamma$ is induced by a Lie algebra representation $\psi: \mathfrak{g} \to \mathrm{End}(W)$, then, by Prop.~\ref{prop:LieRepAndLieAct}, we would also have
+\ba
+\mleft.\mleft(\frac{\mathrm{d}}{\mathrm{d}t} \beta \mright)\mright|_t
+&=
+-\psi \bigl(\alpha(t) \bigr)\mleft(\beta(t)\mright)
+\ea
+for all $w \in W$.
+\end{remark}
+
+\begin{propositions}{Pullbacks of $\mathfrak{g}$-connections along $\mathfrak{g}$-paths, \newline \cite[\S 2, special situation of the comment before Definition 2.4]{ELeviCivita}}{FirstEPullBACkConnectionFormula}
+Let $\mathfrak{g}$ be a Lie algebra, $\gamma: \mathfrak{g} \to \mathfrak{X}(N)$ be a Lie algebra action on a smooth manifold $N$, and ${}^{\mathfrak{g}}\nabla$ a $\mathfrak{g}$-connection on a vector bundle $E \to N$. Also fix a $\mathfrak{g}$-path $\alpha: I \to \mathfrak{g}$ with base path $\beta: I \to N$, $I \subset \mathbb{R}$ an open interval. Then there is a unique vector bundle connection $\beta^*\mleft( {}^{\mathfrak{g}}\nabla \mright)$ on $\beta^*E \to I$ with
+\ba\label{WieReagiertmanaufPullbacksbeigConnection}
+\bigl(\beta^*\mleft( {}^{\mathfrak{g}}\nabla \mright)\bigr)_{c \frac{\mathrm{d}}{\mathrm{d}t}} (\beta^*\nu)
+&=
+\beta^*\mleft( {}^{\mathfrak{g}}\nabla_{c \alpha} \nu \mright)
+\ea
+for all $\nu \in \Gamma(E)$, $c \in \mathbb{R}$ and $t \in I$.
+\end{propositions}
+
+\begin{proof}
+%[Sketch of proof of Prop.~\ref{prop:FirstEPullBACkConnectionFormula}]
+\leavevmode\newline
+The proof is basically the same as for pullbacks of vector bundle connections. The idea is the following: As usual, the idea is that the pullbacks of sections, $\beta^*\nu$ ($\nu \in \Gamma(E)$), generate $\Gamma(\beta^*E)$. Thus, Eq~\eqref{WieReagiertmanaufPullbacksbeigConnection} defines the connection uniquely, that is, sections $\mu$ of $\beta^*E$ are determined by sums of elements of the form $f \cdot\beta^*\nu$, $f \in C^\infty(I)$, and by the Leibniz rule any connection $\beta^*\mleft( {}^{\mathfrak{g}}\nabla \mright)$ satisfying Eq.~\eqref{WieReagiertmanaufPullbacksbeigConnection} also satisfies
+\bas
+\bigl(\beta^*\mleft( {}^{\mathfrak{g}}\nabla \mright)\bigr)_{c \frac{\mathrm{d}}{\mathrm{d}t}} (f~ \beta^*\nu)
+&=
+c ~ \frac{\mathrm{d}f}{\mathrm{d}t} ~ \beta^*\nu
+	+ f ~ \beta^*\mleft( {}^{\mathfrak{g}}\nabla_{c \alpha} \nu \mright)
+\eas
+for all $c \in \mathbb{R}$ and $t \in I$, such that uniqueness follows by linearity, assuming existence is given, but for the existence one can simply take this equation as a possible definition for $\beta^*\mleft( {}^{\mathfrak{g}}\nabla \mright)$. Thus, let $\beta^*\mleft( {}^{\mathfrak{g}}\nabla \mright)$ locally be defined by
+\ba\label{FullPulbackGConnection}
+\bigl(\beta^*\mleft( {}^{\mathfrak{g}}\nabla \mright)\bigr)_{c \frac{\mathrm{d}}{\mathrm{d}t}} \mu
+&\coloneqq
+c~ \frac{\mathrm{d}\mu^a}{\mathrm{d}t} ~ \beta^*e_a
+	+ \mu^a ~ \beta^*\mleft( {}^{\mathfrak{g}}\nabla_{c \alpha} e_a \mright)
+\ea
+for all $\mu = \mu^a ~ \beta^*e_a$,
+where $\mleft( e_a \mright)_a$ is a local frame of $E$. Linearity in all arguments and the Leibniz rule follow by construction, also observe that for a function $h \in C^\infty(N)$ and $\nu \in \Gamma(E)$ we can calculate
+\ba
+%\mleft.\bigl(\beta^*\mleft( {}^{\mathfrak{g}}\nabla \mright)\bigr)_{c \frac{\mathrm{d}}{\mathrm{d}t}} \bigl(\beta^*(h\nu)\bigr)\mright|_t
+%&=
+\mleft.\beta^*\bigl( {}^{\mathfrak{g}}\nabla_{c \alpha} (h\nu) \bigr)\mright|_t
+&=
+	\underbrace{\mleft.\beta^*\bigl(\mathcal{L}_{c (\gamma \circ \alpha)}(h)\bigr)\mright|_t}_
+	{\mathclap{ \stackrel{\text{Def.~\ref{def:LieAlgebraPfadeKurvi}}}{=} \mleft.c\mathcal{L}_{\dot{\beta}}(h)\mright|_t }} ~ \beta^*\nu
+	+ \mleft.\beta^*\bigl( h ~ {}^{\mathfrak{g}}\nabla_{c \alpha} \nu \bigr)\mright|_t
+\nonumber\\\label{ImportantEquationToCheckForPullbacks}
+&=
+\mleft.\mleft(c~\frac{\mathrm{d}(h \circ \beta)}{\mathrm{d}t} ~ \beta^*\nu
+	+ (h \circ \beta) ~ \beta^*\bigl( {}^{\mathfrak{g}}\nabla_{c \alpha} \nu \bigr)\mright)\mright|_t
+\ea
+for all $t \in I$,
+thus, 
+\bas
+\bigl(\beta^*\mleft( {}^{\mathfrak{g}}\nabla \mright)\bigr)_{c \frac{\mathrm{d}}{\mathrm{d}t}} \mleft( \beta^*\nu \mright)
+&\stackrel{\eqref{FullPulbackGConnection}}{=}
+c~\frac{\mathrm{d}(\nu^a \circ \beta)}{\mathrm{d}t} ~ \beta^*e_a
+	+ (\nu^a \circ \beta) ~ \beta^*\bigl( {}^{\mathfrak{g}}\nabla_{c \alpha} e_a \bigr)
+\stackrel{\eqref{ImportantEquationToCheckForPullbacks}}{=}
+\beta^*\mleft( {}^{\mathfrak{g}}\nabla_{c \alpha} \nu \mright),
+\eas
+so, Eq.~\eqref{WieReagiertmanaufPullbacksbeigConnection} is satisfied.
+Finally, by Eq.~\eqref{ImportantEquationToCheckForPullbacks} it also follows that \eqref{FullPulbackGConnection} is independent of the chosen frame and, thus, globally defined. To see this, observe that any other frame $\mleft( f_b \mright)_b$ of $E$, intersecting the neighbourhood of $\mleft( e_a \mright)_a$, is given by $e_a = M_a^b f_b$, where $M_a^b$ is a local invertible matrix function on $N$. Then
+\bas
+\mu
+&=
+\mu^a ~ \beta^*e_a
+=
+\mleft(M_a^b \circ \beta \mright) \mu^a ~ \beta^*f_b
+\eqqcolon
+\tilde{\mu}^b ~ \beta^*f_b,
+\eas
+such that $\mu^a = \mleft(\mleft( M^{-1} \mright)^a_b \circ \beta \mright) \tilde{\mu}^b$, and, thus, as a direct consequence of Eq.~\eqref{ImportantEquationToCheckForPullbacks},
+\bas
+\bigl(\beta^*\mleft( {}^{\mathfrak{g}}\nabla \mright)\bigr)_{c \frac{\mathrm{d}}{\mathrm{d}t}} \mu
+&~~\stackrel{\mathclap{\eqref{FullPulbackGConnection}}}{=}~~
+c ~ \frac{\mathrm{d}\mu^a}{\mathrm{d}t} ~ \beta^*e_a
+	+ \mu^a ~ \beta^*\mleft( {}^{\mathfrak{g}}\nabla_{c \alpha} e_a \mright)
+\\
+&=
+c ~ \frac{\mathrm{d}\mleft(\mleft(\mleft( M^{-1} \mright)^a_d \circ \beta \mright) \tilde{\mu}^d\mright)}{\mathrm{d}t} ~ \beta^*\mleft( M_a^b f_b \mright)
+\\
+&\hspace{1cm}
+	+ \mleft(\mleft( M^{-1} \mright)^a_d \circ \beta \mright) \tilde{\mu}^d ~ \beta^*\mleft( {}^{\mathfrak{g}}\nabla_{c \alpha} \mleft( M_a^b f_b \mright) \mright)
+%\\
+%&=
+%c ~ \mleft(
+	%\frac{\mathrm{d}\mleft(\mleft( M^{-1} \mright)^a_d \circ \beta \mright)}{\mathrm{d}t} \tilde{\mu}^d
+	%+ \mleft(\mleft( M^{-1} \mright)^a_d \circ \beta \mright) \frac{\mathrm{d}\tilde{\mu}^d}{\mathrm{d}t}
+%\mright) ~ \beta^*\mleft( M_a^b f_b \mright)
+%\\
+%&\hspace{1cm}
+	%+ \mleft(\mleft( M^{-1} \mright)^a_d \circ \beta \mright) \tilde{\mu}^d ~ \beta^*\mleft( 
+		%M_a^b ~ {}^{\mathfrak{g}}\nabla_{c \alpha} f_b 
+		%+ \mathcal{L}_{c (\gamma \circ \alpha)} M_a^b ~f_b 
+	%\mright)
+\\
+&\stackrel{\mathclap{ \text{Eq.~\eqref{ImportantEquationToCheckForPullbacks}} }}{=}\quad~
+c ~ \frac{\mathrm{d}\tilde{\mu}^b}{\mathrm{d}t} ~ \beta^*f_b
+	+ \tilde{\mu}^b ~ \beta^*\mleft( {}^{\mathfrak{g}}\nabla_{c \alpha} f_b \mright)
+\\
+&\hspace{1cm}
+	+ c\tilde{\mu}^d ~ \text{\Large$\Biggl($}
+		- \frac{\mathrm{d}\mleft(M^b_f \circ \beta \mright)}{\mathrm{d}t} ~ \mleft( \mleft( M^{-1} \mright)^f_d \circ \beta  \mright)
+\\
+& \hphantom{+c\tilde{\mu}^d ~ \text{\Large$\Biggl($}} \hspace{2cm}
+		+ \mleft(\mleft( M^{-1} \mright)^a_d \circ \beta \mright) ~ \frac{\mathrm{d} \mleft( M^b_a \circ \beta \mright)}{\mathrm{d}t}
+	\text{\Large$\Biggr)$} ~ \beta^*f_b
+\\
+&=
+c ~ \frac{\mathrm{d}\tilde{\mu}^b}{\mathrm{d}t} ~ \beta^*f_b
+	+ \tilde{\mu}^b ~ \beta^*\mleft( {}^{\mathfrak{g}}\nabla_{c \alpha} f_b \mright),
+\eas
+using formulas of the differential of the inverse like $M ~ \mathrm{d}M^{-1} = - \mathrm{d}M ~ M^{-1}$ (similar for $\beta^*M = M \circ \beta$). Hence, Def.~\eqref{FullPulbackGConnection} is frame-independent, and this finishes the proof.
+\end{proof}
+
+\begin{remarks}{Essential condition for pullbacks of connections}{ImportantRemarkAboutPullbacks}
+Observe that the essential part of the proof is Eq.~\eqref{ImportantEquationToCheckForPullbacks}, everything follows either by this equation or by the standard construction in \eqref{FullPulbackGConnection}. This will be important later because we are going to generalise such statements about the pullbacks of connections. To avoid doing the same all over again, we will just refer to this proof and remark, essentially one only needs to check something like Eq.~\eqref{ImportantEquationToCheckForPullbacks}. Eq.~\eqref{ImportantEquationToCheckForPullbacks} essentially proves that the Leibniz rule inherited by ${}^\mathfrak{g}\nabla$ is in alignment with the Leibniz rule of vector bundle connections on $\beta^*E \to I$.
+
+Eq.~\eqref{ImportantEquationToCheckForPullbacks} also motivates why $\mathfrak{g}$-paths are precisely the objects one needs to provide a pullback of $\mathfrak{g}$-connections along curves.
+\end{remarks}
+
+Typically, this leads to the following construction.
+
+\begin{propositions}{Derivations of sections along $\mathfrak{g}$-paths, \newline \cite[special situation of \S 2, beginning of subsection 2.3; there $\mathrm{D}/\mathrm{d}t$ is denoted as $\nabla^\alpha$]{ELeviCivita}}{DerivationAlonggLAlgPath}
+Let $\mathfrak{g}$ be a Lie algebra, $\gamma: \mathfrak{g} \to \mathfrak{X}(N)$ be a Lie algebra action on a smooth manifold $N$, and ${}^{\mathfrak{g}}\nabla$ a $\mathfrak{g}$-connection on a vector bundle $E \to N$. Also fix a $\mathfrak{g}$-path $\alpha: I \to \mathfrak{g}$ with base path $\beta: I \to N$, $I \subset \mathbb{R}$ an open interval. Then there is a unique differential operator $\frac{\mathrm{D}}{\mathrm{d}t}: \Gamma\mleft(\beta^*V\mright) \to \Gamma\mleft(\beta^*V\mright)$ with
+\ba
+\frac{\mathrm{D}}{\mathrm{d}t} &\text{ is linear over } \mathbb{R}, \\
+\frac{\mathrm{D}}{\mathrm{d}t}(f s)
+&=
+\frac{\mathrm{d}f}{\mathrm{d}t} ~ s
+	+ f ~ \frac{\mathrm{D}}{\mathrm{d}t} s, \\
+\mleft.\frac{\mathrm{D}}{\mathrm{d}t}\mright|_t \mleft( \beta^* v \mright)
+&=
+\mleft. \beta^*\mleft({}^{\mathfrak{g}}\nabla_{\alpha} v \mright)\mright|_t
+\ea
+for all $s \in \Gamma\mleft(\beta^*V\mright)$, $v \in \Gamma(V)$, $f \in C^\infty(I)$ and $t \in I$. 
+\end{propositions}
+
+\begin{proof}
+\leavevmode\newline
+Define
+\ba
+\frac{\mathrm{D}}{\mathrm{d}t}
+&\coloneqq
+\mleft(\beta^*\mleft({}^{\mathfrak{g}}\nabla \mright)\mright)_{\frac{\mathrm{d}}{\mathrm{d}t}},
+\ea
+where $\beta^*\mleft({}^{\mathfrak{g}}\nabla \mright)$ is given by Prop.~\ref{prop:FirstEPullBACkConnectionFormula}.
+This operator satisfies the needed properties by Prop.~\ref{prop:FirstEPullBACkConnectionFormula}, and the uniqueness will follow by the uniqueness given in Prop.~\ref{prop:FirstEPullBACkConnectionFormula}.
+\end{proof}
+
+In the context of the previously introduced setting of gauge theory, we have $N = W$ a vector space, and $E$ will be a trivial vector bundle over $W$. Later, when we are going to introduce the generalized infinitesimal gauge transformation for the general theory, we will allow general manifolds and vector bundles. But to avoid certain difficulties, which we will face later, we keep it that simple most of the time in the following.
+
+As argued earlier we want to make the pullback using $\Phi$, the Higgs field. But this is a field affected by the calculus of variations, and we want to show that a certain pullback of a $\mathfrak{g}$-connection describes infinitesimal gauge transformations, hence, $\Phi$ is a "coordinate" in that context. So, the map we make a pullback with is a different one, but strongly related to $\Phi$. Let us clarify with which map we actually make the pullback.
+
+\begin{definitions}{The evaluation map}{FirstAttemptOfEvaluationMap}
+Let $M$ be a smooth manifold, $W$ a vector space, and $\mathfrak{g}$ a Lie algebra. Then we define the \textbf{evaluation map} $\mathrm{ev}: M \times \mathfrak{M}_{\mathfrak{g}}(M; W) \to W$ by
+\ba
+\mathrm{ev}(p, \Phi, A)
+&\coloneqq
+\Phi(p)
+\ea
+for all $(p, \Phi, A) \in M \times \mathfrak{M}_{\mathfrak{g}}(M; W)$.
+\end{definitions}
+
+Given a $\mathfrak{g}$-connection ${}^{\mathfrak{g}}\nabla$, we may try $\mathrm{ev}^*\mleft( {}^{\mathfrak{g}}\nabla \mright)$ because the functionals we look at are of the form $L: \mathfrak{M}_{\mathfrak{g}}(M; W) \to \Omega^k(M; K)$ ($k \in \mathbb{N}_0$, $K$ a vector space), so, $L: M\times \mathfrak{M}_{\mathfrak{g}}(M; W) \to \bigwedge^k \mathrm{T}^*M \otimes K$. However, as we argued earlier, the pullback of a $\mathfrak{g}$-connection is not always given. Thus, the idea is to take a curve $\eta$ in $M \times \mathfrak{M}_{\mathfrak{g}}(M; W)$ such that $\mathrm{ev} \circ \eta$ can be lifted to a $\mathfrak{g}$-path. Then we can define $\mleft(\mathrm{ev} \circ \eta\mright)^*\mleft( {}^{\mathfrak{g}}\nabla \mright)$; in other words, we want to make the pullback with $\mathrm{ev}$ but the resulting pullback-connection just differentiates along certain directions.
+
+Of course, we do not want to take any suitable curve. We want to identify this construction with the infinitesimal gauge transformations, which we denoted earlier by $(\delta \Phi, \delta A)$ (omitting the parameter $\varepsilon$ for now) for the fields $\Phi$ and $A$. Viewing $(\delta \Phi, \delta A)$ as a vector field on $\mathfrak{M}_{\mathfrak{g}}(M; W)$,\footnote{$(\delta \Phi, \delta A)$ is the value of that vector field at $(\Phi, A)$.} one wants to define $\eta$ as the (local) flow of that vector field. That is, we take a curve $\eta$ parallel to $\mathfrak{M}_{\mathfrak{g}}(M; W)$, so, the $M$-component is constant. 
+
+\begin{remarks}{Tangent spaces of $\mathfrak{M}_{\mathfrak{g}}(M; W)$}{TangentSpaceOfMathfrakMg}
+A note about the tangent bundle of $\mathfrak{M}_{\mathfrak{g}}(M; W)$: In the general setup, presented later, we need to study it, see Prop.~\ref{prop:TangentSpaceOfSpaceOfFields}. Due to that we assume vector spaces and trivial vector bundles for the values, it is trivial to check that we get 
+\bas
+\mathrm{T}_{(\Phi, A)}\mleft( \mathfrak{M}_{\mathfrak{g}}(M; W)\mright)
+&\cong
+\mathfrak{M}_{\mathfrak{g}}(M; W),
+\eas
+Hence, $\delta \Phi \in C^\infty(M;W)$ and $\delta A \in \Omega^1(M; \mathfrak{g})$ makes sense, even when interpreted as components of a vector field; still omitting the parameter $\varepsilon$.
+
+Trivially, this comes from that one thinks of tangent vectors as velocities of curves in $\mathfrak{M}_{\mathfrak{g}}(M; W)$, which is basically just a pair of curves in $W$ and $\mathfrak{g}$ (after point evaluation, \textit{e.g.}~a curve in $C^\infty(M;W)$, $t \mapsto \Phi_t$, then viewed as $t \mapsto \Phi_t(p) \in W$). As usual, one uses then the canonical flat connections for $\mathrm{T}W \cong W \times W$ and $\mathrm{T}\mathfrak{g} \cong \mathfrak{g} \times \mathfrak{g}$ such that the velocities of the curves can be viewed as curves in the corresponding vector space. It is unusual to formulate it like this, or to even mention this, but with that we want to emphasize that one cannot expect that the vector field behind all of that has values $(\delta \Phi, \delta A) \in \mathfrak{M}_{\mathfrak{g}}(M; W)$ (globally) if canonical flat connections are not given. Especially, later in this work we will have $W= N$ an arbitrary smooth manifold such that $C^\infty(M;N) \ni \Phi$ will not carry a vector space structure in general, and, so, one could not even argue with an overall vector space structure of the infinite-dimensional space itself.
+\end{remarks}
+
+Fix now $(\Phi_0, A_0) \in \mathfrak{M}_{\mathfrak{g}}(M; W)$ and $p \in M$. Then take a curve $\eta = (p, \Phi, A): I \to M \times \mathfrak{M}_{\mathfrak{g}}(M; W)$ ($I \subset \mathbb{R}$ an open interval), $I \ni t \mapsto \eta_t = (p, \Phi_t, A_t)$, with
+\bas
+\eta_{t=0}
+&=
+(p, \Phi_0, A_0).
+\eas
+Observe then
+\bas
+\mathrm{ev}\circ \eta
+&=
+\Phi(p)
+\coloneqq 
+[t \mapsto \Phi_t(p)].
+\eas
+Given a Lie algebra action $\gamma: \mathfrak{g} \to \mathfrak{X}(W)$,\footnote{In general, the Lie algebra behind that action does not have to be related to the same Lie algebra as in the definition of $\mathfrak{M}_{\mathfrak{g}}(M; W)$ for the following definitions and constructions. But for simplicity we assume that.} $\mathrm{ev} \circ \eta$ can be lifted to a $\mathfrak{g}$-path, if there is a $\mathfrak{g}$-path $-\epsilon(p): I \to \mathfrak{g}, t \mapsto -\epsilon_t(p),$ such that
+\bas
+\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_t \bigl( \Phi(p) \bigr)
+&=
+-\mleft.\gamma\bigl( \epsilon_t(p) \bigr)\mright|_{\Phi_t(p)}.
+\eas
+The sign is a convention, because if $\gamma$ is induced by a Lie algebra representation $\psi: \mathfrak{g} \to \mathrm{End}(W)$, then this equation can be written as, recall Rem.~\ref{GpathBeiRep},
+\bas
+\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_t \bigl( \Phi(p) \bigr)
+&=
+\psi\bigl( \epsilon_t(p) \bigr)\bigl( \Phi_t(p) \bigr),
+\eas
+which resembles strongly the infinitesimal gauge transformation of the Higgs field (evaluated at $p$), here for the fixed $\Phi_0$ if $t=0$; recall Def.~\ref{def:ClassicTrafos}. Therefore we want to interpret the gauge transformation of the Higgs field as the "velocity" of those curves in $C^\infty(M;W)$ which can be lifted to a $\mathfrak{g}$-path, that is
+\bas
+\delta_{\epsilon_0} \Phi_0
+&\coloneqq
+\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_{t=0} \bigl( \Phi(p) \bigr)
+=
+-\mleft.\gamma\bigl( \epsilon_{t=0}(p) \bigr)\mright|_{\Phi_0(p)}.
+\eas
+Since such lifts are in general not unique, we get naturally the parametrization of $\delta \Phi_0$ with respect to $\epsilon_0: M \to \mathfrak{g}, p \mapsto \epsilon_0(p) \coloneqq \epsilon_{t=0}(p)$.
+
+\begin{definitions}{Infinitesimal gauge transformation of the Higgs field}{ClassicGaugeTrafoOfHiggs}
+Let $M$ be a smooth manifold, $W$ a vector space, and $\mathfrak{g}$ a Lie algebra with Lie algebra action $\gamma$ on $W$, induced by a Lie algebra representation $\psi$. Then we define the subspace $\mathrm{T}^\psi_{(\Phi,A)}\bigl(\mathfrak{M}_{\mathfrak{g}}(M; W)\bigr)$ of $\mathrm{T}_{(\Phi,A)}\bigl(\mathfrak{M}_{\mathfrak{g}}(M; W)\bigr)$ for all $(\Phi, A) \in \mathfrak{M}_{\mathfrak{g}}(M; W)$ by
+\ba
+\mathrm{T}^\psi_{(\Phi,A)}\bigl(\mathfrak{M}_{\mathfrak{g}}(M; W)\bigr)
+&\coloneqq
+\left\{ (\delta \Phi, \delta A) \in \mathrm{T}_{(\Phi,A)}\mleft(\mathfrak{M}_{\mathfrak{g}}(M; W)\mright) ~ \middle| ~
+	\exists \epsilon \in C^\infty(M; \mathfrak{g}): ~
+	\delta \Phi
+	= 
+	\psi(\epsilon)(\Phi)
+\right\}.
+\ea
+The set of sections with values in these subspaces is denoted by $\mathfrak{X}^\psi(\mathfrak{M}_{\mathfrak{g}}(M; W))$.
+
+To emphasize the relation of the first component, $\delta \Phi$, with $\epsilon$, we also write
+\ba
+\delta_\epsilon \Phi
+&\coloneqq
+\psi(\epsilon)(\Phi)
+\ea
+instead of $\delta \Phi$. We call this the \textbf{infinitesimal gauge transformation of the Higgs field $\Phi$}.
+\end{definitions}
+
+\begin{remark}\label{PsiEpsilonDieErste}
+\leavevmode\newline
+For $\Psi \in \mathfrak{X}^\psi(\mathfrak{M}_{\mathfrak{g}}(M; W))$ observe that there is a smooth $\varepsilon: \mathfrak{M}_{\mathfrak{g}}(M; W) \to C^\infty(M; \mathfrak{g})$ with
+\bas
+\mleft.\Psi\mright|_{(\Phi, A)}
+&=
+\mleft( \delta_\epsilon \Phi, \delta A \mright) 
+\eas
+for all $(\Phi, A) \in \mathfrak{M}_{\mathfrak{g}}(M; W)$, where $\delta A \in \Omega^1(M; \mathfrak{g})$ and $\epsilon \coloneqq \varepsilon(\Phi, A) \in C^\infty(M; \mathfrak{g})$; and each such $\varepsilon$ defines a $\Psi\in \mathfrak{X}^\psi(\mathfrak{M}_{\mathfrak{g}}(M; W))$. With that one can easily see that $\mathfrak{X}^\psi(\mathfrak{M}_{\mathfrak{g}}(M; W))$ is a submodule of $\mathfrak{X}(\mathfrak{M}_{\mathfrak{g}}(M; W))$, respectively; but $\mathfrak{X}^\psi(\mathfrak{M}_{\mathfrak{g}}(M; W))$ is in general not a subalgebra, due to the fact that $\varepsilon$ itself depends on $\mathfrak{M}_{\mathfrak{g}}(M; W)$. To emphasize the relation between $\Psi$ and $\varepsilon$ we also often write $\Psi \eqqcolon \Psi_\varepsilon$. Keep in mind that $\Psi_\varepsilon$ is not unique for a given $\varepsilon$ because we did not fix $\delta A$ yet. Also observe the difference to the previous section: The parameter of the infinitesimal gauge transformation is going to be a functional $\mathfrak{M}_{\mathfrak{g}}(M; W) \to C^\infty(M; \mathfrak{g})$, while the typical formulation uses just $\epsilon \in C^\infty(M; \mathfrak{g})$ (basically a constant functional one could say). 
+%One could already have guessed so because one can apply the previously discussed bookkeeping trick to the parameter of the infinitesimal gauge transformations.
+ %$\varepsilon$ can also be viewed as a section of the trivial vector bundle over $M \times \mathfrak{M}_{\mathfrak{g}}(M; W)$ with fibre type $\mathfrak{g}$.
+\end{remark}
+
+To summarize, we have:
+
+\begin{corollaries}{Flows of $\mathfrak{X}^\psi(\mathfrak{M}_{\mathfrak{g}}(M; W))$}{ClassicFLowsOfXgMg}
+Let $M$ be a smooth manifold, $W$ a vector space, and $\mathfrak{g}$ a Lie algebra with Lie algebra action $\gamma$ on $W$, induced by a Lie algebra representation $\psi$. Also let $\Psi_\varepsilon \in \mathfrak{X}^\psi(\mathfrak{M}_{\mathfrak{g}}(M; W))$ for an $\varepsilon: \mathfrak{M}_{\mathfrak{g}}(M; W) \to C^\infty(M;\mathfrak{g})$ whose local flow through $(\Phi_0, A_0) \in \mathfrak{M}_{\mathfrak{g}}(M; W)$ we denote by $\mleft.\eta\mright|_{(\Phi_0, A_0)} \coloneqq (\Phi, A): I \to \mathfrak{M}_{\mathfrak{g}}(M; W), t \mapsto \mleft.\eta\mright|_{(\Phi_0, A_0)}(t)= (\Phi_t, A_t)$ ($I \subset \mathbb{R}$ an open interval).
+
+Then there is a smooth curve $\epsilon: I \to C^\infty(M; \mathfrak{g}), t \mapsto \epsilon_t,$ with $\epsilon_{t=0} = \varepsilon(\Phi_0, A_0)$ and such that
+\bas
+-\epsilon(p)
+&\coloneqq
+[t \mapsto -\epsilon_t(p)]
+\eas
+is a $\mathfrak{g}$-path for all $p \in M$ with base path
+\bas
+\Phi(p)
+&\coloneqq
+[t \mapsto \Phi_t(p)],
+\eas
+that is
+\ba\label{FlowStuffOfXgMg}
+\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_t \bigl( \Phi(p) \bigr)
+&=
+\psi\bigl( \epsilon_t(p) \bigr)\bigl( \Phi_t(p) \bigr)
+=
+\mleft(\delta_{\epsilon_t} \Phi_t \mright)(p).
+\ea
+\end{corollaries}
+
+\begin{proof}
+\leavevmode\newline
+By construction and definition, \textit{i.e.}~there is an $\epsilon: I \to C^\infty(M; \mathfrak{g}), t \mapsto \epsilon_t,$ such that
+\bas
+\Psi^{(1)}_{\mleft.\eta\mright|_{(\Phi_0, A_0)}(t)}
+&=
+\psi(\epsilon_t)(\Phi_t),
+\eas
+where $\Psi^{(1)}$ is the first component of $\Psi$, the one along the "$\Phi$-direction"; thus, Eq.~\eqref{FlowStuffOfXgMg} follows by the definition of flows of vector fields, and one can take $\epsilon$ in such a way that $\epsilon_{t=0} = \varepsilon(\Phi_0, A_0)$ because we have at $t= 0$
+\bas
+\Psi^{(1)}_{\mleft.\eta\mright|_{(\Phi_0, A_0)}(0)}
+&=
+\Psi^{(1)}_{(\Phi_0, A_0)}
+=
+\psi\bigl(\varepsilon(\Phi_0, A_0)\bigr)(\Phi_0).
+\eas
+\end{proof}
+
+Let us conclude this section with the definition of the infinitesimal gauge transformation of the studied functionals, making use of the previously-discussed relation between $\mathfrak{g}$-paths and the infinitesimal gauge transformation of the Higgs field. It is especially about pullbacks of $\mathfrak{g}$-connections, which were uniquely defined by their differentiation on pullbacks, but the definitions of the typical functionals like the field strength or the minimal coupling do not contain any visible pullback as if they do not live in a pullback bundle. But we will use a trivial bookkeeping trick: The bundle those functionals have values in is a trivial bundle over $M$, and trivial bundles are always trivially isomorphic to the pullback of another trivial bundle with the same fibre type, \textit{e.g.}~$M \times \mathfrak{g} \cong \Phi^*(W \times \mathfrak{g})$, $W \times \mathfrak{g}$ the trivial bundle over $N = W$. That is the following:
+
+Let $K$ be a vector space, we viewed it as a trivial vector bundle over $M$, but we can do the same for $N=W$, so, $K$ can also be viewed as trivial vector bundle over $W$, and elements of $K$ are just constant sections of such a bundle. For bookkeeping, let us denote with $\iota_M$ and $\iota_W$ maps $K \hookrightarrow \Gamma(M \times K)$ and $K \hookrightarrow \Gamma(W \times K)$, respectively, which embed elements of $K$ canonically into the space of constant sections of the trivial bundles $M \times K$ and $W \times K$, respectively. Then take a smooth map $L: \mathfrak{M}_{\mathfrak{g}}(M; W) \to \Omega^k(M; K)$ ($k \in \mathbb{N}_0$) and a basis $\mleft( e_a \mright)_a$ of $K$. Previously we expressed $L$ then as, making use of $\iota_M$,
+\bas
+L
+&=
+L^a \otimes \iota_M(e_a),
+\eas
+where $L^a: \mathfrak{M}_{\mathfrak{g}}(M; W) \to \Omega^k(M)$. Fix $(\Phi, A) \in \mathfrak{M}_{\mathfrak{g}}(M; W)$, then we can trivially identify
+\bas
+\iota_M(e_a)
+&=
+\Phi^*\bigl( \iota_W (e_a) \bigr)
+\eas
+because $e_a$ is viewed as a constant section in both trivial vector bundles. Then observe
+\bas
+\mleft.\mathrm{ev}^*\bigl( \iota_W(e_a) \bigr)\mright|_{(p, \Phi, A)}
+&=
+\mleft.\iota_W (e_a)\mright|_{\Phi(p)}
+=
+\mleft.\Phi^*\bigl( \iota_W (e_a) \bigr)\mright|_p
+=
+\mleft.\iota_M(e_a)\mright|_p
+\eas
+for all $(p, \Phi, A) \in M \times \mathfrak{M}_{\mathfrak{g}}(M; W)$. Thus, we can also write
+\bas
+L
+&=
+L^a \otimes \mathrm{ev}^*\bigl( \iota_W(e_a) \bigr)
+\eqqcolon
+\gls{1jota}(L),
+\eas
+and that interpretation of $L$ we denote as $\iota(L)$ for bookkeeping reasons. Observe
+\bas
+\iota(L)(Y_1, \dotsc, Y_k)
+&=
+\underbrace{L^a(Y_1, \dotsc, Y_k)}_{\in C^\infty(M\times \mathfrak{M}_{\mathfrak{g}}(M;W))} ~ \mathrm{ev}^*\bigl( \iota_W(e_a) \bigr)
+\in
+\Gamma(\mathrm{ev}^*(W\times K))
+\eas
+for all $Y_1, \dotsc, Y_k \in \mathfrak{X}(M)$; therefore also $\iota(L)(\Phi, A) \in \Omega^k(M; \Phi^*K)$. With that we can now finally explicitly state the idea of describing infinitesimal gauge transformations as a certain pullback of a $\mathfrak{g}$-connection.
+
+\begin{propositions}{Functional derivative along $\mathfrak{X}^\psi(\mathfrak{M}_{\mathfrak{g}}(M; W))$}{ClassicFunctionDerivativesAlongPsiEpsilon}
+Let $M$ be a smooth manifold, $W, K$ vector spaces, and $\mathfrak{g}$ a Lie algebra with Lie algebra action $\gamma$ on $W$, induced by a Lie algebra representation $\psi$. Moreover, let $^{\mathfrak{g}}\nabla$ be a $\mathfrak{g}$-connection on the trivial vector bundle $W \times K$ over $W$, and $\Psi_\varepsilon \in \mathfrak{X}^\psi(\mathfrak{M}_{\mathfrak{g}}(M; W))$ for an $\varepsilon: \mathfrak{M}_{\mathfrak{g}}(M; W) \to C^\infty(M;\mathfrak{g})$.
+
+Then there is a unique $\mathbb{R}$-linear operator $\delta_{\Psi_\varepsilon}: \Gamma\mleft(\mathrm{ev}^*( W \times K )\mright) \to \Gamma\mleft(\mathrm{ev}^*( W \times K )\mright)$ with
+\ba
+\delta_{\Psi_\varepsilon} (f s)
+&=
+\mathcal{L}_{\Psi_\varepsilon}(f) ~ s
+	+ f ~ \delta_{\Psi_\varepsilon} s,
+\label{ClassicGaugeTrafoLeibnizRule} \\
+\delta_{\Psi_\varepsilon} \mleft( \mathrm{ev}^*\vartheta \mright)
+&=
+- \mathrm{ev}^*\mleft( {}^{\mathfrak{g}}\nabla_\varepsilon \vartheta \mright)\label{ClassicGaugeTrafoPullbackRelationtoEv}
+\ea
+for all $f \in C^\infty(M \times \mathfrak{M}_{\mathfrak{g}}(M; W))$, $s \in \Gamma\mleft(\mathrm{ev}^*(W \times K)\mright)$ and $\vartheta \in \Gamma(W \times K)$, where we denote
+\bas
+\mleft.\mathrm{ev}^*\mleft( {}^{\mathfrak{g}}\nabla_\varepsilon \vartheta \mright)\mright|_{(p, \Phi_0, A_0)}
+&=
+\mleft.\mleft({}^{\mathfrak{g}}\nabla_{\varepsilon(\Phi_0, A_0)|_p} \vartheta\mright)\mright|_{\Phi_0(p)}
+\eas
+for all $(p, \Phi_0, A_0) \in M \times \mathfrak{M}_{\mathfrak{g}}(M; W)$.
+\end{propositions}
+
+\begin{remark}\label{WecombineeverythingToAvoidStrictPullbacks}
+\leavevmode\newline
+This emphasizes that $\delta_{\Psi_\varepsilon}$ is the "$\mathrm{ev}$-pullback of ${}^{\mathfrak{g}}\nabla$ combined with a contraction along $\Psi_\varepsilon$" (up to a sign), and that combination leads to that we do not need an overall pullback with $\mathrm{ev}$. When we show this in the general setting, then we give a general condition about in which situations one can do such pullbacks, avoiding the ansatz using flows and curves, making the approach cleaner.
+\end{remark}
+
+\begin{proof}[Proof of Prop.~\ref{prop:ClassicFunctionDerivativesAlongPsiEpsilon}]
+\leavevmode\newline
+For $\Psi_\varepsilon$ let $\eta: I \times U \to \mathfrak{M}_{\mathfrak{g}}(M; W)$ be its local flow on an open subset $U \subset \mathfrak{M}_{\mathfrak{g}}(M; W)$, where $I \subset \mathbb{R}$ is an open interval containing 0, and we denote its flow through $(\Phi_0, A_0) \in U$ by $\eta|_{(\Phi_0, A_0)} = (\Phi, A), I \ni t \mapsto (\Phi_t, A_t)$. For the flow $\eta|_{(\Phi_0, A_0)}$ we can apply Cor.~\ref{cor:ClassicFLowsOfXgMg}, that is, there is an $\epsilon: I \to C^\infty(M; \mathfrak{g}), t \mapsto \epsilon_t,$ such that $\Phi(p)\coloneqq \mleft[ t \mapsto \Phi_t(p) \mright]$ is the base path of a $\mathfrak{g}$-path $-\epsilon(p) \coloneqq [t \mapsto -\epsilon_t(p)]$, and we have $\epsilon_{t=0} = \varepsilon(\Phi_0, A_0)$. Hence, fixing such a lift to a $\mathfrak{g}$-path, we can define by Prop.~\ref{prop:FirstEPullBACkConnectionFormula}
+\ba\label{ClassicHiggsDerivation} 
+\mleft.\delta_{\Psi_\varepsilon} s\mright|_{(p, \Phi_0, A_0)}
+&\coloneqq
+\biggl( 
+	\underbrace{\mleft( \mathrm{ev} \circ \mleft(p, \eta|_{(\Phi_0, A_0)}\mright) \mright)^*}
+	_{= (\Phi(p))^*}
+	\mleft({}^{\mathfrak{g}}\nabla\mright)
+\biggr)_{\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_{t=0}}
+\mleft(
+	\mleft(p, \eta|_{(\Phi_0, A_0)}\mright)^*s
+\mright)
+\nonumber \\
+&=
+\Bigl( 
+	\bigl(\Phi(p)\bigr)^*
+	\mleft({}^{\mathfrak{g}}\nabla\mright)
+\Bigr)_{\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_{t=0}}
+\mleft(
+	\mleft(p, \eta|_{(\Phi_0, A_0)}\mright)^*s
+\mright)
+\ea
+for all $s \in \Gamma\mleft(\mathrm{ev}^*(W \times K)\mright)$ and $p \in M$, where $\mleft(p, \eta|_{(\Phi_0, A_0)}\mright)^*s$ is by definition a section of $\mleft( \mathrm{ev} \circ \mleft(p, \eta|_{(\Phi_0, A_0)}\mright) \mright)^*(W \times K)$, especially,
+\bas
+\mleft.\mleft(p, \eta|_{(\Phi_0, A_0)}\mright)^*s\mright|_{t}
+&=
+\mleft.s\mright|_{(p, \Phi_t, A_t)}
+\in
+\{\Phi_t(p)\} \times K,
+\eas
+and, thus, it can also be seen as a section of $\bigl( \Phi(p) \bigr)^*(W \times K)$.
+Then Def.~\ref{ClassicHiggsDerivation} is nothing else than the (restricted) definition of $\mleft.\mathrm{D}/\mathrm{d}t\mright|_{t=0}$ related to ${}^{\mathfrak{g}}\nabla$ and using the given $\mathfrak{g}$-path $-\epsilon(p)$ with base path $\Phi(p)$, see Prop.~\ref{prop:DerivationAlonggLAlgPath} and its proof. That is
+\bas
+\mleft(\delta_{\Psi_\varepsilon} s\mright)(p, \Phi_0, A_0)
+&=
+\mleft.\frac{\mathrm{D}}{\mathrm{d}t}\mright|_{t=0}
+\mleft(
+	\mleft(p, \eta|_{(\Phi_0, A_0)}\mright)^*s
+\mright)
+\eas
+so, everything follows by Prop.~\ref{prop:DerivationAlonggLAlgPath}, \textit{i.e.}~$\mathbb{R}$-linearity is clearly implied, and
+\bas
+\mleft.\delta_{\Psi_\varepsilon} (f s)\mright|_{(p, \Phi_0, A_0)}
+&=
+\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_{t=0}\mleft(
+	f \circ \mleft(p, \eta|_{(\Phi_0, A_0)}\mright)
+\mright)
+~ \mleft.s\mright|_{(p, \Phi_0, A_0)}
++	f(p, \Phi_0, A_0) ~ \mleft.\frac{\mathrm{D}}{\mathrm{d}t}\mright|_{t=0}
+\mleft(
+	\mleft(p, \eta|_{(\Phi_0, A_0)}\mright)^*s
+\mright)
+\\
+&=
+\mleft.\mleft(\mathcal{L}_{\Psi_\varepsilon}(f) ~ s
+	+ f ~ \delta_{\Psi_\varepsilon} s\mright)\mright|_{(p, \Phi_0, A_0)}
+\eas
+for all $f \in C^\infty(M \times \mathfrak{M}_{\mathfrak{g}}(M; W))$, and finally
+\bas
+\mleft.\delta_{\Psi_\varepsilon} \mleft( \mathrm{ev}^*\vartheta \mright)\mright|_{(p, \Phi_0, A_0)}
+&=
+\mleft.\frac{\mathrm{D}}{\mathrm{d}t}\mright|_{t=0}
+\mleft(
+	\mleft( \mathrm{ev} \circ \mleft(p, \eta|_{(\Phi_0, A_0)}\mright)\mright)^*\vartheta
+\mright)
+\\
+&=
+\mleft.\frac{\mathrm{D}}{\mathrm{d}t}\mright|_{t=0}
+\bigl(
+	\mleft( \Phi(p)\mright)^*\vartheta
+\bigr)
+\\
+&=
+- \mleft( \Phi(p)\mright)^*
+\mleft(
+	{}^{\mathfrak{g}}\nabla_{\epsilon_{t=0}} \vartheta
+\mright)
+\\
+&\stackrel{\mathclap{ \epsilon_{t=0} = \varepsilon(\Phi_0, A_0) }}{=}\qquad
+\mleft.
+- \mathrm{ev}^*
+\mleft(
+	{}^{\mathfrak{g}}\nabla_{\varepsilon} \vartheta
+\mright)
+\mright|_{(p, \Phi_0, A_0)}
+\eas
+for all $\vartheta \in \Gamma(W \times K)$. Uniqueness also follows by Prop.~\ref{prop:DerivationAlonggLAlgPath}, although this $\mathrm{D}/\mathrm{d}t$ operator only differentiates sections of the form $\mleft(p, \eta|_{(\Phi_0, A_0)}\mright)^*s$; the vector space of such sections has $\bigl( \Phi(p) \bigr)^*\bigl(\Gamma(W \times K)\bigr)$ as a subset, the generators of sections of $\bigl( \Phi(p) \bigr)^*(W \times K)$, which was visible by having $s= \mathrm{ev}^*\vartheta$, that is
+\bas
+\mleft(p, \eta|_{(\Phi_0, A_0)}\mright)^*(\mathrm{ev}^*\vartheta)
+&=
+\mleft( \mathrm{ev} \circ \mleft(p, \eta|_{(\Phi_0, A_0)}\mright)\mright)^*\vartheta
+=
+\bigl(\Phi(p)\bigr)^*\vartheta.
+\eas
+Therefore the argument about uniqueness in the proof of Prop.~\ref{prop:DerivationAlonggLAlgPath} applies here, too.\footnote{Alternatively, one shows it directly in the same fashion, using again that $\mathrm{ev}$-pullbacks of sections generate $\Gamma(\mathrm{ev}^*(W\times K))$, such that Eq.~\eqref{ClassicGaugeTrafoPullbackRelationtoEv} uniquely defines the operator because Eq.~\ref{ClassicGaugeTrafoLeibnizRule} declares how the operator acts on the generated sections of pullbacks.}
+\end{proof}
+
+Now we extend it to functionals. We will now also recall the infinitesimal gauge transformation of the field of gauge bosons $A$ as in Def.~\ref{def:ClassicTrafos} and take that still as a definition; at this point there is nothing new to tell about that part of the infinitesimal gauge transformation, except that $\varepsilon: \mathfrak{M}_{\mathfrak{g}}(M; W) \to C^\infty(M; \mathfrak{g})$, and, thus, the derivation will be along a vector field $\Psi_\varepsilon$
+\ba
+\mleft.\Psi_\varepsilon\mright|_{(\Phi, A)}
+&=
+\mleft( \delta_\epsilon \Phi, \delta_\epsilon A \mright)
+\ea
+for all $(\Phi, A) \in \mathfrak{M}_{\mathfrak{g}}(M; W)$, where $\epsilon \coloneqq \varepsilon(\Phi, A)$ and $\delta_\epsilon A = \mleft[ \epsilon, A \mright]_{\mathfrak{g}} - \mathrm{d}\epsilon$. We shortly write for now $\Psi_\varepsilon = (\delta_\varepsilon \Phi, \delta_\varepsilon A)$. However, in the general setting later we need to discuss the gauge transformation of $A$ and how to define it, and therefore we will come back to this.
+
+\begin{definitions}{Infinitesimal gauge transformation}{InfinitesimalGaugeTrafoClassicAsConnection}
+Let $M$ be a smooth manifold, $W, K$ vector spaces, and $\mathfrak{g}$ a Lie algebra with Lie algebra action $\gamma$ on $W$, induced by a Lie algebra representation $\psi$. Moreover, let $^{\mathfrak{g}}\nabla$ be a $\mathfrak{g}$-connection on the trivial vector bundle $W \times K$ over $W$, and $\Psi_\varepsilon = (\delta_\varepsilon \Phi, \delta_\varepsilon A)$ for an $\varepsilon: \mathfrak{M}_{\mathfrak{g}}(M; W) \to C^\infty(M;\mathfrak{g})$.
+
+Then we define the \textbf{infinitesimal gauge transformation $\delta_\varepsilon L$ for $L: \mathfrak{M}_{\mathfrak{g}}(M; W) \to \Omega^k(M; K)$} ($k \in \mathbb{N}_0$) as a map $\mathfrak{M}_{\mathfrak{g}}(M; W) \to \Omega^k(M; K)$ by
+\ba
+\mleft(\delta_\varepsilon L\mright)(Y_1, \dotsc, Y_k)
+&\coloneqq
+\delta_{\Psi_\varepsilon}\bigl(
+	\iota(L)(Y_1, \dotsc, Y_k)
+\bigr)
+\ea
+for all $Y_1, \dotsc, Y_k \in \mathfrak{X}(M)$, where $\delta_{\Psi_\varepsilon}$ is the unique operator given in Prop.~\ref{prop:ClassicFunctionDerivativesAlongPsiEpsilon} with respect to ${}^{\mathfrak{g}}\nabla$ and $\Psi_\varepsilon$.
+ %as an $\mathbb{R}$-linear operator $\Omega^k(M \times \mathfrak{M}_{\mathfrak{g}}(M; W); \mathrm{ev}^*(W \times K)) \to \Omega^k(M \times \mathfrak{M}_{\mathfrak{g}}(M; W); \mathrm{ev}^*(W \times K))$
+\end{definitions}
+
+\begin{remark}
+\leavevmode\newline
+Recall that $\iota(L)$ was the bookkeeping trick, and, thus,
+\bas
+\iota(L)(Y_1, \dotsc, Y_k)
+&\in
+\Gamma(\mathrm{ev}^*(W\times K))
+\eas
+for all $Y_1, \dotsc, Y_k \in \mathfrak{X}(M)$. Hence, this definition is well-defined; that $\delta_\varepsilon L$ is a map $\mathfrak{M}_{\mathfrak{g}}(M; W) \to \Omega^k(M; K)$ also follows by construction. Especially observe that $C^\infty(M)$-multilinearity follows because $\mathcal{L}_{\Psi_\varepsilon} f = 0$ for all $f \in C^\infty(M)$ due to the fact that $\Psi_\varepsilon$ is a vector field on $\mathfrak{M}_{\mathfrak{g}}(M;W)$, viewed as a vector field in $M \times \mathfrak{M}_{\mathfrak{g}}(M;W)$. So, $C^\infty(M)$ is not affected by the Leibniz rule in $\delta_{\Psi_\varepsilon}$. The vector fields $Y_1, \dotsc, Y_k$ are similarly unaffected by the Lie derivative of $\mathcal{L}_{\Psi_\varepsilon}$; hence, this is a valid construction.
+\end{remark}
+
+We now compare it with the classic definition of the infinitesimal gauge transformation as in Def.~\ref{def:ClassFunctionalGaugeTrafoBlag}; for this also recall Ex.~\ref{ex:LieAlgActionIsAConnection}.
+
+\begin{theorems}{Recover of classical definition of infinitesimal gauge transformation}{RecoverOfClassicInfgGaugeTrafo}
+Let $M$ be a smooth manifold, $W, K$ vector spaces, and $\mathfrak{g}$ a Lie algebra with Lie algebra action $\gamma$ on $W$, induced by a Lie algebra representation $\psi$. Moreover, let $^{\mathfrak{g}}\nabla = \nabla_\gamma$ be the $\mathfrak{g}$-connection induced by the canonical flat connection $\nabla$ of the trivial vector bundle $W \times K \to W$ as in Ex.~\ref{ex:LieAlgActionIsAConnection}, and $\Psi_\varepsilon = (\delta_\varepsilon \Phi, \delta_\varepsilon A)$ for an $\varepsilon: \mathfrak{M}_{\mathfrak{g}}(M; W) \to C^\infty(M;\mathfrak{g})$.
+
+Then we have
+\ba
+\mleft(\delta_\varepsilon L\mright)(\Phi, A)
+&=
+\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_{t=0}
+\mleft[ t \mapsto
+	L\mleft(
+		\Phi + t \delta_\epsilon \Phi,
+		A + t \delta_\epsilon A
+	\mright)
+\mright]
+\ea
+for all $L: \mathfrak{M}_{\mathfrak{g}}(M;W) \to \Omega^k(M; K)$ $(k \in \mathbb{N}_0)$ and $(\Phi, A) \in \mathfrak{M}_{\mathfrak{g}}(M;W)$, where $\epsilon \coloneqq \varepsilon(\Phi,A)$, $t \in \mathbb{R}$, and $\delta_\varepsilon$ is as defined in Def.~\ref{def:InfinitesimalGaugeTrafoClassicAsConnection} with respect to $\nabla_\gamma$ and $\Psi_\varepsilon$.
+
+In other words, we recover Def.~\ref{def:ClassFunctionalGaugeTrafoBlag}, especially when taking an $\varepsilon \in C^\infty(M;\mathfrak{g})$, \textit{i.e.}~a constant $\varepsilon$, "constant" in sense of
+\bas
+\varepsilon(\Phi,A)
+&=
+\varepsilon\mleft(\Phi^\prime,A^\prime\mright)
+\eas
+for all $(\Phi, A), \mleft(\Phi^\prime,A^\prime\mright) \in \mathfrak{M}_{\mathfrak{g}}(M;W)$.
+\end{theorems}
+
+\begin{remarks}{$\delta_\varepsilon A$ as transformation of a functional}{BosonsAsFunctionalies}
+Recall that $\mathrm{d}/\mathrm{d}t$ is with respect to the canonical flat connection of $M \times K \to M$. Also observe that $\delta_\varepsilon A$ is here trivially given by $\delta_\varepsilon \varpi_2$, where $\varpi_2(\Phi, A) \coloneqq A$, the projection onto the second factor in $\mathfrak{M}_{\mathfrak{g}}$. Viewing the field of gauge bosons as the functional $\varpi_2$, one may want to define the infinitesimal gauge transformation of $A$ as the infinitesimal gauge transformation of $\varpi_2$; since $\varpi_2$ is $\mathfrak{g}$-valued, we would have
+\bas
+\iota(\varpi_2)(Y)
+&\in
+\Gamma(\mathrm{ev}^*(W \times \mathfrak{g}))
+\eas
+for all $Y \in \mathfrak{X}(M)$, and, thus, $\iota(A) \coloneqq \iota(\varpi_2)(\Phi, A) \in \Omega^1(M; \Phi^*(W \times \mathfrak{g}))$ for any fixed $\Phi$. For the infinitesimal gauge transformation of the field strength one also applies the bookkeeping trick such that it has values in $\mathrm{ev}^*(W \times \mathfrak{g})$, so, as we mentioned before, we want to view the Lie algebra as a bundle over $W$ instead of a bundle over $M$.
+\end{remarks}
+
+\begin{proof}[Proof of Thm.~\ref{thm:RecoverOfClassicInfgGaugeTrafo}]
+\leavevmode\newline
+Let $\mleft( e_a \mright)_a$ be a basis of $K$, that especially implies
+\bas
+\nabla \bigl( \iota_W(e_a) \bigr)
+&=
+0.
+\eas
+For $L: \mathfrak{M}_{\mathfrak{g}}(M;W) \to \Omega^k(M; K)$ we then write
+\bas
+\iota(L)
+&=
+L^a \otimes \mathrm{ev}^*\bigl(\iota_W(e_a)\bigr)
+\eas
+for $L^a: \mathfrak{M}_{\mathfrak{g}}(M;W) \to \Omega^k(M)$, so, $L^a \in \Omega^k(M\times \mathfrak{M}_{\mathfrak{g}}(M;W))$, and,
+thus, by using Prop.~\ref{prop:ClassicFunctionDerivativesAlongPsiEpsilon},
+\bas
+\mleft.\mleft(\delta_\varepsilon L\mright)(Y_1, \dotsc, Y_k)\mright|_{(\Phi,A)}
+&=
+\mleft.
+\delta_{\Psi_\varepsilon}\bigl(
+	\iota(L)(Y_1, \dotsc, Y_k)
+\bigr)
+\mright|_{(\Phi,A)}
+\\
+&=
+\mleft.\mathcal{L}_{\Psi_\varepsilon}\mleft(
+	L^a(Y_1, \dotsc, Y_k)
+\mright)\mright|_{(\Phi,A)} 
+~ \underbrace{\mleft.\mathrm{ev}^*\bigl(\iota_W(e_a)\bigr)\mright|_{(\Phi,A)}}_
+{= \Phi^*( \iota_W(e_a) ) = \iota_M(e_a)}
+\\
+&\hspace{1cm}
+	- \underbrace{\mleft.\mleft(L^a(Y_1, \dotsc, Y_k) ~ \mathrm{ev}^*\mleft(\nabla_{\gamma(\varepsilon)}\bigl( \iota_W(e_a) \bigr) \mright)\mright)\mright|_{(\Phi,A)}}_{=0}
+\\
+&=
+\mleft( 
+	\mathcal{L}_{\mleft.\Psi_{\varepsilon}\mright|_{(\Phi,A)}}\mleft(L^a\mright)
+	\otimes \iota_M(e_a)
+\mright)(Y_1, \dotsc, Y_k)
+\\
+&=
+\mleft( 
+	\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_{t=0}
+\mleft[ t \mapsto
+	L\mleft(
+		\Phi + t \delta_\epsilon \Phi,
+		A + t \delta_\epsilon A
+	\mright)
+\mright]
+\mright)
+(Y_1, \dotsc, Y_k)
+\eas
+for all $(\Phi, A) \in \mathfrak{M}_{\mathfrak{g}}(M;W)$ and $Y_1, \dotsc, Y_k \in \mathfrak{X}(M)$, using that $\mleft.\Psi_{\varepsilon}\mright|_{(\Phi,A)} = (\delta_\epsilon \Phi, \delta_\epsilon A)$.
+\end{proof}
+
+This concludes this section, we have shown how to write the infinitesimal gauge transformation using $\mathfrak{g}$-connections. One can even show that the gauge invariance of the Yang-Mills-Higgs Lagrangian can be shown with the same calculation of the previous section if $\varepsilon$ is allowed to depend on $\mathfrak{M}_{\mathfrak{g}}(M;W)$. Such a dependency starts to matter when applying the infinitesimal gauge transformation twice, which we will discuss later in full generality. Let us now shortly discuss what we have learned.
+
+First of all, we needed to do the bookkeeping trick. That was due to the Lie algebra action $\gamma$, which acts on $N =W$ and not on $M$. Hence, the natural construction of $\mathfrak{g}$-connections using $\gamma$ is defined on bundles over $N$. This was why we needed to make a pullback and to think of functionals as having values in a pullback of a trivial bundle over $N$, especially using $\Phi \in C^\infty(M;N)$. For example, we thought of the Lie algebra $\mathfrak{g}$ as a trivial bundle over $M$ and $N$, $M \times \mathfrak{g}$ and $N \times \mathfrak{g}$, respectively, and it is more suitable to think of $M \times \mathfrak{g}$ as $\Phi^*(N \times \mathfrak{g})$. The aim of the presented generalised gauge theory is also to generalise the trivial Lie algebra bundle, especially getting rid of a global trivialisation by replacing it with some "suitable" bundle $E$. Hence, motivated by this section and as an ansatz, we are going to define $E$ in place of $N \times \mathfrak{g}$ later and $\Phi^*E$ will replace $M \times \mathfrak{g}$. In the same manner other vector spaces may be replaced like that, too.
+
+Second, assume we have that non-trivial bundle $E$ now. Then we cannot impose the existence of a canonical flat connection anymore as we did in all the basic definitions before, like in Def.~\ref{def:ClassFunctionalGaugeTrafoBlag}; defining $\mathrm{d}/\mathrm{d}t$ using the tangent map would lead to arising horizontal components in the corresponding tangent bundle which may make further calculations more complicated when a functional is used in other functionals, like in contractions using scalar products and metrics, such that one may need to fix a horizontal distribution. Therefore the definition of infinitesimal gauge transformation as provided here is a first step towards a formulation using ($\mathfrak{g}$-)connections, \textit{e.g.}~taking a connection $\nabla$ and then defining ${}^{\mathfrak{g}}\nabla = \nabla_\gamma$.
+
+Third, one could argue that one could just look at vector bundle connections $\nabla$ for which there is always a pullback, avoiding the problems discussed in this section. However, $\mathfrak{g}$-connections are more general, which we will see later, and we will then have an even more general notion. But, for example, allow infinite-dimensional Lie algebras, then take $\mathfrak{g} = \mathfrak{X}(N)$ and $\gamma = \mathds{1}$, the identity; then one clearly has the typical notion of a vector bundle connection. Especially when thinking about that the infinitesimal gauge transformations are just certain, not all, vector fields on $\mathfrak{M}_{\mathfrak{g}}$, one might argue why not using a different connection like a $\mathfrak{g}$-connection which is not directly related to $\nabla$. Recall Ex.~\ref{ex:ClassicAdRepIsAConnection}, we could also take $\nabla^{\mathrm{bas}}$, which is clearly different to $\nabla_\gamma$ as discussed there, even though $\nabla_\gamma$ contributes to its definition. We will later see that $\nabla^{\mathrm{bas}}$ does not necessarily have any notion of a parallel frame, even when it is assumed to be flat.\footnote{Flatness will be defined later for such connections, but the construction has the typical form.}
+Actually, we are going to use the basic connection later, also for the infinitesimal gauge transformations. We will show that the gauge invariance of the Yang-Mills-Higgs Lagrangian can still be shown although we use $\nabla^{\mathrm{bas}}$, also in the context of the typical formulation of gauge theory. The advantage of the basic connection will be that it is always flat in the context of gauge theory, while $\nabla_\gamma$ might not be, which results into that we can generalize the well-known relation
+\bas
+\mleft[ \delta_\varepsilon, \delta_\varepsilon^\prime \mright]
+&=
+- \delta_{\mleft[ \varepsilon, \varepsilon^\prime \mright]_{\mathfrak{g}}},
+\eas
+where the sign comes from our sign conventions defined earlier. We will see that a possible curvature of $\nabla_\gamma$ will not result into a generalization of that equation, if we define the infinitesimal gauge transformations using $\nabla_\gamma$. Moreover, we have seen in Ex.~\ref{ex:ClassicAdRepIsAConnection} that $\nabla^{\mathrm{bas}}$ is a generalization of a Lie algebra representation; this will lead to that the basic connection supports the symmetries of gauge theories, leading to more convenient formulas of infinitesimal gauge transformations.
+
+Last, the Lie algebra $\mathfrak{g}$ is not only important from an algebraic point of view, but also in sense of a connection besides the field of gauge bosons $A$, playing the role of a "direction of derivative" similar to the tangent bundle when defining typical vector bundle connections. Thus, let us now introduce an object generalizing both aspects, aspects of Lie algebras and tangent bundles: \textbf{Lie algebroids}.

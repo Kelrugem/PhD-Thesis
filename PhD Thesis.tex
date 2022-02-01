@@ -1,0 +1,964 @@
+\documentclass[a4paper,twoside,11pt]{scrbook}
+%[a4paper,oneside,12pt]
+%für fonts wenn zu viele
+
+%A true selfless act always sparks another :)
+%\newcommand\hmmax{0}
+%\newcommand\bmmax{1}
+%\newcommand{\Plus}{\mathord{\tikz\draw[line width=0.3ex, x=1ex, y=1ex] (0.75,0) -- (0.75,1.5)(0,0.75) -- (1.5,0.75);}} 
+\def\RPlus{\ensuremath{\mathbin{\rule[.13em]{.66em}{.22em}\hspace{-.44em}\rule[-.08em]{.22em}{.66em}\,}}} %Fat plus symbol
+\usepackage[english]{babel}
+\usepackage{graphicx}
+%\usepackage{CJKutf8} %Kanji signs
+\usepackage{dsfont}
+\usepackage{bm}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{amscd}
+%\usepackage{amstext}
+%\usepackage{mathabx}
+\usepackage{booktabs}
+\usepackage{amsbsy}
+\usepackage{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fancybox}
+\usepackage[hypcap=false]{caption}
+\captionsetup{font={small,sf},labelfont=bf,textfont=rm} 
+\usepackage{float}
+\usepackage{subfigure} 
+\usepackage{lmodern} %latin modern font
+%\usepackage{fixcmex} %Fixing the issue with scaling brackets etc. in lmodern
+%\renewcommand\familydefault{lmr}% uses lm only for text
+\usepackage[numbib,nottoc]{tocbibind}
+%\usepackage[pdfstartview={FitH},linkbordercolor={0 1 0}]{hyperref}
+\usepackage[pdfstartview={FitH},linkbordercolor={0 1 0}, colorlinks]{hyperref}
+\usepackage{esint}
+\usepackage{fancyhdr}
+\usepackage{pdfpages}
+%\usepackage{trfsigns}
+\newcommand{\e}{\ensuremath{\mathrm{e\;\!}}}
+%\usepackage{wasysym} %Smiley
+%\usepackage{siunitx} %SI Einheiten
+%\usepackage{eqnarray} %Gleichungen in Tabellenform
+\usepackage{mathtools} %für mathclap
+\usepackage{relsize} %Integralgröße
+\usepackage{scrhack} %Warnung bei book bezüglich toc
+\usepackage{mleftright} %Distanz zu \left \right weg
+\usepackage{tikz} %Diagramme
+\usepackage[many]{tcolorbox} %Coloured boxes around theorems etc
+\tcbuselibrary{theorems} % siehe oben
+%\usepackage{xfrac}    %for \sfrac quotient of sets
+
+\usetikzlibrary{cd}
+
+%fonts
+%\usepackage{pzccal}
+%\DeclareFontFamily{OT1}{pzc}{}
+%\DeclareFontShape{OT1}{pzc}{m}{it}{<-> s * [1.10] pzcmi7t}{}
+%\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+%\usepackage{boondox-cal}
+
+\makeatletter
+\DeclareFontEncoding{LS1}{}{}
+\DeclareFontSubstitution{LS1}{stix}{m}{n}
+\DeclareMathAlphabet{\mathKel}{LS1}{stixscr}{m}{n}
+\DeclareMathAlphabet{\mathcal}{LS1}{stixscr}{m}{n}
+\makeatother
+\DeclareMathOperator{\sAut}{\mathKel{A\mkern-5.5mu u\mkern-4mu t\mkern-1.5mu}}
+\DeclareMathOperator{\saut}{\mathKel{a\mkern-4.5mu u\mkern-4mu t\mkern-1.5mu}}
+\DeclareMathOperator{\sEnd}{\mathKel{E\mkern-4mu n\mkern-4.5mu d\mkern-1mu}}
+
+%\usepackage{fontspec}
+%\usepackage{unicode-math}
+%\setmainfont{TeX Gyre Pagella}
+%\setmathfont{Asana Math}
+%\setmathfont{XITS Math}
+%\setmathfont[version=setB,StylisticSet=1]{XITS Math}
+%\usepackage{mathabx}
+%\usepackage{here}
+%\usepackage[style=authortitle-icomp]{biblatex}
+%\usepackage[babel,german=guillemets]{csquotes}
+
+\setcounter{tocdepth}{4}
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{4}
+\setcounter{secnumdepth}{5}
+\setlength{\jot}{12pt} % Zeilenabstand in der Align-Umgebung
+\allowdisplaybreaks % mit \displaybreak einen Seitenumbruch in align-Umgebung erzeugen
+
+%\pagestyle{headings}
+
+\pagestyle{fancy} %eigener Seitenstil
+\fancyhf{}
+\lhead{\leftmark} %\nouppercase, um auch Kleinbuchstaben zu bekommen
+%\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+%  \markboth{\thesection{} #1}} 
+%\fancyhead[L]{Titel} %Kopfzeile links
+\fancyhead[R]{\fullname} %Kopfzeile rechts
+\renewcommand{\headrulewidth}{0.4pt} %obere Trennlinie
+\fancyfoot[C]{\thepage} %Seitennummer
+\renewcommand{\footrulewidth}{0.4pt} %untere Trennlinie
+
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
+
+
+%\renewcommand*{\chapterpagestyle}{scrheadings}
+
+
+%Folgender Befehl dafür da, dass sections auf ungeraden Seiten anfangen
+%\let\Section\section
+%\renewcommand\section[2][]{%
+  %\cleardoublepage
+  %\def\myTEMP{#1}\ifx\myTEMP\empty\Section{#2}\else\Section[#1]{#2}\fi}
+	
+	
+%\usepackage[automark]{scrlayer-scrpage}
+%\ohead{\pagemark}
+%\ihead{\leftmark}
+
+
+\renewcommand{\listoffigures}{\begingroup
+\tocsection
+\tocfile{\listfigurename}{lof}
+\endgroup} 
+
+\renewcommand{\listoftables}{\begingroup
+\tocsection
+\tocfile{\listtablename}{lot}
+\endgroup} 
+
+\oddsidemargin -0.0 cm
+\evensidemargin -0.5 cm
+\topmargin -1.5 cm
+\headheight 1.2 cm
+\headsep 1.3 cm
+\topskip 0.5 cm
+\textheight 23.0 cm
+\textwidth 16.0 cm
+\parindent 0.0 cm
+\renewcommand{\baselinestretch}{1.2}
+%\renewcommand{\arraystretch}{1.6}
+\setcounter{totalnumber}{2}
+
+\def\tp{^{^{^{\leftrightarrow}}}\!\!\!\!\!\!\!}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Definitionen %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\chapterheadstartvskip}{\vspace{0cm}} %für bookklasse
+
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\bs{\begin{subequations}}
+\def\es{\end{subequations}}
+\def\ba#1\ea{\begin{align}#1\end{align}}
+\def\bes{\begin{equation*}}
+\def\ees{\end{equation*}}
+\def\bas#1\eas{\begin{align*}#1\end{align*}}
+
+
+%um die Theoreme etc. in das Inhaltsverzeichnis zu packen
+%\let\amsthmhead\thmhead
+%\let\amsswappedhead\swappedhead
+%\makeatletter
+%\renewcommand*\thmhead[3]{\amsthmhead{#1}{#2}{#3}%
+%%\@ifnotempty{#2}{\addcontentsline{toc}{subsection}{#2 ~ #3}}{}}
+%\renewcommand*\swappedhead[3]{\amsswappedhead{#1}{#2}{#3}%
+%%\@ifnotempty{#2}{\addcontentsline{toc}{subsection}{#2 ~ #3}}{}}
+%\makeatother
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+%\newtcbtheorem[number within=section]{theorem}{Theorem}
+%{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{th}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtcbtheorem
+  [use counter*=theorem,number within=section]% init options
+  {lemmata}% name
+  {Lemma}% title
+  {%
+		fontupper=\itshape,
+		breakable,
+		enhanced,
+    colback=gray!25,
+    colframe=gray!0!black,
+    fonttitle=\bfseries,
+  }% options
+  {lem}% prefix
+\newtheorem{proposition}[theorem]{Proposition}
+\newtcbtheorem
+  [use counter*=theorem,number within=section]% init options
+  {propositions}% name
+  {Proposition}% title
+  {%
+		fontupper=\itshape,
+		breakable,
+		enhanced,
+    colback=gray!25,
+    colframe=gray!0!black,
+    fonttitle=\bfseries,
+  }% options
+  {prop}% prefix
+\newtcbtheorem
+  [use counter*=theorem,number within=section]% init options
+  {theorems}% name
+  {Theorem}% title
+  {%
+		fontupper=\itshape,
+		breakable,
+		enhanced,
+    colback=gray!25,
+    colframe=gray!0!black,
+    fonttitle=\bfseries,
+  }% options
+  {thm}% prefix
+\newtcbtheorem
+  [use counter*=theorem,number within=section]% init options
+  {corollaries}% name
+  {Corollary}% title
+  {%
+		fontupper=\itshape,
+		breakable,
+		enhanced,
+    colback=gray!25,
+    colframe=gray!0!black,
+    fonttitle=\bfseries,
+  }% options
+  {cor}% prefix
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+
+\theoremstyle{remark}
+\newtcbtheorem
+  [use counter*=theorem,number within=section]% init options
+  {remarks}% name
+  {Remark}% title
+  {%
+		breakable,
+		enhanced,
+    colback=gray!5,
+    colframe=gray!50!black,
+    fonttitle=\bfseries,
+  }% options
+  {rem}% prefix
+\newtheorem*{note}{Note}
+\newtheorem{remark}[theorem]{Remarks}
+\newtheorem*{remarkohne}{Remarks}
+\newtheorem{motivation}[theorem]{Motivation}
+\newtcbtheorem
+  [use counter*=theorem,number within=section]% init options
+  {motivations}% name
+  {Motivation}% title
+  {%
+		breakable,
+		enhanced,
+    colback=gray!5,
+    colframe=gray!50!black,
+    fonttitle=\bfseries,
+  }% options
+  {mot}% prefix
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtcbtheorem
+  [use counter*=theorem,number within=section]% init options
+  {definitions}% name
+  {Definition}% title
+  {%
+		breakable,
+		enhanced,
+    colback=gray!25,
+    colframe=gray!0!black,
+    fonttitle=\bfseries,
+  }% options
+  {def}% prefix
+\newtcbtheorem
+  [use counter*=theorem,number within=section]% init options
+  {examples}% name
+  {Example}% title
+  {%colback=black!5,colframe=red!35!black
+		breakable,
+		enhanced,
+    colback=gray!5,
+    colframe=gray!50!black,
+    fonttitle=\bfseries,
+  }% options
+  {ex}% prefix
+\newtcbtheorem
+  [use counter*=theorem,number within=section]% init options
+  {situations}% name
+  {Situation}% title
+  {%colback=black!5,colframe=red!35!black
+		breakable,
+		enhanced,
+    colback=gray!5,
+    colframe=gray!50!black,
+    fonttitle=\bfseries,
+  }% options
+  {sit}% prefix
+\newtcbtheorem
+  [use counter*=theorem,number within=section]% init options
+  {conjectures}% name
+  {Conjecture}% title
+  {%colback=black!5,colframe=red!35!black
+		breakable,
+		enhanced,
+    colback=gray!5,
+    colframe=gray!50!black,
+    fonttitle=\bfseries,
+  }% options
+  {conj}% prefix
+\newtcbtheorem
+  [use counter*=theorem,number within=section]% init options
+  {fieldredefinitions}% name
+  {Field redefinition}% title
+  {%colback=black!5,colframe=red!35!black
+		breakable,
+		enhanced,
+    colback=gray!5,
+    colframe=gray!50!black,
+    fonttitle=\bfseries,
+  }% options
+  {fieldredef}% prefix
+\newtheorem{example}[theorem]{Example}
+%\newtheorem*{remark}{Remark}
+%\newtheorem*{motivation}{Motivation}
+
+% hier Namen etc. einsetzen
+\newcommand{\fullname}{Simon-Raphael Fischer}
+\newcommand{\email}{Simon-Raphael.Fischer@unige.ch}
+\newcommand{\titel}{Geometry and Quantization of Curved Yang-Mills-Higgs gauge theories}
+%\newcommand{\titel}{Titel der Arbeit}
+\newcommand{\jahr}{2021}
+\newcommand{\matnr}{Matrikelnummer}
+\newcommand{\gutachterA}{Prof. Dr. Thomas Strobl, Prof. Dr. Anton Alekseev}
+%\newcommand{\betreuer}{Professor Dr. Anna Dall'Acqua}
+% hier richtige Fakultät auswählen
+\newcommand{\fakultaet}{Fakultät noch ergänzen}
+%\newcommand{\fakultaet}{Mathematik und\\Wirtschaftswissenschaften}
+%\newcommand{\fakultaet}{Naturwissenschaften}
+%\newcommand{\fakultaet}{Medizin}
+% nun noch unten das Institut einsetzen
+\newcommand{\institut}{Institut noch ergänzen}
+
+% Für \widecheck:
+
+\DeclareFontFamily{U}{mathx}{\hyphenchar\font45}
+\DeclareFontShape{U}{mathx}{m}{n}{
+      <5> <6> <7> <8> <9> <10>
+      <10.95> <12> <14.4> <17.28> <20.74> <24.88>
+      mathx10
+      }{}
+\DeclareSymbolFont{mathx}{U}{mathx}{m}{n}
+\DeclareFontSubstitution{U}{mathx}{m}{n}
+\DeclareMathAccent{\widecheck}{0}{mathx}{"71}
+\DeclareMathAccent{\wideparen}{0}{mathx}{"75}
+
+%\newtheorem{cor}{Corollary}
+%\newtheorem{ad}{Theorem}
+%\newtheorem{theorem}{Theorem}
+%\newtheorem{theorem}{Theorem}
+%\newtheorem{theorem}{Theorem}
+
+%\includeonly{PhysicalBasics/f(R)gravity} %nur das kompilieren
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Deckblatt %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\LMUTitle}[9]{
+  \thispagestyle{empty}
+  \vspace*{\stretch{1}}
+  {\parindent0cm
+   \rule{\linewidth}{.7ex}}
+  \begin{flushright}
+
+    \vspace*{\stretch{1}}
+    \sffamily\bfseries\Huge
+    #1\\
+    \vspace*{\stretch{1}}
+    \sffamily\bfseries\large
+    #2
+    \vspace*{\stretch{1}}
+  \end{flushright}
+  \rule{\linewidth}{.7ex}
+  \vspace*{\stretch{5}}
+  \begin{center}
+    \includegraphics[width=2in]{bilder/Lyon.png}
+  \end{center}
+  \vspace*{\stretch{1}}
+  \begin{center}\sffamily\LARGE{#5}\end{center}
+  \newpage
+  \thispagestyle{empty}
+	
+	% Impressum
+\clearpage
+\thispagestyle{empty}
+{ \small
+  \flushleft
+  Version \today \\\vfill
+  \copyright~\jahr~\fullname\\[0.5em]
+% Falls keine Lizenz gewünscht wird bitte den folgenden Text entfernen.
+% Die Lizenz erlaubt es zu nichtkommerziellen Zwecken die Arbeit zu
+% vervielfältigen und Kopien zu machen. Dabei muss aber immer der Autor
+% angegeben werden. Eine kommerzielle Verwertung ist für den Autor
+% weiter möglich.
+This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/de/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA. \\
+  Type: PDF-\LaTeXe
+}
+
+  \cleardoublepage
+  \thispagestyle{empty}
+
+  \vspace*{\stretch{1}}
+  {\parindent0cm
+  \rule{\linewidth}{.7ex}}
+  \begin{flushright}
+    \vspace*{\stretch{1}}
+    \sffamily\bfseries\Huge
+    #1\\
+    \vspace*{\stretch{1}}
+    \sffamily\bfseries\large
+    #2
+    \vspace*{\stretch{1}}
+  \end{flushright}
+  \rule{\linewidth}{.7ex}
+
+  \vspace*{\stretch{3}}
+  \begin{center}
+    \Large PhD Thesis\\
+    \Large #4\\
+		\Large PhD Cotutelle etc.\\
+		\Large Theoretical and Mathematical Physics\\
+		\Large Examiner, Prof. Dr. Thomas Strobl and Anton Alekseev\\
+    \Large Universities etc\\
+    \Large Geneva and Lyon\\
+    \vspace*{\stretch{1}}
+    \Large handed in by\\
+    \Large #2\\
+    \vspace*{\stretch{2}}
+    \Large Geneva and Lyon, #6
+  \end{center}
+
+	\newpage
+  \thispagestyle{empty}
+
+  \vspace*{\stretch{1}}
+
+  \begin{flushleft}
+    \large Supervisor:  #7 \\[1mm]
+   % \large Zweitgutachter: #8 \\[1mm]
+    \large Date of oral defence: #9\\
+  \end{flushleft}
+
+  \cleardoublepage
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% List of Symbols
+
+%\usepackage[colorlinks]{hyperref}
+%\usepackage[symbols,nogroupskip,sort=use]{glossaries-extra}
+
+
+\usepackage[symbols,nogroupskip]{glossaries-extra}
+\usepackage{glossary-mcols}  
+\setglossarystyle{mcolindex}
+
+\makenoidxglossaries
+
+\glsxtrnewsymbol[description={Anchor of the space of derivations $\mathcal{D}(V)$ on a vector bundle $V$}]{a1}{\ensuremath{a}}
+\glsxtrnewsymbol[description={Field of gauge bosons $A$}]{a0}{\ensuremath{A}}
+\glsxtrnewsymbol[description={Field redefinition of the field of gauge bosons $A$}]{a0widetildelambda}{\ensuremath{\widetilde{A}^\lambda}}
+\glsxtrnewsymbol[description={Field strength $F$}]{F}{\ensuremath{F}}
+\glsxtrnewsymbol[description={(Generalized) field strength $G$}]{G}{\ensuremath{G}}
+\glsxtrnewsymbol[description={Smooth manifolds}]{MN}{\ensuremath{M, N}}
+\glsxtrnewsymbol[description={Exterior covariant derivative w.r.t. a connection $\nabla$}]{dnabla}{\ensuremath{\mathrm{d}^{\nabla}}}
+\glsxtrnewsymbol[description={Exterior covariant derivative w.r.t. a $E$-connection ${}^E\nabla$}]{dEnabla}{\ensuremath{\mathrm{d}^{{}^E\nabla}}}
+\glsxtrnewsymbol[description={Chevalley-Eilenberg differential}]{dCE}{\ensuremath{\mathrm{d}_{\mathrm{CE}}}}
+\glsxtrnewsymbol[description={$E$-differential}]{dE}{\ensuremath{\mathrm{d}_{\mathrm{E}}}}
+\glsxtrnewsymbol[description={Total differential of smooth maps, also viewed as functional}]{D}{\ensuremath{\mathrm{D}}}
+\glsxtrnewsymbol[description={Space of derivations on a vector bundle $V$ at a base point $p \in N$}]{DApV}{\ensuremath{\mathcal{D}_p(V)}}
+\glsxtrnewsymbol[description={Bundle of derivations on a vector bundle $V$}]{DAV}{\ensuremath{\mathcal{D}(V)}}
+%\glsxtrnewsymbol[description={Space of sections of D(V)}]{DBV}{\ensuremath{\mathcal{D}(V)}}
+\glsxtrnewsymbol[description={Exterior covariant derivative w.r.t. a basic connection $\nabla^{\mathrm{bas}}$}]{dbasnabla}{\ensuremath{\mathrm{d}^{\nabla^{\mathrm{bas}}}}}
+\glsxtrnewsymbol[description={de-Rham differential}]{dbas}{\ensuremath{\mathrm{d}}}
+\glsxtrnewsymbol[description={Space of homomorphisms}]{Hom}{\ensuremath{\mathrm{Hom}}}
+\glsxtrnewsymbol[description={Space of endomorphisms}]{End}{\ensuremath{\mathrm{End}}}
+\glsxtrnewsymbol[description={Space of sections of endomorphisms}]{EndSection}{\ensuremath{\sEnd}}
+\glsxtrnewsymbol[description={Space of sections of automorphisms}]{AutSection}{\ensuremath{\sAut}}
+\glsxtrnewsymbol[description={Space of functionals for gauge theory as $k$-forms}]{Fk}{\ensuremath{\mathcal{F}_E^k}}
+\glsxtrnewsymbol[description={Space of polynomial functionals for gauge theory as $k$-forms}]{Hk}{\ensuremath{\mathcal{H}_E^k}}
+\glsxtrnewsymbol[description={Space of automorphisms}]{Aut}{\ensuremath{\mathrm{Aut}}}
+\glsxtrnewsymbol[description={Adjoint representation of a Lie algebra}]{ad}{\ensuremath{\mathrm{ad}}}
+\glsxtrnewsymbol[description={Space of diffeomorphisms}]{DAiff}{\ensuremath{\mathrm{Diff}}}
+\glsxtrnewsymbol[description={Image of a function}]{Im}{\ensuremath{\mathrm{Im}}}
+\glsxtrnewsymbol[description={Kernel of a function}]{Ker}{\ensuremath{\mathrm{Ker}}}
+\glsxtrnewsymbol[description={Rank of a linear operator}]{Rzk}{\ensuremath{\mathrm{rk}}}
+\glsxtrnewsymbol[description={Leaf of the (singular) orbit foliation of a Lie algebroid $E$}]{Leaf}{\ensuremath{L}}
+\glsxtrnewsymbol[description={Tensors $\Gamma\left( \mathrm{T}^r_s(V) \right)$ ($r, s \in \mathds{N}_0$) for a vector bundle $V$}]{Trs(V)a}{\ensuremath{\mathcal{T}^r_s(V)}}
+\glsxtrnewsymbol[description={$\mathrm{T}^r_s(V) := \bigotimes^s V^* \otimes \bigotimes^r V$ ($r, s \in \mathds{N}_0$) for a vector bundle $V$}]{Trs(V)}{\ensuremath{\mathrm{T}^r_s(V)}}
+\glsxtrnewsymbol[description={Lie algebra}]{g1}{\ensuremath{\mathfrak{g}}}
+\glsxtrnewsymbol[description={Lie group}]{g0}{\ensuremath{G}}
+\glsxtrnewsymbol[description={Structure functions of an algebra (mainly of a Lie algebroid $E$)}]{Cbca}{\ensuremath{C_{bc}^a}}
+\glsxtrnewsymbol[description={Jacobiator of an algebra}]{J}{\ensuremath{J}}
+\glsxtrnewsymbol[description={Vector fields on a smooth manifold $N$}]{X(N)}{\ensuremath{\mathfrak{X}(N)}}
+\glsxtrnewsymbol[description={Lie or $E$-Lie derivative (with Lie algebroid $E$})]{Lie}{\ensuremath{\mathcal{L}}}
+\glsxtrnewsymbol[description={Vector bundle and mostly a smooth Lie algebroid}]{E}{\ensuremath{E}}
+\glsxtrnewsymbol[description={Fiber of a vector bundle $E$ at a point $p$}]{Ep}{\ensuremath{E_p}}
+\glsxtrnewsymbol[description={Smooth functions on a smooth manifold $N$}]{Cinfty(N)}{\ensuremath{C^\infty(N)}}
+\glsxtrnewsymbol[description={Smooth functions on $N$ with values in $M$}]{Cinfty(N;M)}{\ensuremath{C^\infty(N; M)}}
+\glsxtrnewsymbol[description={Tangent bundle of a smooth manifold $N$}]{TN}{\ensuremath{\mathrm{T}N}}
+\glsxtrnewsymbol[description={Cotangent bundle of a smooth manifold $N$}]{T*N}{\ensuremath{\mathrm{T}^*N}}
+\glsxtrnewsymbol[description={$E$-curvature of an $E$-connection ${}^E\nabla$}]{RnablaE}{\ensuremath{R_{{}^E\nabla}}}
+\glsxtrnewsymbol[description={Curvature of infinitesimal gauge transformation $\delta$}]{Rdelta}{\ensuremath{R_{\delta}}}
+\glsxtrnewsymbol[description={Basic curvature of a connection $\nabla$, also denoted by $S_\nabla$}]{Rnablabas}{\ensuremath{R^{\mathrm{bas}}_{\nabla}}}
+\glsxtrnewsymbol[description={Curvature of a connection $\nabla$}]{Rnabla}{\ensuremath{R_{\nabla}}}
+\glsxtrnewsymbol[description={Curvature of a vector bundle morphism $\xi$ of Lie algebroids}]{Rxi}{\ensuremath{R_{\xi}}}
+\glsxtrnewsymbol[description={Basic curvature of a connection $\nabla$, also denoted by $R^{\mathrm{bas}}_{\nabla}$}]{Snabla}{\ensuremath{S_{\nabla}}}
+\glsxtrnewsymbol[description={$E$-torsion of an $E$-connection ${}^E\nabla$}]{tEnabla}{\ensuremath{t_{{}^E\nabla}}}
+\glsxtrnewsymbol[description={Projection onto $i$-th factor.}]{pri}{\ensuremath{\mathrm{pr}_i}}
+\glsxtrnewsymbol[description={Abbreviation for Lie algebra bundle}]{LAB}{LAB}
+\glsxtrnewsymbol[description={Abbreviation for curved Yang-Mills-Higgs gauge theory, also CYMH GT}]{CYMH}{CYMH}
+\glsxtrnewsymbol[description={Yang-Mills-Higgs Lagrangian}]{LYMH}{\ensuremath{\mathfrak{L}_{\mathrm{YMH}}}}
+\glsxtrnewsymbol[description={Curved Yang-Mills-Higgs Lagrangian}]{LZYMH}{\ensuremath{\mathfrak{L}_{\mathrm{CYMH}}}}
+\glsxtrnewsymbol[description={Abbreviation for bundle of Lie algebras}]{BLA}{BLA}
+\glsxtrnewsymbol[description={Derivation of sections along a path, denoted by $\mathrm{D}/\mathrm{d}t$}]{Ddt}{\ensuremath{\frac{\mathrm{D}}{\mathrm{d}t}}}
+\glsxtrnewsymbol[description={Field redefinition of a Riemannian metric $g$}]{gwidetildelambda}{\ensuremath{\widetilde{g}^{\lambda}}}
+\glsxtrnewsymbol[description={Space of fields, consisting of gauge bosons $A$ and Higgs-like fields $\Phi$}]{MSpaceOfFields}{\ensuremath{\mathfrak{M}_E}}
+\glsxtrnewsymbol[description={Vertical bundle of a fibre bundle $F$}]{VF}{\ensuremath{\mathrm{V}F}}
+\glsxtrnewsymbol[description={Subspace of $\mathfrak{X}\bigl(\mathfrak{M}_E(M;N)\bigr)$, vector fields along $B$-paths of a Lie algebroid $B$}]{XBM}{\ensuremath{\mathfrak{X}^B\bigl(\mathfrak{M}_E(M; N)\bigr)}}
+\glsxtrnewsymbol[description={Centre of a Lie algebroid connection ${}^E\nabla$}]{ZENabla}{\ensuremath{Z\mleft( {}^E\nabla \mright)}}
+\glsxtrnewsymbol[description={Centre of an LAB $K$}]{ZLAB}{\ensuremath{Z\mleft( K \mright)}}
+\glsxtrnewsymbol[description={Lie bracket derivations of an LAB $K$}]{DAerK}{\ensuremath{\mathrm{Der}(K)}}
+\glsxtrnewsymbol[description={Derivations of an LAB $K$ which are also Lie bracket derivations}]{DAVDerK}{\ensuremath{\mathcal{D}_{\mathrm{Der}}(K)}}
+\glsxtrnewsymbol[description={Ideal of inner bracket derivations of an LAB $K$}]{adK}{\ensuremath{\mathrm{ad}(K)}}
+\glsxtrnewsymbol[description={Outer bracket derivations of an LAB $K$}]{OutKA}{\ensuremath{\mathrm{Out}(K)}}
+\glsxtrnewsymbol[description={Derivations of an LAB $K$ which are also outer bracket derivations}]{OutKDDerK}{\ensuremath{\mathrm{Out}\mleft(\mathcal{D}_{\mathrm{Der}}(K)\mright)}}
+\glsxtrnewsymbol[description={Evaluation map with respect to the Higgs field}]{ev}{\ensuremath{\mathrm{ev}}}
+
+%%%%%%%%%%%%%%%%% Greek signs
+\glsxtrnewsymbol[description={Space of sections of a vector bundle $V$}]{1Camma(V)}{\ensuremath{\Gamma(V)}}
+\glsxtrnewsymbol[description={Dual bundle of a vector bundle $V$}]{V*}{\ensuremath{V^*}}
+\glsxtrnewsymbol[description={Kronecker delta, the indices might shift their position to upper positions}]{1deltaijz}{\ensuremath{\delta_{ij}}}
+\glsxtrnewsymbol[description={Infinitesimal gauge transformation parametrised by $\varepsilon$}]{1delta0epsilon}{\ensuremath{\delta_{\varepsilon}}}
+\glsxtrnewsymbol[description={Variations of functionals along vector fields $\Psi_\varepsilon$ along Lie algebroid paths}]{1delta0Psiepsilon}{\ensuremath{\delta_{\Psi_\varepsilon}}}
+\glsxtrnewsymbol[description={Infinitesimal gauge transformation on $E$-valued functionals using $\nabla_\rho$}]{1delta1varepsilon}{\ensuremath{\delta^{(1)}_\varepsilon}}
+\glsxtrnewsymbol[description={Infinitesimal gauge transformation on $E$-valued functionals using $\nabla^{\mathrm{bas}}$, later just $\delta_\varepsilon$}]{1delta2varepsilon}{\ensuremath{\delta^{(2)}_\varepsilon}}
+\glsxtrnewsymbol[description={Pre-bracket}]{1Delta}{\ensuremath{\Delta}}
+%\glsxtrnewsymbol[description={Variation of a smooth map X along }]{1deltawidetildeXX}{\ensuremath{\delta_{\widetilde{X}} X}}
+\glsxtrnewsymbol[description={Components of the Levi-Civita tensor}]{1epsilonijk}{\ensuremath{\epsilon_{ijk}}}
+\glsxtrnewsymbol[description={Contraction of tensors, or mainly "bookkeeping trick"}]{1jota}{\ensuremath{\iota}}
+\glsxtrnewsymbol[description={Conormal bundle}]{1nu*}{\ensuremath{\nu^*}}
+\glsxtrnewsymbol[description={Anchor of a Lie algebroid $E$, sometimes written as $\rho_E$}]{1rho}{\ensuremath{\rho}}
+\glsxtrnewsymbol[description={An element of $\Omega^1(N;E)$ used for the field redefinition}]{1lambda}{\ensuremath{\lambda}}
+\glsxtrnewsymbol[description={Physical field, major example is the Higgs field}]{1vhi}{\ensuremath{\Phi}}
+\glsxtrnewsymbol[description={Minimal coupling $\mathfrak{D}$ of a physical field $\Phi$ with the field of gauge bosons $A$}]{DAPhi}{\ensuremath{\mathfrak{D}^A \Phi}}
+%\glsxtrnewsymbol[description={Lie algebra representation induced by a Lie group representation $\Phi$}]{1Fhi}{\ensuremath{\Phi_*}}
+\glsxtrnewsymbol[description={$\Lambda := \mathds{1}_E - \lambda \circ \rho \in \sAut(E)$, used for field redefinition}]{1Lambda}{\ensuremath{\Lambda}}
+\glsxtrnewsymbol[description={Field redefinition of a fibre metric $\kappa$ of a vector bundle $E$}]{1kappawidetildelambda}{\ensuremath{\widetilde{\kappa}^{\lambda}}}
+\glsxtrnewsymbol[description={$\widehat{\Lambda} := \mathds{1}_{\mathrm{T}N} - \rho \circ \lambda \in \sAut(\mathrm{T}N)$, used for field redefinition}]{1Lambdatilde}{\ensuremath{\widehat{\Lambda}}}
+\glsxtrnewsymbol[description={Lie algebra action $\gamma: \mathfrak{g} \to \mathfrak{X}(N)$ of a Lie algebra $\mathfrak{g}$}]{1cammaz}{\ensuremath{\gamma}}
+\glsxtrnewsymbol[description={Primitive of a connection in the context of curved gauge theory}]{1fZeta}{\ensuremath{\zeta}}
+\glsxtrnewsymbol[description={Field redefinition of $\zeta$}]{1fZetaTilde}{\ensuremath{\widetilde{\zeta}^\lambda}}
+\glsxtrnewsymbol[description={Field redefinition of $\zeta = 0$}]{1fZetaTilHat}{\ensuremath{\widehat{\zeta}^\lambda}}
+\glsxtrnewsymbol[description={Space of $k$-forms of a smooth manifold $N$, $k \in \mathds{N}_0$}]{1ZOmegak(N)}{\ensuremath{\Omega^k(N)}}
+\glsxtrnewsymbol[description={Space of $q$-forms of a vector bundle $E$, $q \in \mathds{N}_0$}]{1ZOmegas(E)}{\ensuremath{\Omega^s(E)}}
+\glsxtrnewsymbol[description={Space of $(p,q)$-$E$-forms with values in $V$, $p, q \in \mathds{N}_0$}]{1ZOmegapq(NEV)}{\ensuremath{\Omega^{p, q}(N, E; V)}}
+\glsxtrnewsymbol[description={Space of $p$-forms with values in a vector bundle $E$, $p \in \mathds{N}_0$}]{1ZOmegap(NV)}{\ensuremath{\Omega^{p}(N; V)}}
+\glsxtrnewsymbol[description={Space of $E$-$q$-forms with values in a vector bundle $V$, $q \in \mathds{N}_0$}]{1ZOmegap(EV)}{\ensuremath{\Omega^{q}(E; V)}}
+\glsxtrnewsymbol[description={Vector field describing the infinitesimal gauge transformation}]{1YPsiEpsilon}{\ensuremath{\Psi_{\varepsilon}}}
+%\glsxtrnewsymbol[description={Field of maps used for infinitesimal gauge transformations parametrised by $\varepsilon$}]{1vhiEpsilon}{\ensuremath{\widetilde{\Phi}_\varepsilon}}
+\glsxtrnewsymbol[description={Projection onto the field of gauge bosons as functional}]{1pivar}{\ensuremath{\varpi_2}}
+\glsxtrnewsymbol[description={Field redefinition of $\varpi_2$}]{1pivarwidetildelambda}{\ensuremath{\widetilde{\varpi_2}^\lambda}}
+
+%%%%%%%%%%%%%%%%%%% Sonderzeichen
+\glsxtrnewsymbol[description={Lie bracket of a Lie algebroid $E$}]{0[]E}{\ensuremath{\mleft[\cdot, \cdot\mright]_E}}
+\glsxtrnewsymbol[description={Lie bracket of the space of derivations $\mathcal{D}(V)$ on a vector bundle $V$}]{0[]D(V)}{\ensuremath{\mleft[\cdot, \cdot\mright]_{\mathcal{D}(V)}}}
+\glsxtrnewsymbol[description={Lie bracket of a Lie algebra $\mathfrak{g}$}]{0[]g}{\ensuremath{[\cdot, \cdot]_{\mathfrak{g}}}}
+\glsxtrnewsymbol[description={Lie bracket of vector fields $\mathfrak{X}(N)$} of a smooth manifold $N$]{0[]}{\ensuremath{[\cdot, \cdot]}}
+\glsxtrnewsymbol[description={Coordinate vector fields $\frac{\partial}{\partial x^i}$}]{0partiali}{\ensuremath{\partial_i}}
+\glsxtrnewsymbol[description={$E$-connection of a Lie algebroid $E$}]{0nablaE}{\ensuremath{{}^E\nabla}}
+\glsxtrnewsymbol[description={$E$-connection defined by $(\mu, \nu) \mapsto \nabla_{\rho(\mu)} \nu$ w.r.t. a connection $\nabla$}]{0nablarho}{\ensuremath{\nabla_\rho}}
+\glsxtrnewsymbol[description={Canonical basic connection of a Lie algebroid $E$}]{0nablabas}{\ensuremath{\nabla^{\text{bas}}}}
+\glsxtrnewsymbol[description={Connection of a vector bundle $E$, the latter is often a Lie algebroid}]{0nabla}{\ensuremath{\nabla}}
+\glsxtrnewsymbol[description={Field redefinition of a vector bundle connection}]{0nabla0widetildelambda}{\ensuremath{\widetilde{\nabla}^\lambda}}
+\glsxtrnewsymbol[description={$E$-Bott connection of a Lie algebroid $E$}]{0nablaL}{\ensuremath{\nabla^L}}
+\glsxtrnewsymbol[description={Exterior power of a vector bundle $V$}]{0bigwedgedotV}{\ensuremath{\bigwedge^\bullet V}}
+\glsxtrnewsymbol[description={Pullback functional}]{0*omega}{\ensuremath{{}^*v}}
+\glsxtrnewsymbol[description={Form-pullback functional}]{0!omega}{\ensuremath{{}^!\omega}}
+\glsxtrnewsymbol[description={Pullback connection to functionals}]{0*nabla}{\ensuremath{{}^*\nabla}}
+
+
+
+%\newglossaryentry{rho}{
+ %name=\ensuremath{\rho},
+ %description={Anchor},
+ %type=symbols
+%}
+
+%\usepackage[symbols,
+  %stylemods={tree},% loads glossaries-extra-stylemods to patch styles
+  %record % using 'bib2gls'
+%]{glossaries-extra}
+%
+%\glsxtrsetgrouptitle{latin}{Latin}
+%\glsxtrsetgrouptitle{greek}{Greek}
+%
+%
+%
+%\GlsXtrLoadResources[
+ %src={latinsymbols},
+ %type=symbols,
+ %group={latin},% assign group label
+ %set-widest,% needed for 'alttree' styles
+ %save-locations=false
+%]
+%
+%\GlsXtrLoadResources[
+ %src={greeksymbols},
+ %type=symbols,
+ %group={greek},% assign group label
+ %set-widest,% needed for 'alttree' styles
+ %save-locations=false
+%]
+
+\begin{document}
+%\delimitershortfall=-1pt
+
+% Titelseite
+\pagenumbering{Alph}
+\begin{titlepage}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{bilder/Lyon.png}
+	
+	%\begin{flushleft}
+	%\includegraphics[width=1\textwidth]{bilder/Logo-LABEX_MILYON.jpg}
+	%\begin{flushright}
+	%\includegraphics[width=0.4\textwidth]{bilder/SwissMAP-logo.png}
+	%\end{flushright}
+	%\end{flushleft}
+%\end{center}
+%\begin{figure}
+	%\centering
+		%\includegraphics[width=0.99\textwidth]{}
+\end{figure}
+
+
+\begin{minipage}[t]{0.5\textwidth}
+%\hspace{-.6cm}
+UNIVERSITY OF GENEVA\\
+\vfill 
+%\hspace{-.6cm}
+Section of Mathematics
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+%\hspace{.8cm}
+\hfill FACULTY OF SCIENCE\\
+\vfill
+\hfill Professor Anton Alekseev
+\end{minipage}
+
+\vspace{.3cm}
+\hrule
+\vspace{.3cm}
+
+\begin{minipage}[t]{0.5\textwidth}
+%\hspace{-.6cm}
+CLAUDE BERNARD UNIVERSITY LYON 1\\
+\vfill 
+%\hspace{-.6cm}
+Section of Mathematics
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+%\hspace{.8cm}
+\hfill FACULTY OF SCIENCE\\
+\vfill
+\hfill Professor Thomas Strobl
+\end{minipage}
+\vspace{.3cm}
+\hrule
+
+\vfill\vfill
+\begin{center}
+{\Large \textbf{Geometry of curved Yang-Mills-Higgs gauge theories}}\\
+\vspace{1.6cm}
+{\large Ph.D.~Thesis}\\
+\vspace{.3cm}
+Presented at the Faculty of Science of the University of Geneva and Claude Bernard University Lyon 1\\
+To obtain the dual Ph.D.~degree for mathematics\\
+\vspace{1.4cm}
+By\\
+\vspace{.3cm}
+{\large \textbf{Simon-Raphael Fischer}}\\
+\vspace{.3cm}
+from\\
+\vspace{.3cm}
+Straubing (Germany)
+%\vfill\vfill
+%{\large Th\`ese No.~5562}
+\vfill\vfill
+GENEVA and LYON\\
+%\vspace{.3cm}
+%Centre d'impression de l'UNIGE\\
+%\vspace{.3cm}
+\jahr
+\end{center}
+\vfill
+\begin{figure}[H]
+	\centering
+	%\includegraphics[width=1\textwidth]{bilder/Lyon.png}
+	
+	%\begin{flushleft}
+	\includegraphics[width=1\textwidth]{bilder/Logo-LABEX_MILYON.jpg}
+	%\begin{flushright}
+	%\includegraphics[width=0.4\textwidth]{bilder/SwissMAP-logo.png}
+	%\end{flushright}
+	%\end{flushleft}
+%\end{center}
+%\begin{figure}
+	%\centering
+		%\includegraphics[width=0.99\textwidth]{}
+\end{figure}
+
+\clearpage
+\thispagestyle{empty}
+\includepdf{Title/pagedetheseZwei}
+\includepdf[angle=180]{imprimatur}
+
+
+%{ \small
+  %\flushleft
+  %Version \today \\\vfill
+  %\copyright~\jahr~\fullname\\[0.5em]
+%% Falls keine Lizenz gewünscht wird bitte den folgenden Text entfernen.
+%% Die Lizenz erlaubt es zu nichtkommerziellen Zwecken die Arbeit zu
+%% vervielfältigen und Kopien zu machen. Dabei muss aber immer der Autor
+%% angegeben werden. Eine kommerzielle Verwertung ist für den Autor
+%% weiter möglich.
+%This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/de/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA. \\
+  %Type: PDF-\LaTeXe
+%}
+
+  %\LMUTitle
+      %{Geometry and Quantization of curved Yang-Mills-Higgs gauge theories}               % Titel der Arbeit
+      %{Simon-Raphael Fischer}                       % Vor- und Nachname des Autors
+      %{Straubing}                             % Geburtsort des Autors
+      %{Department of Mathematics}                         % Name der Fakultaet
+      %{Geneva Jahr des Abschlusses}                          % Ort und Jahr der Erstellung
+      %{Tag der Abgabe}                            % Tag der Abgabe
+      %{Prof. Dr. Thomas Strobl, Prof. Dr. Anton Alekseev}                          % Name des Erstgutachters
+      %{Zweitgutachter}                         % Name des Zweitgutachters
+      %{Datum der Verteidigung}                         % Datum der muendlichen Pruefung
+			
+
+
+
+%\begin{addmargin*}[4mm]{-10mm}
+%
+%\includegraphics[height=1.8cm]{bilder/unilogo_bild}
+%\hfill
+%\includegraphics[height=1.8cm]{bilder/unilogo_wort} \hspace{1.0cm} \\[1em]
+%
+%{\footnotesize
+%%{\bfseries Universität Ulm} \textbar ~89069 Ulm \textbar ~Germany
+%\hspace*{110mm}\hspace{-23mm}\parbox[t]{100mm}{\bfseries Faculty for
+%\fakultaet\\
+%% TODO hier Institut anpassen
+%\mdseries \institut}\\[2cm]
+%
+%\parbox{140mm}{\bfseries \huge \titel}\\[1.5em]
+%{\footnotesize Master thesis at the Ludwig Maximilians University}\\[3em]
+%
+%%{\footnotesize \bfseries Author:}\\
+%{\footnotesize \fullname\\\email}\\[20em]
+%{\footnotesize \bfseries Examiner:}\\                     
+%{\footnotesize\gutachterA}\\[2em]
+%%{\footnotesize \bfseries Adviser:}\\ 
+%%{\footnotesize\betreuer}\\\\
+%%\vfill
+%{\footnotesize\jahr}
+%}
+%\end{addmargin*}
+
+%\clearpage
+%\thispagestyle{empty}
+%
+%\includepdf{title/pagedethese}
+
+\end{titlepage}
+
+
+%Doppelseite
+%\newpage\thispagestyle{empty}\hspace{1em}
+%\clearpage
+%\ifodd\count0\else
+%\thispagestyle{empty}
+%\hbox{}\newpage
+%\fi
+
+%\vspace{0.2cm}
+\newpage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\textit{Thanks to all my friends and family for their lasting support in the last years which were probably the most difficult of my life so far. Thanks to my mother, father, Dennis, Gregor, Marco, Nico, Jakob, Kathi, Konstantin, Lukas, Locki, Luciana, Gareth, Philipp, Dominik, Stefan, Ramona, Annerose, Michael, Maxim, and Anna. Also special thanks to their support also additionally in technical aspects of the thesis to Anton Alekseev, Mark Hamilton, and Alessandra Frabetti, and to Daniel for proof-reading my English, so, I finally have someone to blame for my bad English :) Without all your help this project would not have succeeded.}
+\end{center}
+\vspace*{\fill}
+\normalsize
+
+\newpage
+
+\chapter*{Abstract}
+%\begin{abstract}
+This thesis is devoted to the study of the geometry of curved Yang-Mills-Higgs gauge theory (\textbf{CYMH GT}), a theory introduced by Alexei Kotov and Thomas Strobl. This theory reformulates classical gauge theory, in particular, the Lie algebra (and its action) is generalized to a Lie algebroid $E$, equipped with a connection $\nabla$, and the field strength has an extra term $\zeta$; there is a certain relationship between $\zeta$ and $\nabla$, for example, if $\zeta \equiv 0$, then $\nabla$ is flat. In the classical situation $E$ is an action Lie algebroid, a combination of a trivial Lie algebra bundle and a Lie algebra action, $\nabla$ is then the canonical flat connection with respect to such an $E$, and $\zeta\equiv 0$. The main results of this Ph.D.~thesis are the following:
+
+\begin{itemize}
+	\item Reformulating curved Yang-Mills-Higgs gauge theory, also including a thorough introduction and a coordinate-free formulation, while the original formulation was not completely coordinate-free. Especially the infinitesimal gauge transformation will be generalized to a derivation on vector bundle $V$-valued functionals. Those vector bundles $V$ will be the pullback of another bundle $W$, and the gauge transformation as derivation will be induced by a Lie algebroid connection on $W$, using a more general notion of pullbacks of connections. This also supports the usage of arbitrary types of connections on $W$ in the definition of the infinitesimal gauge transformation, not just canonical flat ones as in the classical formulation.
+	%acting on the bundle in which a functional has values in. 
+	\item Studying functionals as parameters of the infinitesimal gauge transformation, supporting a richer set of infinitesimal gauge transformations, especially the parameter itself can have a non-trivial gauge transformation. The discussion about the infinitesimal gauge transformation is also about what type of connection for the definition of the infinitesimal gauge transformation should be used, and this is argued by studying the commutator of two infinitesimal gauge transformations, viewed as derivations on $V$-valued functionals. We take the connection on $W$ then in such a way that the commutator is again an infinitesimal gauge transformation; for this flatness of the connection on $W$ is necessary and sufficient. For $W= E$ and $ W = \mathrm{T}N$ we use a Lie algebroid connection known as basic connection which is not the canonical flat connection in the classical non-abelian situation; this is not the connection normally used in the standard formulation, but it reflects the symmetries of gauge theory better than the usual connection, which is in general not even flat. For $W = \mathbb{R}$ the gauge transformation is uniquely given as the Lie derivative of a vector field on the space of fields given by the field of gauge bosons and the Higgs field, and the commutator is then just the Lie bracket of vector fields; in this case the bracket will also give again a vector field related to gauge transformations.
+	%It will be the so-called basic connection, a generalization of Lie algebra representations.
+	\item Defining an equivalence of CYMH GTs given by a field redefinition which is a transformation of structural data like the field of gauge bosons. In order to preserve the physics, this equivalence is constructed in such a way that the Lagrangian of the studied theory is invariant under this field redefinition. It is then natural to study whether there are equivalence classes admitting representatives with flat $\nabla$ and/or zero $\zeta$:
+	\begin{enumerate}
+	\item On the one hand, the equivalence class related to $E = \mathrm{T}\mathds{S}^7$, $\mathds{S}^7$ the seven-dimensional sphere, admits only representatives with non-flat $\nabla$, while locally the equivalence class of all tangent bundles admits a representative with flat $\nabla$.
+	\item On the other hand, the equivalence class related to "$E=$ LAB" (Lie algebra bundle) has a relation with an obstruction class about extending Lie algebroids by LABs; this will imply that locally there is always a representative with flat $\nabla$ while globally this may not be the case, similar to the previous bullet point. Furthermore, a canonical construction for equivalence classes with no representative with zero $\zeta$ is given, which also works locally, and an interpretation of $\zeta$ as failure of the Bianchi identity of the field strength is provided. 
+	\end{enumerate}
+\end{itemize}
+%\end{abstract}
+
+\newpage
+
+\chapter*{Résumé}
+Cette thèse est consacrée à l'étude de la géométrie de la théorie de jauge Yang-Mills-Higgs courbe (\textbf{CYMH GT}), une théorie introduite par Alexei Kotov et Thomas Strobl. Cette théorie reformule la théorie de jauge classique, en particulier, l'algèbre de Lie (et son action) est généralisée à un algébroïde de Lie $E$, équipé d'une connexion $\nabla$, et l'intensité du champ a un terme supplémentaire $\zeta$; il existe une certaine relation entre $\zeta$ et $\nabla$, par exemple, si $\zeta \equiv 0$, alors $\nabla$ est plat. Dans la situation classique $E$ est un algébroïde de Lie d'action, une combinaison d'un fibré trivial d'algèbre de Lie et d'une action d'algèbre de Lie, $\nabla$ est alors la connexion plate canonique par rapport à un tel $E$, et $\zeta\equiv 0$. Les principaux résultats de cette thèse de doctorat sont les suivants:
+
+\begin{itemize}
+	\item Reformulation de la théorie de jauge courbée de Yang-Mills-Higgs, comprenant également une introduction approfondie et une formulation sans coordonnées, alors que la formulation originale n'était pas complètement sans coordonnées. En particulier, la transformation de jauge infinitésimale sera généralisée à une dérivation sur les fonctionnelle valuées des fibrés de vecteurs $V$. Ces fibrés de vecteurs $V$ seront le pullback d'un autre fibré $W$, et la transformation de jauge en tant que dérivation sera induite par une connexion algébroïde de Lie sur $W$, en utilisant une notion plus générale de pullbacks de connexions. Cela permet également d'utiliser des types arbitraires de connexions sur $W$ dans la définition de la transformation de jauge infinitésimale, et pas seulement des connexions plates canoniques comme dans la formulation classique.
+	\item L'étude des fonctionnelles comme paramètres de la transformation de jauge infinitésimale permet d'obtenir un ensemble plus riche de transformations de jauge infinitésimales, en particulier le paramètre lui-même peut avoir une transformation de jauge non triviale. La discussion sur la transformation de jauge infinitésimale porte également sur le type de connexion à utiliser pour la définition de la transformation de jauge infinitésimale, ce que nous expliquons en étudiant le commutateur de deux transformations de jauge infinitésimales, considérées comme des dérivations sur des fonctionnelles valuées $V$. Nous prenons alors la connexion sur $W$ de telle sorte que le commutateur soit à nouveau une transformation de jauge infinitésimale; pour cela, la planéité de la connexion sur $W$ est nécessaire et suffisante. Pour $W= E$ et $W = \mathrm{T}N$, nous utilisons la connexion dite de base qui n'est pas la connexion plate canonique dans la situation non-abélienne classique; ce n'est pas la connexion normalement utilisée dans la formulation standard, mais elle reflète mieux les symétries de la théorie de jauge que la connexion habituelle, qui n'est en général même pas plate. Pour $W = \mathbb{R}$, la transformation de jauge est uniquement donnée comme la dérivée de Lie d'un champ vectoriel sur l'espace des champs donné par le champ des bosons de jauge et le champ de Higgs, et le commutateur est alors simplement le crochet de Lie des champs vectoriels; dans ce cas, le crochet donnera également à nouveau un champ vectoriel lié aux transformations de jauge.
+	\item Définir une équivalence de GTs CYMH donnée par une redéfinition de champ qui est une transformation de données structurelles comme le champ des bosons de jauge. Afin de préserver la physique, cette équivalence est construite de telle manière que le Lagrangien de la théorie étudiée est invariant sous cette redéfinition de champ. Il est alors naturel d'étudier s'il existe des classes d'équivalence admettant des représentants avec des $\nabla$ plats et/ou des $\zeta$ nuls:
+	\begin{enumerate}
+	\item D'une part, la classe d'équivalence relative à $E = \mathrm{T}\mathds{S}^7$, $\mathds{S}^7$ la sphère à sept dimensions, n'admet que des représentants avec des $\nabla$ non plats, alors que localement la classe d'équivalence de tous les fibrés tangents admet un représentant avec des $\nabla$ plats.
+	\item D'autre part, la classe d'équivalence liée à "$E=$ LAB" (Lie algebra bundle) a une relation avec une classe d'obstruction sur l'extension des algèbres de Lie par les LAB; cela impliquera que localement, il existe toujours un représentant avec $\nabla$ plat alors que globalement, cela peut ne pas être le cas, de manière similaire au point précédent. De plus, une construction canonique pour les classes d'équivalence sans représentant avec $\zeta$ nul est donnée, qui fonctionne également localement, et une interprétation de $\zeta$ comme échec de l'identité de Bianchi de l'intensité du champ est fournie. 
+	\end{enumerate}
+\end{itemize}
+
+%\newpage
+\setcounter{page}{10}
+%\hypersetup{pageanchor=false}
+\thispagestyle{empty}\hspace{1em}\newpage
+%\hypersetup{pageanchor=true}
+\pagenumbering{Roman}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Inhaltsverzeichnis %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\tableofcontents
+
+
+
+%\thispagestyle{empty}\hspace{1em}\newpage
+% \thispagestyle{empty}\hspace{1em}\newpage
+
+
+
+
+\setlength{\parindent}{12 pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Hier beginnt der Hauptteil %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\cleardoublepage
+% für die leere(n) Seite(n)
+\newpage
+\thispagestyle{empty}\hspace{1em}
+\newpage
+
+\newpage
+\thispagestyle{empty}\hspace{1em}
+\newpage
+
+
+\pagenumbering{arabic}
+\input{Introduction/Introduction}
+%\newpage
+\setcounter{equation}{0}
+
+\input{GaugeTheory/Gaugetheory}
+\input{MathematicalBasics/Ba}
+\input{PhysicalBasics/PhysicalBasics}
+\input{FieldRedefinition/FieldRedefinition}
+\input{NoGoTheorems/NoGoThm}
+\input{GeneralLieAlgoids/GeneralLieAlgebroids}
+\input{NewExamples/NewEx}
+%oder \include für anderen Seitenanfang?
+%\setcounter{equation}{0}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Hier beginnt der Anhang %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+
+%\listoftables % Tabellenverzeichnis
+
+%\listoffigures %Abbildungsverzeichnis
+
+\appendix
+\setcounter{equation}{0}
+\renewcommand{\theequation}{\Alph{chapter}.\arabic{equation}} %Reset first and then add section to number
+%\section{Identities for the calculus given in (C)YMH GT}\label{CalculusIdentitiesNeeded}
+
+\input{Appendix/Appendix}
+
+\newpage
+
+\renewcommand\refname{List of References}
+%\begin{thebibliography}{99}
+%\bibitem[I]{Anl01} \url{http://adsabs.harvard.edu/abs/1971ApJ...170..319D}, Datum: 01.11.2014
+%\end{thebibliography}
+
+%\printbibliography 
+\bibliography{Literatur/Literatur}
+\bibliographystyle{unsrt}
+
+\printnoidxglossary[type=symbols,style=long4col,title={List of Symbols}]
+%\printunsrtglossary[type=symbols,style=alttreegroup,title={List of Symbols}]
+%\newpage
+%\pagestyle{empty}
+%\cleardoublepage
+%
+%%\newpage\thispagestyle{empty}\hspace{1em}\newpage
+%
+%Name: \fullname \hfill Matrikelnummer: \matnr \vspace{2cm}
+%
+ %\begin{center}
+%{\large \textbf{Ehrenwörtliche Erklärung}}
+%\end{center}
+%
+%\vspace{1cm}
+%
+%\noindent
+%Ich erkläre hiermit ehrenwörtlich, dass ich die vorliegende Arbeit
+%selbstständig angefertigt habe; die aus fremden Quellen direkt oder indirekt 
+%übernommenen Gedanken sind als solche kenntlich gemacht. Die Arbeit wurde 
+%bisher keiner anderen Prüfungsbehörde vorgelegt und auch noch nicht 
+%veröffentlicht.\\
+%
+%\noindent
+%Ich bin mir bewusst, dass eine unwahre Erklärung rechtliche Folgen haben wird.
+%
+%\vspace{2cm}
+%
+%
+%
+%\noindent Genf, den \dotfill
+%
+%\hspace{10cm} {\footnotesize \fullname}
+
+\end{document}
+
+

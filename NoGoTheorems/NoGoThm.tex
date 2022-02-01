@@ -1,0 +1,2211 @@
+\chapter{Obstruction for CYMH GT}\label{ObstructionStuff}
+
+Let us finally turn to the question whether or not there is always a field redefinition making $\nabla$ flat or $\zeta$ zero.
+As we know by the splitting theorem of Lie algebroids, Thm.~\ref{thm:DirectSplitting}, around regular points every Lie algebroid is the sum of a tangent bundle and a bundle of Lie algebras (BLAs). The discussion about general Lie algebroids is very difficult, hence, let us first focus on both factors separately.
+
+\section{Lie algebra bundles}\label{ObstrLAB}
+
+We only want to discuss Lie algebra bundles (LABs) actually, not BLAs in general. That is motivated by the following theorem.
+
+\begin{theorems}{BLA $\stackrel{?}{=}$ LAB, \newline \cite[Theorem 6.4.5, see also the last note at the beginning of \S 6.4; page 238f.]{mackenzieGeneralTheory} \newline \cite[Proposition 2.13]{basicconn}}{BLALAB}
+Let $K \to N$ be a bundle of Lie algebras (BLA) over a connected manifold $N$ whose field of Lie brackets is denoted by $\mleft[ \cdot, \cdot \mright]_K$. Then $K$ is an LAB if and only if it admits a vector bundle connection $\nabla$ with vanishing basic curvature, that is
+\bas
+\nabla_Y \mleft( \mleft[ \mu, \nu \mright]_K \mright)
+&=
+\mleft[ \nabla_Y \mu, \nu \mright]_K
+	+ \mleft[ \mu, \nabla_Y \nu \mright]_K
+\eas
+for all $\mu, \nu \in \Gamma(K)$ and $Y \in \mathfrak{X}(N)$.
+\end{theorems}
+
+\begin{remark}
+\leavevmode\newline
+Even if the Lie algebras of the fibres of a BLA are not isomorphic as Lie algebras recall that each BLA is a vector bundle, hence, the rank is constant.
+\end{remark}
+
+\begin{proof}[Sketch of the proof]
+\leavevmode\newline
+For "$\Rightarrow$", that is, $K$ is assumed to be an LAB, just take locally the canonical flat connection related to a local trivialization $K|_U \cong U \times \mathfrak{g}$, where $U$ is an open subset of $N$ and $\mathfrak{g}$ the Lie algebra describing $K$ as LAB; recall Def.~\ref{def:LAB}. Such a connection has trivially a vanishing basic curvature, \textit{e.g.}~use that the basic curvature is a tensor and test the vanishing against a frame of constant sections. Then use a partition of unity subordinate to a covering of such trivializations in order to get a globally defined connection with vanishing basic curvature.
+
+The essential idea for the other direction is to observe that in the case of BLAs (zero anchor) we have
+\bas
+t_{\nabla^{\mathrm{bas}}}
+&\stackrel{ \text{Cor.~\ref{cor:TorsionOfDualTorsions}} }{=}
+- t_{\nabla_\rho}
+=
+\mleft[ \cdot, \cdot \mright]_K
+\eas
+for all vector bundle connections $\nabla$ on $K$. In case of a vanishing basic curvature we get by Eq.~\eqref{eq:compcondfast}
+\bas
+\nabla\mleft(\mleft[ \cdot, \cdot \mright]_K\mright)
+&=
+0,
+\eas
+\textit{i.e.}~the field of Lie brackets is parallel with respect to all $\nabla$ with vanishing basic curvature. In \cite[\S 6.4; page 236ff.]{mackenzieGeneralTheory} it is then shown that $\mleft[ \cdot, \cdot \mright]_K$ is deformable under the conjugation of vector space isomorphisms between two fibres of $K$, that is, the bracket of $\mu,\nu \in E_{p_2}$ at $p_2 \in N$ can be calculated by the value of the bracket at another base point $p_1 \in N$ using a conjugation of the bracket;\footnote{$p_1, p_2$ need to be connected by a path which is why one assumes a connected base manifold.} given an vector space isomorphism $\xi: E_{p_1} \to E_{p_2}$ the mentioned conjugation is given by $\xi\mleft( \mleft[ \xi^{-1}(\mu), \xi^{-1}(\nu) \mright]_K \mright)$. That implies that $\xi$ must be a Lie algebra isomorphism, and, extending this, $K$ is an LAB. This argument can be proven with arguments of the holonomy theory of connections, especially one uses that the values of a parallel section at two points connected by a curve are related by the parallel transport along that curve, or, in other words, the value at one point is the value at the other point conjugated by the parallel transport.
+
+Alternatively (but very similar), one argues as in \cite[Proposition 2.13]{basicconn}; that is, as we have seen, $\nabla_X$ is a linear vector field on $K$ as a derivation on a vector bundle (recall Section \ref{DerivationsOnvector}, especially Thm.~\ref{thm:DerivationsSindEigentlichLineareVektorfelderKrass}). One can argue that linear vector fields are infinitesimal automorphisms of a vector bundle.\footnote{See also the beginning of \cite{meinrenkensplitting}.} Since the vanishing of the basic curvature is just the infinitesimal version of a Lie algebra homomorphism, the connection encodes the infinitesimal information of a Lie algebra isomorphism, therefore one can show that parallel transports by $\nabla$ are then Lie algebra isomorphisms with which one can construct a suitable LAB trivialization of $K$.
+\end{proof}
+
+So, this theorem implies that a vanishing basic curvature means that a bundle of Lie algebras is an LAB (over a connected base manifold). So, in our context bundle of Lie algebras are not so important, which is why we just want to focus on LABs.
+
+\subsection{CYMH GT for LABs}\label{SumamryForLABSituation}
+
+Let us now start to look at the situation of LABs; recall Def.~\ref{def:LAB}. Let us summarize the important previous results about CYMH GTs restricted onto LABs. The following section about LABs is also discussed in my paper \cite{My1stpaper}, slightly differently written. Also observe that for a zero anchor the basic connection $\nabla^{\mathrm{bas}}$ on $\mathrm{T}N$ is just zero, making the compatibility condition on the metric $g$ on $\mathrm{T}N$ trivial, and on $E$ it is the adjoint representation. This and the zero anchor in general simplifies all the involved equations:
+
+\begin{situations}{CYMH GT for Lie algebra bundles}{CYMHGTForLABsToDoList}
+Let $\mathfrak{g}$ be a real finite-dimensional Lie algebra with Lie bracket $\mleft[ \cdot, \cdot \mright]_{\mathfrak{g}}$. With
+%\newline
+\begin{center}
+	\begin{tikzcd}
+		\mathfrak{g} \arrow{r}	& \mleft(K, \mleft[ \cdot, \cdot \mright]_K\mright) \arrow{d} \\
+			& N
+	\end{tikzcd}
+\end{center}
+we denote LAB over a smooth manifold $N$ with Lie algebra structure inherited by $\mathfrak{g}$, with its field $\mleft[ \cdot, \cdot \mright]_K \in \Gamma\mleft(\bigwedge^2 K^* \otimes K \mright)$ of Lie brackets which restricts on the Lie bracket $\mleft[ \cdot, \cdot \mright]_{\mathfrak{g}}$ on each fibre. The gauge theory we look at is then now with respect to $E = K$.
+%
+%With respect to some trivialization over an open neighbourhood $U$, consider a fixed basis $\mleft( e_a \mright)_a$ of $\mathfrak{g}$, and extend that to constant sections of $U \times \mathfrak{g}$ which we still denote by $\mleft( e_a \mright)_a$. We denote the structure constants then by
+%\bas
+%\mleft[ e_a, e_b \mright]_K
+%&\equiv
+%\mleft[ e_a, e_b \mright]_{\mathfrak{g}}
+%=
+%C^c_{ab} e_c,
+%\eas
+%using Einstein's sum convention.
+
+In the classical setting that would be a gauge theory where the gauge bosons are not paired to another fields via the minimal coupling because LABs are action Lie algebroids with zero action.
+
+Let $(M, \eta)$ be a spacetime $M$ with its spacetime metric $\eta$, and $\Phi: M \to N$ a smooth map, representing the Higgs field. $\Phi^*K$ has also the structure of an LAB with a field of Lie brackets denoted by $\mleft[ \cdot, \cdot \mright]_{\Phi^*K} \in \Gamma\mleft(\bigwedge^2 \Phi^*\mleft(K^*\mright) \otimes \Phi^*K \mright)$, which restricts to $\mleft[ \cdot, \cdot \mright]_{\mathfrak{g}}$ on each fibre, too. This bracket is given by
+\bas
+\mleft[ \cdot, \cdot \mright]_{\Phi^*K}
+&=
+\Phi^*\mleft(\mleft[ \cdot, \cdot \mright]_{K}\mright).
+\eas
+%\bas
+%\mleft[ \Phi^*\mu, \Phi^*\nu \mright]_{\Phi^*K}
+%=
+%\Phi^*\mleft(\mleft[ \mu, \nu \mright]_K\mright)
+%\eas
+%for all $\mu, \nu \in \Gamma(K)$ and $q \in M$, similar to \eqref{DefPullBackOfSuperTensors}. 
+%Hence, we arrive at:
+%\begin{center}
+	%\begin{tikzcd}
+		  %\mleft(\Phi^*K, \mleft[ \cdot, \cdot \mright]_{\Phi^*K}\mright) \arrow{d} & \mleft(K, \mleft[ \cdot, \cdot \mright]_K\mright) \arrow{d} \\
+			%(M, \eta) \arrow{r}{\Phi} & N
+	%\end{tikzcd}
+%\end{center}
+Let us also fix a vector bundle connection $\nabla$ on $K$ for which there is a $\zeta \in \Omega^2(N; K)$ such that
+\ba\label{CondSGleichNullLAB}
+\nabla_Y\mleft( \mleft[ \mu, \nu \mright]_K \mright)
+&=
+\mleft[ \nabla_Y \mu, \nu \mright]_K
+	+ \mleft[ \mu, \nabla_Y \nu \mright]_K, \\
+R_\nabla(Y, Z) \mu
+&=
+\mleft[ \zeta(Y, Z), \mu \mright]_K \label{CondKruemmungmitBLAB}
+\ea
+for all $Y, Z \in \mathfrak{X}(N)$ and $\mu, \nu \in \Gamma(K)$.
+
+The \textbf{field of gauge bosons} (for a given Higgs field) will be represented by
+\bas
+A &\in \Omega^1(M; \Phi^*K).
+\eas
+The \textbf{field strength} $G$ is then defined as an element of $\mathcal{F}^2_K(M; {}^*K)$ by
+\ba\label{defNewFieldStrengthG}
+G(\Phi, A)
+&\coloneqq
+\mathrm{d}^{\Phi^*\nabla}A
+	+ \frac{1}{2} \mleft[ A \stackrel{\wedge}{,} A \mright]_{\Phi^*K}
+	+ \frac{1}{2} \mleft( \Phi^*\zeta \mright)\mleft( \mathrm{D}\Phi \stackrel{\wedge}{,} \mathrm{D}\Phi \mright) \nonumber \\
+&=
+\mathrm{d}^{\Phi^*\nabla}A
+	+ \frac{1}{2} \mleft[ A \stackrel{\wedge}{,} A \mright]_{\Phi^*K}
+	+ \Phi^!\zeta.
+\ea
+%, $\mleft[ A \stackrel{\wedge}{,} A \mright]_{\Phi^*K}$ is defined as an element of $\Omega^2(M; \Phi^*K)$ by
+%\ba
+%\mleft[ A \stackrel{\wedge}{,} A \mright]_{\Phi^*K}(\Phi, \Psi)
+%&\coloneqq
+%2 ~ \mleft[ A(\Phi) , A(\Psi) \mright]_{\Phi^*K}
+%\ea
+%for all vector fields $\Phi, \Psi \in \mathfrak{X}(M)$; similarly one defines $\mleft( \Phi^*\zeta \mright)\mleft( \mathrm{D}\Phi \stackrel{\wedge}{,} \mathrm{D}\Phi \mright)$ as an element of $\Omega^2(M; \Phi^*K)$ by
+%\ba
+%\mleft( \Phi^*\zeta \mright)\mleft( \mathrm{D}\Phi \stackrel{\wedge}{,} \mathrm{D}\Phi \mright)(\Phi, \Psi)(q)
+%&\coloneqq
+%2 ~ \zeta_{\Phi(q)}\Big( \mathrm{D}_qX(\Phi_q), \mathrm{D}_qX(\Psi_q) \Big)
+%\ea
+%for all $\Phi, \Psi \in \mathfrak{X}(M)$ and $q \in M$.
+
+The curved Yang-Mills-Higgs Lagrangian is then defined as a top-degree-form $\mathcal{L}_{\mathrm{CYMH}} \in \mathcal{F}_K^{\mathrm{dim}(M)}(M)$ given by 
+\ba\label{defLagrangianForLABs}
+\mathcal{L}_{\mathrm{CYMH}}(\Phi, A)
+&\coloneqq
+- \frac{1}{2} \mleft( \Phi^*\kappa \mright)(G \stackrel{\wedge}{,} *G)
+	+ \mleft( \Phi^*g \mright)(\mathrm{D}\Phi \stackrel{\wedge}{,} *\mathrm{D}\Phi)
+	+ *(V \circ \Phi),
+\ea
+where $*$ is the Hodge star operator w.r.t. to $\eta$, $V \in C^\infty(N)$ is the \textbf{potential} for $\Phi$, $g$ is a Riemannian metric on $N$ and $\kappa$ a fibre metric on $K$.
+
+We only allow Lie algebras $\mathfrak{g}$ admitting an \textbf{$\mathrm{ad}$-invariant scalar product} to which $\kappa$ shall restrict to on each fibre. Doing so, we achieve infinitesimal gauge invariance for $\mathcal{L}_{\mathrm{CYMH}}$.
+\end{situations}
+\newpage
+\begin{remark}
+\leavevmode\newline
+\indent $\bullet$ In the following we want to test whether a given connection $\nabla$ satisfies the compatibility conditions \eqref{CondSGleichNullLAB} and \eqref{CondKruemmungmitBLAB}. Especially about the latter we say that a connection $\nabla$ satisfies compatibility condition \eqref{CondKruemmungmitBLAB} if there is a $\zeta \in \Omega^2(N; K)$ such that this condition is satisfied. So, we are not going to study this condition with respect to a fixed $\zeta$. Moreover, for simplicity for LABs we only mean \eqref{CondSGleichNullLAB} and \eqref{CondKruemmungmitBLAB} with compatibility conditions because the compatibility conditions on the metrics are either trivial or well-understood.
+
+$\bullet$ Recall Remark \ref{RemarkUeberNablaRhoCurvatureForGauegTrafo}; if we would use $\nabla_\rho$ in general to define the infinitesimal gauge transformation for $K$-valued forms, then we can only expect $R_\delta(\cdot, \cdot) A = 0$ if the basic curvature vanishes and $\nabla_\rho$ is flat; the latter is now trivially satisfied, while the former is one of the compatibility conditions. If doing so, the essential gauge transformations have again the very familiar form,
+\ba\label{EqInfGaugeTrafoLABs}
+\delta_{\varepsilon(\Phi, A)} A
+&=
+\mleft(\delta_{\varepsilon} \varpi_2\mright)(\Phi, A)
+=
+\mleft[ \varepsilon(\Phi, A), A \mright]_{\Phi^*K}
+		- \mathrm{d}^{\Phi^*\nabla}\bigl( \varepsilon(\Phi, A) \bigr), \\
+\delta_{\varepsilon(\Phi, A)} \Phi &= 0
+\ea
+for all $\varepsilon \in \mathcal{F}^0_K(M; {}^*K)$ and $(\Phi, A) \in \mathfrak{M}_K(M;N)$.
+As usual, the infinitesimal gauge transformation $\delta_\varepsilon G$ of $G$ is then given by (recall Thm.~\ref{thm:RecoverOfClassicInfgGaugeTrafo} and \ref{thm:NewFormulaRecoversOldGaugeTrafoYay})
+\ba
+(\delta_\varepsilon G)(\Phi, A)
+=
+\mleft.\frac{\mathrm{d}}{\mathrm{d}t}\mright|_{t=0} \mleft[ t \mapsto
+ G\mleft( \Phi, A + t \cdot \delta_{\varepsilon(\Phi, A)} A \mright)
+\mright]
+\ea
+for $t \in \mathbb{R}$. Because of the compatibility conditions \eqref{CondSGleichNullLAB} and \eqref{CondKruemmungmitBLAB} we can derive that $\delta_\varepsilon G$ has the following form
+\ba
+(\delta_\varepsilon G)(\Phi, A)
+&=
+\mleft[ \varepsilon(\Phi,A), G(\Phi, A) \mright]_{\Phi^*K}.
+\ea
+However, we will not need those since we have discussed the gauge transformations thoroughly before, which is why we do not prove this; but it is easy to check as an exercise.
+\end{remark}
+%
+%Recall, there is a local isomorphism to the classical gauge theory under certain circumstances, keeping the same notation and elements as defined before.
+%%
+%%\begin{definitions}{Classical limit for LABs}{ClassicalLimitForLABs}
+%%Assume $K \to N$ is an LAB with Lie algebra structure $\mathfrak{g}$. Let $U$ be an open subset of $N$ such that $K|_U \cong U \times \mathfrak{g}$ as Lie algebra bundles. 
+%%
+%%Then, fixing such a local isomorphism, the restriction of $\Gamma(K|_U)$ to constant sections is called the \textbf{(local) classical limit}, where we mean with \textbf{constant sections} the constantly extended elements of $\mathfrak{g}$ to $\Gamma(U \times \mathfrak{g})$.
+%%\end{definitions}
+%
+%\begin{corollaries}{Isomorphism to classical gauge theories, \cite[here for LABs]{CurvedYMH}}{CYMHGTGleichClassicalGT}
+%Let $N$ be a vector space $V$. Assume we have a YMH GT for LABs as in \ref{sit:CYMHGTForLABsToDoList}, with underlying Lie algebra $\mathfrak{g}$ in such a way that $\nabla$ is flat and $\zeta = 0$.
+%
+%Then all the formulas of \ref{sit:CYMHGTForLABsToDoList} are locally the same as for standard gauge theories for the Lie algebra $\mathfrak{g}$ and zero Lie algebra representation on $V$. 
+%%by using a classical limit as in Def. \ref{def:ClassicalLimitForLABs}, where the constant sections are given by the parallel frame of $\nabla$.
+%That means, that we arrive locally at a Yang-Mills gauge theory with an additional free physical field $\Phi$ with potential $V$. When additionally $N = \{*\}$ then we just get a Yang-Mills gauge theory.
+%\end{corollaries}
+%
+%\begin{remark}
+%\leavevmode\newline
+%The idea for the proof is the following: Since $\nabla$ is flat we have locally a parallel frame $\mleft( e_a \mright)_a$ and its pull-back frame $\mleft( \Phi^*e_a \mright)_a$. Expressing everything with respect to this frame results into the same formulas as in classical gauge theories when $\zeta \equiv 0$.
+%
+%By compatibility condition \eqref{CondSGleichNullLAB} one can show that the structure functions $C^a_{bc} = \mleft[ e_b, e_c \mright]_{K}$ are constant and then clearly coincide with $\mleft[ \Phi^*e_b, \Phi^*e_c \mright]_{\Phi^*K}$. Thus, the idea of the proof can also be described as limiting the space of sections of $K$ to constant sections by using that $K$ is locally trivial and its fibre type is given by the Lie algebra $\mathfrak{g}$.
+%\end{remark}
+
+That is the situation regarding gauge theory and its formalism on Lie algebra bundles. The field redefinition defined earlier has the following simplified form. Recall its properties shown earlier.
+
+\begin{fieldredefinitions}{In the situation of LABs}{FieldRedefForLABs}
+Let $\lambda \in \Omega^1(N; K)$, then the field redefinition in the case of LABs leads to the following formulas
+\ba
+\widetilde{A}^\lambda
+&=
+A
+	+ \mleft( \Phi^*\lambda \mright)(\mathrm{D}\Phi)
+=
+A
+	+ \Phi^! \lambda, \\
+\widetilde{\zeta}^\lambda
+&=
+\zeta
+	- \mathrm{d}^\nabla \lambda
+	+ \frac{1}{2} \mleft[ \lambda \stackrel{\wedge}{,} \lambda \mright]_K, \label{EqZetaTrafoForLAB}
+\ea
+and
+\ba\label{EqWennFlachDannExaktOderHaltInner}
+\widetilde{\nabla}_Y^\lambda \mu
+&=
+\nabla_Y \mu
+	- \mleft[ \lambda(Y) , \mu \mright]_K
+\ea
+for all $Y \in \mathfrak{X}(N)$ and $\mu \in \Gamma(K)$. The metrics $\kappa$ and $g$ stay the same.
+\end{fieldredefinitions}
+
+\begin{remark}
+\leavevmode\newline
+For Eq.~\eqref{EqWennFlachDannExaktOderHaltInner} we can write 
+\ba
+\widetilde{\nabla}^\lambda
+&=
+\nabla
+- \mathrm{ad} \circ \lambda,
+\ea
+where $\mathrm{ad} \circ \lambda \in \Omega^1(N; \mathrm{End}(K))$, $\mleft(\mathrm{ad} \circ \lambda \mright)(Y)(\mu) \coloneqq \mleft[ \lambda(Y), \mu \mright]_K$ for all $Y \in \mathfrak{X}(N)$ and $\mu \in \Gamma(K)$. This implies that 
+\bas
+(\mathrm{ad} \circ \lambda)(\mu)
+&=
+\mleft[ \lambda, \mu \mright]_K
+=
+\mleft[ \lambda \stackrel{\wedge}{,} \mu \mright]_K.
+\eas
+Similarly, we get $\mathrm{ad} \circ \omega \in \Omega^l(N; \mathrm{End}(K))$.
+\end{remark}
+%
+%\begin{remarks}{Another motivation for the new field strength}{MotivationForTheNewFieldStrength}
+%The idea of the 2-form $\zeta$ in Eq. \eqref{defNewFieldStrengthG} was that it describes an auxiliary map to allow non-flat $\nabla$ for gauge theories by compatibility condition \eqref{CondKruemmungmitBLAB}. But let us give a more physical approach how to motivate this 2-form, using the introduced field redefinition and Cor. \ref{cor:CYMHGTGleichClassicalGT}.
+%
+%Start with a classical formulation of gauge theory with Lie algebra $\mathfrak{g}$ and extend this to a YMH GT as in \ref{sit:CYMHGTForLABsToDoList}, \textit{e.g.} by choosing a trivial Lie algebra bundle $K = N \times \mathfrak{g}$ over $N$, $\zeta = 0$ and taking its canonical flat connection. As explained in \cite{CurvedYMH} and given by Cor. \ref{cor:CYMHGTGleichClassicalGT}, this theory describes a covariantized formulation of Yang-Mills gauge theories with a free physical field $\Phi$.
+%
+%Normally, Yang-Mills gauge theory would be with $N = \{*\}$ and then there is only $\zeta \equiv 0$. But one could now add a free physical field $\Phi$ with its target manifold $N$ and change the Lagrangian as in \eqref{defLagrangianForLABs}. Even when we start with $\zeta = 0$ we could motivate non-zero $\zeta$ in the definition of the Field strength by applying the field redefinition \ref{fieldredef:FieldRedefForLABs}. Since the field redefinition keeps the Lagrangian invariant we arrive at a Lagrangian with a field strength as given in Eq. \eqref{defNewFieldStrengthG}, but it still describes the same physics. Although there is no minimal pairing to $\Phi$ of the gauge bosons in the classical setting, the Lagrangian would now give terms where there are products of $A$ with $\mathrm{D}\Phi$. Hence, there is hope for new physics when one allows any $\zeta$ satisfying compatibility condition \eqref{CondKruemmungmitBLAB} and not just the ones coming from $\zeta \equiv 0$. There is then the natural question whether there are such more general $\zeta$. We try to answer this question in this subsection for LABs but we can already try to give an answer for the abelian situation:
+%
+%For abelian Lie algebras we would get a $\zeta$ of the form $\widetilde{\zeta}^\lambda = -\mathrm{d}^\nabla \lambda$ when starting with $\zeta \equiv 0$ and then applying the field redefinition. Observe that the connection stays invariant and has to be always flat by compatibility condition \eqref{CondKruemmungmitBLAB}. Moreover, compatibility condition \eqref{CondKruemmungmitBLAB} would be trivial such that there is in general no restriction on $\zeta$. Thence, you can take every $\zeta \in \Omega^2(N; K)$, especially ones which are not exact with respect to $\mathrm{d}^\nabla$ and even ones with $\mathrm{d}^\nabla \zeta \neq 0$ to avoid local exactness. In that way we avoid that there is a field redefinition which could lead to $\widetilde{\zeta}^\lambda = 0$ since this would otherwise imply 
+%\bas
+%\mathrm{d}^\nabla \zeta ~ &\stackrel{\text{Eq. \eqref{EqZetaTrafoForLAB}}}{=} ~ \mleft( \mathrm{d}^\nabla \mright)^2\lambda
+%~ \stackrel{\nabla \text{ flat}}{=} ~ 0.
+%\eas
+%We will come back to this when we have a better understanding of everything, we are also going to give an interpretation of $\mathrm{d}^\nabla \zeta$.
+%\end{remarks}
+%
+\subsection{Relation of vector bundle connections in gauge theories with certain Lie derivation laws} \label{ConnectionIsALieDerivation}
+
+Starting with a CYMH GT using LABs, there is the natural question whether or not one arrives at a (pre-)classical gauge theory by using the field redefinition \ref{fieldredef:FieldRedefForLABs}. We now especially need what we have discussed in Section \ref{SectionOfLABStuff}, most importantly Ex.~\ref{ex:BigCoolDiagramOfMackenzieAboutLABsStuff} which was about the following commuting diagram of Lie algebroid morphisms:
+\be\label{theFullDiagramForLABStuff}
+	\begin{tikzcd}
+		Z(K) \arrow[hook]{d} \arrow[equal]{r} & Z(K) \arrow[hook]{d} \\
+		K \arrow{d}{\mathrm{ad}} \arrow[equal]{r} & K \arrow{d} \\
+		\mathrm{Der}(K) \arrow[two heads]{d}{\sharp^+} \arrow[hook]{r} & \mathcal{D}_{\mathrm{Der}}(K) \arrow[two heads]{d}{\sharp} \arrow[two heads]{r}{a} & \mathrm{T}N \arrow[equal]{d} \\
+		\mathrm{Out}(K) \arrow[hook]{r} & \mathrm{Out}\mleft(\mathcal{D}_{\mathrm{Der}}(K)\mright) \arrow[two heads]{r}{\overline{a}} & \mathrm{T}N
+	\end{tikzcd}
+\ee
+where $K \to N$ is an LAB over a smooth manifold $N$, $Z(K)$ its centre, $\mathcal{D}_{\mathrm{Der}}(K)$ derivations of $K$ which are also Lie bracket derivations, $\mathrm{Der}(K)$ are the same but as endomorphisms, so, the kernel of $a$; and the $\mathrm{Out}$ denotes the quotient over the adjoint of $K$, $\mathrm{ad}(K)$.
+
+In order to understand CYMH GT using LABs, it is important to understand what type of connection $\nabla$ we have due to the compatibility conditions \eqref{CondSGleichNullLAB} and \eqref{CondKruemmungmitBLAB}. We understand vector bundle connections as an anchor-preserving (and base-preserving) vector bundle morphism $\mathrm{T}N \to \mathcal{D}(K)$. For all $Y \in \mathfrak{X}(N)$, compatibility condition \eqref{CondSGleichNullLAB} implies that $\nabla_Y$ is a derivation of the Lie bracket $\mleft[ \cdot, \cdot \mright]_K$ and so of $\mleft[ \cdot, \cdot \mright]_{\mathfrak{g}}$ on each fibre. Thence, the vector bundle morphism $\nabla$ has values in $\mathcal{D}_{\mathrm{Der}}(K)$.
+
+$\mathcal{D}_{\mathrm{Der}}(K)$ is also a Lie subalgebroid of $\mathcal{D}(K)$ as discussed earlier. So, by compatibility condition \eqref{CondSGleichNullLAB}, we arrive at that $\nabla$ has to be what we will call a Lie derivation law:
+
+\begin{definitions}{Lie derivation law, \newline \cite[\S 7.2, special form of Definition 7.2.9, page 275.]{mackenzieGeneralTheory}}{LieConnection}
+Let $K \to N$ be an LAB. A \textbf{Lie derivation law} for $\mathrm{T}N$ with coefficients in $K$ is an anchor- and base-preserving vector bundle morphism $\nabla: \mathrm{T}N \to \mathcal{D}_{\mathrm{Der}}(K)$, that is, a connection $\nabla$ on $K$ in the usual sense such that
+\ba
+\nabla_Y\mleft( \mleft[ \mu, \nu \mright]_K \mright)
+&=
+\mleft[ \nabla_Y \mu, \nu \mright]_K
+	+ \mleft[ \mu, \nabla_Y \nu \mright]_K
+\ea
+for all $Y \in \mathfrak{X}(N)$ and $\mu, \nu \in \Gamma(K)$.
+\end{definitions}
+
+\begin{remark}
+\leavevmode\newline
+By Thm.~\ref{thm:BLALAB} such a connection always exists for LABs.
+
+In \cite[\S 5.2, second part of Example 5.2.12; page 188f.]{mackenzieGeneralTheory} such a connection is also called Lie connection; Lie derivation laws are actually a bit more general defined, using general Lie algebroids in place of $\mathrm{T}N$. However, we will not need this generalization, but all the references in the following are actually about more general connections; in order to make it easier for the reader who looks up those references, we decided to still use the term Lie derivation law instead to avoid confusion.
+\end{remark}
+%
+%
+%
+%\begin{proof}
+%\leavevmode\newline
+%As discussed earlier a connection has a 1:1 correspondence with an anchor-preserving vector bundle morphism $\mathrm{T}N \to \mathcal{D}(V)$, thence, we only need to check the preservation of the Lie brackets in the flat case. We have for the curvature $R_\nabla$
+%\bas
+%R_\nabla(Y, Z)
+%&=
+%\mleft[ \nabla_Y, \nabla_Z \mright]_{\mathcal{D}(V)}
+	%- \nabla_{[Y, Z]}
+%\eas
+%such that we have the following set of equivalent statements
+%\bas
+%&&
+%\nabla
+%&\text{ is flat} \\
+%&\Leftrightarrow&
+%\nabla_{[Y, Z]}
+%&=
+%\mleft[ \nabla_Y, \nabla_Z \mright]_{\mathcal{D}(V)} \\
+%&\stackrel{\mathclap{\nabla \text{ morphism of anchored vector bundles}}}{\Leftrightarrow}&
+%\nabla
+%&\text{ is a base-preserving morphism of Lie algebroids.}
+%\eas
+%\end{proof}
+
+Now about understanding the compatibility condition \eqref{CondKruemmungmitBLAB}: In the context of the field redefinition, if it would be possible to make $\nabla$ flat by a field redefinition, then there would be a parallel frame $\mleft( e_a \mright)_a$ locally for $\widetilde{\nabla}^\lambda$ such that by Eq. \eqref{EqWennFlachDannExaktOderHaltInner}
+\bas
+\nabla_Y e_a
+&=
+\mleft[ \lambda(Y), e_a \mright]_K
+\eas
+for all $Y \in \mathfrak{X}(N)$. That is, with respect to that frame, the Lie bracket derivation $\nabla_Y$ looks like an adjoint of $\lambda(Y)$, an inner Lie bracket derivation. Thence, it makes sense to look at the previously discussed Lie algebroid of outer derivations \textit{etc.}, which is why we emphasize again to recall the discussion around diagram \eqref{theFullDiagramForLABStuff} in Section \ref{SectionOfLABStuff}.
+
+With diagram \eqref{theFullDiagramForLABStuff} we can now also study compatibility condition \eqref{CondKruemmungmitBLAB}. The curvature $R_\nabla$ of a Lie connection $\nabla:\mathrm{T}N \to \mathcal{D}_{\mathrm{Der}}(K)$ is clearly an element of $\Omega^2\mleft(N; \mathcal{D}_{\mathrm{Der}}(K)\mright)$ since
+\bas
+R_\nabla(Y, Z)
+&=
+\underbrace{\mleft[ \nabla_Y, \nabla_Z \mright]_{\mathcal{D}_{\mathrm{Der}}(K)}}_{\in ~ \Gamma(\mathcal{D}_{\mathrm{Der}}(K))}
+	- \underbrace{\nabla_{[Y, Z]}}_{\mathclap{\in ~ \Gamma(\mathcal{D}_{\mathrm{Der}}(K))}}
+	\in \Gamma(\mathcal{D}_{\mathrm{Der}}(K))
+\eas
+for all $Y, Z \in \mathfrak{X}(N)$. Compatibility condition \eqref{CondKruemmungmitBLAB} is then equivalent to
+\ba
+\sharp\mleft( R_\nabla(Y, Z) \mright) = 0
+\ea
+for all $Y, Z \in \mathfrak{X}(N)$. We will show that this implies that $\nabla$ is a Lie derivation law covering what is called a pairing of $\mathrm{T}N$ with $K$. For that we need to define what a pairing is.\footnote{Mackenzie called the following construction a \textbf{coupling} and not \textbf{pairing}. I renamed it to avoid confusion with couplings in a physical context. Thanks for this suggestion, Alessandra Frabetti.}
+
+\begin{definitions}{Pairing of $\mathrm{T}N$, \cite[\S 7.2, Definitions 7.2.2; page 272]{mackenzieGeneralTheory}}{pairingsOfTNWithK}
+A \textbf{pairing} of $\mathrm{T}N$ is a pair of an LAB $K \to N$ together with a (base-preserving) morphism of Lie algebroids $\Xi: \mathrm{T}N \to \mathrm{Out}(\mathcal{D}_{\mathrm{Der}}(K))$. We also say that $\mathrm{T}N$ and $K$ are \textbf{paired by $\Xi$}.
+\end{definitions}
+
+Now we can define a special type of connection.
+
+\begin{definitions}{Lie derivation law covering $\Xi$, \newline\cite[\S 7.2, see discussion after Definition 7.2.2; page 272]{mackenzieGeneralTheory}}{LieDerivationLawOverApairingXi}
+Let $K \to N$ be an LAB and $\nabla: \mathrm{T}N \to \mathcal{D}_{\mathrm{Der}}(K)$ a Lie derivation law. Assume that $\mathrm{T}N$ and $K$ are paired by a (base-preserving) Lie algebroid morphism $\Xi: \mathrm{T}N \to \mathrm{Out}(\mathcal{D}_{\mathrm{Der}}(K))$.
+Then we say that $\nabla$ is a \textbf{Lie derivation law covering $\Xi$} if
+\ba
+\sharp \circ \nabla
+&=
+\Xi.
+\ea
+\end{definitions}
+
+\begin{remark}
+\leavevmode\newline
+So, while a Lie derivation law is not necessarily a morphism of Lie algebroids, $\sharp \circ \nabla$ is of that type when $\nabla$ covers a pairing.
+\end{remark}
+
+This type of connection is exactly the type we need for gauge theory on LABs.
+
+\begin{theorems}{(C)YMH GT only allows Lie derivation laws covering $\Xi$}{GaugeTheoryNeedsLieDerivLawsCoveringApairing}
+Let $K \to N$ be an LAB. Then a map $\nabla: \mathrm{T}N \to \mathcal{D}_{\mathrm{Der}}(K)$ is a Lie derivation law covering some (base-preserving) Lie algebroid morphism $\Xi: \mathrm{T}N \to \mathrm{Out}(\mathcal{D}_{\mathrm{Der}}(K))$ if and only if it is a connection on $K$ satisfying the compatibility conditions \eqref{CondSGleichNullLAB} and \eqref{CondKruemmungmitBLAB}, \textit{i.e.}
+\bas
+\nabla_Y\mleft( \mleft[ \mu, \nu \mright]_K \mright)
+&=
+\mleft[ \nabla_Y \mu, \nu \mright]_K
+	+ \mleft[ \mu, \nabla_Y \nu \mright]_K, \\
+\sharp\mleft(R_\nabla(Y, Z)\mright)
+&=
+0
+\eas
+for all $Y, Z \in \mathfrak{X}(N)$ and $\mu, \nu \in \Gamma(K)$.
+\end{theorems}
+
+\begin{remark}\label{remExistenceOfLieDerivationLawsCoveringApairing}
+\leavevmode\newline
+So, we have seen that compatibility condition \eqref{CondSGleichNullLAB} implies that $\nabla$ has to be a Lie derivation law, and compatibility condition \eqref{CondKruemmungmitBLAB} then implies that it covers a pairing of $\mathrm{T}N$ and $K$.
+
+As argued in \cite[\S 7.2, discussion after Definition 7.2.2, replace the $A$ there with $\mathrm{T}N$; page 272]{mackenzieGeneralTheory}, for a given $\Xi$ there is always a Lie derivation law covering it. As a sketch, that follows by the construction and definition of $\sharp$ given by Prop.~\ref{prop:QuotientsOfTransitiveLAOids}, \textit{i.e.}~it is a surjective submersion, such that the existence of a map $\nabla: \mathrm{T}N \to \mathcal{D}_{\mathrm{Der}}(K)$ with $\sharp \circ \nabla = \Xi$ follows, $\nabla$ is a vector bundle morphism, since $\sharp$ and $\Xi$ are; finally, we have by diagram \eqref{theFullDiagramForLABStuff} $\overline{a} \circ \sharp = a$ and $\Xi$ is anchor-preserving, so, $\overline{a}\circ\Xi= \mathds{1}_{\mathrm{T}N}$, such that we can apply $\overline{a}$ on both side of $\sharp\circ\nabla= \Xi$ to get 
+\bas
+a\circ\nabla&= \mathds{1}_{\mathrm{T}N}.
+\eas
+Therefore $\nabla$ is also anchor-preserving and, thus, a vector bundle connection.
+\end{remark}
+
+\begin{proof}
+\leavevmode\newline
+We already have seen that a connection $\nabla$ satisfying compatibility condition \eqref{CondSGleichNullLAB} has a 1:1 correspondence to an anchor-preserving vector bundle morphism $\nabla: \mathrm{T}N \to \mathcal{D}_{\mathrm{Der}}(K)$, \textit{i.e.} a Lie derivation law. So, we only have to care about compatibility condition \eqref{CondKruemmungmitBLAB}.
+
+"$\Leftarrow$": So, let us have a Lie derivation law with additionally $\sharp\mleft(R_\nabla(Y, Z)\mright) = 0$ for all $Y, Z \in \mathfrak{X}(N)$. Define $\Xi \coloneqq \sharp \circ \nabla$, and recall that $\sharp: \mathcal{D}_{\mathrm{Der}}(K) \to \mathrm{Out}(\mathcal{D}_{\mathrm{Der}}(K))$ is a Lie algebroid morphism such that $\Xi$ is an anchor-preserving vector bundle morphism by definition, using that $\nabla$ is a Lie derivation law,
+\bas
+\overline{a} \circ \Xi
+&=
+\overline{a} \circ \sharp \circ \nabla
+=
+a \circ \nabla
+= \mathds{1}_{\mathrm{T}N}.
+\eas
+Using that $\sharp$ is a homormorphism of Lie brackets, and by $\sharp\mleft(R_\nabla(Y, Z)\mright) = 0$ for all $Y, Z \in \mathfrak{X}(N)$, we also get
+\bas
+\Xi([Y, Z])
+&=
+\sharp \mleft( \nabla_{[Y, Z]} \mright)
+\\
+&=
+\sharp \mleft( \mleft[ \nabla_Y, \nabla_Z \mright]_{\mathcal{D}_{\mathrm{Der}}(K)} \mright) 
+\\
+&=
+\mleft[ \sharp\mleft(\nabla_Y\mright), \sharp\mleft(\nabla_Z\mright) \mright]_{\mathrm{Out}(\mathcal{D}_{\mathrm{Der}}(K))}
+\\
+&=
+\mleft[ \Xi(Y), \Xi(Z) \mright]_{\mathrm{Out}(\mathcal{D}_{\mathrm{Der}}(K))},
+\eas
+\textit{i.e.} $\Xi$ is a Lie algebroid morphism (base-preserving), and it is covered by $\nabla$ due to its definition.
+
+"$\Rightarrow$": This part of the proof is as in \cite[\S 7.2, discussion after Definition 7.2.2; page 272]{mackenzieGeneralTheory} and similar to the previous calculation. Let $\nabla$ be a Lie derivation law covering some Lie algebroid morphism $\Xi$, especially, $\sharp \circ \nabla = \Xi$. That implies
+\bas
+\sharp\mleft( R_\nabla(Y, Z) \mright)
+&=
+\sharp\mleft( \mleft[ \nabla_Y, \nabla_Z \mright]_{\mathcal{D}_{\mathrm{Der}}(K)} - \nabla_{[Y, Z]} \mright) \\
+&=
+\mleft[ \sharp(\nabla_Y), \sharp(\nabla_Z) \mright]_{\mathrm{Out}(\mathcal{D}_{\mathrm{Der}}(K))} - \sharp\mleft(\nabla_{[Y, Z]}\mright) \\
+&=
+\mleft[ \Xi(Y), \Xi(Z) \mright]_{\mathrm{Out}(\mathcal{D}_{\mathrm{Der}}(K))} - \Xi([Y, Z]) \\
+&=
+0
+\eas
+for all $Y, Z \in \mathfrak{X}(N)$, using that both, $\sharp$ and $\Xi$, are homomorphisms of the corresponding Lie brackets. This finishes the proof.
+\end{proof}
+
+Given a Lie derivation law covering some $\Xi$, we get that $\nabla$ is an anchor-preserving vector bundle morphism and $\sharp \circ \nabla = \Xi$ is a Lie algebroid morphism. When we want that $\nabla$ is not flat, in the hope of finding a new gauge theory (recall Cor. \ref{cor:ManBrauchZetaWahrscheinlich}), we do not want that $\nabla$ itself is a Lie algebroid morphism by Cor. \ref{cor:FlatConnectionsAreLieAlgebroidMorphisms}, while $\sharp$ is a Lie algebroid morphism and $\Xi = \sharp \circ \nabla$, too. That looks like a tightrope walk. But there are a lot of non-flat Lie derivation laws covering some $\Xi$, we may see some in the following parts, so, constructing non-flat connections for a gauge theory is not impossible. But the field redefinition \ref{fieldredef:FieldRedefForLABs} may still lead to a flat connection while keeping the same physics, \textit{i.e.} the Lagrangian stays the same.
+
+%When one could interpret $\sharp \circ \nabla$ as typical vector bundle connection on $K$ (which it isn't in general, we just assume that for now), then Cor. \ref{cor:FlatConnectionsAreLieAlgebroidMorphisms} would imply that $\sharp \circ \nabla$ is a flat connection such that locally a parallel frame of $\sharp \circ \nabla$ would exist. That would suggest that there is locally a frame $\mleft( e_a \mright)_a$ such that
+%\bas
+%\nabla_Y e_a
+%&=
+%\mleft[ \lambda(Y), e_a \mright]_K
+%\eas
+%for some $\lambda \in \Omega^1(N; K)$. By the field redefinition Eq. \eqref{EqWennFlachDannExaktOderHaltInner} that would lead to a flat connection $\widetilde{\nabla}^\lambda$, and so we arrive at a description using a flat connection.
+%
+%$\sharp \circ \nabla$ is in general not a connection of $K$, so this was not really a proof, just a gedankenexperiment to motivate possible results. But indeed, we are going to show that there is locally always a field redefinition in the sense of \ref{fieldredef:FieldRedefForLABs} such that $\widetilde{\nabla}^\lambda$ is flat. But globally that might be different.
+
+To study this we now need to construct an invariant for the field redefinition.
+%We will show that this is exactly the so-called \textit{obstruction class} as Mackenzie constructed in \cite[\S 7.2; page 271ff.]{mackenzieGeneralTheory}. 
+Observe the following, using the notation as introduced in \eqref{theFullDiagramForLABStuff}.
+
+\begin{propositions}{Field redefinition preserves the pairing}{FieldRedefPreservespairing}
+Let $(K, \Xi)$ be a pairing of $\mathrm{T}N$, $\nabla$ be a Lie derivation law covering $\Xi$ and $\zeta \in \Omega^2(N;K)$ satisfying compatibility condition \eqref{CondKruemmungmitBLAB} with respect to $\nabla$.
+
+Then the field redefinition \ref{fieldredef:FieldRedefForLABs} preserves the pairing, \textit{i.e.}~$\widetilde{\nabla}^\lambda$ is also a Lie derivation law covering $\Xi$ for all $\lambda \in \Omega^1(N;K)$. Moreover, for every other Lie derivation law $\nabla^\prime$ covering $\Xi$ there is a $\lambda \in \Omega^1(N; K)$ such that
+\bas
+\nabla^\prime &= \widetilde{\nabla}^\lambda
+\eas
+and for its curvature
+\bas
+R_{\nabla^\prime} &= \mathrm{ad} \circ \widetilde{\zeta}^\lambda.
+\eas
+\end{propositions}
+
+\begin{remark}
+\leavevmode\newline
+These are exactly the same formulas as in \cite[\S 7.2, Proposition 7.2.7, identifying Mackenzie's 1-form $l$ with $- \lambda$, also keep in mind that Mackenzie defines curvatures with an opposite sign; page 274]{mackenzieGeneralTheory}. In this reference Mackenzie studies the form given by the difference of two Lie derivation laws covering the same pairing and arrives exactly at our formulas of the field redefinition which we have derived from a more general context of gauge theory on Lie algebroids.
+
+In this work the context is given by field redefinitions of a gauge theory, while Mackenzie studies these connections in the context of extending Lie algebroids by Lie algebra bundles (over the same base) such that their Whitney sum admits a Lie algebroid structure. Hence, in the following we will see that Mackenzie's study about extensions has a 1:1 correspondence to the question whether one can find a field redefinition such that $\widetilde{\nabla}^\lambda$ is flat.
+\end{remark}
+
+\begin{proof}[Proof of Prop.~\ref{prop:FieldRedefPreservespairing}]
+\leavevmode\newline
+By Thm.~\ref{thm:InvarianceUnderTheFieldRedefinition} we know that the field redefinition preserves the compatibility conditions \eqref{CondSGleichNullLAB} and \eqref{CondKruemmungmitBLAB}, \textit{i.e.}
+\bas
+\widetilde{\nabla}^\lambda_Y\mleft( \mleft[ \mu, \nu \mright]_K \mright)
+&=
+\mleft[ \widetilde{\nabla}^\lambda_Y \mu, \nu \mright]_K
+	+ \mleft[ \mu, \widetilde{\nabla}^\lambda_Y \nu \mright]_K, \\
+R_{\widetilde{\nabla}^\lambda}(Y, Z) \mu
+&=
+\mleft[ \widetilde{\zeta}^\lambda(Y, Z), \mu \mright]_K,
+\eas
+that implies by Thm.~\ref{thm:GaugeTheoryNeedsLieDerivLawsCoveringApairing} that $\widetilde{\nabla}^\lambda$ is a Lie derivation law covering $\widetilde{\Xi}^\lambda \coloneqq \sharp \circ \widetilde{\nabla}^\lambda$. Moreover, using the notation \eqref{theFullDiagramForLABStuff},
+\bas
+\sharp \circ \widetilde{\nabla}^\lambda
+&=
+\sharp \circ \mleft( \nabla - \mathrm{ad} \circ \lambda \mright)
+=
+\sharp \circ \nabla
+=
+\Xi
+\eas
+for all $\lambda \in \Omega^1(N; K)$, using $\sharp \circ \mathrm{ad} = 0$. This shows that $\widetilde{\nabla}^\lambda$ covers $\Xi$.
+
+Now let $\nabla^\prime$ be another Lie derivation law covering $\Xi$, then clearly
+\bas
+a|_{\mathcal{D}_{\mathrm{Der}}(K)}(\nabla^\prime_Y - \nabla_Y)
+&= Y- Y = 0
+\eas
+for all $Y \in \mathfrak{X}(N)$, such that $\nabla^\prime - \nabla \in \Omega^1(N; \mathrm{Der}(K))$ by \eqref{theFullDiagramForLABStuff}, and
+\bas
+0
+&=
+\Xi - \Xi
+=
+\sharp \circ \nabla^\prime
+	- \sharp \circ \nabla
+=
+\sharp \circ \underbrace{\mleft( \nabla^\prime - \nabla \mright)}_{\mathclap{\in ~ \Omega^1(N; \mathrm{Der}(K))}}
+=
+\sharp^+ \circ \mleft( \nabla^\prime - \nabla \mright).
+\eas
+Again by \eqref{theFullDiagramForLABStuff}, there is a $\mu(Y) \in \Gamma(K)$ such that $\nabla^\prime_Y - \nabla_Y = \mathrm{ad}(\mu(Y))$ for all $Y \in \mathfrak{X}(N)$, and due to the $C^\infty$-linearity w.r.t. $Y$ we get $\nabla^\prime - \nabla = \mathrm{ad} \circ \mu$ for a $\mu \in \Omega^1(N; K)$. By field redefinition \ref{fieldredef:FieldRedefForLABs} we can take $\lambda = - \mu$ to get $\nabla^\prime = \widetilde{\nabla}^\lambda$.
+
+Since $\nabla$ satisfies compatibility condition \eqref{CondKruemmungmitBLAB} by Thm.~\ref{thm:GaugeTheoryNeedsLieDerivLawsCoveringApairing} and since this condition is preserved by a field redefinition, the last statement follows, $R_{\nabla^\prime}(Y, Z) = \mathrm{ad}\mleft( \widetilde{\zeta}^\lambda(Y, Z) \mright)$ for all $Y, Z \in \mathfrak{X}(N)$.
+\end{proof}
+
+%This result is basically equivalent to the result given in \cite[\S 7.2, Proposition 7.2.7; page 274]{mackenzieGeneralTheory}, but coming from a different context:
+
+%\begin{proposition}[Difference of two Lie derivation laws covering the same pairing] \cite[\S 7.2, Proposition 7.2.7, identifying Mackenzie's 1-form $l$ with $- \lambda$, also beware that Mackenzie defines curvatures with an opposite sign; page 274]{mackenzieGeneralTheory}
+%\leavevmode\newline
+%%Let $K \to N$ be an LAB, and let $\nabla$ and $\nabla^\prime$ be two Lie derivation laws covering the same (base-preserving) Lie algebroid morphism $\Xi: \mathrm{T}N \to \mathrm{Out}(\mathcal{D}_{\mathrm{Der}}(K))$.
+%Let $(K, \Xi)$ be a pairing of $\mathrm{T}N$, and let $\nabla$ and $\nabla^\prime$ be two Lie derivation laws covering $\Xi$.
+%
+%Then there exists a $\lambda \in \Omega^1(N; K)$ such that
+%\ba
+%\nabla^\prime
+%&=
+%\nabla - \mathrm{ad} \circ \lambda,
+%\ea
+%and for their curvatures we get
+%\ba
+%R_{\nabla^\prime}
+%&=
+%R_\nabla
+	%+ \mathrm{ad}\mleft( - \mathrm{d}^\nabla \lambda + \frac{1}{2} \mleft[ \lambda \stackrel{\wedge}{,} \lambda \mright]_K \mright).
+%\ea
+%\end{proposition}
+
+Locally we can say the following.
+
+\begin{corollaries}{Local existence of a flat Lie derivation law covering a pairing}{CorLocalerFlacherZusammenhangFuerIrgendeineKopplung}
+Let $K$ be an LAB. Then locally there is always a flat Lie derivation law covering some (base-preserving) Lie algebroid morphism $\Xi: \mathrm{T}N \to \mathrm{Out}(\mathcal{D}_{\mathrm{Der}}(K))$.
+\end{corollaries}
+
+\begin{remark}
+\leavevmode\newline
+So, locally, by using Prop.~\ref{prop:FieldRedefPreservespairing}, the question whether or not one can transform to a flat connection with the field redefinition breaks down to the question if there is a flat connection covering the same pairing.
+\end{remark}
+
+\begin{proof}
+\leavevmode\newline
+Locally there is a trivialization $K \cong U \times \mathfrak{g}$ as LABs on some open subset $U \subset N$. Then define $\nabla$ as the canonical flat connection, and by Thm.~\ref{thm:ActionLieALgebroid} we know that it has vanishing basic curvature, so, it satisfies compatibility condition \eqref{CondSGleichNullLAB}; compatibility condition \eqref{CondKruemmungmitBLAB} is trivially satisfied by the flatness.
+
+By Thm.~\ref{thm:GaugeTheoryNeedsLieDerivLawsCoveringApairing} the statement follows.
+\end{proof}
+
+\subsection{Obstruction for non-pre-classical gauge theories}\label{MackenzieZeugsUndExistenzvonPreclassical}
+
+Using the previous subsection, let us now look at whether or not we can make the connection flat by a field redefinition. For such questions it is useful to have an invariant; actually, $\mathrm{d}^\nabla \zeta$ is invariant under the field redefinition.
+
+\begin{propositions}{$\mathrm{d}^\nabla \zeta$ an invariant of the field redefinition, \newline \cite[\S 7.2, Proposition 7.2.11, last statement, there $\zeta$ is denoted by $\Lambda$ and $\mathrm{d}^\nabla \zeta$ by $f(\nabla, \Lambda)$; page 276]{mackenzieGeneralTheory}}{InvarianteFuerFieldRedefImFallLAB}
+Let $(K, \Xi)$ be a pairing of $\mathrm{T}N$ and $\nabla$ be a Lie derivation law covering $\Xi$. Also let $\zeta$ be any element of  $\Omega^2(N; K)$ that satisfies compatibility condition \eqref{CondKruemmungmitBLAB} with respect to $\nabla$.
+
+Then $\mathrm{d}^\nabla \zeta$ is invariant under the field redefinition \ref{fieldredef:FieldRedefForLABs}, \textit{i.e.}
+\ba
+\mathrm{d}^{\widetilde{\nabla}^\lambda} \widetilde{\zeta}^\lambda
+&=
+\mathrm{d}^\nabla \zeta.
+\ea
+\end{propositions}
+
+\begin{proof}
+\leavevmode\newline
+Recall that in general curvatures satisfy
+\bas
+\mleft( \mathrm{d}^\nabla \mright)^2 \omega = R_\nabla \wedge \omega
+\eas
+for all $\omega \in \Omega^l(N;K)$, viewing $R_\nabla$ as an element of $\Omega^2(N; \mathrm{End}(K))$. Then we have
+\bas
+\mleft( \mathrm{d}^\nabla \mright)^2 \lambda
+&=
+R_\nabla \wedge \lambda
+\stackrel{\text{Eq.~\eqref{CondKruemmungmitBLAB}}}{=}
+(\mathrm{ad} \circ \zeta) \wedge \lambda
+\stackrel{\text{Eq.~\eqref{wedgeproduktmitadLambdaergibtLieklammer}}}{=}
+\mleft[ \zeta \stackrel{\wedge}{,} \lambda \mright]_K, \\
+\mathrm{d}^\nabla \mleft( \mleft[ \lambda \stackrel{\wedge}{,} \lambda \mright]_K \mright)
+~~~~&\stackrel{\mathclap{\text{Eq.~\eqref{eqDerivationOfDifferentialOnBracketonK}}}}{=}~~~~
+\mleft[ \mathrm{d}^\nabla \lambda \stackrel{\wedge}{,} \lambda \mright]_K
+	- \mleft[ \lambda \stackrel{\wedge}{,} \mathrm{d}^\nabla \lambda \mright]_K
+\stackrel{\text{Eq.~\eqref{VertauschungsregelForKKlammerAufFormen}}}{=}
+2 ~ \mleft[ \mathrm{d}^\nabla \lambda \stackrel{\wedge}{,} \lambda \mright]_K, \\
+( \mathrm{ad} \circ \lambda ) \wedge \widetilde{\zeta}^\lambda
+~~~~&\stackrel{\mathclap{\text{Eq.~\eqref{wedgeproduktmitadLambdaergibtLieklammer}}}}{=}~~~~
+\mleft[ \lambda \stackrel{\wedge}{,} \widetilde{\zeta}^\lambda \mright]_K
+\stackrel{\text{Eq.~\eqref{VertauschungsregelForKKlammerAufFormen}}}{=}
+- \mleft[ \widetilde{\zeta}^\lambda \stackrel{\wedge}{,} \lambda \mright]_K
+\stackrel{\text{Eq.~\eqref{EqZetaTrafoForLAB},~\eqref{JacobiIdentityForFormBracket}}}{=}
+- \mleft[ \zeta \stackrel{\wedge}{,} \lambda \mright]_K
+	+ \mleft[ \mathrm{d}^\nabla \lambda \stackrel{\wedge}{,} \lambda \mright]_K,
+\eas
+and, by combining everything, we arrive at
+\bas
+\mathrm{d}^{\widetilde{\nabla}^\lambda} \widetilde{\zeta}^\lambda
+&=
+\mathrm{d}^{\nabla - \mathrm{ad} \circ \lambda} \mleft( \widetilde{\zeta}^\lambda \mright)
+\stackrel{\text{Eq.~\eqref{eqDifferentialSplit},~\eqref{EqZetaTrafoForLAB}}}{=}
+\mathrm{d}^\nabla \mleft( \zeta
+	- \mathrm{d}^\nabla \lambda
+	+ \frac{1}{2} \mleft[ \lambda \stackrel{\wedge}{,} \lambda \mright]_K \mright)
+	- \mleft( \mathrm{ad} \circ \lambda \mright) \wedge \widetilde{\zeta}^\lambda
+=
+\mathrm{d}^\nabla \zeta
+\eas
+for all $\lambda \in \Omega^1(N;K)$.
+\end{proof}
+
+Therefore let us study $\mathrm{d}^\nabla \zeta$. Earlier we have shown what the (second) Bianchi identity for $R_\nabla$, $\mathrm{d}^\nabla R_\nabla = 0$, implies for $\zeta$ under using the compatibility condition \eqref{CondKruemmungmitBLAB}; recall Thm.~\ref{thm:BianchiIdentityForZeta}. Let us state what this means in the situation of LABs.
+
+\begin{propositions}{Bianchi identity for $\zeta$}{BianchiIdentityForZeta}
+Let $(K, \Xi)$ be a pairing of $\mathrm{T}N$ and $\nabla$ be a Lie derivation law covering $\Xi$. Also let $\zeta$ be any element of  $\Omega^2(N; K)$ that satisfies compatibility condition \eqref{CondKruemmungmitBLAB} with respect to $\nabla$.
+
+Then we have 
+\bas
+\mathrm{d}^\nabla \zeta &\in \Omega^3(N; Z(K)),
+\eas
+\textit{i.e.}~$\mathrm{d}^\nabla \zeta$ has always values in the centre of $K$.
+\end{propositions}
+
+\begin{remark}
+\leavevmode\newline
+This is equivalent to \cite[\S 7.2, Lemma 7.2.4, $\zeta$ is denoted as $\Lambda$ there; page 273]{mackenzieGeneralTheory}. Mackenzie shows it by direct calculation in that special situation, while we derive it from the previous, more general result.
+\end{remark}
+
+\begin{proof}
+\leavevmode\newline
+By Thm.~\ref{thm:BianchiIdentityForZeta}, which clearly reduces to the following in the case of LABs (insert $\rho = 0$)
+\bas
+\mleft[ \mathrm{d}^\nabla \zeta(Y_1, Y_2, Y_3), \mu \mright]_K
+&= 0
+\eas
+for all $Y_1, Y_2, Y_3 \in \mathfrak{X}(N)$, and $\mu \in \Gamma(K)$. That proves the claim.
+\end{proof}
+
+In fact, $\mathrm{d}^\nabla$ is a differential on centre-valued forms.
+
+\begin{theorems}{Differential on centre-valued forms, \newline \cite[\S 7.2, Definition 7.2.3 and the discussion directly before; page 273]{mackenzieGeneralTheory}}{DifferentialAufZentrumsDinge}
+Let $(K, \Xi)$ be a pairing. Then every Lie derivation law $\nabla$ covering $\Xi$ restricts to a flat connection $\nabla^{Z(K)}$ on $Z(K)$.
+
+Moreover, $\Xi$ induces a differential $\mathrm{d}^\Xi: \Omega^\bullet(N; Z(K)) \to \Omega^{\bullet+1}(N; Z(K))$ by choosing $\mathrm{d}^\Xi \coloneqq \mathrm{d}^{\nabla^{Z(K)}} = \mleft.\mathrm{d}^\nabla\mright|_{\Omega^\bullet(N; Z(K))}$ for any Lie derivation law $\nabla$ covering $\Xi$. $\mathrm{d}^\Xi$ is independent of the choice of $\nabla$.
+
+We call this differential \textbf{central representation of $\Xi$}.
+\end{theorems}
+
+\begin{remark}
+\leavevmode\newline
+Recall the second paragraph of Remark \ref{remExistenceOfLieDerivationLawsCoveringApairing}, \textit{i.e.}~there is a Lie derivation Law $\nabla: \mathrm{T}N \to \mathcal{D}_{\mathrm{Der}}(K)$ covering $\Xi$. Hence, $\mathrm{d}^\Xi$ always exists for a given $\Xi$.
+\end{remark}
+
+\begin{proof}[Proof of Thm.~\ref{thm:DifferentialAufZentrumsDinge}]
+\leavevmode\newline
+By Thm.~\ref{thm:GaugeTheoryNeedsLieDerivLawsCoveringApairing} $\nabla$ satisfies compatibility conditions
+\bas
+\nabla_Y\mleft( \mleft[ \mu, \nu \mright]_K \mright)
+&=
+\mleft[ \nabla_Y \mu, \nu \mright]_K
+	+ \mleft[ \mu, \nabla_Y \nu \mright]_K, \\
+R_\nabla(Y, Z)
+&=
+\mathrm{ad}(\zeta(Y, Z))
+\eas
+for all $Y, Z \in \mathfrak{X}(N)$, $\mu, \nu \in \Gamma(K)$ and for some $\zeta \in \Omega^2(N; K)$. Let $\mu \in \Gamma(Z(K))$, then the first compatibility condition implies
+\bas
+0 &= \mleft[ \nabla_Y \mu, \nu \mright]_K
+\eas
+for all $Y \in \mathfrak{X}(N)$, $\nu \in \Gamma(K)$ and $\mu \in \Gamma(Z(K))$. That implies that $\nabla_Y \mu \in \Gamma(Z(K))$ such that $\nabla$ is also a connection on $\Gamma(Z(K))$, which we now denote by $\nabla^{Z(K)}$. Restricting the second compatibility condition onto $Z(K)$ then immediately implies
+\bas
+R_{\nabla^{Z(K)}} &= 0,
+\eas
+\textit{i.e.}~$\nabla^{Z(K)}$ is flat, and therefore, by the definition of the exterior covariant derivative,
+\bas
+\mathrm{d}^\Xi &\coloneqq \mleft.\mathrm{d}^\nabla\mright|_{\Omega^\bullet(N; Z(K))} = \mathrm{d}^{\nabla^{Z(K)}}
+\eas
+is a differential. Now take any other Lie derivation law $\nabla^\prime$ covering $\Xi$. By Prop. \ref{prop:FieldRedefPreservespairing}, there is a $\lambda \in \Omega^1(N; K)$ such that
+\bas
+\nabla^\prime
+&=
+\nabla - \mathrm{ad} \circ \lambda,
+\eas
+\textit{i.e.}
+\bas
+\nabla^\prime_Y \mu
+&=
+\nabla_Y \mu
+\eas
+for all $Y \in \mathfrak{X}(N)$ and $\mu \in \Gamma(Z(K))$. Hence, $\mathrm{d}^\Xi$ is independent of the choice of $\nabla$.
+\end{proof}
+
+One can now check that $\mathrm{d}^\nabla \zeta$ is closed under $\mathrm{d}^\Xi$. Be aware of that for non-flat Lie derivation laws $\nabla$ covering $\Xi$ this is not an obviously trivial question; due to compatibility condition \eqref{CondKruemmungmitBLAB}, $\zeta$ is not centre-valued in general such that $\mathrm{d}^\nabla \zeta$ cannot be written as $\mathrm{d}^\Xi \zeta$.
+
+\begin{lemmata}{Closedness of $\mathrm{d}^\nabla \zeta$ under the central representation, \newline \cite[\S 7.2, Lemma 7.2.5, $\mathrm{d}^\nabla \zeta$ is denoted by $f$ and $\mathrm{d}^\Xi$ as $d$, and without written proof there; page 274]{mackenzieGeneralTheory}}{DNablaZetaIsClosedUnderDXi}
+Let $(K, \Xi)$ be a pairing of $\mathrm{T}N$ and $\nabla$ be a Lie derivation law covering $\Xi$. Also let $\zeta$ be any element of  $\Omega^2(N; K)$ that satisfies compatibility condition \eqref{CondKruemmungmitBLAB} with respect to $\nabla$.
+
+Then 
+\ba
+\mathrm{d}^\Xi \mathrm{d}^\nabla \zeta
+&=
+0
+\ea
+\textit{i.e.}~$\mathrm{d}^\nabla \zeta \in \Omega^3(N; Z(K))$ is closed under $\mathrm{d}^\Xi$.
+\end{lemmata}
+
+\begin{proof}
+\leavevmode\newline
+%This follows by Eq.~\eqref{DNablaZetaIsClosed}.
+We have
+\bas
+\mleft( \mathrm{d}^\nabla \mright)^2 \zeta
+&=
+R_\nabla \wedge \zeta
+\stackrel{\text{Eq.~\eqref{CondKruemmungmitBLAB}}}{=}
+\mleft( \mathrm{ad} \circ \zeta \mright) \wedge \zeta
+\stackrel{\text{Eq.~\eqref{wedgeproduktmitadLambdaergibtLieklammer}}}{=}
+\mleft[ \zeta \stackrel{\wedge}{,} \zeta \mright]_K,
+\eas
+but also, using that $\zeta \in \Omega^2(N;K)$,
+\bas
+\mleft[ \zeta \stackrel{\wedge}{,} \zeta \mright]_K
+\stackrel{\text{Eq.~\eqref{VertauschungsregelForKKlammerAufFormen}}}{=}
+- \mleft[ \zeta \stackrel{\wedge}{,} \zeta \mright]_K,
+\eas
+such that $\mleft( \mathrm{d}^\nabla \mright)^2 \zeta = - \mleft( \mathrm{d}^\nabla \mright)^2 \zeta$. Hence, the last statement follows.
+\end{proof}
+
+We need to know how $\mathrm{d}^\nabla \zeta$ changes by varying $\zeta$.
+
+\begin{lemmata}{Varying $\zeta$ in $\mathrm{d}^\nabla \zeta$, \newline \cite[\S 7.2, Lemma 7.2.6, Mackenzie denotes $\zeta$ by $\Lambda$, $\mathrm{d}^\nabla \zeta$ by $f$ and $\mathrm{d}^\Xi$ by $d$; page 274]{mackenzieGeneralTheory}}{ZetaKannGutGeaendertWerden}
+Let $(K, \Xi)$ be a pairing of $\mathrm{T}N$ and $\nabla$ be a Lie derivation law covering $\Xi$. Also let $\zeta$ and $\zeta^\prime$ be two elements of  $\Omega^2(N; K)$ which satisfy compatibility condition \eqref{CondKruemmungmitBLAB} with respect to $\nabla$.
+
+Then
+\ba
+\zeta^\prime - \zeta \in \Omega^2(N; Z(K)).
+\ea
+Especially, $\mathrm{d}^\nabla\zeta^\prime - \mathrm{d}^\nabla\zeta$ is $\mathrm{d}^\Xi$-exact. 
+\end{lemmata}
+
+\begin{proof}
+\leavevmode\newline
+This simply follows by the compatibility condition \eqref{CondKruemmungmitBLAB}, \textit{i.e.}
+\bas
+\mleft[ \zeta^\prime(Y, Z) - \zeta(Y, Z), \mu \mright]_K
+&=
+R_\nabla(Y, Z) \mu - R_\nabla(Y, Z) \mu
+= 0
+\eas
+for all $Y, Z \in \mathfrak{X}(N)$ and $\mu \in \Gamma(K)$. Thence, $\xi \coloneqq \zeta^\prime - \zeta$ is an element of $\Omega^2(N; Z(K))$. By Thm. \ref{thm:DifferentialAufZentrumsDinge} we get
+\bas
+\mathrm{d}^\nabla\zeta^\prime - \mathrm{d}^\nabla\zeta
+&=
+\mathrm{d}^\nabla\underbrace{\mleft(\zeta^\prime - \zeta\mright)}_{\mathclap{\in \Omega^2(N; Z(K))}}
+=
+\mathrm{d}^\Xi\mleft(\zeta^\prime - \zeta\mright),
+\eas
+\textit{i.e.} $\mathrm{d}^\nabla\zeta^\prime - \mathrm{d}^\nabla\zeta$ is exact with respect to $\mathrm{d}^\Xi$ since $\zeta^\prime - \zeta$ has values in $Z(K)$.
+\end{proof}
+
+Since $\mathrm{d}^\nabla \zeta$ is invariant under the field redefinition, this finally shows that $\mathrm{d}^\nabla \zeta$ is a useful object to study in the context of the field redefinition. By Lemma \ref{lem:DNablaZetaIsClosedUnderDXi} this is a closed form, and it is clear that in the flat situation $\zeta$ has values in $Z(K)$ by compatibility condition \eqref{CondKruemmungmitBLAB}. By Thm.~\ref{thm:DifferentialAufZentrumsDinge} we would get $\mathrm{d}^\nabla \zeta = \mathrm{d}^\Xi \zeta$, \textit{i.e.}~$\mathrm{d}^\nabla \zeta$ would be then exact. Hence, it makes sense to study the cohomology class of $\mathrm{d}^\nabla \zeta$ with respect to $\mathrm{d}^\Xi$ if one is interested into whether or not the gauge theory can be transformed into a pre-classical\footnote{Recall Def.~\ref{def:ClassicalGT}.} gauge theory by the field redefinitions.
+
+We denote the space of cohomology classes of $\mathrm{d}^\Xi$-closed elements of $\Omega^\bullet(N; Z(K))$ by
+\ba
+\mathcal{H}^\bullet\mleft(\mathrm{T}N, \mathrm{d}^\Xi, Z(K)\mright)
+\ea
+as in \cite[Theorem 7.2.12, replace $A$ with $\mathrm{T}N$ and $\rho^\Xi$ with $\mathrm{d}^\Xi$; page 277]{mackenzieGeneralTheory}, and the classes by $\mleft[ \cdot \mright]_\Xi$. Thus,
+\bas
+\mleft[ \mathrm{d}^\nabla \zeta \mright]_\Xi &\in \mathcal{H}^3\mleft(\mathrm{T}N, \mathrm{d}^\Xi, Z(K)\mright),
+\eas
+using that $\mathrm{d}^\nabla \zeta$ is $\mathrm{d}^\Xi$-closed by Lemma \ref{lem:DNablaZetaIsClosedUnderDXi}.
+
+\begin{theorems}{Cohomology of $\mathrm{d}^\nabla \zeta$ an invariant, \newline \cite[\S 7.2, Theorem 7.2.12, Mackenzie denotes $\mathrm{d}^\Xi$ with $\rho^\Xi$, $\zeta$ with $\Lambda$, $\mathrm{d}^\nabla \zeta$ with $f(\nabla, \Lambda)$, and replace $A$ with $\mathrm{T}N$; page 277]{mackenzieGeneralTheory}}{ObstructionClassIstGeileInvariante}
+Let $(K, \Xi)$ be a pairing of $\mathrm{T}N$ and $\nabla$ be a Lie derivation law covering $\Xi$. Also let $\zeta$ be any element of  $\Omega^2(N; K)$ that satisfies compatibility condition \eqref{CondKruemmungmitBLAB} with respect to $\nabla$.
+
+Then $\mleft[ \mathrm{d}^\nabla \zeta \mright]_\Xi$ only depends on $\Xi$ and not on the particular choice of $\nabla$ and $\zeta$.
+\end{theorems}
+
+\begin{proof}
+\leavevmode\newline
+This follows by Lemma \ref{lem:ZetaKannGutGeaendertWerden} and Prop.~\ref{prop:InvarianteFuerFieldRedefImFallLAB}. The former shows that changing $\zeta$ with another element $\zeta^\prime$ of $\Omega^2(N; K)$ satisfying compatibility condition \eqref{CondKruemmungmitBLAB} results into
+\bas
+\mathrm{d}^\nabla \zeta^\prime
+&=
+\mathrm{d}^\nabla \zeta
+	+ \underbrace{\mathrm{d}^\nabla \mleft( \zeta^\prime - \zeta \mright)}_{\mathrm{d}^\Xi\text{-exact}}
+\in \mleft[ \mathrm{d}^\nabla \zeta \mright]_\Xi,
+\eas
+\textit{i.e.} $\mleft[\mathrm{d}^\nabla \zeta^\prime\mright]_\Xi = \mleft[\mathrm{d}^\nabla \zeta \mright]_\Xi$, and the latter shows 
+\bas
+\mleft[ \mathrm{d}^{\widetilde{\nabla}^\lambda} \widetilde{\zeta}^\lambda \mright]_\Xi
+&=
+\mleft[ \mathrm{d}^{\nabla} \zeta \mright]_\Xi.
+\eas
+Thence, by using Prop.~\ref{prop:FieldRedefPreservespairing}, \textit{i.e.}~one can reach every other Lie derivation law covering $\Xi$ by using the field redefinition \ref{fieldredef:FieldRedefForLABs}, one can freely change the Lie derivation law covering $\Xi$ by Prop.~\ref{prop:InvarianteFuerFieldRedefImFallLAB}, and by Lemma \ref{lem:ZetaKannGutGeaendertWerden} it does not matter which $\zeta$ is used.
+\end{proof}
+
+This clearly motivates the following definition of Mackenzie's obstruction class.
+
+\begin{definitions}{The obstruction class of pairings, \newline \cite[\S 7.2, comment after Theorem 7.2.12; page 277]{mackenzieGeneralTheory}}{ObstructionClassOfXi}
+Let $(K, \Xi)$ be a pairing of $\mathrm{T}N$, and let $\nabla$ be any Lie derivation law covering $\Xi$. Also let $\zeta$ be any element of  $\Omega^2(N; K)$ that satisfies compatibility condition \eqref{CondKruemmungmitBLAB} with respect to $\nabla$.
+
+Then we define the \textbf{obstruction class of $\Xi$} by
+\ba
+\mathrm{Obs}(\Xi)
+&\coloneqq
+\mleft[ \mathrm{d}^\nabla \zeta \mright]_\Xi.
+\ea
+\end{definitions}
+
+We immediately get a first result related to CYMH GT.
+
+\begin{corollaries}{First approach of obstruction for CYMH GT on LABs}{FirstApproachOfLABConstruction}
+Let $(K, \Xi)$ be a pairing of $\mathrm{T}N$, and let $\nabla$ be a fixed Lie derivation law covering $\Xi$.
+
+Then we have
+\bas
+\exists \text{ a field redefinition as in \ref{fieldredef:FieldRedefForLABs}}: ~ \widetilde{\nabla}^\lambda \text{ is flat}
+\quad&\Rightarrow\quad
+\mathrm{Obs}(\Xi) = 0\in\mathcal{H}^3\mleft(\mathrm{T}N, \mathrm{d}^\Xi, Z(K)\mright).
+\eas
+Or, equivalently, if there is a flat Lie derivation law covering $\Xi$, then $\mathrm{Obs}(\Xi) = 0$.
+\end{corollaries}
+%
+%\begin{remark}
+%\leavevmode\newline
+%This implies that for any given pairing $(K, \Xi)$ with $\mathrm{Obs}(\Xi) \neq 0$ and with fibre type $\mathfrak{g}$ admitting an $\mathrm{ad}$-invariant scalar product we can define a gauge theory which can not be transformed to a (pre-)classical gauge theory by using a field redefinition. For that, recall the second paragraph of Remark \ref{remExistenceOfLieDerivationLawsCoveringApairing} about the existence of $\nabla$ for a given $\Xi$.
+%\end{remark}
+
+\begin{proof}[Proof of Cor.~\ref{cor:FirstApproachOfLABConstruction}]
+\leavevmode\newline
+Let $\zeta$ be any element of $\Omega^2(N; K)$ that satisfies compatibility condition \eqref{CondKruemmungmitBLAB} with respect to $\nabla$. When there is a field redefinition such that $\widetilde{\nabla}^\lambda$ is flat then we can conclude that $\widetilde{\zeta}^\lambda$ has only values in $Z(K)$ by compatibility condition \eqref{CondKruemmungmitBLAB}. But then we arrive at
+\bas
+\mathrm{Obs}(\Xi)
+&=
+\mleft[ \mathrm{d}^\nabla \zeta \mright]_\Xi
+\stackrel{\text{Prop. \ref{prop:InvarianteFuerFieldRedefImFallLAB}}}{=}
+\mleft[ \mathrm{d}^{\widetilde{\nabla}^\lambda} \widetilde{\zeta}^\lambda \mright]_\Xi
+\stackrel{\text{Thm. \ref{thm:DifferentialAufZentrumsDinge}}}{=}
+\mleft[ \mathrm{d}^{\Xi} \widetilde{\zeta}^\lambda \mright]_\Xi
+=
+0.
+\eas
+The equivalence to the last statement simply follows by using Prop. \ref{prop:FieldRedefPreservespairing}.
+\end{proof}
+
+\subsection{Mackenzie's theory about extensions of tangent bundles}\label{MackenzieStuff}
+
+We now want to study when the obstruction is zero and when it implies the existence of a flat Lie derivation law covering $\Xi$. To understand this, we need to understand why Mackenzie studied this obstruction class. Mackenzie was interested into whether or not a Lie algebroid can be extended by an LAB; we are going to state Mackenzie's statements in the special situation of having $\mathrm{T}N$ as the Lie algebroid. But the arguments and calculations do not really differ; in the context of gauge theory we just need to study $\mathrm{T}N$. Recall Def.~\ref{def:ExtensionOfTNByLABs} about extensions and transversals; there will be now another Lie algebroid $E$ besides the LAB $K$, and the anchor of $E$ we will denote by $\pi$ instead of $\rho$ to avoid confusion with $\rho = 0$ of $K$. This $E$ is not the same $E$ as in the context of CYMH GT; the Lie algebroid for CYMH GT in this section is $K$ as we have introduced it.
+
+To a given transversal we are able to define a Lie derivation law covering some Lie algebroid morphism $\Xi: \mathrm{T}N \to \mathrm{Out}(\mathcal{D}_{\mathrm{Der}}(K))$.
+
+\begin{propositions}{Lie derivation law of a transversal, \newline \cite[\S 7.3, Proposition 7.3.2 and Lemma 7.3.3, replace $A$ with $\mathrm{T}N$ and $A^\prime$ with $E$; page 278]{mackenzieGeneralTheory}}{TransversalAndItsLieDerivationLaw}
+Let
+\begin{center}
+	\begin{tikzcd}
+		K \arrow[hook]{r}{\iota} & E \arrow[two heads]{r}{\pi} & \mathrm{T}N.
+	\end{tikzcd}
+\end{center}
+be an extension of $\mathrm{T}N$ by an LAB $K \to N$, and let $\chi$ be any transversal. Then a connection $\nabla^\chi$ on $K$, given by
+\ba\label{DefTransversalConnection}
+\iota\mleft( \nabla^\chi_Y \mu \mright)
+&=
+\mleft[ \chi(Y), \iota(\mu) \mright]_E
+\ea
+for all $Y \in \mathfrak{X}(N)$ and $\mu \in \Gamma(K)$, describes a Lie derivation law covering some Lie algebroid morphism $\Xi: \mathrm{T}N \to \mathrm{Out}(\mathcal{D}_{\mathrm{Der}}(K))$.
+\end{propositions}
+
+\begin{proof}
+\leavevmode\newline
+Let us discuss why Eq. \eqref{DefTransversalConnection} is well-defined and giving rise to a vector bundle morphism $\nabla^\chi:\mathrm{T}N \to \mathcal{D}(K)$. $\iota$ is an injective\footnote{This follows by the exactness of the given sequence.} Lie algebroid morphism and embedding such that we can identify $K$ and $\iota(K)$ as LABs; since the kernel of $\pi$ is given by the image of $\iota$ we know that any element $\xi \in \Gamma(E)$ with $\pi(\xi) = 0$ is also an element of $\Gamma(\iota(K))$ and has, thus, a 1:1 correspondence in $\Gamma(K)$ given by $\iota^{-1}(\xi)$. Due to that $\pi$ is a homomorphism of of Lie brackets and by $\pi \circ \iota = 0$, we have
+\bas
+\pi\mleft( \mleft[ \chi(Y), \iota(\mu) \mright]_E \mright)
+&= 0
+\eas
+for all $Y \in \mathfrak{X}(N)$ and $\mu \in \Gamma(K)$. It follows that the right hand side of Eq. \eqref{DefTransversalConnection} defines an element of $\Gamma(K)$. Hence, it is valid to define $\nabla^\chi_Y$ as some map on $\Gamma(K)$ by using Eq. \eqref{DefTransversalConnection} for all $Y \in \mathfrak{X}(N)$. Additionally, for all $Y, Z \in \mathfrak{X}(N)$, $\mu, \nu \in \Gamma(K)$, $f, h \in C^\infty(N)$ and $\alpha, \beta \in \mathbb{R}$ we have
+\bas
+\iota\mleft( \nabla^\chi_{fY+hZ} \mu \mright)
+&=
+\mleft[ \chi(fY+hZ), \iota(\mu) \mright]_E
+\\
+&=
+\mleft[ f \chi(Y)+h \chi(Z), \iota(\mu) \mright]_E 
+\\
+&\stackrel{\mathclap{\pi \circ \iota = 0}}{=}\quad
+f ~ \mleft[ \chi(Y), \iota(\mu) \mright]_E
+	+ h ~ \mleft[ \chi(Z), \iota(\mu) \mright]_E
+\\
+&=
+\iota\mleft( f \nabla^\chi_{Y} \mu + h \nabla^\chi_{Z} \mu \mright),
+\eas
+also
+\bas
+\iota\bigl( \nabla^\chi_{Y} \mleft( \alpha \mu + \beta \nu \mright) \bigr)
+&=
+\mleft[ \chi(Y), \iota(\alpha \mu + \beta \nu) \mright]_E
+=
+\alpha \mleft[ \chi(Y), \iota(\mu) \mright]_E
+	+ \beta \mleft[ \chi(Y), \iota(\nu) \mright]_E
+=
+\iota\mleft( \alpha \nabla^\chi_{Y} \mu + \beta \nabla^\chi_{Y} \nu \mright),
+\eas
+and
+\bas
+\iota\mleft( \nabla^\chi_{Y}(f \mu) \mright)
+&=
+\mleft[ \chi(Y), f \iota(\mu) \mright]_E
+\stackrel{\pi \circ \chi = \mathds{1}_{\mathrm{T}N}}{=}
+f~ \iota\mleft( \nabla^\chi_{Y} \mu \mright)
+	+ \mathcal{L}_Y(f) ~ \iota(\mu)
+=
+\iota\mleft( f ~\nabla^\chi_{Y} \mu + \mathcal{L}_Y(f) ~ \mu \mright).
+\eas
+Moreover,
+\bas
+\iota \mleft( \nabla^\chi_Y \mleft( \mleft[ \mu, \nu \mright]_K \mright) \mright)
+&=
+[ \chi(Y), \underbrace{\iota(\mleft[ \mu, \nu \mright]_K)}_{=\mleft[ \iota(\mu), \iota(\nu) \mright]_E} ]_E
+\\
+&=
+\mleft[ \mleft[ \chi(Y), \iota(\mu) \mright]_E, \iota(\nu) \mright]_E
+	+ \mleft[ \iota(\mu), \mleft[ \chi(Y), \iota(\nu) \mright]_E \mright]_E 
+\\
+&=
+\mleft[ \iota\mleft( \nabla^\chi_Y \mu \mright), \iota(\nu) \mright]_E
+	+ \mleft[ \iota(\mu), \iota\mleft( \nabla^\chi_Y \nu \mright) \mright]_E
+\\
+&=
+\iota\mleft(\mleft[ \nabla^\chi_Y \mu, \nu \mright]_K \mright)
+	+ \iota\mleft(\mleft[ \mu, \nabla^\chi_Y \nu \mright]_K \mright) 
+\\
+&=
+\iota\mleft(\mleft[ \nabla^\chi_Y \mu, \nu \mright]_K + \mleft[ \mu, \nabla^\chi_Y \nu \mright]_K \mright)
+\eas
+using the Jacobi identity for $\mleft[ \cdot, \cdot \mright]_E$. Thence, $\nabla^\chi$ is a Lie derivation law. By Thm. \ref{thm:GaugeTheoryNeedsLieDerivLawsCoveringApairing} we are left showing whether $\sharp \circ R_{\nabla^\chi} = 0$,
+\ba
+\iota\mleft( R_{\nabla^\chi}(Y, Z) \mu \mright)
+&=
+\mleft[ \chi(Y), \mleft[ \chi(Z), \iota(\mu) \mright]_E \mright]_E
+	- \mleft[ \chi(Z), \mleft[ \chi(Y), \iota(\mu) \mright]_E \mright]_E
+	- \mleft[ \chi([Y, Z]), \iota(\mu) \mright]_E \nonumber\\
+&=
+\mleft[ \mleft[ \chi(Y), \chi(Z) \mright]_E, \iota(\mu) \mright]_E
+	- \mleft[ \chi([Y, Z]), \iota(\mu) \mright]_E \nonumber\\
+&= [ \underbrace{\mleft[ \chi(Y), \chi(Z) \mright]_E - \chi([Y, Z])}_{= R_\chi (Y, Z)}, \iota(\mu) ]_E \nonumber\\
+&=\label{EqKruemmungderTransversalen}
+\mleft[R_\chi (Y, Z), \iota(\mu) \mright]_E,
+\ea
+using again the Jacobi identity for $\mleft[ \cdot, \cdot \mright]_E$ and that $\iota$ is a Lie algebroid morphism, where $R_\chi$ is the \textbf{curvature of $\chi$} as defined in Def.~\ref{def:GeneralDefOfCurvMorphisms}, which is a tensor by Lemma \ref{lem:KruemmungenSindTensorenMitAnkerErhaltung} and by the fact that $\chi$ is a transversal, that is, $\chi$ is anchor-preserving. Observe
+\bas
+\pi\mleft( R_\chi(Y, Z) \mright)
+&=
+\mleft[ (\pi\circ\chi)(Y), (\pi\circ\chi)(Z) \mright] - (\pi\circ\chi)([Y, Z])
+\stackrel{\pi \circ \chi = \mathds{1}_{\mathrm{T}N}}{=}
+0,
+\eas
+using that $\pi$ is a Lie algebroid morphism. Therefore $R_\chi(Y, Z) \in \iota(K)$ for all $Y, Z \in \mathfrak{X}(N)$, and, so, Eq. \eqref{EqKruemmungderTransversalen} implies
+\ba
+R_{\nabla^\chi}(Y, Z)
+&=
+\mleft(\mathrm{ad} \circ \iota^{-1}\mright)(R_\chi(Y, Z))
+\ea
+using that $\iota$ is an injective Lie algebroid morphism. By \eqref{theFullDiagramForLABStuff} we get $\sharp \circ R_{\nabla^\chi} = 0$, and the statement follows.
+\end{proof}
+
+Furthermore, the pairing covered by $\nabla^\chi$ is the same for all transversals $\chi$.
+
+\begin{corollaries}{All transversals results into the same covered pairing, \newline \cite[\S 7.3, comment after Lemma 7.3.3, replace $A$ with $\mathrm{T}N$ and $A^\prime$ with $E$; page 278]{mackenzieGeneralTheory}}{TransversalsCoverTheSamepairing}
+Let
+\begin{center}
+	\begin{tikzcd}
+		K \arrow[hook]{r}{\iota} & E \arrow[two heads]{r}{\pi} & \mathrm{T}N.
+	\end{tikzcd}
+\end{center}
+be an extension of $\mathrm{T}N$ by an LAB $K \to N$, and let $\chi$ and $\chi^\prime$ be two transversals.
+
+Then
+\bas
+\sharp \circ \nabla^\chi
+&=
+\sharp \circ \nabla^{\chi^\prime}.
+\eas
+\end{corollaries}
+
+\begin{proof}
+\leavevmode\newline
+Since $\chi$ and $\chi^\prime$ are transversals we get
+\bas
+\pi \circ \mleft( \chi(Y) - \chi^\prime(Y) \mright)
+&=
+Y -Y
+= 0,
+\eas
+for all $Y \in \mathfrak{X}(N)$, such that, again by the exactness of the sequence, there is a $\mu(Y) \in \Gamma(K)$ with $\chi(Y) - \chi^\prime(Y) = \iota(\mu(Y))$. Due to the $C^\infty$-linearity of the transversals we even have a vector bundle morphism $\mu: \mathrm{T}N \to K$ such that
+\bas
+\chi - \chi^\prime
+&=
+\iota \circ \mu,
+\eas
+such that
+\bas
+\nabla^\chi_Y \nu
+&\stackrel{\text{Eq. \eqref{DefTransversalConnection}}}{=}
+\mleft[ \chi(Y), \iota(\nu) \mright]_E
+=
+\mleft[ \chi^\prime(Y), \iota(\nu) \mright]_E
+	+ \underbrace{\mleft[ \iota(\mu(Y)), \iota(\nu) \mright]_E}_{= \iota\mleft( \mleft[ \mu(Y), \nu \mright]_K \mright)}
+=
+\iota\mleft( \nabla^{\chi^\prime}_Y \nu + \mleft[ \mu(Y), \nu \mright]_K \mright)
+\eas
+for all $Y \in \mathfrak{X}(N)$ and $\nu \in \Gamma(K)$. Therefore
+\bas
+\nabla^\chi
+&=
+\nabla^{\chi^\prime}
+	+ \mathrm{ad}\circ\mu,
+\eas
+thus, by \eqref{theFullDiagramForLABStuff},
+\bas
+\sharp \circ \nabla^\chi
+&=
+\sharp \circ \nabla^{\chi^\prime}.
+\eas
+\end{proof}
+
+This immediately leads to the following definition.
+
+\begin{definitions}{Pairing induced by an extension, \newline \cite[\S7.3, Definition 7.3.4, replace $A$ with $\mathrm{T}N$ and $A^\prime$ with $E$; page 278]{mackenzieGeneralTheory}}{pairingsOfExtensions}
+Let
+\begin{center}
+	\begin{tikzcd}
+		K \arrow[hook]{r}{\iota} & E \arrow[two heads]{r}{\pi} & \mathrm{T}N.
+	\end{tikzcd}
+\end{center}
+be an extension of $\mathrm{T}N$ by an LAB $K \to N$, and let $\chi$ be any transversal.
+
+Then the pairing $\Xi_{\mathrm{ext}} \coloneqq \sharp \circ \nabla^\chi: \mathrm{T}N \to \mathrm{Out}\mleft( \mathcal{D}_{\mathrm{Der}}(K) \mright)$ is the \textbf{pairing of $\mathrm{T}N$ with $K$ induced by the extension}.
+\end{definitions}
+
+Finally we can state what Mackenzie has shown about the obstruction class.
+
+\begin{theorems}{Obstruction of an extension, \newline \cite[\S 7.3, Proposition 7.3.6, page 279, Corollary 7.3.9 and the comment afterwards, page 281; replace $A$ with $\mathrm{T}N$ and $A^\prime$ with $E$]{mackenzieGeneralTheory}}{ObstructionOfExtensions}
+Let $(K, \Xi)$ be a pairing of $\mathrm{T}N$.
+
+Then there is an extension
+\begin{center}
+	\begin{tikzcd}
+		K \arrow[hook]{r}{\iota} & E \arrow[two heads]{r}{\pi} & \mathrm{T}N
+	\end{tikzcd}
+\end{center}
+of $\mathrm{T}N$ by $K$ such that $\Xi_{\mathrm{ext}} = \Xi$ if and only if $\mathrm{Obs}(\Xi) = 0 \in \mathcal{H}^3\mleft(\mathrm{T}N, \mathrm{d}^\Xi, Z(K)\mright)$. Moreover, given such an extension, then for all Lie derivation laws $\nabla$ covering $\Xi$ there is a transversal $\chi$ such that
+\bas
+\nabla
+&=
+\nabla^\chi.
+\eas
+\end{theorems}
+
+\begin{proof}
+\leavevmode\newline
+We only give a sketch; for the full proof please see the reference. We especially need the part of the proof starting with a zero obstruction class. Given a zero obstruction class, fix a Lie derivation law $\nabla$ covering $\Xi$, and let $\zeta$ be any element of  $\Omega^2(N; K)$ that satisfies compatibility condition \eqref{CondKruemmungmitBLAB} with respect to $\nabla$. First, additionally following \cite[Proposition 7.2.13; page 277]{mackenzieGeneralTheory}, that is, $\mathrm{Obs}(\Xi) = 0$ implies that there is an $h \in \Omega^2(N; Z(K))$ with
+\bas
+\mathrm{d}^\nabla \zeta 
+&=
+\mathrm{d}^\Xi h
+\stackrel{ \text{Thm.~\ref{thm:DifferentialAufZentrumsDinge}} }{=}
+\mathrm{d}^\nabla h,
+\eas 
+then define $\zeta^\prime \coloneqq \zeta - h$ such that clearly $\mathrm{d}^\nabla \zeta^\prime = 0$. Observe,
+\bas
+R_\nabla
+&\stackrel{ \eqref{CondKruemmungmitBLAB} }{=}
+\mathrm{ad}\circ\zeta
+=
+\mathrm{ad} \circ \zeta^\prime.
+\eas
+Define 
+\bas
+E 
+&\coloneqq
+\mathrm{T}N \oplus K
+\eas
+be the vector bundle given as the Whitney sum of $K$ and $\mathrm{T}N$. The anchor is just the projection onto the first factor, and define the bracket by
+\bas
+\mleft[
+	(Y, \nu), (Z, \mu)
+\mright]_E
+&\coloneqq
+\mleft(
+	[Y, Z], \mleft[ \nu, \mu \mright]_K + \nabla_Y \mu - \nabla_Z \nu - \zeta^\prime(Y, Z)
+\mright)
+\eas
+for all $(Y, \nu), (Z, \mu) \in E$. It is trivial to check that the Leibniz rule is with respect to the chosen anchor, bilinearity and antisymmetry are also clear. Hence, one essentially needs to check the Jacobi identity: This is a straightforward calculation resulting into a big sum. All the terms will cancel each other by the Jacobi identity of $\mleft[ \cdot, \cdot \mright]_K$; and there will be terms where $\nabla$ will act on the Lie bracket and terms where adjoints act on $\nabla$ such that these cancel each other by using that $\nabla$ has values in $\mathcal{D}_{\mathrm{Der}}(K)$; moreover, one also gets clearly the curvature of $\nabla$ and adjoints of $\zeta^\prime$ which will cancel the curvature terms by $R_\nabla = \mathrm{ad} \circ \zeta^\prime$; finally, there are also terms where $\nabla$ acts on $\zeta^\prime$ and $\zeta^\prime$ is contracted in one factor with terms like $[Y, Z]$, and all these terms will result into $\mathrm{d}^\nabla \zeta^\prime$ which is zero by construction. Hence, Jacobi identity will be given and, thus, a Lie algebroid structure.
+
+For the other direction, that is, now assume that we have an extension with $\Xi_{\mathrm{ext}} = \Xi$, one first shows that there is a transversal $\chi$ with $\nabla^\chi = \nabla$; this is as in the proof of \cite[Proposition 7.3.6; page 279]{mackenzieGeneralTheory}, and we also omit the notation of $\iota$ now again, assuming the standard inclusion, for simplicity in the notation. For any transversal $\chi^\prime$ we have $\sharp \circ \nabla = \sharp \circ \nabla^{\chi^\prime}$ due to $\Xi = \Xi_{\mathrm{ext}}$, that leads to that there is a field redefinition by Prop.~\ref{prop:FieldRedefPreservespairing} with $\lambda \in \Omega^1(N; K)$ such that
+\bas
+\nabla
+&=
+\nabla^{\chi^\prime} 
+	+ \mathrm{ad} \circ \lambda
+=
+\mathrm{ad} \circ \mleft(\chi^\prime + \lambda\mright)
+=
+\nabla^\chi,
+\eas
+using the definition of connections like $\nabla^{\chi^\prime}$, where $\chi \coloneqq \chi^\prime + \lambda$ and $\mathrm{ad}$ is of course using the Lie bracket of $E$, possibly restricting onto the bracket of $K$. Recall Def.~\ref{def:GeneralDefOfCurvMorphisms}, by the calculation of Eq.~\eqref{EqKruemmungderTransversalen} we have
+\bas
+R_\nabla
+&=
+R_{\nabla^\chi}
+=
+\mathrm{ad} \circ R_\chi,
+\eas
+hence, $R_\chi$ is a possible primitive (which is how we actually called $\zeta$), satisfying compatibility condition \eqref{CondKruemmungmitBLAB} with respect to $\nabla$. We want to calculate $\mathrm{d}^{\nabla^\chi} R_\chi$ in order to study $\mathrm{Obs}(\Xi)$, so,
+\bas
+\mleft(\mathrm{d}^{\nabla^\chi} R_\chi\mright)(X, Y, Z)
+&=
+\underbrace{\nabla^\chi_X \bigl( R_\chi(Y, Z) \bigr)}
+_{= \mleft[ \chi(X), R_\chi(Y, Z) \mright]_E}
+	- \nabla^\chi_Y \bigl( R_\chi(X, Z) \bigr)
+	+ \nabla^\chi_Z \bigl( R_\chi(X, Y) \bigr)
+\\
+&\hspace{1cm}
+	- R_\chi([X, Y], Z)
+	+ R_\chi([X, Z], Y)
+	- R_\chi([Y, Z], X)
+\\
+&=
+\sigma\Bigl(
+	\mleft[ \chi(X), \mleft[ \chi(Y), \chi(Z) \mright]_E \mright]_E
+	- \mleft[ \chi(X), \chi\bigl( [Y, Z] \bigr) \mright]_E
+\\
+&\hspace{1cm}\hphantom{\sigma \Bigl(}
+	- \mleft[\chi\bigl([X, Y]\bigr), \chi(Z)\mright]_E
+	+ \chi\bigl( [X, Y], Z \bigr)
+\Bigr)
+\\
+&=
+0
+\eas
+for all $X, Y, Z \in \mathfrak{X}(N)$, where $\sigma$ denotes the cyclic sum through $X, Y, Z$ and where we used the Jacobi identity of $\mleft[ \cdot, \cdot \mright]$ and $\mleft[ \cdot,\cdot \mright]_E$. Thus, trivially $\mathrm{Obs}(\Xi) = 0$.
+\end{proof}
+
+By Cor. \ref{cor:FirstApproachOfLABConstruction} we see that the question about whether there is a field redefinition in sense of \ref{fieldredef:FieldRedefForLABs} to arrive at a pre-classical gauge theory, \textit{i.e.}~when $\nabla$ is flat, is related to the existence of an extension of $\mathrm{T}N$ by $K$.
+
+When we are just interested into local behaviours then we might assume that $N$ is contractible.
+
+\begin{theorems}{Extensions over contractible manifolds, \newline \cite[\S 8.2, Theorem 8.2.1, replace $A$ with $E$, $L$ with $K$ and $TM$ with $\mathrm{T}N$; page 314ff.]{mackenzieGeneralTheory}}{ExtensionWennNContrahierbar}
+Let
+\begin{center}
+	\begin{tikzcd}
+		K \arrow[hook]{r}{\iota} & E \arrow[two heads]{r}{\pi} & \mathrm{T}N.
+	\end{tikzcd}
+\end{center}
+be an extension of $\mathrm{T}N$ by an LAB $K$ over a contractible manifold $N$. Then there is a flat Lie derivation law covering $\Xi_{\mathrm{Ext}}$.\footnote{Mackenzie stated that $E$ admits a flat connection, with that they actually mean that it is a flat Lie derivation law covering $\Xi_{\mathrm{Ext}}$.}
+\end{theorems}
+
+\begin{proof}
+\leavevmode\newline
+The proof of this theorem is very long and needs a lot of preparation, therefore this would sadly exceed this work; thence, see the reference of this statement. The essential idea is that this is the generalization of the infinitesimal analogue about that a principal bundle admits a global section over a contractible base. Mackenzie's proof is about generalizing the proof of principal bundles where the base is contracted and homotopy classification of bundles is used. In order to do something similar, Mackenzie introduces a certain cohomology theory in \cite[\S 7; page 257ff.]{mackenzieGeneralTheory}; in parts we already introduced the basics for it.
+\end{proof}
+
+\subsection{Results}\label{LABResultsWooooo}
+
+In total we derive therefore the following two statements, the first can be seen as a generalization of Cor.~\ref{cor:CorLocalerFlacherZusammenhangFuerIrgendeineKopplung}.
+
+\begin{theorems}{Local existence of pre-classical gauge theory}{LokalLeiderImmerPreklassisch}
+Let $(K, \Xi)$ be a pairing of $\mathrm{T}N$ over a contractible manifold $N$, and let $\nabla$ be a fixed Lie derivation law covering $\Xi$.
+
+Then we have a field redefinition in sense of \ref{fieldredef:FieldRedefForLABs} making $\nabla$ flat, \textit{i.e.}~there is a $\lambda\in\Omega^1(N;K)$ such that $\widetilde{\nabla}^\lambda$ is flat.
+\end{theorems}
+
+\begin{proof}
+\leavevmode\newline
+We only need to show that $\mathrm{Obs}(\Xi) = \mleft[ \mathrm{d}^\nabla \zeta \mright]_\Xi = 0$, where $\zeta \in \Omega^2(N; K)$ such that compatibility condition \eqref{CondKruemmungmitBLAB} is satisfied. As given in Thm.~\ref{thm:DifferentialAufZentrumsDinge} the central representation $\mathrm{d}^\Xi$ of $\Xi$ is basically $\mathrm{d}^{\nabla^{Z(K)}}$ where $\nabla^{Z(K)}$ is $\nabla$ restricted on the subbundle $Z(K)$, and we have shown that $\nabla^{Z(K)}$ is flat by compatibility condition \eqref{CondKruemmungmitBLAB}. Due to the fact that $N$ is contractible, we have a global parallel frame $\mleft( e_a \mright)_a$ for $Z(K)$ with respect to $\nabla^{Z(K)}$.
+
+By Prop.~\ref{prop:BianchiIdentityForZeta} we have $\mathrm{d}^\nabla \zeta \in \Omega^3(N; Z(K))$, thence, we can write $\mathrm{d}^\nabla \zeta = \omega^a \otimes e_a$ with $\omega^a \in \Omega^3(N)$. We arrive at
+\bas
+\mathrm{d}^\Xi \mathrm{d}^\nabla \zeta
+&=
+\mathrm{d}\omega^a \otimes e_a,
+\eas
+where $\mathrm{d}$ is the standard de-Rham differential. So, the differential breaks down to the standard differential in each component, especially closedness and exactness mean to be closed and exact in each component with respect to $\mleft( e_a \mright)_a$, respectively. By Lemma \ref{lem:DNablaZetaIsClosedUnderDXi} we have $\mathrm{d}^\Xi \mathrm{d}^\nabla \zeta=0$, thus, $\mathrm{d}\omega^a = 0$. Again due to that $N$ is contractible, we can conclude that closedness implies exactness by the Poincaré lemma. Thence, $\mathrm{Obs}(\Xi) = 0$.
+
+By Thm.~\ref{thm:ObstructionOfExtensions} we have an extension
+\begin{center}
+	\begin{tikzcd}
+		K \arrow[hook]{r}{\iota} & E \arrow[two heads]{r}{\pi} & \mathrm{T}N.
+	\end{tikzcd}
+\end{center}
+such that $\Xi_{\mathrm{ext}} = \Xi$, and, hence, a flat Lie derivation law covering $\Xi$ by Thm.~\ref{thm:ExtensionWennNContrahierbar}. By Prop.~\ref{prop:FieldRedefPreservespairing} the existence of the field redefinition to a flat derivation law covering $\Xi$ follows.
+\end{proof}
+
+\begin{theorems}{Possible new and curved gauge theories on LABs}{NeueLABGTs}
+Let $(K, \Xi)$ be a pairing of $\mathrm{T}N$ with $\mathrm{Obs}(\Xi) \neq 0$ and such that the fibre Lie algebra $\mathfrak{g}$ admits an $\mathrm{ad}$-invariant scalar product.
+
+Then we can construct a CYMH GT for which there is no field redefinition with what it would become pre-classical.
+\end{theorems}
+
+\begin{proof}
+\leavevmode\newline
+Take any Lie derivation law $\nabla$ covering $\Xi$ (recall the second paragraph of Remark \ref{remExistenceOfLieDerivationLawsCoveringApairing} about the existence of $\nabla$ for a given $\Xi$). By Thm.~\ref{thm:GaugeTheoryNeedsLieDerivLawsCoveringApairing} this connection satisfies compatibility conditions \eqref{CondSGleichNullLAB} and \eqref{CondKruemmungmitBLAB}. Together with the existence of an $\mathrm{ad}$-invariant scalar product we have everything what we need to construct a CYMH GT in sense of \ref{sit:CYMHGTForLABsToDoList}.
+
+Due to $\mathrm{Obs}(\Xi) \neq 0$ and Cor.~\ref{cor:FirstApproachOfLABConstruction} the statement follows.
+\end{proof}
+
+Hence, we have shown that $\mathrm{Obs}(\Xi)$ is not just an obstruction for extensions of $\mathrm{T}N$, it also leads to an obstruction for the question about whether or not a CYMH GT can be transformed to a pre-classical gauge theory by a field redefinition. However, Mackenzie also has shown that there are examples with zero obstruction class but without a flat Lie derivation law covering the pairing. Thus, there is in general only for contractible $N$ an equivalence of $\mathrm{Obs}(\Xi) = 0$ and the existence of flat Lie derivation laws covering a pairing.
+
+\begin{examples}{The isotropy of a Hopf fibration, \newline \cite[Example 7.3.20; page 287]{mackenzieGeneralTheory}}{HopfBuendelEventuellSuperFragezeichen}
+$\bullet$ Let $P$ be the Hopf fibration
+\begin{center}
+	\begin{tikzcd}
+		\mathrm{SU}(2) \arrow{r}	& \mathds{S}^7 \arrow{d} \\
+			& \mathds{S}^4
+	\end{tikzcd}
+\end{center}
+Then for the adjoint bundle
+\bas
+K
+&\coloneqq
+P \times_{\mathrm{SU}(2)} \mathrm{su}(2)
+\coloneqq 
+\mleft( \mathds{S}^7 \times \mathrm{su}(2) \mright) \Big/ \mathrm{SU}(2)
+\eas
+we have the Atiyah sequence
+\begin{center}
+	\begin{tikzcd}
+		K \arrow[hook]{r}{\iota} & E\coloneqq \mathrm{T}P \Big/ \mathrm{SU}(2) \arrow[two heads]{r}{\pi} & \mathrm{T}\mathds{S}^4.
+	\end{tikzcd}
+\end{center}
+of $\mathrm{T}\mathds{S}^4$ by $K$. We can view this sequence as an extension.
+
+Then $\mathrm{Obs}(\Xi_{\mathrm{Ext}}) = 0$ because of the fact that $K$ is semisimple, but there is no flat derivation law, especially no flat derivation law covering $\Xi_{\mathrm{Ext}}$.
+
+$\bullet$ We are not going to prove this, because introducing Atiyah sequences \textit{etc.}~would certainly exceed this work, since we will not need these notions in the following again. Hence, see the reference for the proof; for the definition of Atiyah sequences see \cite[\S 3.1 and \S3.2; page 86ff.]{mackenzieGeneralTheory}. The main idea about the definition of Atiyah sequences however is to observe that the Lie group behind the definition of a principal bundle $P \stackrel{p}{\to} N$, $N$ a smooth manifold, also acts on $\mathrm{T}P$ by the differential of left- (or right-) multiplication. Due to how the Lie group acts on $P$ it is trivial to see that it also restricts to an action on the vertical bundle, which is isomorphic to $P \times \mathfrak{g}$ since its trivialization are the induced fundamental vector fields. $\mathrm{D}p$ projects $\mathrm{T}P$ onto $\mathrm{T}\mathds{S}^4$ and the vertical bundle is its kernel; one can show that this is preserved by the chosen quotients over the Lie group action. This leads to such short exact sequences, the Atiyah sequences.
+
+$\bullet$ In case you do not know the construction of this Hopf bundle, see \textit{e.g.}~\cite[Example 4.2.14; page 214ff.]{hamilton}; the construction is basically that we view $\mathds{S}^7$ as unit octonions and $\mathrm{SU}(2) \cong \mathds{S}^3$ as unit quaternions, an action of $\mathds{S}^3$ on $\mathds{S}^7$ is then canonically given. Taking the quotient of $\mathds{S}^7$ over $\mathds{S}^3$ is precisely the quaternionic projective line which is isomorphic to $\mathds{S}^4$.
+
+$\bullet$ As other Hopf fibrations, this Hopf fibration is not trivial. Hence, the idea of the proof is to show that a flat Lie derivation law covering $\Xi_{\mathrm{ext}}$ would imply a trivialization of this Hopf fibration. A sketch: First observe that the adjoint of $E$ of any section of $E$ induces an element of $\mathcal{D}_{\mathrm{Der}}(K)$ if restricted onto $K$; due to that $K$ is the kernel of $E$'s anchor, this even defines an $E$-connection on $K$. Since $\mathrm{su}(2)$ is semisimple this induces an isomorphism $E \to \mathcal{D}_{\mathrm{Der}}(K)$. Then one can argue that a flat Lie derivation law would induce a flat connection on the Hopf bundle; $\mathds{S}^4$ is simply connected such that this implies a trivialization of this Hopf bundle. Which would be clearly a contradiction.
+\end{examples}
+
+\begin{remarks}{Hopf bundle as an example for CYMH GT}{HopfBundleIstEventuellDasBeispiel}
+The fibre of $K$ is given by $\mathrm{su}(2)$, and, thence, the existence of an $\mathrm{ad}$-invariant scalar product is given. Therefore this gives an example of a CYMH GT as in~\ref{sit:CYMHGTForLABsToDoList} by taking any fibre metric $\kappa$ on $K$ which restricts to an $\mathrm{ad}$-invariant scalar product on each fibre, and taking any Lie derivation law $\nabla$ covering $\Xi_{\mathrm{Ext}}$, and, so, the existence of a $\zeta \in \Omega^2(N;K)$ as in compatibility condition~\eqref{CondKruemmungmitBLAB} is given. By Prop.~\ref{prop:FieldRedefPreservespairing} this example shows that there is no field redefinition as in~\ref{fieldredef:FieldRedefForLABs} such that this gauge theory would become pre-classical.
+
+In \cite{TwoQubits} is a relationship of two-qubit systems, as arising in quantum computational science, and precisely this Hopf fibration shown. This may or may not prove any physical significance of this example. At least it may give hints towards a further study related to this example.
+\end{remarks}
+
+\begin{remark}
+\leavevmode\newline
+Observe that a trivial semisimple LAB would not work: Fix any global frame $\mleft( e_a \mright)_a$ of the trivial LAB, then we would have $\nabla e_a = \mleft[ \lambda , e_a \mright]_K$ for a $\lambda \in \Omega^1(N; K)$ because all bracket derivations are inner derivations for semisimple Lie algebras; for this, simply view the connection 1-forms $\omega_a^b$, given by $\nabla e_a = \omega_a^b \otimes e_b$, as matrices acting on constant (w.r.t. $\mleft( e_a \mright)_a$) sections. Then $\widetilde{\nabla}^\lambda$ would be flat, and its parallel frame is \textit{e.g.}~given by $\mleft( e_a \mright)_a$. This argument just depends on the triviality of the LAB, regardless whether the base is contractible or not. The obstruction class is of course always trivial for semisimple LABs because their centre is zero.
+\end{remark}
+
+\subsection{Existence of non-vanishing primitives stable under the field redefinition} \label{NonclassicalStuff}
+
+When one is interested into perturbation theory, especially just in a local theory, then Thm.~\ref{thm:LokalLeiderImmerPreklassisch} seems to show that locally one can not hope for new gauge theories, especially ones related to non-flat $\nabla$. However, we still have the two-form $\zeta$. We can transform every CYMH GT locally to pre-classical ones by Thm.~\ref{thm:LokalLeiderImmerPreklassisch}, but not always to classical ones as we are now going to see.
+
+\begin{theorems}{Existence of LABs giving rise to non-classical gauge theories}{AbelschIstGeileNeueTheorie}
+Let $K \to N$ be an LAB , $\nabla$ a connection satisfying compatibility conditions~\eqref{CondSGleichNullLAB} and~\eqref{CondKruemmungmitBLAB} with respect to a given $\zeta \in \Omega^2(N; K)$ such that $\mathrm{d}^\nabla \zeta \neq 0$.
+
+Then there is no $\lambda\in\Omega^1(N;K)$ as in~\ref{fieldredef:FieldRedefForLABs} such that $\widetilde{\zeta}^\lambda = 0$.
+\end{theorems}
+
+\begin{proof}
+\leavevmode\newline
+We have a 2-form $\zeta \in \Omega^2(N; K)$ such that
+\bas
+\mathrm{d}^\nabla \zeta &\neq 0.
+\eas
+By Prop.~\ref{prop:InvarianteFuerFieldRedefImFallLAB} we have $\mathrm{d}^{\widetilde{\nabla}^\lambda} \widetilde{\zeta}^\lambda= \mathrm{d}^\nabla \zeta$ for all $\lambda \in \Omega^1(N;K)$. When there would be a field redefinition leading to a classical gauge theory, then $\widetilde{\zeta}^\lambda = 0$ but then also $\mathrm{d}^{\widetilde{\nabla}^\lambda} \widetilde{\zeta}^\lambda = 0$. Thence, by $\mathrm{d}^\nabla \zeta \neq 0$ the statement follows.
+\end{proof}
+
+Starting with a standard Yang-Mills gauge theory with an additional free physical field $\Phi$ with a Lagrangian similar to the Higgs field, we have a canonical construction when the centre of the Lie algebra is non-trivial.
+
+\begin{corollaries}{Canonical construction of non-classical gauge theories}{CanonicalConstructionOfGaugeTheories}
+Let $\mathfrak{g}$ be a Lie algebra with non-zero centre and admitting an $\mathrm{ad}$-invariant scalar product. Also let $(N, g)$ be any Riemannian manifold with at least three dimensions, and $K = N \times \mathfrak{g}$ be a trivial LAB over $N$, equipped with the canonical flat connection $\nabla$ and a metric $\kappa$ which restricts to an $\mathrm{ad}$-invariant scalar product on each fibre.
+
+Then there is a $\zeta \in \Omega^2(N; Z(K))$ in sense of~\ref{sit:CYMHGTForLABsToDoList}, with $\mathrm{d}^\nabla \zeta \neq 0$, such that this set-up describes a non-classical CYMH GT with respect to an arbitrary spacetime $M$. Additionally, there is no $\lambda\in\Omega^1(N;K)$ as in~\ref{fieldredef:FieldRedefForLABs} such that $\widetilde{\zeta}^\lambda = 0$.
+\end{corollaries}
+
+\begin{proof}
+\leavevmode\newline
+By the assumptions we have everything we need to formulate a YMH GT for a given spacetime $M$, following~\ref{sit:CYMHGTForLABsToDoList}; by Thm.~\ref{thm:ActionLieALgebroid} compatibility condition~\eqref{CondSGleichNullLAB} follows. For compatibility condition~\eqref{CondKruemmungmitBLAB} just take any element of $\Omega^2(N; Z(K))$, denoted as $\zeta$, then this condition is trivially satisfied because $\nabla$ is flat and $\zeta$ only has values in the centre of $K$.
+
+Since $N$ is three-dimensional and $Z(K)$ is non-zero, we can then conclude the existence of $\mathrm{d}^\nabla \zeta \neq 0$. For this recall that $\mathrm{d}^\nabla \zeta$ is still a centre-valued form by Prop.~\ref{prop:BianchiIdentityForZeta} and that $\mathrm{d}^\nabla$ is then just the differential $\mathrm{d}^\Xi$ for $\Xi \coloneqq \sharp \circ \nabla$ as in Thm.~\ref{thm:DifferentialAufZentrumsDinge}. Therefore we only need to take any non-$\mathrm{d}^\Xi$-closed centre-valued form $\zeta$, of which there are plenty. The non-existence of a $\lambda$ with $\widetilde{\zeta}^\lambda = 0$ then follows by Thm.~\ref{thm:AbelschIstGeileNeueTheorie}.
+\end{proof}
+
+\subsection{The Bianchi identity of the new field strength} \label{BianchiStuff}
+
+We conclude this paper with an interpretation of $\mathrm{d}^\nabla \zeta$, and for this we need to calculate the Bianchi identity of the field strength. Hence, we need to understand how $\Phi^*\nabla$ behaves.
+
+\begin{propositions}{Pull-Back of a Lie derivation law covering a pairing}{PullbackvonUnseremGaugeNabla}
+Let $K \to N$ be an LAB, equipped with a connection $\nabla$ satisfying compatibility condition~\eqref{CondSGleichNullLAB}; also let $M$ be another smooth manifold and $\Phi: M \to N$ a smooth map. Then $\Phi^*\nabla$ also satisfies compatibility condition~\eqref{CondSGleichNullLAB} with respect to $\Phi^*K$.
+\newline
+
+When $\nabla$ satisfies compatibility condition~\eqref{CondKruemmungmitBLAB} with respect to a $\zeta \in \Omega^2(N; K)$, not necessarily assuming~\eqref{CondSGleichNullLAB}, then this extends to $\Phi^*K$, too, \textit{i.e.}
+\ba\label{EqCompCondFuerPullbackCurvature}
+R_{\Phi^*\nabla} = \mathrm{ad}^* \circ \Phi^!\zeta,
+\ea
+viewing the curvature as an element of $\Omega^2(M; \mathrm{End}(\Phi^*K))$ and $\mathrm{ad}^*$ denotes the adjoint of $\Phi^*K$.
+\end{propositions}
+
+\begin{remark}
+\leavevmode\newline
+By Thm.~\ref{thm:GaugeTheoryNeedsLieDerivLawsCoveringApairing}, we get that the pull-back of a Lie derivation law of $K$ covering the Lie algebroid morphism $\sharp \circ \nabla$ is a Lie derivation law of $\Phi^*K$ covering the Lie algebroid morphism $\sharp \circ \Phi^*\nabla$.
+\end{remark}
+
+\begin{proof}
+\leavevmode\newline
+\indent$\bullet$ We can show
+\bas
+\Phi^*\nabla \underbrace{\mleft( \mleft[ \Phi^*\mu, \Phi^*\nu \mright]_{\Phi^*K} \mright)}
+_{=~ \Phi^*\mleft( \mleft[ \mu, \nu \mright]_K \mright)}
+~~~&\stackrel{\mathclap{\text{Eq.~\eqref{eqShortNotationForPullbackConnections}}}}{=}~~~
+\Phi^!\mleft( \nabla\mleft( \mleft[ \mu, \nu \mright]_K \mright) \mright)\\
+&\stackrel{\mathclap{\text{Eq.~\eqref{CondSGleichNullLAB}}}}{=}~~
+\Phi^!\mleft(  \mleft[ \nabla\mu, \nu \mright]_K + \mleft[ \mu, \nabla\nu \mright]_K \mright)\\
+&\stackrel{\mathclap{\text{Eq.~\eqref{eqPullbackofLiebracketStuff}}}}{=}~~~
+\mleft[ \Phi^!(\nabla\mu), \Phi^*\nu \mright]_{\Phi^*K} + \mleft[ \Phi^*\mu, \Phi^!(\nabla\nu) \mright]_{\Phi^*K} \\
+&\stackrel{\mathclap{\text{Eq.~\eqref{eqShortNotationForPullbackConnections}}}}{=}~~~
+\mleft[ (\Phi^*\nabla)(\Phi^*\mu), \Phi^*\nu \mright]_{\Phi^*K} + \mleft[ \Phi^*\mu, (\Phi^*\nabla)(\Phi^*\nu) \mright]_{\Phi^*K}
+\eas
+for all $\mu, \nu \in \Gamma(K)$. Since pull-backs of $\Gamma(K)$ generate $\Gamma(\Phi^*K)$ and since~\eqref{CondSGleichNullLAB} is a tensorial equation, we can derive that $\Phi^*\nabla$ also satisfies compatibility condition~\eqref{CondSGleichNullLAB} with respect to the LAB $\Phi^*K$. 
+
+$\bullet$ Now let $\nabla$ satisfy compatibility condition~\eqref{CondKruemmungmitBLAB}, and recall that in general curvatures satisfy
+\bas
+R_\nabla(\cdot,\cdot)\nu
+=
+R_\nabla \nu &= \mleft( \mathrm{d}^\nabla \mright)^2 \nu \in \Omega^2(N; K)
+\eas
+for all $\nu \in \Gamma(K)$ (see also \cite[\S 5, third part of Exercise 5.15.12; page 316]{hamilton}). Then apply Eq.~\eqref{EqGeilePullBackCommuteFormel} to get
+\bas
+R_{\Phi^*\nabla} (\Phi^*\nu)
+&=
+\mleft( \mathrm{d}^{\Phi^*\nabla} \mright)^2 (\Phi^*\nu)
+=
+\Phi^!\mleft( \mleft(\mathrm{d}^\nabla\mright)^2 \nu \mright)
+\stackrel{\text{Eq.~\eqref{CondKruemmungmitBLAB}}}{=}
+\Phi^!\mleft( \mleft[ \zeta, \nu \mright]_K \mright)
+\stackrel{\text{Eq.~\eqref{eqPullbackofLiebracketStuff}}}{=}
+\mleft[ \Phi^!\zeta, \Phi^*\nu \mright]_{\Phi^*K},
+\eas
+such that $R_{\Phi^*\nabla} = \mathrm{ad}^* \circ \Phi^!\zeta$ follows, by using again that pull-backs of $\Gamma(K)$ generate $\Gamma(\Phi^*K)$.
+\end{proof}
+
+Using this we calculate the Bianchi identity for the field strength $G$. 
+%In the following statement the ${}^*$ is still related to the pullback with the evaluation map, so, a pullback to $M \times \mathfrak{M}_K(M;N)$; recall Def.~\ref{def:EvaluationMap} and \ref{def:PullbacksAsFunctionals}.
+
+\begin{theorems}{Bianchi identity of the field strength}{BianchiIdentityOfFieldStrength}
+Let $M$ and $N$ be smooth manifolds, $K \to N$ an LAB, $\Phi \in C^\infty(M;N)$, and $\nabla$ a connection satisfying compatibility conditions~\eqref{CondSGleichNullLAB} and~\eqref{CondKruemmungmitBLAB} with respect to a given $\zeta \in \Omega^2(N; K)$.
+
+Then
+\ba
+\mathrm{d}^{\Phi^*\nabla}\bigl(G(\Phi,A)\bigr) + \mleft[ A \stackrel{\wedge}{,} G(\Phi,A) \mright]_{\Phi^*K}
+&=
+\Phi^! \mleft( \mathrm{d}^\nabla \zeta \mright),
+\ea
+where
+\bas
+G(\Phi,A)
+&=
+\mathrm{d}^{\Phi^*\nabla}A
+	+ \frac{1}{2} \mleft[ A \stackrel{\wedge}{,} A \mright]_{\Phi^*K}
+	+ \Phi^!\zeta
+\eas
+was the field strength.
+\end{theorems}
+
+\begin{remark}
+\leavevmode\newline
+This clearly generalizes the standard Bianchi identity for field strengths as in Thm.~\ref{thm:ClassicBianchiIdenityOfFieldstrength}: Take a trivial LAB $K$ equipped with its canonical flat connection and $\zeta \equiv 0$. Then we arrive at the typical Bianchi identity. In general, we get $\mathrm{d}^{\Phi^*\nabla}G + \mleft[ A \stackrel{\wedge}{,} G \mright]_{\Phi^*K}=0$ if $\mathrm{d}^\nabla \zeta = 0$, which resembles strongly the standard Bianchi identity, but covariantized. Hence, we say that $G$ satisfies the \textbf{Bianchi identity} if and only if $\mathrm{d}^{\Phi^*\nabla}G + \mleft[ A \stackrel{\wedge}{,} G \mright]_{\Phi^*K}=0$.
+\end{remark}
+
+\begin{proof}
+\leavevmode\newline
+The calculation is similarly to the standard calculation of the standard formulation of the Bianchi identity as in \cite[\S 5, Theorem 5.14.2; page 311]{hamilton}, making use of compatibility condition~\eqref{CondSGleichNullLAB} needed for Eq.~\eqref{eqDerivationOfDifferentialOnBracketonK}. We have, viewing the curvature $R_{\Phi^*\nabla}$ as an element of $\Omega^2(M; \mathrm{End}(\Phi^*K))$,
+\bas
+&\mleft( \mathrm{d}^{\Phi^*\nabla} \mright)^2 A
+=
+R_{\Phi^*\nabla} \wedge A
+\stackrel{\text{Eq.~\eqref{EqCompCondFuerPullbackCurvature}}}{=}
+\mleft( \mathrm{ad}^* \circ \Phi^!\zeta \mright) \wedge A
+\stackrel{\text{Eq.~\eqref{wedgeproduktmitadLambdaergibtLieklammer}}}{=}
+\mleft[ \Phi^!\zeta \stackrel{\wedge}{,} A \mright]_{\Phi^*K}
+\stackrel{\text{Eq.~\eqref{VertauschungsregelForKKlammerAufFormen}}}{=}
+- \mleft[ A \stackrel{\wedge}{,} \Phi^!\zeta \mright]_{\Phi^*K}, \\
+&\mathrm{d}^{\Phi^*\nabla}\mleft( \mleft[ A \stackrel{\wedge}{,} A \mright]_{\Phi^*K} \mright)
+\stackrel{\text{Eq.~\eqref{eqDerivationOfDifferentialOnBracketonK}}}{=}
+\mleft[ \mathrm{d}^{\Phi^*\nabla} A \stackrel{\wedge}{,} A \mright]_{\Phi^*K}
+	- \mleft[ A \stackrel{\wedge}{,} \mathrm{d}^{\Phi^*\nabla} A \mright]_{\Phi^*K}
+\stackrel{\text{Eq.~\eqref{VertauschungsregelForKKlammerAufFormen}}}{=}
+- 2 ~ \mleft[ A \stackrel{\wedge}{,} \mathrm{d}^{\Phi^*\nabla} A \mright]_{\Phi^*K}, \\
+&\mleft[ A \stackrel{\wedge}{,} \mleft[ A \stackrel{\wedge}{,} A \mright]_{\Phi^*K} \mright]_{\Phi^*K}
+\stackrel{\text{Eq.~\eqref{JacobiIdentityForFormBracket}}}{=}
+0, \\
+&\mathrm{d}^{\Phi^*\nabla} \mleft( \Phi^!\zeta \mright)
+\stackrel{\text{Eq.~\eqref{EqGeilePullBackCommuteFormel}}}{=}
+\Phi^! \mleft( \mathrm{d}^\nabla \zeta \mright),
+\eas
+and, using all of these, we arrive at
+\bas
+\mathrm{d}^{\Phi^*\nabla}\bigl(G(\Phi,A) \bigr) + \mleft[ A \stackrel{\wedge}{,} G(\Phi,A) \mright]_{\Phi^*K}
+~~~&\stackrel{\mathclap{\text{Def.~\eqref{defNewFieldStrengthG}}}}{=}~~~
+\Phi^! \mleft( \mathrm{d}^\nabla \zeta \mright).
+\eas
+\end{proof}
+
+Thence, $\mathrm{d}^\nabla \zeta$ measures the failure of the Bianchi identity of the field strength $G$. For example, applying Cor.~\ref{cor:CanonicalConstructionOfGaugeTheories} to the Yang-Mills gauge theory of electromagnetism, \textit{i.e.}~the Lie algebra is given by $\mathfrak{g} = \mathrm{u}(1)$, would result into a gauge theory where there is no (vector) potential of the field strength as usual, so, $G$ could not be written as $\mathrm{d}^\nabla \widehat{A}$ for some $\widehat{A} \in \Omega^1(N;\Phi^*K)$.\footnote{Recall that $\mathrm{d}^\nabla$ is a differential since $\nabla$ is flat in that situation.} This concludes our discussion about LABs in the context of CYMH GTs.
+
+%\begin{theorems}{Existence of CYMH GT on Lie algebra bundles}{LABCYMHGT}
+%l
+%\end{theorems}
+%\newpage
+\section{Tangent bundles} \label{TangentBundles}
+
+Let us look at the next extreme of possible Lie algebroids: The tangent bundles themselves.
+
+\subsection{General situation}\label{GeneralSituForTangent}
+
+Let us quickly summarize what we need for tangent bundles in the context of CYMHG GT.
+
+\begin{situations}{Compatibility conditions for tangent bundles}{SituationForTangentBundles}
+We now have $E = \mathrm{T}N$, and, thus, the Lie bracket is just the typical one for vector fields. The anchor is the identity on $\mathrm{T}N$, $\rho = \mathds{1}_{\mathrm{T}N}$. Therefore there is now a coupling between the fields of gauge bosons and the Higgs field; however, since tangent bundles are transitive Lie algebroids, there is no transversal structure, hence, no Higgs bosons, only Nambu-Goldstone bosons if assuming a classical structure.\footnote{Recall, that the components of the Higgs field along the orbits are the Nambu-Goldstone bosons which can often be "gauged away" by the unitary gauge, thus, not relevant for the Higgs effect; see \cite[\S 8; page 445ff.]{hamilton}.} Thus, also now we still have no real Higgs effect.
+
+Both basic connections clearly now coincide, especially we have for a connection $\nabla$ on $E$,
+\bas
+\nabla^{\mathrm{bas}}_Y Z
+&=
+[Y, Z]
+	+ \nabla_Z Y
+\eas
+for all $Y, Z \in \mathfrak{X}(N)$,
+so, $\nabla^{\mathrm{bas}}$ is also a vector bundle connection and has a 1:1 correspondence with $\nabla$.
+The compatibility condition \eqref{VanishingBasicCurvComp} reduces to
+\ba
+R_{\nabla^{\mathrm{bas}}}
+&=
+0
+\ea
+by Prop.~\ref{prop:SnablamitREnabla}, hence, $\nabla^{\mathrm{bas}}$ shall be a flat connection as compatibility condition.
+
+The other compatibility conditions do not really change their form. However, we assume for simplicity that the fibre metric $\kappa$ on $E$ and Riemannian metric $g$ on $\mathrm{T}N$ coincide, such that the number of compatibility conditions is reduced by one; thus, we only have compatibility condition related to the metrics
+\ba
+\nabla^{\mathrm{bas}} g
+&=
+0.
+\ea
+Moreover, for a gauge invariance of the theory we need $\zeta \in \Omega^2(N;E)$ such that 
+\ba
+R_\nabla
+&=
+- \mathrm{d}^{\nabla^{\mathrm{bas}}}\zeta.
+\ea
+That a $\zeta$ exists in this situation we already know by Thm.~\ref{thm:BAlongL} and Cor.~\ref{cor:TorsionOfDualTorsions} that $\zeta= t_\nabla$ is a solution of this compatibility condition; this also implies that $\nabla$. Choosing that $\zeta$, what we do, means that we only have two compatibility conditions. Essentially we only need to construct a \textbf{flat metric connection $\nabla^{\mathrm{bas}}$}, and due to the 1:1 correspondence to $\nabla$ we have then everything needed for a CYMH GT as in Thm.~\ref{thm:FinallyTheGaugeInvarianceWeWant}, modulo the potential which is not important for the discussion since we always assume that a suitable potential is given.
+
+Every other structure needed for a CYMHG GT still looks the same in its form. Hence, we will now not recall the field strength and the Lagrangian as we did for LABs.
+\end{situations}
+
+\begin{remark}
+\leavevmode\newline
+We used a lot of exterior covariant derivatives in the past, especially we had two degrees in forms like $\Omega^{p,q}(N,E;E)$ ($p,q \in \mathbb{N}_0$), hence, a degree with respect to both $\mathrm{T}N$ and $E$. Now both bundles coincide, but for the purpose of calculating with such forms it is still important to distinguish them. For example the combatibility condition about $\zeta \in \Omega^2(N;E) \cong \Omega^{2,0}(N,E;E)$ reads
+\bas
+\mleft(\mathrm{d}^{\nabla^{\mathrm{bas}}}\zeta\mright)(X, Y, Z)
+&=
+\nabla^{\mathrm{bas}}_Z\bigl( \zeta(X, Y) \bigr)
+	- \zeta\mleft( \nabla^{\mathrm{bas}}_Z X, Y \mright)
+	- \zeta\mleft( X, \nabla^{\mathrm{bas}}_Z Y \mright)
+\eas
+for all $X, Y, Z \in \mathfrak{X}(N)$, but "only $Z$ as a section of $E$". If we view all three arguments as sections of $E$, that is, $\zeta$ as an element of $\Omega^2(E;E) \cong \Omega^{0,2}(N,E;E)$, we would get instead that
+\bas
+\mleft(\mathrm{d}^{\nabla^{\mathrm{bas}}}\zeta\mright)(X, Y, Z)
+&=
+\nabla^{\mathrm{bas}}_X\bigl( \zeta(Y, Z) \bigr)
+	- \nabla^{\mathrm{bas}}_Y\bigl( \zeta(X, Z) \bigr)
+	+ \nabla^{\mathrm{bas}}_Z\bigl( \zeta(X, Y) \bigr)
+\\
+&\hspace{1cm}
+	- \zeta\bigl( [X, Y], Z \bigr)
+	+ \zeta\bigl( [X, Z], Y \bigr)
+	- \zeta\bigl( [Y, Z], X \bigr),
+\eas
+which is clearly different. Hence, it is still important to distinguish between $\mathrm{T}N$ as the Lie algebroid $E$ and as tangent bundle $\mathrm{T}N$. However, in that case, for $\zeta \in \Omega^2(N;E)$ we know that
+\bas
+\mathrm{d}^{\nabla^{\mathrm{bas}}}\zeta
+&=
+\nabla^{\mathrm{bas}} \zeta,
+\eas
+and the right hand side would be in alignment with both interpretations of $\zeta$ as form.
+\end{remark}
+
+For the field redefinition there is not much to say additionally, besides that for $\lambda \in \Omega^1(N;E)$ we have $\Lambda = \mathds{1}_E - \lambda = \widehat{\Lambda}$. There are important results with respect to whether we have a (pre-)classical gauge theory.
+
+\begin{corollaries}{Pre-classical theories have constant torsion}{TorsionConstancyAndFlatness}
+Let $N$ be a smooth manifold, equipped with a connection $\nabla$ on $E \coloneqq \mathrm{T}N$ with vanishing basic curvature. Then there is a $\lambda \in \Omega^1(N;E)$ such that $\widetilde{\nabla}^\lambda$ is flat if and only if there is a $\lambda \in \Omega^1(N;E)$ such that $t_{\mleft(\widetilde{\nabla}^\lambda \mright)^{\mathrm{bas}}} = - t_{\widetilde{\nabla}^\lambda}$ is constant with respect to $\mleft(\widetilde{\nabla}^\lambda \mright)^{\mathrm{bas}}$, that is, 
+\ba
+\mleft(\widetilde{\nabla}^\lambda \mright)^{\mathrm{bas}} t_{\mleft(\widetilde{\nabla}^\lambda \mright)^{\mathrm{bas}}}
+&= 
+0.
+\ea
+\end{corollaries}
+
+\begin{remark}
+\leavevmode\newline
+Recall Cor.~\ref{cor:TOrsionCanBeLieBracketIfFlat}; in the case of a flat $\nabla_\rho = \nabla$ (or its field redefinition) its torsion would be another Lie bracket on $E$, but tensorial.
+\end{remark}
+
+\begin{proof}[Proof of Cor.~\ref{cor:TorsionConstancyAndFlatness}]
+\leavevmode\newline
+That quickly follows by Cor.~\ref{cor:LemmaCurvatureOfDualConnections}, using the vanishing of the basic curvature which is here equivalent to that $\nabla^{\mathrm{bas}}$ is flat, \textit{i.e.}
+\bas
+R_\nabla
+&=
+\nabla^{\mathrm{bas}} t_{\nabla^{\mathrm{bas}}},
+\eas
+hence, $\nabla$ is flat if and only if $\nabla^{\mathrm{bas}} t_{\nabla^{\mathrm{bas}}} = 0$. By Thm.~\ref{thm:InvarianceUnderTheFieldRedefinition} and its remark afterwards the vanishing of the basic curvature is preserved, hence,
+\bas
+R_{\widetilde{\nabla}^\lambda}
+&=
+\mleft(\widetilde{\nabla}^\lambda \mright)^{\mathrm{bas}} t_{\mleft(\widetilde{\nabla}^\lambda \mright)^{\mathrm{bas}}}.
+\eas
+Hence, the statement follows immediately.
+\end{proof}
+
+Of special importance is the next theorem.
+
+\begin{theorems}{Certain classical CYMH GTs are Lie groups, \newline \cite[\S 3.1 and the references therein]{blaomTangentBundleAsLieGroup} and \cite[Comment after Proposition 2.12]{basicconn}}{LieGroupIsomorphisms}
+Let $N$ be a smooth compact and simply connected manifold, and assume we have a connection $\nabla$ on $E\coloneqq\mathrm{T}N$ such that $\nabla$ is flat and has vanishing basic curvature. Then $N$ is diffeomorphic to a Lie group.
+\end{theorems}
+
+\begin{proof}[Sketch of the proof for Thm.~\ref{thm:LieGroupIsomorphisms}]
+\leavevmode\newline
+We only give a sketch of the proof, see the references for all details. First of all, as we already discussed, the vanishing of the basic curvature and the fact that $N$ is simply connected imply there is an isomorphism to an action Lie algebroid $N \times \mathfrak{g}$, $\mathfrak{g}$ a Lie algebra, such that $\nabla$ is its canonical flat connection by Thm.~\ref{thm:ActionLieALgebroid}. Then define $\omega \in \Omega^1(N; \mathfrak{g})$ by the composition of the given isomorphism\footnote{We will use this isomorphism all the time in the following, without further extra notation.} $\mathrm{T}N \to N \times \mathfrak{g}$ and the projection onto the second factor $N \times \mathfrak{g} \to \mathfrak{g}$. $\omega_p: \mathrm{T}_pN \to \mathfrak{g}$ is then clearly an isomorphism of vector spaces for all $p \in N$; such forms are also equivalent to absolute parallelisms, a trivialization of the tangent bundle, because specifying such a form gives clearly a trivialization (also in the case if $\mathfrak{g}$ is just a vector space). 
+
+The idea is that the parallel frames of $\nabla$ will be left-invariant vector fields of a Lie group. Let us denote the parallel frame of $\nabla$ by $\mleft( e_a \mright)_a$, which is also a constant frame of $N \times \mathfrak{g}$, making it obvious why that frame will be the left-invariant vector fields (their generators); it is global due to the fact that $N$ is simply connected. So, $\nabla e_a = 0$ and
+let us study
+\bas
+\mleft(\mathrm{d} \omega\mright)(X,Y)
+&=
+\mleft(\mathrm{d}^\nabla \omega\mright)(X,Y)
+=
+\nabla_X\bigl( \omega(Y) \bigr)
+	- \nabla_Y\bigl( \omega(X) \bigr)
+	- \omega([X, Y])
+\eas
+for all $X, Y \in \mathfrak{X}(N)$. In coordinates, especially for the constant frame, we have by definition
+\bas
+\omega(\nu)
+&=
+\nu
+\eas
+for all constant $\nu \in \Gamma(N \times \mathfrak{g}) \cong \mathfrak{X}(N)$,
+thus,
+\bas
+(\mathrm{d}\omega)(\mu, \nu) 
+&= 
+- \omega\underbrace{\mleft( \mleft[ \mu, \nu \mright]_{\mathfrak{g}} \mright)}_{\text{const.}}
+=
+-\mleft[ \mu, \nu \mright]_{\mathfrak{g}}
+=
+- \mleft[ \omega(\mu), \omega(\nu) \mright]_{\mathfrak{g}}
+=
+- \mleft(\frac{1}{2} \mleft[ \omega \stackrel{\wedge}{,} \omega \mright]_{\mathfrak{g}}\mright)(\mu, \nu)
+\eas
+for all constant $\mu, \nu \in \Gamma(N \times \mathfrak{g})$. Since this is a tensorial equation this holds for all sections/vector fields, so, the Maurer-Cartan equation is satisfied. Hence, $\omega$ will be the Maurer-Cartan form, infinitesimally decoding the Lie group structure related to the differential of the Left multiplication. The Maurer-Cartan equation is the integrability condition, that is, one can locally define an exponential, generating a Lie group structure locally.\footnote{The Maurer-Cartan equation as a "zero curvature condition" encodes basically the infinitesimal information about that there is a unique group element connecting two other group elements.} By compactness and conectedness one can do this globally leading to that $M$ is diffeomorphic to a Lie group integrating $\mathfrak{g}$.
+\end{proof}
+
+Especially looking at manifolds which are not Lie groups can help to find CYMH GTs on tangent bundle which are not pre-classical, also under the field redefinition.
+
+\subsection{Local picture}\label{LocalTangentBundles}
+
+Having Thm.~\ref{thm:LieGroupIsomorphisms} in mind, one expects that tangent bundles as CYMH GT are locally always a pre-classical CYMH GT.
+
+\begin{theorems}{Tangent bundles are locally pre-classical as CYMH GT}{NoGoLocalTangentBundle}
+Let $N = \mathbb{R}^n$ ($n \in \mathbb{N}_0$) be an Euclidean space as smooth manifold and $\nabla$ a connection on $E \coloneqq \mathrm{T}N$ with vanishing basic curvature. Then there is a $\lambda \in \Omega^1(N;E)$ such that $\widetilde{\nabla}^\lambda$ is flat.
+\end{theorems}
+
+\begin{proof}
+\leavevmode\newline
+That will essentially follow by Cor.~\ref{cor:TorsionConstancyAndFlatness}, we need to find a field redefinition such that 
+\bas
+\mleft(\widetilde{\nabla}^\lambda\mright)^{\mathrm{bas}} t_{\mleft(\widetilde{\nabla}^\lambda\mright)^{\mathrm{bas}}}
+&=
+0,
+\eas
+so, $\widetilde{\nabla}^\lambda$ is flat if and only if $t_{\mleft(\widetilde{\nabla}^\lambda\mright)^{\mathrm{bas}}}$ is constant w.r.t.~$\mleft(\widetilde{\nabla}^\lambda\mright)^{\mathrm{bas}}$. As we have discussed in \ref{sit:SituationForTangentBundles} we know that there is a parallel frame $(e_a)_a$ of $E$ for $\nabla^{\mathrm{bas}}$, globally defined since $N = \mathbb{R}^n$, especially simply connected. Then also
+\bas
+t_{\nabla^{\mathrm{bas}}}(e_a, e_b) 
+&= 
+-\left[e_a, e_b\right]_E
+=
+-C_{ab}^c ~ e_c,
+\eas
+where $C_{ab}^c$ are structure functions, and
+\bas
+\left(\nabla^{\mathrm{bas}} t_{\nabla^{\mathrm{bas}}}\right) (e_a, e_b)
+&=
+\nabla^{\mathrm{bas}} \left( t_{\nabla^{\mathrm{bas}}}(e_a, e_b)\right)
+=
+- \nabla^{\mathrm{bas}} \big( \left[ e_a, e_b \right]_E \big)
+=
+- \mathrm{d}(C^c_{ab}) \otimes e_c.
+\eas
+When the structure functions are already constants we're done, otherwise we will now use the transformation formulas in Def.~\ref{def:FieldRedefinition}. By Eq.~\eqref{basicconnectionTrafoRefield} it is clear that $\widetilde{e}_a \coloneqq \Lambda(e_a)$ defines a parallel frame for $\widetilde{\nabla}^{\mathrm{bas}}$ and, thus, similarly
+\bas
+\mleft(\mleft( \widetilde{\nabla}^\lambda\mright)^{\mathrm{bas}}
+\widetilde{t}_{\mleft(\widetilde{\nabla}^\lambda\mright)^{\mathrm{bas}}}\mright)(\widetilde{e}_a, \widetilde{e}_b)
+&=
+- \mleft( \widetilde{\nabla}^\lambda\mright)^{\mathrm{bas}} \bigl( \mleft[\widetilde{e}_a, \widetilde{e}_b \mright]_E \bigr)
+= - \mathrm{d} \mleft(\widetilde{C}_{ab}^c\mright) \otimes \widetilde{e}_c,
+\eas
+where $\widetilde{C}_{ab}^c$ are the structure functions related to $\mleft(\widetilde{e}_a\mright)_a$.
+Thence, $\widetilde{\nabla}^\lambda$ is flat if and only if $\widetilde{C}_{ab}^c$ are constants.
+%
+%Therefore,
+%\bas
+%&&
+%\exists \lambda \in \Omega^1(U;E): ~ 
+ %R_{\widetilde{\nabla}} &=0 \\
+%&\Leftrightarrow& \exists \lambda \in \Omega^1(U;E): ~
+%0&=
+%\widetilde{\nabla}^{\mathrm{bas}}\big( \left[ \Lambda(e_a), \Lambda(e_b) \right]_E \big) \\
+%&\stackrel{\mathclap{\rho \text{ bijective}}}{\Leftrightarrow}& \exists \lambda \in \Omega^1(U;E): ~
+%0&=
+%\rho\left( \widetilde{\nabla}^{\mathrm{bas}}\big( \left[ \Lambda(e_a), \Lambda(e_b) \right]_E \big) \right) \\
+%&&
+%&\stackrel{\mathclap{\text{Def. } \ref{def:basicconn}}}{=}
+%\quad~\widetilde{\nabla}^{\mathrm{bas}}\left(\rho\big( \left[ \Lambda(e_a), \Lambda(e_b) \right]_E \big)\right) \\
+%&&
+%&=
+%\widetilde{\nabla}^{\mathrm{bas}}\big( \left[ \rho(\Lambda(e_a)), \rho(\Lambda(e_b)) \right]_E  \big) \\
+%&&
+%&=
+%\widetilde{\nabla}^{\mathrm{bas}}\Big( \left[ \widehat{\Lambda}(\rho(e_a)), \widehat{\Lambda}(\rho(e_b)) \right]_E \Big).
+%\eas
+%$(\rho(e_a))_a$ is a linear independent system because $\rho$ is bijective, \textit{i.e.} it describes a local frame of $\mathrm{T}M$. 
+
+$\Lambda \in \sAut(E)$ can be taken in such a way that $\left(\Lambda(e_a)\right)_a$ are global coordinate vector fields $\partial_i$, because then
+\bas
+\lambda
+&=
+\mathds{1}_{\mathrm{T}N} 
+	- \Lambda
+\eas
+is a valid definition for $\lambda \in \Omega^1(N;E)$. Using such a $\lambda$ implies
+\bas
+\mleft[ \widetilde{e}_a, \widetilde{e}_b \mright]_E
+&= 
+0,
+\eas
+thus, $\widetilde{C}_{ab}^c = 0$. So, we have found a field redefinition to a flat connection by Cor.~\ref{cor:TorsionConstancyAndFlatness}.
+\end{proof}
+
+\subsection{Unit octonions}\label{UnitoctonionsasGT}
+
+By Thm.~\ref{thm:LieGroupIsomorphisms}, we now show that there is an example for a CYMH GT by using a manifold which is not a Lie group; of course we study the canonical example of such a manifold, the seven dimensional sphere $\mathds{S}^7$. $\mathds{S}^7$ can be understood as the set of unit octonions. It would certainly exceed the purpose of this thesis to discuss those in full detail, hence, we only introduce and show parts of the basics needed for the proof such that one should be able to understand the motivation and structure behind the following definitions. See the following reference for a thorough discussion. We will follow \cite[\S 3.10, page 170ff.; Exercise 3.12.15, page 189f.; Example 4.5.10, page 229]{hamilton}, using the exceptional Lie group $G_2$ to define octonions.
+
+In this subsection let $V \coloneqq \mathbb{R}^7$, and we denote its standard Euclidean scalar product by $\langle \cdot, \cdot \rangle$, its orthonormal base by $\left(e_j\right)_{j=1}^7$ and $\left(w^i\right)_{i=1}^7$ its dual basis, \textit{i.e.}~$w^i\mleft(e_j\mright) = \delta_j^i$, the Kronecker delta. We also define a shorter notation for products of $w^i$, for example
+\bas
+w^{ij} &\coloneqq w^i \wedge w^j,
+\eas
+similar with more than two factors.
+
+\begin{definitions}{Multiplication form for octonions, \newline \cite[Definition 3.10.1; page 171]{hamilton}}{MultiplcationTableOfOctonions}
+We define a 3-form $\phi \in \bigwedge^3 V^*$ by
+\ba
+\phi 
+&\coloneqq
+w^{123}
+	+ w^1 \wedge \left( w^{45} + w^{67} \right)
+	+ w^2 \wedge \left( w^{46} - w^{57} \right)
+	- w^3 \wedge \left( w^{47} + w^{56} \right).
+\ea
+\end{definitions}
+%
+%\begin{remark}
+%\leavevmode\newline
+%One can use such a form to define the exceptional Lie group $G_2$, which we will not introduce. See \textit{e.g.}~\cite[Definition 3.10.3; page 171]{hamilton}.
+%\end{remark}
+
+This 3-form will essentially define the multiplication table for octonions; but before we do so, let us define $G_2$ for which we need a $\mathrm{GL}(7, \mathbb{R})$-action on $\bigwedge^k V^*$.
+
+\begin{definitions}{$\mathrm{GL}(7, \mathbb{R})$-action on $\bigwedge^k V^*$, \newline \cite[comment before Definition 3.10.3]{hamilton}}{GL7action}
+We define
+\ba
+(q \alpha)(v_1, \dotsc, v_k)
+&\coloneqq
+\alpha \mleft(
+	q^{-1}v_1, \dotsc, q^{-1} v_k
+\mright)
+\ea
+for all $\alpha \in \bigwedge^k V^*$ ($k \in \mathbb{N}_0$), $q \in \mathrm{GL}(7, \mathbb{R})$, and $v_1, \dotsc, v_k \in V$, where $q$ acts on $V$ as usual by the standard representation.
+\end{definitions}
+
+Using this notion, we can define $G_2$.
+
+\begin{definitions}{Exceptional Lie group $G_2$, \cite[Definition 3.10.3; page 171]{hamilton}}{ExceptionalLieGroup}
+We define the \textbf{exceptional Lie group $G_2$} as a subset of $\mathrm{GL}(7, \mathbb{R})$ by
+\ba
+G_2
+&\coloneqq
+\left\{
+q \in \mathrm{GL}(7, \mathbb{R})
+~\middle|~
+q \phi
+=
+\phi
+\right\}.
+\ea
+\end{definitions}
+
+\begin{remark}
+\leavevmode\newline
+$G_2$ is clearly a subgroup of $\mathrm{GL}(7, \mathbb{R})$ as the isotropy of $\phi$. As argued in \cite{hamilton}, it is therefore also a closed embedded Lie subgroup; furthermore, in \cite[Corollary 3.10.7; page 173]{hamilton} it is also shown that $G_2$ is a compact embedded Lie subgroup of $\mathrm{SO}(7)$. That also implies that 
+\ba
+\langle qx, qy\rangle
+&=
+\langle x, y \rangle
+\ea
+for all $x, y \in V$ and $q \in G_2$. We will not prove this because because it is on one hand straighforward but a bit tedious to prove, and we assume that the exceptional Lie group $G_2$ is a known object for the reader.
+\end{remark}
+
+
+\begin{definitions}{\cite[Definition 3.10.8; page 175]{hamilton}}{PhiAsP}
+Let us define a map $P: V \times V \to V$ by
+\ba
+\langle
+P(x,y), z
+\rangle
+&\coloneqq
+\phi(x, y,z)
+\ea
+for all $x,y,z \in V$.
+\end{definitions}
+
+By definition we get.
+
+\begin{propositions}{Properties of $P$, \cite[Proposition 3.10.9]{hamilton}}{PIsNice}
+The map $P$ is antisymmetric, bilinear and $G_2$-equivariant, that is
+\ba
+q \bigl( P(x, y) \bigr)
+&=
+P(qx, qy)
+\ea
+for all $q \in G_2$ and $x, y \in V$.
+\end{propositions}
+
+\begin{proof}
+\leavevmode\newline
+Antisymmetry and bilinearity follow immediately by definition. For the third property we use that $G_2 \subset \mathrm{SO}(7)$ and the definition of $G_2$, so,
+\bas
+\langle q \bigl( P(x, y) \bigr), z \rangle
+&=
+\mleft\langle P(x, y), q^{-1} z \mright\rangle
+=
+\phi\mleft(
+	x, y, q^{-1}z
+\mright)
+=
+\underbrace{(q\phi)}_{=\phi}\mleft(
+	qx, qy, z
+\mright)
+=
+\langle P(qx, qy), z \rangle
+\eas
+for all $x, y, z \in V$ and $q \in G_2$.
+\end{proof}
+
+We will also need some additional technical result for $P$.
+
+\begin{lemmata}{Additonal properties of $P$, \newline \cite[first part of Exercise 3.12.16; page 190]{hamilton}}{PPFormula}
+We have
+\ba
+P\bigl(x, P(x, y)\bigr)
+&=
+- \langle x, x \rangle y
+	+ \langle x, y \rangle x
+\ea
+for all $x, y \in V$.
+\end{lemmata}
+
+\begin{proof}[Sketch of proof for Lemma \ref{lem:PPFormula}]
+\leavevmode\newline
+\indent $\bullet$ Let $x, y \in V$. Then there is a $q \in G_2$ such that
+\bas
+qx
+&=
+x_1 e_1,
+&
+qy
+&=
+y_1 e_1
+	+ y_2 e_2
+\eas
+for some $x_1, y_1, y_2 \in \mathbb{R}^2$ (not necessarily the components of $x$ and $y$, which is why the indices are at lower position).
+This is given in \cite[first part of Exercise 3.12.15; page 189]{hamilton}; we only give a sketch of this part of the proof actually, see the references for all the calculations. First assume that $x$ and $y$ are linear independent, then apply the Gram-Schmidt process to get orthonormal vectors
+\bas
+x^\prime
+&\coloneqq
+\frac{x}{||x||},
+&
+y^\prime
+&\coloneqq
+\frac{y - \langle x^\prime, y \rangle x^\prime}{\mleft|\mleft| y - \langle x^\prime, y \rangle x^\prime \mright|\mright|}.
+\eas
+Let 
+\bas
+V_2\mleft(\mathbb{R}^7\mright)
+&\coloneqq
+\left\{
+(v_1, v_2)
+~\middle|~
+v_i \in \mathbb{R}^7, \langle v_i, v_j \rangle = \delta_{ij}
+\right\}
+\eas
+where $i,j\in \{1,2\}$; this is known as a certain \textbf{Stiefel manifold}, see for example \cite[Example 3.9.1; page 168]{hamilton} for an introduction and discussion. We have $(x^\prime, y^\prime), (e_1, e_2) \in V_2\mleft( \mathbb{R}^7 \mright)$, and then there is an element $q \in G_2$ such that $qx^\prime = e_1$ and $qy^\prime = e_2$; this is given by \cite[Theorem 3.10.15; page 177]{hamilton}, where it is shown that $G_2$ acts transitively on $V_2\mleft(\mathbb{R}^7\mright)$ by $q \cdot (v_1, v_2) = (qv_1, q v_2)$ for all $q \in G_2$ and $(v_1, v_2) \in V_2\mleft(\mathbb{R}^7\mright)$. With that we can derive
+\bas
+qx
+&=
+q\bigl( ||x|| ~ x^\prime \bigr)
+=
+x_1 e_1,
+\\
+qy
+&=
+q \mleft(
+	\langle x^\prime, y \rangle x^\prime
+	+ \mleft|\mleft| y - \langle x^\prime, y \rangle x^\prime \mright|\mright| ~ y^\prime
+\mright)
+=
+y_1 e_1 + y_2 e_2
+\eas
+where $x_1 \coloneqq ||x||, y_1 \coloneqq \langle x^\prime, y \rangle, y_2 \coloneqq \mleft|\mleft| y - \langle x^\prime, y \rangle x^\prime \mright|\mright|$. Hence, we have found the desired element $q \in G_2$; in case $x$ and $y$ are linear dependent and one element is unzero (it is a trivial task if both are zero), one extends the non-zero element first to a basis of a 2-dimensional subspace of $\mathbb{R}^7$ and applies then the same argument as in the previous situation.
+
+$\bullet$ We now want to fix such a $q$ for a given pair $x$ and $y$; it allows us to simplify the calculation by reducing the involved dimensions, using the $G_2$-equivariance of $P$. So,
+\bas
+\langle P(x, P(x,y)), z \rangle
+&=
+\langle qP(x, P(x,y)), qz \rangle
+\\
+&=
+\langle P(qx, qP(x,y)), qz \rangle
+\\
+&=
+\langle P(qx, P(qx,qy)), qz \rangle
+\\
+&=
+\mleft\langle \mleft( x_1 \mright)^2 y_2 ~ P(e_1, P(e_1,e_2)), qz \mright\rangle
+\\
+&=
+\mleft\langle\mleft( x_1 \mright)^2 y_2 ~ P(e_1, e_3), qz \mright\rangle
+\\
+&=
+\mleft\langle 
+	- \mleft( x_1 \mright)^2 y_2 e_2 
+	+ \mleft( x_1 \mright)^2 y_1 e_1 
+	- \mleft( x_1 \mright)^2 y_1 e_1, 
+	qz 
+\mright\rangle
+\\
+&=
+\Bigl\langle 
+	- \underbrace{\mleft( x_1 \mright)^2 (y_1 e_1 + y_2 e_2 )}
+		_{= \langle qx, qx \rangle qy}
+	+ \underbrace{ x_1 y_1 ~ x_1 e_1}
+		_{= \langle qx, qy \rangle qx}, 
+	qz 
+\Bigr\rangle
+\\
+&=
+- \langle x, x \rangle \langle qy, qz\rangle
+	+ \langle x, y \rangle \langle qx, qz \rangle
+\\
+&=
+\mleft\langle
+	- \langle x, x \rangle y + \langle x, y \rangle x, z
+\mright\rangle
+\eas
+for all $x, y, z \in V$, using $G_2 \subset \mathrm{SO}(7)$, the antisymmetry of $P$, and the definition of $\phi$ to calculate that
+\bas
+\langle P(e_1, e_2), v \rangle
+&=
+\phi(e_1, e_2, v)
+=
+v^3
+\eas
+for all $v \in V$, such that $P(e_1, e_2) = e_3$, and similarly one derives $P(e_1, e_3) = -e_2$. Therefore
+\bas
+P(x, P(x,y))
+&=
+- \langle x, x \rangle y + \langle x, y \rangle x.
+\eas
+\end{proof}
+
+Now let us define the octonions.
+
+\begin{definitions}{Octonions, \cite[third part of Exercise 3.12.15; page 189f.]{hamilton}}{OctonionsDef}
+We define the \textbf{octonions $\mathbb{O}$} by
+\ba
+\mathbb{O}
+&\coloneqq
+\mathbb{R}e_0 \oplus V
+\cong 
+\mathbb{R}^8,
+\ea
+where $\mathbb{R}e_0$ denotes $\mathbb{R}$ emphasizing that $e_0$ denotes a basis along that factor, and define an $\mathbb{R}$-bilinear multiplication $\cdot$ on $\mathbb{O}$ by
+\ba
+e_0 \cdot e_0 &\coloneqq e_0,
+&e_0 \cdot x &\coloneqq x \cdot e_0 \coloneqq x,
+& x \cdot y \coloneqq - \langle x, y \rangle e_0 + P(x,y),
+\ea
+for all $x, y \in V$. Furthermore, let $(\cdot,\cdot)$ be the scalar product on $\mathbb{O}$ sucht that $\mleft( e_a \mright)_{a=0}^7$ is its orthonormal basis.
+\end{definitions}
+
+\begin{remark}
+\leavevmode\newline
+As one trivially sees and pointed out in \cite[last part of Example 4.5.10; page 229]{hamilton}, one has 
+\bas
+e_j^2
+&=
+- e_0
+\eas
+for all $j \in \{1, \dotsc, 7\}$, using the antisymmetry of $P$.
+\end{remark}
+
+With the norm $||\cdot||$ induced by $(\cdot,\cdot)$ one can show that $\mathbb{O}$ is a normed division algebra, but $\cdot$ is not an associative multiplication, see \textit{e.g.}~\cite[third and sixth part of Exercise 3.12.15; page 189f.]{hamilton}. This especially means that
+\bas
+||z \cdot w||
+&=
+||z|| ~ ||w||
+\eas
+for all $z, w \in \mathbb{O}$, and by defining the \textbf{octonionic conjugation}
+\bas
+\overline{z}
+&\coloneqq
+x_0e_0
+	- x
+\eas
+for $z = x^0e_0 + x$, where $x^0 \in \mathbb{R}$ and $x \in V$, one can show that
+\bas
+z\cdot \overline{z}
+&=
+\overline{z} \cdot z
+=
+||z||^2~ e_0,
+\eas
+such that every non-zero octonion has a multiplicative inverse. Especially, the multiplication is closed on the elements with norm 1, that is, for all $z,w \in \mathbb{O}\cong\mathbb{R}^8$ with $||z||= ||w||=1$ we have $||zw||=1$. $\mathds{S}^7$ can be then interpreted as those octonions with unit norm, the unit octonions, and henceforth it carries their non-associative algebra. It is a well-known fact that $\mathds{S}^7$ does not admit a Lie group structure, so, especially one cannot get rid of the non-associativity.
+
+These properties are straightforward calculations and very well-known, hence, we are not proving these explicitly, see the mentioned reference for example. But the non-associativity can be quickly seen by (recall the end of the proof of Lemma \ref{lem:PPFormula} in order to see how to calculate values of $P$),
+\bas
+(e_1 \cdot e_2) \cdot e_4
+&=
+P(e_1, e_2) \cdot e_4
+=
+e_3 \cdot e_4
+=
+P(e_3, e_4)
+=
+- e_7
+\eas
+and
+\bas
+e_1 \cdot (e_2 \cdot e_4)
+&=
+e_1 \cdot P(e_2, e_4)
+=
+e_1 \cdot e_6
+=
+P(e_1, e_6)
+=
+e_7,
+\eas
+hence, $(e_1 \cdot e_2) \cdot e_4 \neq e_1 \cdot (e_2 \cdot e_4)$,
+as also mentioned in \cite[sixth part of Exercise 3.12.15; page 190]{hamilton}.
+
+$\mathbb{S}^7$ is a parallelizable manifold. To see this we also need the following.
+
+\begin{propositions}{Compatibility of the multiplication in $\mathbb{O}$ with $(\cdot,\cdot)$, \newline \cite[motivated by Example 4.5.10; page 229]{hamilton}}{ImportantRelationOfScalarproductonO}
+We have
+\ba
+\mleft(e_j z, w\mright)
+&=
+- \mleft(z, e_j w\mright)
+\ea
+for all $z, w \in \mathbb{O}$ and $j \in \{1, \dotsc, 7\}$.
+\end{propositions}
+
+\begin{proof}
+\leavevmode\newline
+For $z, w \in \mathbb{O}$ let us write $z= x^0 e_0 + x$ and $w = y^0e_0 + y$, where $x^0, y^0 \in \mathbb{R}$ and $x,y \in V$. Then, using $i,j \in \{1, \dotsc, 7\}$,
+\bas
+e_j z
+&=
+x^0e_j
+	- \langle e_j, x \rangle e_0
+	+ P(e_j, x)
+=
+x^0e_j
+	- x^j e_0
+	+ x^i ~ P(e_j, e_i),
+\eas
+then, using $k \in \{1, \dotsc, 7\}$,
+\bas
+\mleft(e_j z, w\mright)
+&=
+\mleft(
+	x^0 e_j
+	- x^j e_0
+	+ x^i ~ P(e_j, e_i), 
+	y^0 e_0 
+	+ y^k e_k
+\mright)
+\\
+&=
+x^0 y^j
+	- x^j y^0
+	+ x^iy^k ~ \underbrace{\bigl( P(e_j, e_i), e_k \bigr)}_{\mathclap{ = \langle P(e_j, e_i), e_k \rangle }}
+\\
+&=
+x^0 y^j
+	- x^j y^0
+	+ x^iy^k ~ \underbrace{\phi(e_j, e_i , e_k )}
+		_{\mathclap{ = - \phi(e_j, e_k , e_i) = - \langle P(e_j, e_k), e_i \rangle }}
+\\
+&=
+- \mleft(
+	x^j y^0
+	- x^0 y^j
+	+ x^i y^k ~ \bigl( e_i, P(e_j, e_k) \bigr)
+\mright)
+\\
+&=
+- (z, e_j w).
+\eas
+\end{proof}
+
+With that one can construct a trivialization of $\mathrm{T}\mathds{S}^7$.
+
+\begin{theorems}{$\mathrm{T}\mathds{S}^7$ is trivial, \cite[last part of Example 4.5.10; page 229]{hamilton}}{OktonionenFuerParalellilitaet}
+$\mathds{S}^7$ is a parallelizable manifold, and a possible trivialization is given by vector fields $Y_j \in \mathfrak{X}\mleft(\mathds{S}^7\mright)$ ($j \in \{1,\dotsc,7\}$), defined by
+\ba
+\mleft.Y_j\mright|_z
+&\coloneqq 
+e_j \cdot z
+\ea
+for all $z \in \mathds{S}^7$, which is also a orthonormal frame for $(\cdot, \cdot)$ (restricted to a scalar product for $\mathrm{T}\mathbb{S}^7$).
+\end{theorems}
+
+\begin{proof}
+\leavevmode\newline
+Observe
+\bas
+\mleft(Y_j|_z, z\mright)
+&=
+(e_j \cdot z, z)
+\stackrel{\text{Prop.~\ref{prop:ImportantRelationOfScalarproductonO}}}{=}
+- (z, e_j z)
+=
+- (e_j z, z)
+=
+- (Y_j|_z, z)
+\eas
+for all $z \in \mathds{S}^7$,
+hence, $(Y_j|_z, z) = 0$, so, perpendicular to $z$, which is why one can view $Y_j \in \mathfrak{X}(\mathds{S}^7)$.
+We also have, $k$ also an element of $\{1, \dotsc, 7\}$,
+\bas
+\mleft( Y_j, Y_k \mright)
+&=
+\mleft( e_j \cdot z, e_k \cdot z \mright)
+\\
+&\stackrel{\mathclap{ \text{Prop.~\ref{prop:ImportantRelationOfScalarproductonO}} }}{=}\quad~~
+- \bigl( z, e_j \cdot (e_k \cdot z) \bigr)
+\\
+&=
+- \mleft( 
+	z, 
+	e_j \cdot 
+	\mleft(
+		x^0 e_k
+		- x^k e_0
+		+ x^i ~ P(e_k, e_i)
+	\mright) 
+\mright)
+\\
+&=
+- \mleft( 
+	x^0 e_0 + x,
+	- x^0 \delta_{jk} e_0
+	+ x^0 P(e_j, e_k)
+	- x^k e_j
+	- x^i \langle e_j, P(e_k, e_i) \rangle ~ e_0
+	+ x^i P(e_j, P(e_k, e_i))
+\mright)
+\\
+&=
+\mleft( x^0 \mright)^2 \delta_{jk}
+	+ x^0x^i \langle e_j, P(e_k, e_i) \rangle
+	- x^0 x^i \underbrace{\langle e_i, P(e_j, e_k) \rangle}
+		_{\mathclap{ = \phi(e_j, e_k, e_i) = \phi(e_k, e_i, e_j) = \langle e_j, P(e_k, e_i) \rangle }}
+	+ x^k x^j
+	- \mleft( x, x^i P(e_j, P(e_k, e_i)) \mright)
+\\
+&=
+\mleft( x^0 \mright)^2 \delta_{jk}
+	+ x^k x^j
+	- \mleft( x, x^i P(e_j, P(e_k, e_i)) \mright)
+\eas
+writing $z = x^0 e_0 + x$, where $x^0 \in \mathbb{R}$ and $x \in V$; also recall similar calculations of the previous proofs like at the beginning of the proof of Prop.~\ref{prop:ImportantRelationOfScalarproductonO}. Using Lemma \ref{lem:PPFormula},
+\bas
+\mleft( x, x^i P(e_j, P(e_k, e_i)) \mright)
+&=
+\langle
+	x,
+	P(e_j, P(e_k, x))
+\rangle
+\\
+&=
+\phi\bigl(e_j, P(e_k, x), x\bigr)
+\\
+&=
+\phi\bigl( x, P(x, e_k), e_j \bigr)
+\\
+&=
+\langle
+	P(x, P(x, e_k)),
+	e_j
+\rangle
+\\
+&\stackrel{\mathclap{ \text{Lemma \ref{lem:PPFormula}} }}{=}\qquad
+\langle
+	- \langle x, x \rangle e_k
+	+ \langle x, e_k \rangle x,
+	e_j
+\rangle
+\\
+&=
+- \langle x, x \rangle \delta_{jk}
+	+ x^k x^j,
+\eas
+and, so,
+\bas
+\mleft( Y_j, Y_k \mright)
+&=
+\mleft( \mleft(x^0\mright)^2 + \langle x, x \rangle \mright) \delta_{jk}
+=
+||z||^2 ~ \delta_{jk}
+=
+\delta_{jk},
+\eas
+using that $z$ is a unit octonion. Hence, $\mleft( Y_j \mright)_j$ is an orthonormal frame, globally defined, especially linear independent by the orthogonality. Thus, we have a global trivialization of $\mathrm{T}\mathbb{S}^7$.
+\end{proof}
+
+We can therefore finally prove that the unit octonions as $\mathds{S}^7$ give rise to a CYMH GT.
+
+\begin{theorems}{Global example: Unit octonions}{UnitOctonionsAreExamples}
+$\mathds{S}^7$ admits a CYMH GT as in Thm.~\ref{thm:FinallyTheGaugeInvarianceWeWant} such that the related connection $\nabla$ on $E \coloneqq \mathrm{T}\mathds{S}^7$ is not flat. Moreover, there is no field redefinition $\widetilde{\nabla}^\lambda$ of $\nabla$ such that $\widetilde{\nabla}^\lambda$ is flat, where $\lambda \in \Omega^1(N;E)$ such that $\Lambda = \mathds{1}_{\mathrm{T}\mathbb{S}^7} - \lambda \in \sAut(E)$.
+\end{theorems}
+
+\begin{remark}
+\leavevmode\newline
+The following constructions for this CYMHG GT structure is also very similar to the construction of a flat metric connection in \cite[\S 4]{flatmetricconn}, where a Clifford algebra is used instead.
+\end{remark}
+
+\begin{proof}[Proof of Thm.~\ref{thm:UnitOctonionsAreExamples}]
+\leavevmode\newline 
+Recall the situation as described in \ref{sit:SituationForTangentBundles}; we only need to construct a flat metric connection $\nabla^{\mathrm{bas}}$ on $\mathrm{T}\mathds{S}^7$, because we are going to assume that the metrics on $\mathrm{T}\mathds{S}^7$ as Lie algebroid and tangent bundle are the same. The connection $\nabla$ is then uniquely given by $\nabla^{\mathrm{bas}}$, and we will define the primitive of $\nabla$ by $\zeta \coloneqq t_\nabla$.
+
+The construction follows by Thm.~\ref{thm:OktonionenFuerParalellilitaet}, so, let $\mleft( Y_j \mright)_j$ ($j \in \{1, \dotsc, 7\}$) be the global trivialization of $\mathrm{T}\mathds{S}^7$ defined by $\mathds{S}^7 \ni z \mapsto e_j \cdot z$ for all $j$. Then define $\nabla^{\mathrm{bas}}$ by
+\bas
+\nabla^{\mathrm{bas}} Y_j
+&=
+0,
+\eas
+uniquely extended to a connection of $\mathrm{T}\mathds{S}^7$, using that $Y_j$ is a global frame. Flatness is an immediate consequence, since $\mleft( Y_j \mright)_j$ is a parallel frame by definition.
+
+Moreover, $\mleft( Y_j \mright)_j$ are an orthonormal frame of $(\cdot, \cdot)$; hence, for the CYMH GT we take $(\cdot, \cdot)$ restricted on $\mathrm{T}\mathds{S}^7$ as fibre metric. Then
+\bas
+\mleft( \nabla^{\mathrm{bas}} (\cdot, \cdot) \mright)(Y_j, Y_k)
+&=
+\mathrm{d}\bigl( \underbrace{(Y_j, Y_k)}_{= \delta_{jk}} \bigr)
+	- \mleft( \nabla^{\mathrm{bas}} Y_j, Y_k \mright)
+	- \mleft( Y_j, \nabla^{\mathrm{bas}} Y_k \mright)
+=
+0
+\eas
+for all $j,k$. Thus, we have now everything for a CYMH GT, especially, we have a $\nabla$ with vanishing basic curvature. Moreover, by Thm.~\ref{thm:LieGroupIsomorphisms} $\nabla$ cannot be flat, otherwise $\mathds{S}^7$ would admit a Lie group structure. Furthermore, by Thm.~\ref{thm:InvarianceUnderTheFieldRedefinition} the field redefinition preserves the vanishing of the basic curvature such that we can apply the same argument to $\widetilde{\nabla}^\lambda$, thence, $\widetilde{\nabla}^\lambda$ cannot be flat for all $\lambda \in \Omega^1(N;E)$.
+\end{proof}
+
+\begin{remarks}{Stability with respect to other transformations}{OktonionenSehrStabil}
+As one can see by the proof, the base ingredient is Thm.~\ref{thm:LieGroupIsomorphisms}. Hence, one can probably apply the same statement to every transformation preserving the vanishing of the basic curvature.
+\end{remarks}
+
+Hence, we have a CYMH GT on $\mathds{S}^7$ which is not pre-classical (stable under the field redefinition). It was essential that $\mathds{S}^7$ cannot admit a Lie group structure, strongly related to the non-associativity. As we also have seen in Cor.~\ref{cor:TorsionConstancyAndFlatness} and \ref{cor:LemmaCurvatureOfDualConnections}, also recall the proof of the former, the flatness of $\nabla$ is equivalent to the constancy of the structure functions with respect to a parallel frame of $\nabla^{\mathrm{bas}}$. The parallel frame we took in the last proof was the trivialization $\mleft( Y_j \mright)_j$ ($j \in \{1, \dotsc, 7\}$) given in Thm.~\ref{thm:OktonionenFuerParalellilitaet}; summarising all of that, we can conclude that the non-associativity is directly related to the non-constancy of the structure functions for $\mleft( Y_j \mright)_j$. In \cite[Equation (4); an ArXiv preprint]{octonions} is a formula derived for precisely those structure functions, emphasizing this argument since the non-constant term there is directly related to the non-associativity.
+
+This concludes our discussion of tangent bundles; let us now turn to general Lie algebroids. The octonions will not appear anymore, hence, the notation will not be used anymore and the following notation will resemble the previous notations again.

@@ -1,0 +1,123 @@
+\begin{thebibliography}{10}
+
+\bibitem{CurvedYMH}
+Alexei Kotov and Thomas Strobl.
+\newblock Curving {Y}ang-{M}ills-{H}iggs gauge theories.
+\newblock {\em Physical Review D}, 92(8):085032, 2015.
+
+\bibitem{DaSilva}
+Ana~Cannas Da~Silva and Alan Weinstein.
+\newblock {\em Geometric models for noncommutative algebras}, volume~10.
+\newblock American Mathematical Soc., 1999.
+
+\bibitem{mackenzieGeneralTheory}
+K.~Mackenzie.
+\newblock General {T}heory of {L}ie {G}roupoids and {A}lgebroids.
+\newblock {\em London Mathematical Society Lecture Note Series}, 213, 2005.
+
+\bibitem{hamilton}
+Mark~JD Hamilton.
+\newblock {\em Mathematical {G}auge {T}heory}.
+\newblock Springer, 2017.
+
+\bibitem{cohen2006quantum}
+Claude Cohen-Tannoudji, Bernard Diu, and Frank Laloe.
+\newblock {\em Quantenmechanik (2 vol. set)}.
+\newblock Walter de Gruyter GmbH \& Co. KG, 2009.
+
+\bibitem{basicconn}
+Camilo~Arias Abad and Marius Crainic.
+\newblock Representations up to homotopy of {L}ie algebroids.
+\newblock {\em Journal f{\"u}r die reine und angewandte Mathematik (Crelles
+  Journal)}, 2012(663):91--126, 2012.
+
+\bibitem{ELeviCivita}
+Mohamed Boucetta.
+\newblock Riemannian geometry of {L}ie algebroids.
+\newblock {\em Journal of the Egyptian Mathematical Society}, 19(1-2):57--70,
+  2011.
+
+\bibitem{Homomrho}
+Yvette Kosmann-Schwarzbach and Franco Magri.
+\newblock Poisson-{N}ijenhuis structures.
+\newblock In {\em Annales de l'IHP Physique th{\'e}orique}, volume~53, pages
+  35--81, 1990.
+
+\bibitem{meinrenkensplitting}
+Henrique Bursztyn, Hudson Lima, and Eckhard Meinrenken.
+\newblock Splitting theorems for {P}oisson and related structures.
+\newblock {\em Journal f{\"u}r die reine und angewandte Mathematik (Crelles
+  Journal)}, 2017.
+
+\bibitem{meinrenkenlie}
+Eckhard Meinrenken.
+\newblock Lie groupoids and {L}ie algebroids, lecture notes, fall 2017.
+\newblock 2017.
+
+\bibitem{Highervectorbundles}
+Janusz Grabowski and Miko{\l}aj Rotkiewicz.
+\newblock Higher vector bundles and multi-graded symplectic manifolds.
+\newblock {\em Journal of Geometry and Physics}, 59(9):1285--1305, 2009.
+
+\bibitem{LangeIstEsHerMitDerRaumzeit}
+Rainer Oloff.
+\newblock {\em Geometrie der Raumzeit}.
+\newblock Springer, 2010.
+
+\bibitem{blaomTangentBundleAsLieGroup}
+Anthony Blaom.
+\newblock Geometric structures as deformed infinitesimal symmetries.
+\newblock {\em Transactions of the American Mathematical Society},
+  358(8):3651--3671, 2006.
+
+\bibitem{fernandes}
+Rui~Loja Fernandes.
+\newblock Lie algebroids, holonomy and characteristic classes.
+\newblock {\em Advances in Mathematics}, 170(1):119--179, 2002.
+
+\bibitem{parallelFrameEconn}
+Sa{\"\i}d Benayadi and Mohamed Boucetta.
+\newblock {O}n para-{K}{\"a}hler {L}ie algebroids and contravariant
+  pseudo-{H}essian structures.
+\newblock {\em Mathematische Nachrichten}, 292(7):1418--1443, 2019.
+
+\bibitem{EichtrafoKruemmungUrspruenglich}
+Martin Bojowald, Alexei Kotov, and Thomas Strobl.
+\newblock Lie algebroid morphisms, poisson sigma models, and off-shell closed
+  gauge symmetries.
+\newblock {\em Journal of Geometry and Physics}, 54(4):400--426, 2005.
+
+\bibitem{mayerlieAuchEichtrafoStuff}
+Christoph Mayer and Thomas Strobl.
+\newblock Lie algebroid {Y}ang--{M}ills with matter fields.
+\newblock {\em Journal of Geometry and Physics}, 59(12):1613--1623, 2009.
+
+\bibitem{DeterminantenTheorem}
+Constantine Pozrikidis.
+\newblock {\em An introduction to grids, graphs, and networks}.
+\newblock Oxford University Press, 2014.
+
+\bibitem{My1stpaper}
+Simon-Raphael Fischer.
+\newblock Curved {Y}ang–{M}ills–{H}iggs gauge theories in the case of
+  massless gauge bosons.
+\newblock {\em Journal of Geometry and Physics}, 162:104104, 2021.
+
+\bibitem{TwoQubits}
+R{\'{e}}my {M}osseri and {R}ossen {D}andoloff.
+\newblock Geometry of entangled states, {B}loch spheres and {H}opf fibrations.
+\newblock {\em Journal of Physics A: Mathematical and General},
+  34(47):10243--10252, November 2001.
+
+\bibitem{flatmetricconn}
+Ilka Agricola and Thomas Friedrich.
+\newblock A note on flat metric connections with antisymmetric torsion.
+\newblock {\em Differential Geometry and its Applications}, 28(4):480--487,
+  2010.
+
+\bibitem{octonions}
+L{\'a}zaro O~Rodr{\'\i}guez D{\'\i}az.
+\newblock A note on {K}irchhoff's theorem for almost complex spheres {I}.
+\newblock {\em arXiv preprint arXiv:1804.05794}, 2018.
+
+\end{thebibliography}

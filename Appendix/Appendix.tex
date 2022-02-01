@@ -1,0 +1,359 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Hier beginnt der Anhang %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\newpage
+
+
+%\listoftables % Tabellenverzeichnis
+
+%\listoffigures %Abbildungsverzeichnis
+
+%\appendix
+%\setcounter{equation}{0}
+%\renewcommand{\theequation}{\Alph{section}.\arabic{equation}} %Reset first and then add section to number
+\chapter{Certain useful identities}\label{CalculusIdentitiesNeeded}
+
+\section{Lie algebra bundles}
+
+In this appendix we prove and define very basic notions, which are often direct generalizations of typical relations known in gauge theory. It is recommended to read this part at the beginning of Chapter \ref{GeneralizedGTfas}, especially if one is interested into all the calculations. Recall the following wedge product\footnote{As also defined in \cite[\S 5, third part of Exercise 5.15.12; page 316]{hamilton}.} of forms with values in a vector bundle $E$ and values in its space of endomorphisms $\mathrm{End}(E)$,
+\bas
+\wedge: \Omega^k(N; \mathrm{End}(E)) \times \Omega^l(N; E)
+&\mapsto
+\Omega^{k+l}(N; E) \\
+(T, \omega) &\mapsto T \wedge \omega
+\eas
+for all $k, l \in \mathbb{N}_0$, given by
+\ba\label{DefVonWedgedemitEnd}
+\mleft( T \wedge \omega \mright) \mleft( Y_1, \dotsc, Y_{k+l} \mright)
+&\coloneqq
+\frac{1}{k! l!} \sum_{\sigma \in S_{k+l}} \mathrm{sgn}(\sigma) ~
+	T \mleft( Y_{\sigma(1)}, \dotsc, Y_{\sigma(k)} \mright)
+		\mleft( \omega\mleft( Y_{\sigma(k+1)}, \dotsc, Y_{\sigma(k+l)} \mright) \mright),
+\ea
+where $S_{k+l}$ is the group of permutations $\{1, \dotsc, k+l\}$. This is then locally given by, with respect to a frame $\mleft( e_a \mright)_a$ of $E$,
+\bas
+T \wedge \omega &= T(e_a) \wedge w^a,
+\eas
+where $T$ acts as an endomorphism on $e_a$, \textit{i.e.}~$T(e_a) \in \Omega^k(N; E)$, and $\omega = \omega^a \otimes e_a$. Also recall that there is the canonical extension of $\nabla$ on $\mathrm{End}(E)$ by forcing the Leibniz rule. We still denote this connection by $\nabla$, too.
+
+\begin{propositions}{Several useful identities}{SeveralIdentitiesFortheCalculusWithPullbackandBlah}
+Let $M$ and $N$ be two smooth manifolds, $K \to N$ a vector bundle, $\Phi: M \to N$ a smooth map, $\nabla$ a connection on $K$, and $k,l, m \in \mathbb{N}_0$. Then we have
+\ba\label{EqGeilePullBackCommuteFormel}
+\mathrm{d}^{\Phi^*\nabla}\mleft( \Phi^!\omega \mright)
+&=
+\Phi^! \mleft( \mathrm{d}^\nabla \omega \mright), \\
+\mathrm{d}^{\nabla+D} \omega
+&=
+\mathrm{d}^\nabla \omega + D \wedge \omega, \label{eqDifferentialSplit}, \\
+\mathrm{d}^\nabla \mleft( T \wedge \omega \mright)
+&=
+\mathrm{d}^\nabla T \wedge \omega
+	+ (-1)^m ~ T \wedge \mathrm{d}^\nabla \omega \label{TypischerSplitdesDifferentialsaufdasWedgeProdukt}
+\ea
+for all $\omega \in \Omega^l(N; K)$, $\psi \in \Omega^k(N;K)$, $D \in \Omega^1(N; \mathrm{End}(K))$, and $T \in \Omega^m(N; \mathrm{End}(K))$.
+\newline
+
+If $K$ is additionally an LAB, then we also have
+\ba
+\mleft( \mathrm{ad} \circ \omega \mright) \wedge \psi
+&=
+\mleft[ \omega \stackrel{\wedge}{,} \psi \mright]_K, \label{wedgeproduktmitadLambdaergibtLieklammer} \\
+\Phi^!\mleft( \mleft[ \omega \stackrel{\wedge}{,} \psi \mright]_K \mright)
+&=
+\mleft[ \Phi^!\omega \stackrel{\wedge}{,} \Phi^!\psi \mright]_{\Phi^*K}, \label{eqPullbackofLiebracketStuff} \\
+\mleft[ \omega \stackrel{\wedge}{,} \psi \mright]_K
+&=
+- (-1)^{lk} ~ \mleft[ \psi \stackrel{\wedge}{,} \omega \mright]_K, \label{VertauschungsregelForKKlammerAufFormen}\\
+\mleft[ \omega \stackrel{\wedge}{,} \mleft[ \omega \stackrel{\wedge}{,} \omega \mright]_K \mright]_K
+&=
+0 \label{JacobiIdentityForFormBracket}, \\
+\mathrm{ad}^* \circ \Phi^!\omega
+&=
+\Phi^!\mleft( \mathrm{ad} \circ \omega \mright) \label{EqCommutationRelation}
+\ea
+for all $\omega \in \Omega^l(N; K)$, $\psi \in \Omega^k(N;K)$, and smooth maps $\Phi: M \to N$, where we write $\mathrm{ad}^*$ for the adjoint representation with respect to $\mleft[ \cdot, \cdot \mright]_{\Phi^*K}$.
+\end{propositions}
+
+\begin{remarkohne}
+\leavevmode\newline
+Eq.~\eqref{VertauschungsregelForKKlammerAufFormen} and Eq.~\eqref{JacobiIdentityForFormBracket} are generalizations of similar expressions just using the Lie algebra bracket $\mleft[ \cdot, \cdot\mright]_{\mathfrak{g}}$ of a Lie algebra $\mathfrak{g}$, which basically is the formulation on trivial LABs, see \cite[\S 5, first and second statement of Exercise 5.15.14; page 316]{hamilton}. Eq.~\eqref{TypischerSplitdesDifferentialsaufdasWedgeProdukt} is of course the typical Leibniz rule of the exterior covariant derivative just extended to the wedge-product with $\mathrm{End}(K)$-valued forms, and Eq.~\eqref{EqGeilePullBackCommuteFormel} is a generalization of the well-known $\Phi^! \circ \mathrm{d} = \mathrm{d} \circ \Phi^!$, where $\mathrm{d}$ is the de-Rham differential (we omit to clarify on which manifold; this should be given by the context).
+\end{remarkohne}
+
+\begin{proof}
+\leavevmode\newline
+\indent $\bullet$ Recall that we have the following property of the pullback connection
+\bas
+\mleft( \Phi^*\nabla \mright)_Y \mleft( \Phi^* \mu \mright)
+&=
+\Phi^*\mleft( \nabla_{\mathrm{D}\Phi(Y)} \mu \mright)
+\eas
+for all $Y \in \mathfrak{X}(M)$, smooth maps $\Phi: M \to N$, connections $\nabla$, and $\mu \in \Gamma(K)$, shortly writing as\footnote{Recall that the pull-back of forms is denoted with an exclamation mark.}
+\ba\label{eqShortNotationForPullbackConnections}
+\mleft( \Phi^*\nabla \mright) \mleft( \Phi^* \mu \mright)
+&=
+\Phi^*\mleft( \nabla_{\mathrm{D}\Phi} \mu \mright)
+=
+\Phi^!(\nabla \mu),
+\ea
+viewing terms like $\nabla \mu$ as an element of $\Omega^1(N; K)$, $\mathfrak{X}(N) \ni \xi \mapsto \nabla_\xi \mu$, such that we can apply Eq.~\eqref{EqPullBackFormelFuerVerschiedeneDefinitionen}. That extends to exterior covariant derivatives by fixing a local frame $\mleft(e_a\mright)_a$ of $K$ (also used in the following), then we have $\omega^a \in \Omega^l(U)$ ($l \in \mathbb{N}_0$) such that locally
+\bas
+\omega
+&=
+\omega^a \otimes e_a
+\eas
+for all $\omega \in \Omega^l(N; K)$. The exterior covariant derivative generally (locally) writes
+\bas
+\mathrm{d}^{\Phi^*\nabla}w
+&=
+\mathrm{d}w^a \otimes \Phi^*e_a
+	+ (-1)^l w^a \wedge \underbrace{\mleft( \Phi^*\nabla \mright)\mleft( \Phi^*e_a \mright)}_{\stackrel{\text{Eq.~\eqref{eqShortNotationForPullbackConnections}}}{=} \Phi^!\mleft( \nabla e_a \mright)}
+=
+\mathrm{d}w^a \otimes \Phi^*e_a
+	+ (-1)^l w^a \wedge \Phi^!\mleft( \nabla e_a \mright)
+\eas
+for all $w \in \Omega^l(M; \Phi^*K)$,
+and the pull-back of forms clearly splits over this tensor product by its definition, \textit{i.e.}
+\bas
+\Phi^!\omega
+&=
+\Phi^!\omega^a \otimes \Phi^* e_a,
+\eas
+and, so,
+\bas
+\mathrm{d}^{\Phi^*\nabla}\mleft( \Phi^!\omega \mright)
+&=
+\underbrace{\mathrm{d}\mleft( \Phi^! w^a \mright)}_{\mathclap{= \Phi^! \mleft(\mathrm{d} \omega^a\mright)}} \otimes~ \Phi^*e_a
+	+ (-1)^l ~ \Phi^!w^a \wedge \Phi^!\mleft( \nabla e_a \mright) 
+\nonumber \\
+&=
+\Phi^!\mleft( \mathrm{d}\omega^a \otimes e_a + (-1)^l ~ \omega^a \wedge \nabla e_a \mright) \nonumber \\
+&=
+\Phi^! \mleft( \mathrm{d}^\nabla \omega \mright). 
+\eas
+
+$\bullet$ Observe
+\bas
+\mathrm{d}^{\nabla+D} \omega
+&=
+\mathrm{d}\omega^a \otimes e_a + (-1)^l ~ \omega^a \wedge \mleft(\nabla + D\mright) e_a
+= \mathrm{d}^\nabla \omega + D \wedge \omega
+\eas
+for all $\omega\in\Omega^l(N;K)$, $D \in \Omega^1(N;K)$, and connections $\nabla$ on $K$.
+
+$\bullet$ Now let $T \in \Omega^m(N; \mathrm{End}(K))$ and $\mleft( L_a \mright)_a$ a frame of $\mathrm{End}(K)$, such that we can write $T= T^a \otimes L_a$, then
+\bas
+\mathrm{d}^\nabla(T \wedge \omega)
+&=
+\mathrm{d}^\nabla(T(e_a) \wedge \omega^a)
+=
+\mathrm{d}^\nabla(T(e_a)) \wedge \omega^a
+	+ (-1)^m ~ T(e_a) \wedge \mathrm{d} \omega^a
+\eas
+for all $\omega \in \Omega^l(N; K)$, and 
+\bas
+&&
+\mleft( \mathrm{d}^\nabla T \mright)(e_a)
+&=
+\mathrm{d}T^b \otimes L_b(e_a)
+	+ (-1)^m ~ T^b \wedge \underbrace{(\nabla L_b)(e_a)}
+	_{\mathclap{= ~ \nabla (L_b(e_a)) - L_b(\nabla e_a)}} \\
+&&&=
+\mathrm{d}^\nabla(T(e_a))
+	- (-1)^m ~ T^b \wedge L_b(\nabla e_a) \\
+&&&=
+\mathrm{d}^\nabla(T(e_a))
+	- (-1)^m ~ \underbrace{\mleft(T^b \otimes L_b\mleft( e_c \mright) \mright)}_{= ~ T(e_c)} \wedge ~ \mleft(\nabla e_a\mright)^c \\
+&&&=
+\mathrm{d}^\nabla(T(e_a))
+	- (-1)^m ~ T \wedge \nabla e_a \\
+&\Leftrightarrow&
+\mathrm{d}^\nabla(T(e_a))
+&=
+\mleft( \mathrm{d}^\nabla T \mright)(e_a) + (-1)^m ~ T \wedge \nabla e_a.
+\eas
+Combining both equations, we arrive at
+\bas
+\mathrm{d}^\nabla(T \wedge \omega)
+&=
+\mathrm{d}^\nabla T \wedge \omega
+	+ (-1)^m ~ T(e_a) \wedge \mleft( \mathrm{d}\omega^a + (-1)^l ~ w^b \wedge \mleft(\nabla e_b\mright)^a \mright) \\
+&=
+\mathrm{d}^\nabla T \wedge \omega
+	+ (-1)^m ~ T \wedge \mathrm{d}^\nabla \omega.
+\eas
+
+
+In the following let $K$ also be an LAB.
+
+$\bullet$ We also have
+\bas
+&(\underbrace{\mleft( \mathrm{ad} \circ \omega \mright)}_{\mathclap{\in ~ \Omega^l(N;~ \mathrm{End}(K))}} \wedge ~\psi)(Y_1, \dotsc, Y_{l+k}) \\
+&\hspace{1cm}\stackrel{\mathclap{\text{Def.~\eqref{DefVonWedgedemitEnd}}}}{=}~~~
+\frac{1}{k!l!}
+\sum_{\sigma \in S_{k+l}}
+\mathrm{sgn}(\sigma) ~
+	\mleft[ \omega\mleft(Y_{\sigma(1)}, \dotsc, Y_{\sigma(l)}\mright), \psi\mleft(Y_{\sigma(l+1)}, \dotsc, Y_{\sigma(l+k)}\mright) \mright]_K \\
+&\hspace{1cm}\stackrel{\mathclap{\text{Def.~\ref{def:GradingOfProducts}}}}{=}~~~
+\mleft[ \omega \stackrel{\wedge}{,} \psi \mright]_K(Y_1, \dotsc, Y_{l+k})
+\eas
+for all $w\in\Omega^l(N;K)$, $\psi \in \Omega^k(N;K)$, and $Y_1, \dotsc, Y_{l+k} \in \mathfrak{X}(N)$, where $S_{k+l}$ is the group of permutations $\{1, \dotsc, k+l\}$.
+
+$\bullet$ By definition of $\Phi^*K$ we have
+\bas
+\mleft[ \Phi^*\mu, \Phi^*\nu \mright]_{\Phi^*K}
+&=
+\Phi^*\mleft( \mleft[ \mu, \nu \mright]_{K} \mright)
+\eas
+for all smooth maps $\Phi: M \to N$ and $\mu, \nu \in \Gamma(K)$. Let $\mleft( e_a \mright)_a$ be again a fixed frame of $K$, $\omega =  \omega^a \otimes e_a \in \Omega^l(N;K)$ and $\psi = \psi^a \otimes e_a \in \Omega^k(N;K)$, then, again using Def.~\ref{def:GradingOfProducts},
+\bas
+\Phi^!\mleft( \mleft[ \omega \stackrel{\wedge}{,} \psi \mright]_K \mright)
+&=
+\Phi^!\mleft( \mleft[ e_a , e_b \mright]_K \otimes \omega^a \wedge \psi^b \mright)
+=
+\underbrace{\Phi^*\mleft(\mleft[ e_a , e_b \mright]_K\mright)}_{\mathclap{=~\mleft[ \Phi^*e_a, \Phi^*e_b \mright]_{\Phi^*K}}} \otimes \Phi^!\omega^a \wedge \Phi^!\psi^b
+=
+\mleft[ \Phi^!\omega \stackrel{\wedge}{,} \Phi^!\psi \mright]_{\Phi^*K}.
+\eas
+
+$\bullet$ The antisymmetry of the Lie bracket generalizes to
+\bas
+\mleft[ \omega \stackrel{\wedge}{,} \psi \mright]_K
+&=
+\underbrace{\mleft[ e_a, e_b \mright]_K}
+_{=~ -\mleft[ e_b, e_a \mright]_K} 
+\otimes \underbrace{\omega^a \wedge \psi^b}
+_{=~(-1)^{lk} \psi^b \wedge \omega^a}
+=
+- (-1)^{lk} ~ \mleft[ \psi \stackrel{\wedge}{,} \omega \mright]_K
+\eas
+for all $\omega \in \Omega^l(N;K)$ and $\psi \in \Omega^k(N;K)$.
+
+$\bullet$ Let $\mleft( e_a \mright)_a$ be still a local frame of $K$, then
+\bas
+&&
+\mleft[ \omega \stackrel{\wedge}{,} \mleft[ \omega \stackrel{\wedge}{,} \omega \mright]_K \mright]_K
+~~~&\stackrel{\mathclap{\text{Eq.~\eqref{VertauschungsregelForKKlammerAufFormen}}}}{=}~~~
+- (-1)^{2l^2} ~
+\mleft[ \mleft[ \omega \stackrel{\wedge}{,} \omega \mright]_K \stackrel{\wedge}{,} \omega \mright]_K \\
+&&
+&=
+- \underbrace{\mleft[ \mleft[ e_a, e_b \mright]_K, e_c \mright]_K}
+_{\stackrel{\text{Jacobi}}{=}~ \mleft[ e_a, \mleft[ e_b, e_c \mright]_K \mright]_K + \mleft[ e_b, \mleft[ e_c, e_a \mright]_K \mright]_K}
+ \otimes ~\omega^a \wedge \omega^b \wedge \omega^c \\
+&&
+&=
+- \mleft[ \omega \stackrel{\wedge}{,} \mleft[ \omega \stackrel{\wedge}{,} \omega \mright]_K \mright]_K
+	- \mleft[ e_b, \mleft[ e_c, e_a \mright]_K \mright]_K \otimes 
+	\underbrace{\omega^a \wedge \omega^b \wedge \omega^c}_{\mathclap{=~ (-1)^{2l^2} \omega^b \wedge \omega^c \wedge \omega^a}} \\
+&&
+&=
+-2~ \mleft[ \omega \stackrel{\wedge}{,} \mleft[ \omega \stackrel{\wedge}{,} \omega \mright]_K \mright]_K \\
+&\Leftrightarrow&
+\mleft[ \omega \stackrel{\wedge}{,} \mleft[ \omega \stackrel{\wedge}{,} \omega \mright]_K \mright]_K
+&= 0
+\eas
+for all $\omega \in \Omega^l(N;K)$.
+
+$\bullet$ We also have
+\bas
+\mleft[ \Phi^!\omega, \Phi^*\mu \mright]_{\Phi^*K}
+&\stackrel{\text{Eq.~\eqref{eqPullbackofLiebracketStuff}}}{=}
+\Phi^!\mleft( \mleft[ \omega, \mu \mright]_K \mright)
+=
+\Phi^!\Big( (\mathrm{ad} \circ \omega)(\mu) \Big)
+=
+\underbrace{\mleft(\Phi^!\mleft( \mathrm{ad} \circ \omega \mright)\mright)}_{\mathclap{\in ~ \Omega^1(M; ~\mathrm{End}(\Phi^*K))}}(\Phi^*\mu)
+\eas
+for all $\mu \in \Gamma(K)$, $\omega \in \Omega^l(N;K)$, and smooth maps $\Phi: M \to N$, where we used $(\Phi^*T)(\Phi^*\mu) = \Phi^*(T(\mu))$ for all $T \in \Gamma(\mathrm{End}(K))$ for the last equality. Since sections of $\Phi^*K$ are generated by pullbacks of sections of $K$, we can conclude
+\bas
+\mathrm{ad}^* \circ \Phi^!\omega
+&=
+\Phi^!\mleft( \mathrm{ad} \circ \omega \mright).
+\eas
+\end{proof}
+
+When we add the compatibility conditions~\eqref{CondSGleichNullLAB}, then we have a few more identities.
+
+\begin{corollaries}{Identities related to Lie bracket derivations}{IdentitiesFuerBianchiZeugs}
+Let $K \to N$ be an LAB, equipped with a connection $\nabla$ satisfying compatibility condition~\eqref{CondSGleichNullLAB}; also let $M$ be another smooth manifold and $\Phi: M \to N$ a smooth map. Then
+\ba\label{eqDerivationOfDifferentialOnBracketonK}
+\mathrm{d}^\nabla\bigl( \mleft[ \omega\stackrel{\wedge}{,} \psi \mright]_K \bigr)
+&=
+\mleft[ \mathrm{d}^\nabla \omega \stackrel{\wedge}{,} \psi \mright]_K
+	+ (-1)^l~ \mleft[ \omega \stackrel{\wedge}{,} \mathrm{d}^\nabla \psi \mright]_K, \\
+\mathrm{d}^\nabla \mleft( \mathrm{ad} \circ \omega \mright)
+&=
+\mathrm{ad} \circ \mathrm{d}^\nabla \omega \label{DifferentialvonNabalVertauschmitAd}
+\ea
+for all $\omega \in \Omega^l(N; K)$ and $\psi \in \Omega^k(N; K)$.
+%\newline
+%
+%When $\nabla$ satisfies both compatibility conditions~\eqref{CondSGleichNullLAB} and~\eqref{CondKruemmungmitBLAB} with respect to a $\zeta \in \Omega^2(N; K)$, we then get
+%\ba
+%\mathrm{ad} \circ \mathrm{d}^\nabla \zeta
+%&=
+%0,
+%\ea
+%\textit{i.e.}~$\mathrm{d}^\nabla \zeta$ has only values in the centre of $K$. 
+\end{corollaries}
+
+\begin{remarkohne}
+\leavevmode\newline
+Eq.~\eqref{eqDerivationOfDifferentialOnBracketonK} is a direct generalization of \cite[\S 5, third statement of Exercise 5.15.14 where it is stated for $\mathfrak{g}$ (trivial LAB with canonical flat connection); page 316]{hamilton}.
+\end{remarkohne}
+
+\begin{proof}
+\leavevmode\newline
+\indent $\bullet$ Using compatibility condition~\eqref{CondSGleichNullLAB} and a local frame $\mleft( e_a \mright)_a$ of $K$,
+\bas
+\mathrm{d}^\nabla \mleft( \mleft[ \omega \stackrel{\wedge}{,} \psi \mright]_K \mright)
+&=
+\mathrm{d}^\nabla\mleft( \mleft[ e_a, e_b \mright]_K \otimes \omega^a \wedge \psi^b \mright) \\
+&=
+\underbrace{\nabla \mleft( \mleft[ e_a, e_b \mright]_K \mright)}
+_{=~ \mleft[ \nabla e_a, e_b \mright]_K + \mleft[ e_a, \nabla e_b \mright]_K}
+	\wedge ~ \omega^a \wedge \psi^b
+	+ \mleft[ e_a, e_b \mright]_K \otimes \mathrm{d}\omega^a \wedge \psi^b \\
+&\hspace{1cm}
+	+ (-1)^l ~ \mleft[ e_a, e_b \mright]_K \otimes \omega^a \wedge \mathrm{d} \psi^b \\
+&=
+ \mleft[ e_a, e_b \mright]_K \otimes \mleft( \nabla e_c \mright)^a \wedge \omega^c \wedge \psi^b
+	+ (-1)^l ~ \mleft[ e_a, e_b \mright]_K \otimes \omega^a \wedge \mleft( \nabla e_c \mright)^b \wedge \psi^c \\
+&\hspace{1cm}
+	+ \mleft[ e_a, e_b \mright]_K \otimes \mathrm{d} \omega^a \wedge \psi^b
+	+ (-1)^l ~ \mleft[ e_a, e_b \mright]_K \otimes \omega^a \wedge \mathrm{d} \psi^b \\
+&=
+\mleft[ e_a, e_b \mright]_K \otimes \Big(
+	\Big( \underbrace{\mleft( \nabla e_c \mright)^a \wedge \omega^c + \mathrm{d} \omega^a}
+	_{=~ \mleft( \mathrm{d}^\nabla \omega \mright)^a} \Big) \wedge \psi^b
+	+ (-1)^l ~ \omega^a \wedge \mleft( \mleft( \nabla e_c \mright)^b \wedge \psi^c + \mathrm{d} \psi^b \mright)
+\Big) \\
+&=
+\mleft[ \mathrm{d}^\nabla \omega \stackrel{\wedge}{,} \psi \mright]_K
+	+ (-1)^l~ \mleft[ \omega \stackrel{\wedge}{,} \mathrm{d}^\nabla \psi \mright]_K
+\eas
+for all $\omega \in \Omega^l(N;K)$ and $\psi \in \Omega^k(N;K)$.
+
+$\bullet$ Then by Eq.~\eqref{TypischerSplitdesDifferentialsaufdasWedgeProdukt} and~\eqref{wedgeproduktmitadLambdaergibtLieklammer}, we get
+\bas
+\mathrm{d}^\nabla \mleft( \mleft[ \omega \stackrel{\wedge}{,} \psi \mright]_K \mright)
+&=
+\mathrm{d}^\nabla \mleft( (\mathrm{ad} \circ \omega) \wedge \psi \mright)
+=
+\mathrm{d}^\nabla \mleft( \mathrm{ad} \circ \omega \mright) \wedge \psi
+	+ (-1)^l ~ (\mathrm{ad} \circ \omega) \wedge \mathrm{d}^\nabla \psi,
+\eas
+and we can rewrite Eq.~\eqref{eqDerivationOfDifferentialOnBracketonK}
+\bas
+\mathrm{d}^\nabla \mleft( \mleft[ \omega \stackrel{\wedge}{,} \psi \mright]_K \mright)
+&=
+\mleft( \mathrm{ad} \circ \mathrm{d}^\nabla \omega \mright) \wedge \psi
+	+ (-1)^l ~ (\mathrm{ad} \circ \omega) \wedge \mathrm{d}^\nabla \psi.
+\eas
+Combining both, we have
+\bas
+\mathrm{d}^\nabla \mleft( \mathrm{ad} \circ \omega \mright) \wedge \psi
+&=
+\mleft( \mathrm{ad} \circ \mathrm{d}^\nabla \omega \mright) \wedge \psi
+\eas
+for all $\omega \in \Omega^l(N;K)$ and $\psi \in \Omega^k(N;K)$. By (locally) using the 0-forms $\psi = e_a$ for all $a$, this implies Eq.~\eqref{DifferentialvonNabalVertauschmitAd}.
+\end{proof}

@@ -1,0 +1,58 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Notation and other conventions throughout this work}{13}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Gauge theory}{17}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Lie algebras and their actions}{17}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Isotropy}{24}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Yang-Mills-Higgs gauge theory}{27}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Infinitesimal Gauge Invariance}{30}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Infinitesimal Gauge Invariance using connections}{35}{section.2.5}%
+\contentsline {chapter}{\numberline {3}General theory of Lie algebroids}{51}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Lie algebroids}{51}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Morphism of Lie algebroids}{62}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Derivations on vector bundles $V$}{63}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Lie algebroid connections}{73}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Pullbacks of Lie algebroid connections}{77}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Conjugated $E$-connections}{82}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Basic connection and the basic curvature}{86}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Exterior covariant derivatives}{90}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Direct product of Lie algebroids}{98}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Splitting theorem for Lie algebroids}{103}{section.3.10}%
+\contentsline {section}{\numberline {3.11}Lie algebra bundles}{107}{section.3.11}%
+\contentsline {subsection}{\numberline {3.11.1}Notions similar to Lie algebras}{107}{subsection.3.11.1}%
+\contentsline {subsection}{\numberline {3.11.2}Extensions of tangent bundles with Lie algebra bundles}{110}{subsection.3.11.2}%
+\contentsline {chapter}{\numberline {4}Generalized gauge theory}{117}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Space of fields}{119}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Physical Quantities}{129}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Infinitesimal gauge transformations}{132}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Infinitesimal gauge transformation of the Higgs field}{132}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Infinitesimal gauge transformation of the field of gauge bosons}{139}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Curvature of gauge transformations}{152}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4.4}Infinitesimal gauge invariance}{165}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Field redefinition}{173}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Redefined gauge theory}{181}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Curved Yang-Mills-Higgs gauge theory}{195}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Properties of CYMH GT}{207}{section.4.8}%
+\contentsline {chapter}{\numberline {5}Obstruction for CYMH GT}{215}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Lie algebra bundles}{215}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}CYMH GT for LABs}{216}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Relation of vector bundle connections in gauge theories with certain Lie derivation laws}{219}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Obstruction for non-pre-classical gauge theories}{225}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Mackenzie's theory about extensions of tangent bundles}{230}{subsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.1.5}Results}{236}{subsection.5.1.5}%
+\contentsline {subsection}{\numberline {5.1.6}Existence of non-vanishing primitives stable under the field redefinition}{238}{subsection.5.1.6}%
+\contentsline {subsection}{\numberline {5.1.7}The Bianchi identity of the new field strength}{240}{subsection.5.1.7}%
+\contentsline {section}{\numberline {5.2}Tangent bundles}{242}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}General situation}{242}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Local picture}{245}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Unit octonions}{246}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}General Lie algebroids}{254}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}General situation}{254}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Direct products of CYMH GTs}{255}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Loose ideas and ansatzes}{258}{subsection.5.3.3}%
+\contentsline {chapter}{\numberline {6}Future works}{269}{chapter.6}%
+\contentsline {chapter}{\numberline {A}Certain useful identities}{271}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Lie algebra bundles}{271}{section.A.1}%
+\contentsline {chapter}{\numberline {B}Bibliography}{277}{appendix.B}%
+\contentsline {chapter}{List of Symbols}{279}{section*.4}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

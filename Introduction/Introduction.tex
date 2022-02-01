@@ -1,0 +1,413 @@
+\chapter{Introduction}
+%\hspace{12 pt}
+This thesis concerns curved Yang-Mills-Higgs gauge theories (short: \textbf{CYMH GT}), introduced by Alexei Kotov and Thomas Strobl, a generalization of Yang-Mills-Higgs gauge theories, where we have essentially the following, as also summarized in \cite{CurvedYMH}:\footnote{Common conventions and notations are introduced at the end of the introduction; see Section \ref{StandardNotation}.}
+
+\begin{itemize}
+	\item $M$ a spacetime;
+	\item $N$ a smooth manifold, serves as set for the values of the Higgs field $\Phi: M \to N$;
+	\item $E \to N$ a Lie algebroid with anchor $\rho$, replacing the structural Lie algebra $\mathfrak{g}$ and its action $\gamma: \mathfrak{g} \to \mathfrak{X}(N)$ of the classical formulation;
+	\item a vector bundle connection $\nabla$ on $E$;
+	\item a fibre metric $\kappa$ on $E$, as a substitute of the ad-invariant scalar product on $\mathfrak{g}$;
+	\item a Riemannian metric $g$ on $N$, replacing the scalar product on the vector space in which the Higgs field usually has values in and which is invariant under the action of $\gamma$, used for the kinetic term of $\Phi$ which is minimally coupled to the field of gauge bosons $A \in \Omega^1(M; \Phi^*E)$;
+	\item a 2-form on $N$ with values in $E$, $\zeta \in \Omega^2(N;E)$, an additional contribution to the field strength of $A$.
+\end{itemize}
+
+A Lie algebroid is given by the following definition; especially, Lie algebroids can be thought as a generalization of both, tangent bundles and Lie algebras.
+
+\begin{definitions*}{Lie algebroid, \cite[reduced definition of \S 16.1; page 113]{DaSilva}}
+%\leavevmode\newline
+Let $E \to N$ be a real vector bundle of finite rank. Then $E$ is a smooth Lie algebroid if there is a bundle map $\rho_E \coloneqq \rho: E \to \mathrm{T}N$, called the \textbf{anchor}, and a Lie algebra structure on $\Gamma(E)$ with Lie bracket $\mleft[ \cdot, \cdot \mright]_E$ satisfying
+\bas
+  \mleft[\mu, f \nu\mright]_E = f \mleft[\mu, \nu\mright]_E + \mathcal{L}_{\rho(\mu)}(f) ~ \nu
+\eas
+for all $f \in C^\infty(N)$ and $\mu, \nu \in \Gamma(E)$, where $\mathcal{L}_{\rho(\mu)}(f)$ is the action of the vector field $\rho(\mu)$ on the function $f$ by derivation. 
+\end{definitions*}
+
+Gauge invariance of the Yang-Mills-Higgs type functional leads to several \textbf{compatibility conditions} to be satisfied between those structures. If the connection $\nabla$ on $E$ is flat, the compatibilities imply that the Lie algebroid is locally what we call an action Lie algebroid. 
+
+\begin{definitions*}{Action Lie algebroids, \cite[\S 16.2, Example 5; page 114]{DaSilva}}
+Let $\mleft(\mathfrak{g}, \mleft[\cdot, \cdot \mright]_{\mathfrak{g}}\mright)$ be a Lie algebra equipped with a Lie algebra action $\gamma: \mathfrak{g} \to \mathfrak{X}(N)$ on a smooth manifold $N$. A \textbf{transformation Lie algebroid} or \textbf{action Lie algebroid} is defined as the bundle $E \coloneqq N \times \mathfrak{g}$ over $N$ with anchor
+\bas
+\rho(p, v) &\coloneqq \gamma(v)|_p
+\eas
+for $(p, v) \in E$, and Lie bracket
+\bas
+	\mleft.\mleft[\mu, \nu\mright]_E\mright|_p
+	&\coloneqq 
+	\mleft[\mu_p, \nu_p\mright]_{\mathfrak{g}}
+		+ \mleft.\mleft(\mathcal{L}_{\gamma(\mu(p))}(\nu^a) - \mathcal{L}_{\gamma(\nu(p))}(\mu^a) \mright)\mright|_p ~ e_a
+\eas
+	for all $p \in N$ and $\mu, \nu \in \Gamma(E)$, where one views a section $\mu \in \Gamma(E)$ as a map $\mu: N \to \mathfrak{g}$ and $\mleft( e_a \mright)_a$ is some arbitrary frame of constant sections.
+\end{definitions*}
+
+Furthermore, $\nabla$ is then a canonical flat connection of the action Lie algebroid, and one arrives at the standard Yang-Mills-Higgs gauge theory if additionally $\zeta \equiv 0$. Thus, the theory represents a curved (with respect to $\nabla$) version of gauge theory equipped with an additional 2-form $\zeta$. If $\nabla$ is flat we say in general that we have a \textbf{pre-classical} gauge theory, and if additionally $\zeta \equiv 0$ we have a \textbf{classical} gauge theory. Every classical theory is also pre-classical, this is another implication of the compatibility conditions.
+
+For a given $M, N$ and $E$ there is an equivalence of CYMH GTs given by a field redefinition, a transformation of the field of gauge bosons, but also of $\nabla$, $\kappa$, $g$ and $\zeta$. The Lagrangian is invariant under this transformation, hence, the physics is invariant. It is then natural to study whether it is possible that the equivalence class of a given CYMH GT has a (pre-)classical representative, and this is precisely the main motivation of this thesis. 
+Along this study, CYMH GT is reintroduced in a coordinate-free way, especially providing a new coordinate-free formulation of the infinitesimal gauge transformations themselves. We proceed as follows:
+
+In Chapter \ref{ClassicGaugeTheory} we recall the fundamental basics of classical gauge theory, mostly their infinitesimal information; that means that we always assume trivial principal bundles, thus, we do not need principal bundles altogether. In Section \ref{LieAlgebraActions} we introduce Lie algebras and their actions, comparing Lie algebra actions and representations; in Section \ref{IsotropyClassical} we discuss isotropies and their relation along orbits of a Lie group action. The classical Yang-Mills-Higgs gauge theory, especially the Yang-Mills-Higgs Lagrangian, is introduced in Section \ref{YMHGT}, and in Section \ref{InfGaugeTrafoClassical} we prove the infinitesimal gauge invariance of the Lagrangian. 
+However, in Section \ref{NewInfGaugeTrafoTrafos} we are already reformulating infinitesimal gauge transformations, making the first step towards the generalized formulation of (infinitesimal) gauge theory. Even if the reader has a good knowledge about gauge theory, it is highly recommended to read Section \ref{NewInfGaugeTrafoTrafos} in order to understand later why CYMH GT is formulated as it is. The main result of this section is the reformulation of the infinitesimal gauge transformation as a derivation induced by what we call a Lie algebra connection; the key ingredients are the following, where the manifold $N$ is for simplicity a vector space, and $\mathfrak{g}$ is the structural Lie algebra with action $\gamma$:
+
+\begin{itemize}
+	\item The pair of infinitesimal gauge transformations, $\Psi_\varepsilon \coloneqq (\delta_\varepsilon \Phi, \delta_\varepsilon A)$, viewed as a \textbf{vector field on the space of fields $\mathfrak{M}_{\mathfrak{g}}$} whose elements are given as pairs $(\Phi, A)$, where $\Phi \in C^\infty(M;N)$ (Higgs field) and $A \in \Omega^1(M; \mathfrak{g})$ (field of gauge bosons); $\varepsilon$ is a functional with $(\Phi, A) \mapsto \varepsilon(\Phi, A) \in C^\infty(M; \mathfrak{g})$.
+	\item The \textbf{evaluation map $\mathrm{ev}: M \times \mathfrak{M}_{\mathfrak{g}} \to N$} defined by
+	\bas
+	\mathrm{ev}(p, \Phi, A)
+	&\coloneqq
+	\Phi(p)
+	\eas
+	for all $(p, \Phi, A) \in M \times \mathfrak{M}_{\mathfrak{g}}$.
+	\item The \textbf{"bookkeeping trick"} for functionals $L$, $(\Phi, A) \mapsto L(\Phi, A) \in \Omega^k(M; K)$ ($k \in \mathbb{N}_0$), where $K$ is a vector space. Let $\mleft( e_a \mright)_a$ be a basis of $K$, then locally $L = L^a \otimes e_a$, where $L^a \in \Omega^k(M)$. If viewing $\mleft( e_a \mright)_a$ as a constant frame of the trivial vector bundle $N \times K$ over $N$, then we can also write
+	\bas
+	L
+	&=
+	L^a \otimes \mathrm{ev}^*e_a
+	\eas
+	due to constancy of the frame. For bookkeeping reasons we formally denote this expression by $\iota(L)$; especially 
+	\bas
+	\iota(L)(Y_1, \dotsc, Y_k)
+	&\in
+	\Gamma\bigl( \mathrm{ev}^*(N \times K) \bigr)
+	\eas
+	for all $Y_1, \dotsc, Y_k \in  \mathfrak{X}(M)$, and
+	\bas
+	\iota(L)(\Phi, A)
+	&\in
+	\Omega^k(M; \Phi^*(N \times K))
+	\eas
+	for all $(\Phi, A) \in \mathfrak{M}_{\mathfrak{g}}$.
+	\item A \textbf{$\mathfrak{g}$-connection ${}^{\mathfrak{g}}\nabla$} on $V \coloneqq N \times K \to N$, defined as an $\mathbb{R}$-bilinear map
+	\bas
+\mathfrak{g} \times \Gamma(V) &\to \Gamma(V), 
+\\
+(X, \nu) &\mapsto {}^\mathfrak{g}\nabla_X \nu,
+\eas
+satisfying
+\bas
+{}^\mathfrak{g}\nabla_X (f \nu)
+&=
+f ~ {}^\mathfrak{g}\nabla_X \nu
+	+ \mathcal{L}_{\gamma(X)}(f) ~ \nu
+\eas
+for all $X \in \mathfrak{g}$, $\nu \in \Gamma(V)$ and $f \in C^\infty(N)$, where $\mathcal{L}_{\gamma(X)}(f)$ is the action of the vector field $\gamma(X)$ on the function $f$ by derivation.
+\end{itemize}
+
+The derived key statement is then the following theorem and definition, where we are going to use a generalized notion of pullbacks of connections.
+
+\begin{theorems*}{}
+There is a unique $\mathbb{R}$-linear operator $\delta_{\Psi_\varepsilon}: \Gamma\mleft(\mathrm{ev}^*(V)\mright) \to \Gamma\mleft(\mathrm{ev}^*(V)\mright)$ with
+\bas
+\delta_{\Psi_\varepsilon} (f s)
+&=
+\mathcal{L}_{\Psi_\varepsilon}(f) ~ s
+	+ f ~ \delta_{\Psi_\varepsilon} s,
+\\
+\delta_{\Psi_\varepsilon} \mleft( \mathrm{ev}^*\vartheta \mright)
+&=
+- \mathrm{ev}^*\mleft( {}^{\mathfrak{g}}\nabla_\varepsilon \vartheta \mright)
+\eas
+for all $f \in C^\infty(M \times \mathfrak{M}_{\mathfrak{g}})$, $s \in \Gamma\mleft(\mathrm{ev}^*(V)\mright)$ and $\vartheta \in \Gamma(V)$, where we denote
+\bas
+\mleft.\mathrm{ev}^*\mleft( {}^{\mathfrak{g}}\nabla_\varepsilon \vartheta \mright)\mright|_{(p, \Phi_0, A_0)}
+&=
+\mleft.\mleft({}^{\mathfrak{g}}\nabla_{\varepsilon(\Phi, A)|_p} \vartheta\mright)\mright|_{\Phi(p)}
+\eas
+for all $(p, \Phi, A) \in M \times \mathfrak{M}_{\mathfrak{g}}$.
+\end{theorems*}
+
+\begin{definitions*}{Infinitesimal gauge transformation as derivation}
+The \textbf{infinitesimal gauge transformation $\delta_\varepsilon L$ of a functional $L$}, $(\Phi, A) \mapsto L(\Phi, A) \in \Omega^k(M; K)$ ($k \in \mathbb{N}_0$), is then defined by
+\bas
+(\delta_\varepsilon L)(Y_1, \dotsc, Y_k)
+&\coloneqq
+\delta_{\Psi_\varepsilon}\bigl(
+	\iota(L)(Y_1, \dotsc, Y_k)
+\bigr)
+\eas
+for all $Y_1, \dotsc, Y_k$.
+\end{definitions*}
+
+Section \ref{NewInfGaugeTrafoTrafos} will then conclude that this definition of the infinitesimal gauge transformation recovers the typical definition by taking the canonical flat connection $\nabla$ of $V = N \times K$, \textit{i.e.}~given by $\nabla x = 0$ for all constant $x \in \Gamma(V)$, and then defining ${}^{\mathfrak{g}}\nabla \coloneqq \nabla_\gamma$, $(X, v) \mapsto \nabla_{\gamma(X)} v$ for all $X \in \mathfrak{g}$ and $v \in \Gamma(V)$.
+
+Chapter \ref{MathematicalBasics} is mainly about introducing all the needed mathematical basics. Section \ref{LieAoids} starts with introducing Lie algebroids and related notions, especially introducing action Lie algebroids and Lie algebra bundles as a special example. Furthermore, small physical examples are provided, and isotropies are revisited to support a better understanding of the relationship to gauge theory. Section \ref{MorphsOfLieOids} discusses morphisms of Lie algebroids, but since we are mainly interested into base-preserving ones, this section is very short. An important basic notion are Lie algebroid connections, and we want to introduce them as certain morphisms of anchored vector bundles, similar to the introduction of Lie algebroid connections in \cite{mackenzieGeneralTheory}. In order to do so we first introduce the Lie algebroid of derivations of vector bundles in Section \ref{DerivationsOnvector}, and in Section \ref{SubsectionEDiffstuff} we finally introduce Lie algebroid connections as base- and anchor-preserving vector bundle morphisms; Lie algebroid connections on a vector bundle are essentially the same as typical vector bundle connections but the direction of differentiation is along sections of the Lie algebroid and the Leibniz rule is along the foliation of the anchor, similar to the Leibniz rule of the Lie bracket of a Lie algebroid. Section \ref{PullbacksAlsoGeneral} discusses pullbacks of Lie algebroid connections; first we follow a typical introduction using Lie algebroid paths, but concluding with a more general statement about pullbacks when one just differentiates along one direction:
+
+\begin{corollaries*}{Pullbacks of connections just differentiating along one vector field}
+Let $E_i \to N_i$ ($i \in\{1,2\}$) be two Lie algebroids over smooth manifolds $N_i$, $V \to N_2$ a vector bundle, and ${}^{E_2}\nabla$ an $E_2$-connection on $V$. Moreover, let $f \in C^\infty(N_1;N_2)$, $\nu_1 \in \Gamma(E_1)$ and $\nu_2 \in \Gamma(f^*E_2)$ such that
+\bas
+\mathrm{D}f\bigl(\rho_{E_1}(\nu_1)\bigr)
+&=
+\mleft(f^*\rho_{E_2}\mright)(\nu_2).
+\eas
+
+Then there is a unique $\mathbb{R}$-linear operator $\delta_{\nu_1}: \Gamma(f^*V) \to \Gamma(f^*V)$ with
+\bas
+\delta_{\nu_1}(h s)
+&=
+\mathcal{L}_{\rho(\nu_1)}(h) ~ s
+	+ h ~ \delta_{\nu_1} s,
+\\
+\delta_{\nu_1} (f^*v)
+&=
+f^*\mleft(
+	{}^{E_2}\nabla_{\nu_2} v
+\mright)
+\eas
+for all $s \in \Gamma(f^*V)$, $v \in \Gamma(V)$ and $h \in C^\infty(N_1)$.
+\end{corollaries*}
+
+A major example of a Lie algebroid connection is the basic connection, induced by a vector bundle connection $\nabla$ on a Lie algebroid. The basic connection can be thought as a Lie algebra representation formulated as connection. Since the basic connection is related to conjugated connections, Section \ref{ConjugateConnections} introduces the notion of connections conjugate to each other, and Section \ref{SectionOfBasicConnStuff} then introduces the basic connection. Since Lie algebra representations are homomorphisms, one may want that the basic connection is flat. Hence, a tensor known as the basic curvature is also introduced and discussed; this tensor is in general not equivalent to the curvature of the basic connection, it encodes the curvature of the basic connection, but it also contains information about how $\nabla$ acts on the bracket of the Lie algebroid. We will see that the vanishing of the basic curvature is needed for the gauge invariance of the Yang-Mills-Higgs Lagrangian.
+
+The remaining part of Chapter \ref{MathematicalBasics} is then again about very basic notions related to Lie algebroids. Section \ref{ExteriorCovariantDerivativesAoids} is about exterior covariant derivatives but generalized to Lie algebroid connections, and Section \ref{DirectProdsOfLieAlgoids} is about the natural Lie algebroid structure of the direct product of Lie algebroids. There is also the Splitting Theorem for Lie algebroids: The anchor of a Lie algebroid is a homomorphism of Lie brackets, thus, its image gives rise to a foliation on the base manifold by the Frobenius Theorem; the foliation is singular due to the fact that the anchor has not a constant rank in general. The Splitting Theorem is then about that Lie algebroids are locally a direct product of a Lie algebroid along a leaf of the foliation and along a submanifold transversal to the foliation. This is discussed in Section \ref{SectionAboutSplitting}, mostly in a simplified setting; however, references for more general statements will be provided. The last section, Section \ref{SectionOfLABStuff}, focuses on Lie algebra bundles, a trivial example of Lie algebroids with zero anchor. It starts with extending notions of Lie algebras like their centre to Lie algebra bundles and finishes with a discussion about Lie algebroids with surjective anchor and their quotients over ideals.
+
+We then discuss the formulation of CYMH GT in Chapter \ref{GeneralizedGTfas}. This chapter reintroduces CYMH GT, using my own approach in many parts while the overall theory does not differ to the original one as \textit{e.g.}~presented in \cite{CurvedYMH}. It starts with the study of the \textbf{space of fields} in Section \ref{SpaceOfFieldsSection}, the infinite-dimensional manifolds of pairs of the Higgs field and the field of gauge bosons, similar to previously-mentioned $\mathfrak{M}_{\mathfrak{g}}$.
+
+\begin{definitions*}{Space of fields}
+Let $M, N$ be two smooth manifolds and $E\to N$ a Lie algebroid. Then we denote the \textbf{space of fields} by
+\bas
+\mathfrak{M}_E
+&\coloneqq
+\mathfrak{M}_E(M; N)
+\coloneqq
+\left\{ (\Phi, A)
+~\middle|~
+\Phi \in C^\infty(M;N) \text{ and } A \in \Omega^1(M; \Phi^*E)
+\right\}.
+\eas
+%Thus for $\mathfrak{M}_E(M; N)$ we sometimes write
+%\begin{center}
+	%\begin{tikzcd}
+		%\Omega^1(M;{}^*E) \arrow{d} \\
+		%C^\infty(M;N)
+	%\end{tikzcd}
+%\end{center}
+
+We will refer to $A \in \Omega^1(M; \Phi^*E)$ as the \textbf{field of gauge bosons} and $\Phi$ just as a \textbf{physical field} of this theory.
+\end{definitions*}
+
+The main idea is to define the infinitesimal gauge transformation as we did before in Section \ref{NewInfGaugeTrafoTrafos}, but especially generalized to Lie algebroids, their connections and to the setting described at the very beginning of this introduction; the Lie algebroid plays the role of the Lie algebra, and Lie algebroid connections will replace the Lie algebra connections, which we have suggested previously. One ingredient was to view the infinitesimal gauge transformation as a vector field $\Psi$ on $\mathfrak{M}_{\mathfrak{g}}$ which is now replaced by $\mathfrak{M}_E$. Thence, we will discuss the tangent space of the space of fields. Afterwards we discuss the definition and algebra of the functionals we are going to look at. Recall the "bookkeeping trick", the essential idea was that functionals have values in the $\mathrm{ev}$-pullback of a vector bundle over $N$, where the evaluation map is defined as before. Thus, we define functionals as certain forms on $M \times \mathfrak{M}_E$ with values in $\mathrm{ev}^*V$, where $V$ is a vector bundle over $N$; a similar argument will be applied to $A$ which explains why it has values in $\Phi^*E$ in the general setting. To avoid bloating formulas and definitions we will also introduce shortened notations which is why it is highly suggested to read Section \ref{SpaceOfFieldsSection}.
+
+In Section \ref{NewPhysicQuants} we define physical quantities arising in gauge theory to the new generalised setting as in the beginning of this introduction but without $\zeta$, hence, without the extra term in the field strength. As a major example serves the following definition, where $t_{\nabla_\rho}$ is the torsion  of the $E$-connection $\nabla_\rho$ given by $\mleft( \nabla_\rho \mright)_\mu \nu = \nabla_{\rho(\mu)} \nu$.
+
+\begin{definitions*}{Field of gauge bosons and their field strength, \newline \cite[especially Eq.~(11); $\Phi$ is denoted as $X$ there]{CurvedYMH}}
+Let $M, N$ be smooth manifolds, and $E \to N$ a Lie algebroid equipped with a connection $\nabla$ on $E$. We define the \textbf{field strength $F$} by
+\bas
+F(\Phi, A)
+\coloneqq
+\mathrm{d}^{\Phi^*\nabla} A
+	- \frac{1}{2} \mleft( \Phi^* t_{\nabla_\rho} \mright)\mleft( A \stackrel{\wedge}{,} A \mright)
+\eas
+for all $\Phi \in C^\infty(M;N)$ and $A \in \Omega^1(M; \Phi^*E)$.
+\end{definitions*}
+
+$\frac{1}{2} \mleft( \Phi^* t_{\nabla_\rho} \mright)\mleft( A \stackrel{\wedge}{,} A \mright)$ is an element of $\Omega^2(M; \Phi^*E)$ given by 
+\bas
+\mleft(\frac{1}{2} \mleft( \Phi^* t_{\nabla_\rho} \mright)\mleft( A \stackrel{\wedge}{,} A \mright)\mright)(X,Y)
+&\coloneqq
+\frac{1}{2} \mleft(
+	\mleft( \Phi^* t_{\nabla_\rho} \mright)\mleft( A(X), A(Y) \mright)
+	- \mleft( \Phi^* t_{\nabla_\rho} \mright)\mleft( A(Y), A(X) \mright)
+\mright)
+\\
+&=
+\mleft( \Phi^* t_{\nabla_\rho} \mright)\mleft( A(X), A(Y) \mright)
+\eas
+for all $X, Y \in \mathfrak{X}(M)$.
+
+This section concludes that one has the classical definitions if $E$ is an action Lie algebroid and $\nabla$ its canonical flat connection. We then finally discuss infinitesimal gauge transformations in Section \ref{InfinitesimalGaugeTransformation}, defining them as in Section \ref{InfGaugeTrafoClassical} but extended to the generalized notions, and first omitting a definition of the infinitesimal gauge transformation of the field of gauge bosons; for this we also make use of the previously introduced corollary about pullbacks of connections if just differentiating along one direction. We will argue that the vector fields allowing such a pullback are precisely those vector fields $\Psi$ on the space of fields whose component along the "$\Phi$-direction" is given by the infinitesimal gauge transformation of the Higgs field.
+
+That is, one milestone of this thesis is the formulation of infinitesimal gauge transformations of functionals as derivations induced by a generalized $\mathrm{ev}$-pullback of a Lie algebroid connection, while the infinitesimal gauge transformations of the fields are given by vector fields $\Psi$ on the space of fields; the classical formulation is recovered by using a canonical flat connection since functionals have values in a trivial vector bundle in the classical situation, such that a canonical flat connection is given. The parameters of the infinitesimal gauge transformations are functionals $\varepsilon$ such that $\varepsilon(\Phi, A) \in \Gamma(\Phi^*E)$; due to the fact that their values depends on $\Phi$ these parameters have in general also a non-trivial infinitesimal gauge transformation.
+
+Afterwards the infinitesimal gauge transformation of the field of gauge bosons $A$ is formulated. We will see that its transformation $\delta_\varepsilon A$ does in general not live in the same space as $A$ itself due to horizontal components in the tangent space of the space of fields. Therefore we will apply a horizontal projection, however, to avoid loosing information about the "full" formula of $\delta_\varepsilon A$, this is done in such a way that the vector field $\Psi$ related to the given infinitesimal gauge transformation can uniquely be reconstructed. Essentially, the horizontal projection will only lead to a loss of information which is given by the infinitesimal gauge transformation of the Higgs field, and that information is already given, hence, one does not loose any real information. Technically, $\delta_\varepsilon A$ is given as the infinitesimal gauge transformation of the functional $\varpi_2$ given as the projection onto $A$, $\varpi_2(\Phi,A) \coloneqq A$. The vector field $\Psi = \Psi_\varepsilon$, parametrized by $\varepsilon$, is then uniquely encoded in the definition of the infinitesimal gauge transformation of $\Phi$ and in the condition
+\bas
+\mleft(\delta_\varepsilon \varpi_2\mright)(\Phi,A)
+=
+- (\Phi^*\nabla)\varepsilon,
+\eas
+where the Lie algebroid connection in the definition of $\delta_\varepsilon$ will be usually the basic connection in this thesis; this is also why there is not the typical Lie bracket term as usual in the definition of the infinitesimal gauge transformation of $A$, this information is saved in the basic connection itself. We will motivate that condition on $\varpi_2$ by how the minimal coupling between $\Phi$ and $A$ shall transform, similar to the typical motivation provided by physicists.
+
+About the choice of using the basic connection: We will discuss what type of Lie algebroid connection should be used for the infinitesimal gauge transformation if the functional is not scalar-valued; the infinitesimal gauge transformation of scalar-valued functionals will uniquely be given as Lie derivative of the vector field behind the transformation. We do so by looking at the commutator of two infinitesimal gauge transformations; we expect that the commutator should be again an infinitesimal gauge transformation. This is the case for the vector fields behind the infinitesimal gauge transformations (the scalar-valued situation basically), denoted abstractly as $\Psi$ above, but now denoted as $\Psi_\varepsilon$ to account the parameter $\varepsilon$. We show that the relation is
+\bas
+[\Psi_\vartheta, \Psi_\varepsilon]
+&=
+- \Psi_{\Delta(\vartheta, \varepsilon)},
+\eas
+where $\vartheta$ is a second parameter and $\Delta$ is a Lie bracket for those parameters defined by
+\bas
+\Delta(\vartheta, \varepsilon)|_{(\Phi, A)}
+&\coloneqq
+\mleft( \delta_\varepsilon \vartheta - \delta_\vartheta \varepsilon \mright)|_{(\Phi, A)}
+	+ (\Phi^*t_{\nabla_\rho})\bigl(\vartheta(\Phi,A), \varepsilon(\Phi, A)\bigr)
+\eas
+for all $(\Phi, A) \in \mathfrak{M}_E$; recall that the parameters themselves are functionals and have in general a non-trivial gauge transformation now. However, for vector-bundle functionals we use Lie algebroid connections as we motivated previously, the commutator of transformations is then essentially a lift of the bracket of the vector fields like $\Psi_\varepsilon$; we will see that then the relation of the commutator has essentially an extra term given by the $\mathrm{ev}$-pullback of the curvature of the used connection. Hence, if we want a similar behaviour as for the vector fields $\Psi_\varepsilon$, then we need to use a flat connection. We will see that the basic connection will be flat in the new formulation of gauge theory, hence, our choice, although we will argue that the gauge invariance of the Lagrangian is not affected by that choice since it is scalar-valued. 
+
+Another canonical choice as connection would be $\nabla_\rho$. While the basic connection will not be the \emph{canonical} flat connection in the classical situation, $\nabla_\rho$ will be; thus, the condition for $\varpi_2$ would strongly resemble the typical formula of $\delta_\varepsilon A$ if using $\nabla_\rho$ instead. Therefore choosing the basic connection may be mainly an aesthetic choice, but we are going to see that the basic connection, as a generalization of Lie algebra representations, reflects the symmetries of gauge theory in a better way, simplifying calculations, while $\nabla_\rho$, among certain other difficulties, will not be flat in general such that its commutator of infinitesimal gauge transformations on vector bundle valued functionals would have an extra term.
+
+In the discussion about the infinitesimal gauge invariance of the generalized gauge theory, starting in Section \ref{InfInvariance}, we will prove the gauge invariance of the Lagrangian in the more general setting (still without $\zeta$). However, after long calculations we will see that locally the new setting is the same as the classical setting, so, one may only have achieved a global formulation of gauge theory also allowing non-trivial bundles as values of functionals like the field strength; all of this is due to the fact that $\nabla$ has to be flat in order to have gauge invariance. Now $\zeta$ becomes important; in works like \cite{CurvedYMH} it is introduced as ansatz. However, we will introduce it by defining and studying a field redefinition in Section \ref{FieldRedefSection}. One can think of it as a coordinate-change as in classical mechanics, leaving an inertial frame, leading to extra terms in several physical relationships. As a next step one then reformulates classical mechanics such that it becomes coordinate-free and -independent; this is also denoted as \emph{covariantization} by physicists. Further steps are then generalizations of structures like assuming whether it is possible that those arising extra terms can always be mapped to zero by a coordinate change; if not, one may for example have a non-flat connection.
+
+In our case the "coordinates" are structural data like the field of gauge bosons and $\nabla$. The study about the reformulation of the existing gauge theory in Section \ref{NastyCalculationsForTheseFieldRedefsBaeaeaeae}, such that it is "coordinate"-independent with respect to the field redefinition, will lead to a generalized gauge theory where the field strength has an extra term essentially given by the $\mathrm{ev}$-pullback of the previously-mentioned $\zeta \in \Omega^2(N;E)$. This will be then finalized in Section \ref{SectionAboutCYMHGTs}, and the field redefinition is then nothing else than an equivalence of such more general gauge theories, officially called curved Yang-Mills-Higgs gauge theories, abbreviated as CYMH GT. Finally, $\nabla$ is in general not required to be flat anymore in order to achieve gauge invariance, especially we have the relationship
+\bas
+R_\nabla
+&=
+- \mathrm{d}^{\nabla^{\mathrm{bas}}} \zeta
+\eas
+where $R_\nabla$ is the curvature of $\nabla$ and $\mathrm{d}^{\nabla^{\mathrm{bas}}}$ the exterior covariant derivative of the basic connection $\nabla^{\mathrm{bas}}$. This is also why $\zeta$ will be called \textbf{primitive of $\nabla$}. At this point we have finally recreated CYMH GTs, but in a coordinate-free way, while the original formulation is not completely coordinate-free, especially the infinitesimal gauge transformation was originally only formulated in a coordinate-dependent way, without using Lie algebroid connections as in this thesis. Chapter \ref{GeneralizedGTfas} will conclude with Section \ref{PropertiesOFNewTOlleGTs} which is about certain general properties of CYMH GTs needed for the following chapter.
+
+Chapter \ref{ObstructionStuff} is then about whether or not there are CYMH GTs which are (pre-)classical, also after any field redefinition. It could be that a given $\zeta$ vanishes after the field redefinition; similar for $\nabla$ with respect to flatness. We first study Lie algebra bundles $E = K \to N$ (LABs) in Section \ref{ObstrLAB}: Subsection \ref{SumamryForLABSituation} shortly summarizes how a CYMH GT for LABs looks like, while in Subsection \ref{ConnectionIsALieDerivation} 
+%we will see that the compatibility conditions imply that the connection will be equivalent to a so-called \textbf{Lie derivation law covering a pairing $\Xi$ of $\mathrm{T}N$ with the Lie algebra bundle $K$} as introduced in \cite[\S 7.2, Mackenzie writes coupling instead of pairing; page 271ff.]{mackenzieGeneralTheory}. $\Xi$ is essentially a Lie algebroid morphism of $\mathrm{T}N$ to the outer Lie bracket derivations of $K$, and Mackenzie has shown that $\Xi$ induces a differential with which we can define a cohomology class of $\mathrm{d}^\nabla \zeta$, denoted as $\mleft[ \mathrm{d}^\nabla \zeta \mright]_\Xi$, which is an invariant of the field redefinition. Using that terminology, we will see in 
+and Subsection \ref{MackenzieZeugsUndExistenzvonPreclassical} we will see that the question, about whether we have a field redefinition transforming the gauge theory into a pre-classical one, has a strong relation to Mackenzie's study about extending Lie algebroids with Lie algebra bundles: $\nabla$ is by the compatibility conditions of a CYMH GT equivalent to a Lie derivation law covering what is called a pairing $\Xi$ which is a Lie algebroid morphism  $\mathrm{T}N \to \mathrm{Out}(\mathcal{D}_{\mathrm{Der}}(K)$, where $\mathrm{Out}(\mathcal{D}_{\mathrm{Der}}(K)$ is the Lie algebroid of outer bracket derivations of $K$, outer in the sense of the quotient of bracket derivations over inner bracket derivations. That is, $\nabla$ is also a bracket derivation and its equivalence class in the quotient space of the outer bracket derivations is equivalent to the pairing $\Xi$. We will see that the field redefinition is then just a transformation to any other Lie derivation law covering the same pairing. Furthermore, $\mathrm{d}^\nabla \zeta$ will be an invariant of the field redefinition, and the second Bianchi identity of $\nabla$ will imply that $\mathrm{d}^\nabla \zeta$ is a centre-valued form. By the compatibility conditions one can argue that $\nabla$ induces a differential $\mathrm{d}^\Xi$ on centre-valued forms, independent of the choice of $\nabla$. We will see that $\mathrm{d}^\nabla \zeta$ is closed with respect to $\mathrm{d}^\Xi$, such that it is natural to study the cohomology class of $\mathrm{d}^\nabla \zeta$ with respect to $\mathrm{d}^\Xi$; the invariance under the field redefinition will imply that this class only depends on $\Xi$. This class is precisely the obstruction class $\mathrm{Obs}(\Xi)$ developed by Mackenzie.
+
+Therefore we will introduce and discuss Mackenzie's theory about extending Lie algebroids by LABs in Subsection \ref{MackenzieStuff}. On one hand, Mackenzie shows that the obstruction class is zero if and only if one can extend $\mathrm{T}N$ by $K$ in such a way that there is a transitive Lie algebroid for which the kernel of the anchor is given by $K$.\footnote{Actually, Mackenzie shows a general statement; in this thesis Mackenzie's statement is simplified to our setting.} On the other hand, Mackenzie also shows that, if $N$ is contractible, then there is always a \emph{flat} Lie derivation law $\nabla$ covering $\Xi$; for contractible $N$ the obstruction class is trivially zero. Due to these results of Mackenzie we derive in Subsection \ref{LABResultsWooooo} that a non-zero obstruction class implies that there is no field redefinition such that $\nabla$ becomes flat, and that for contractible $N$ there is always a field redefinition such that a given CYMH GT is pre-classical. 
+
+\begin{theorems*}{Local existence of pre-classical gauge theory (simplified formulation)}
+Let $(K, \Xi)$ be a pairing of $\mathrm{T}N$ over a contractible manifold $N$, and let $\nabla$ be a fixed Lie derivation law covering $\Xi$.
+
+Then we have a field redefinition such that the redefinition of $\nabla$ is flat.
+\end{theorems*}
+
+\begin{theorems*}{Possible new and curved gauge theories on LABs}
+Let $(K, \Xi)$ be a pairing of $\mathrm{T}N$ with $\mathrm{Obs}(\Xi) \neq 0$ and such that the fibre Lie algebra $\mathfrak{g}$ admits an $\mathrm{ad}$-invariant scalar product.
+
+Then we can construct a CYMH GT for which there is no field redefinition with what it would become pre-classical.
+\end{theorems*}
+
+However, a zero obstruction class does not necessarily imply that a CYMH GT can be transformed to a pre-classical one, following an example of Mackenzie: The Hopf fibration $\mathds{S}^7 \to \mathds{S}^4$ has a zero obstruction class but no flat Lie derivation law covering its canonical pairing as an Atiyah sequence. 
+
+Up to this point it was just about $\nabla$ and its field redefinition. In Subsection \ref{NonclassicalStuff} we quickly derive that for $\zeta$ it is easier to find an answer. If $\mathrm{d}^\nabla \zeta \neq 0$, then there is never a field redefinition making $\zeta$ vanish. We also provide a canonical construction of such $\zeta$ if starting with a certain classical gauge theory:
+
+\begin{corollaries*}{Canonical construction of non-classical gauge theories (simplified formulation)}
+Let $\mathfrak{g}$ be a Lie algebra with non-zero centre and admitting an $\mathrm{ad}$-invariant scalar product. Also let $(N, g)$ be any Riemannian manifold with at least three dimensions, and $K = N \times \mathfrak{g}$ be a trivial LAB over $N$, equipped with the canonical flat connection $\nabla$ and a metric $\kappa$ which restricts to an $\mathrm{ad}$-invariant scalar product on each fibre.
+
+Then there is a $\zeta \in \Omega^2(N; Z(K))$, with $\mathrm{d}^\nabla \zeta \neq 0$, such that this set-up describes a non-classical CYMH GT with respect to an arbitrary spacetime $M$. Additionally, there is no field redefinition making $\zeta$ zero.
+\end{corollaries*}
+
+In Subsection \ref{BianchiStuff}, we turn shortly to the discussion about a possible physical meaning of $\mathrm{d}^\nabla \zeta \neq 0$ due to its influence to the obstruction of (pre-)classical CYMH GTs. We are going to see that it measures the failure of the Bianchi identity of the field strength, \textit{i.e.}~$\mathrm{d}^\nabla \zeta = 0$ if and only if the Bianchi identity is satisfied.
+
+\begin{theorems*}{Bianchi identity of the field strength (simplified formulation)}
+Let $M$ and $N$ be smooth manifolds, $K \to N$ an LAB, $\Phi \in C^\infty(M;N)$, and $\nabla$ and $\zeta \in \Omega^2(N; K)$ satisfying the compatibility conditions of a CYMH GT.
+
+Then
+\bas
+\mathrm{d}^{\Phi^*\nabla}\bigl(G(\Phi,A)\bigr) + \mleft[ A \stackrel{\wedge}{,} G(\Phi,A) \mright]_{\Phi^*K}
+&=
+\Phi^! \mleft( \mathrm{d}^\nabla \zeta \mright),
+\eas
+where
+\bas
+G(\Phi,A)
+&=
+\mathrm{d}^{\Phi^*\nabla}A
+	+ \frac{1}{2} \mleft[ A \stackrel{\wedge}{,} A \mright]_{\Phi^*K}
+	+ \Phi^!\zeta
+\eas
+is the new field strength including the contribution of $\zeta$, and where $\mleft[ \cdot, \cdot \mright]_{\Phi^*K}$ is the $\Phi$-pullback of the field of Lie brackets of $K$.
+\end{theorems*}
+
+This concludes the discussion about LABs.
+
+In Section \ref{TangentBundles} we turn to tangent bundles; again Subsection \ref{GeneralSituForTangent} will discuss the general situation for tangent bundles, and we will see that tangent bundles are locally always pre-classical in Subsection \ref{LocalTangentBundles}. 
+
+\begin{theorems*}{Tangent bundles are locally pre-classical as CYMH GT (simplified version)}
+Let $N = \mathbb{R}^n$ ($n \in \mathbb{N}_0$) be an Euclidean space as smooth manifold and $\nabla$ a connection on $E \coloneqq \mathrm{T}N$ which satisfies the compatibility conditions. Then there is a field redefinition such that $\nabla$ becomes flat.
+\end{theorems*}
+
+Globally however, we will see in Subsection \ref{UnitoctonionsasGT} that the seven-dimensional sphere $\mathds{S}^7$ admits a gauge theory in the sense of CYMH GT, related to a non-flat $\nabla$. A flat $\nabla$ would imply a Lie group structure on $\mathds{S}^7$ which does not exist as we know, and this will be the quintessence of its structure as CYMH GT for which there is no field redefinition towards a pre-classical theory.
+
+\begin{theorems*}{Global example: Unit octonions (simplified version)}
+$\mathbb{S}^7$ admits a CYMH GT such that the related connection $\nabla$ on $E \coloneqq \mathrm{T}\mathds{S}^7$ is not flat. Moreover, there is no field redefinition such that $\nabla$ becomes flat.
+\end{theorems*}
+
+The thesis concludes in Section \ref{GeneralObstrAoids} with a discussion about more general Lie algebroids; first stating a small general statement in Section \ref{GeneralGeneral}, but then turning to Lie algebroids given as the direct product of tangent bundles and Lie algebra bundles in Section \ref{GeneralSitDirectProducts}. We derive that the direct product of CYMH GTs has a natural structure as CYMH GT, and we can extend the existence of a redefinition towards a pre-classical theory by using previous results.
+
+\begin{theorems*}{Direct products of CYMHG GTs around regular points are flat (simplified formulation)}
+Let $N \coloneqq \mathbb{R}^n$ ($n \in \mathbb{N}_0$) be a smooth manifold such that its tangent bundle admits a CYMH GT, whose connection satisfying the compatibility conditions we denote by $\nabla^{N}$, and let $K \to S$ be an LAB over a smooth contractible manifold $S$ which also admits a CYMH GT, equipped with a connection $\nabla^K$ satisfying the compatibility conditions.
+
+Then there is a field redefinition with respect to their direct product of CYMH GTs with connection $\nabla$ (satisfying the compatibility conditions) such that the field redefinition of $\nabla$ becomes flat, where $\nabla$ is canonically given as a product of $\nabla^N$ and $\nabla^K$.
+\end{theorems*}
+
+However, the discussion about general Lie algebroids will not go beyond this point, and the thesis will conclude with a possible conjecture, which may simplify further calculations related to direct products, especially allowing to extend other previous results.
+
+\begin{conjectures*}{Existence of a splitted field redefinition (simplified formulation)}
+Let $N$ be a smooth manifold such that its tangent bundle admits a CYMH GT, and let $K \to S$ be an LAB over a smooth manifold $S$ which also admits a CYMH GT.
+
+If there is a field redefinition such that their direct product of CYMH GTs is pre-classical or classical, then there is also a field redefinition for each factor separately transforming each factor to a pre-classical or classical theory, respectively.
+\end{conjectures*}
+
+Subsection \ref{LastAnsatzes} just lists loose ansatzes and ideas for further calculations, not necessarily related to direct products; for the thesis itself it is not necessarily needed to read this subsection. Finally, Chapter \ref{ConclusionTheEnd} gives a short overview about possible future research plans.
+
+\section{Notation and other conventions throughout this work}\label{StandardNotation}
+
+In this thesis a lot of conventions are used, they are either in the following list or will be introduced later.
+
+\begin{itemize}
+	\item Throughout this work we always use Einstein's sum convention if suitable.
+	\item Due to ambiguities about connectedness in the definition of \textbf{simply connected} manifolds, we emphasize that we will use the definition of simply connectedness which also requires that such a manifold is path-connected.
+	\item A map $f: A \to B$ between two sets $A$ and $B$ we often also denote by $[A \ni a \mapsto f(a) \in B]$, or shortly $[a \mapsto f(a)]$, or also
+\bas
+A &\to B,\\
+a &\mapsto f(a).
+\eas
+	\item Every time when we have a map with arguments from different sets, like a map $f$ defined on $A \times B$ with values in a set $C$, $(a,b) \mapsto f(a,b)$, where $A$ and $B$ are two sets, then we sometimes just insert one or a part of the arguments. Those we denote \textit{e.g.}~by $f(b)$ for $b \in B$, so, $f(b): A \to C, a\mapsto f(a,b)$. We may also write instead $f(\cdot, b)$. This only applies to situations where the arguments are not related by some condition like antisymmetry to avoid confusion when ordering of the arguments is important.
+	\item $\gls{MN}$ will be smooth manifolds, although $M$ sometimes also denotes a spacetime; but the latter will be mentioned then.
+	\item $\gls{TN}$ the tangent bundle of $N$.
+	\item $\gls{X(N)}$ the space of vector fields of $N$ with Lie bracket $\gls{0[]}$.
+	\item $\gls{DAiff}(N)$ will denote the space of diffeomorphisms of $N$ and $\gls{Cinfty(N)}$ the space of its smooth functions; when a smooth function has values in another smooth manifold $M$, then we denote that space by $ \gls{Cinfty(N;M)}$.
+	\item With $\gls{0bigwedgedotV}$ we will denote the exterior power of a vector bundle $V$.
+	\item $\gls{1Camma(V)}$ will be $V$'s vector space of sections.
+	\item We will denote the bundle of automorphisms and endomorphisms of $V$ by $\gls{Aut}(V)$ and $\gls{End}(V)$, respectively. We also denote $\gls{AutSection}(V) \coloneqq \Gamma(\mathrm{Aut}(V))$ and $\gls{EndSection}(V) \coloneqq \Gamma(\mathrm{End}(V))$. With those we also always mean base-preserving ones, also called vertical automorphisms and vertical endomorphisms.
+	\item We denote the space of \textbf{$(r,s)$-$V$-tensors} by $\gls{Trs(V)a} \coloneqq \Gamma\mleft(\gls{Trs(V)}\mright)$ for $r,s \in \mathds{N}_0$, where $\mathrm{T}^r_s(V) \coloneqq \bigotimes^s V^* \otimes \bigotimes^r V$ ($r, s \in \mathds{N}_0$).
+	\item $\gls{V*}$ denotes the dual bundle of $V$, as a special example $\gls{T*N}$ denotes the cotangent bundle of $N$ and $\gls{1ZOmegak(N)} \coloneqq \Gamma\mleft(\bigwedge^k \mathrm{T}^*N\mright)$ the space of $k$-forms ($k \in \mathds{N}_0$).
+	\item $\gls{0nabla}$ denotes a vector bundle connection on $V$ with $\gls{Rnabla}$ their curvature. Throughout this work we will also face a more general notion of connection, but when we just write \textbf{connection}, then we always mean a \textbf{vector bundle connection}. If some object is another type of connection, then it will be explicitly mentioned or clear by the context.
+	\item As usual, one can extend a connection $\nabla$ to $\mathcal{T}^r_s(V)$ ($r, s\in \mathbb{N}_0$) by the Leibniz rule. We will denote such connections still with $\nabla$.
+	\item In the following $\gls{D}$ is also the \textbf{total differential} or \textbf{tangent map} of smooth maps, \textit{i.e.}~for every smooth map $F: M \to N$ we have the canonical (total) differential $\mathrm{D}_pF: \mathrm{T}_pM \to \mathrm{T}_{F(p)}N$ for all $p\in M$. In the following we view $\mathrm{D}F$ as an element of $\Omega^1(M; F^*\mathrm{T}N)$ by $\mathfrak{X}(M) \ni Y \mapsto \mathrm{D}F(Y)$, where $\mathrm{D}F(Y) \in \Gamma(F^*\mathrm{T}N), M \ni p \mapsto \mathrm{D}_pF(Y_p)$.
+	\item The de-Rham differential is denoted by $\gls{dbas}$.
+	\item Coordinate vector fields on a smooth manifold we often denote by $\gls{0partiali}$.
+	\item The Lie derivative of a vector field $X$ is denoted by $\gls{Lie}_X$, and with this we also denote the action of $X$ on smooth functions $f$ by derivation; the latter we may also denote with $X(f) = \mathcal{L}_X(f)$.
+	\item With $\gls{1ZOmegap(NV)}$ ($p\in \mathbb{N}_0$) we denote the space of forms with values in $V$. There is a similar notation for vector spaces $W$, $\Omega^p(N; W)$; although $W$ is not defined as a bundle over $N$, with that we mean forms with values in the trivial bundle $N \times W \to N$; similar for all other type of tensors, and also for other vector spaces and their associated trivial vector bundles.
+	\item When one has a connection $\nabla$ on a vector bundle $V \to N$, then one has the notion of the exterior covariant derivative on $\Omega^p(M;E)$, denoted by $\gls{dnabla}$. In the case of a trivial vector bundle $V=N \times W \to N$, where $W$ is some vector space, we will often use the \textbf{canonical flat connection} for $\nabla$, defined by $\nabla \nu = 0$, where $\nu$ is a constant section of $N \times W$, see \textit{e.g.}~\cite[Example 5.1.7; page 260f.]{hamilton} for a geometric interpretation as horizontal distribution. The canonical flat connection is clearly uniquely defined (if a trivialization is given) because constant sections generate all sections and due to the Leibniz rule and linearity of $\nabla$. That is, let $\nabla^\prime$ be another canonical flat connection with $\nabla^\prime \nu = 0$ for all constant sections $\nu$. Then every section of $N \times W$ is a sum of elements of the form $f \nu$, where $\nu$ is still a constant section and $f \in C^\infty(N)$, such that
+\bas
+\nabla(f \nu)
+&=
+\mathrm{d}f \otimes \nu
+	+ f \underbrace{\nabla \nu}_{\mathclap{= 0 = \nabla^\prime \nu}}
+=
+\nabla^\prime(f \nu),
+\eas
+which proves the claim using the linearity of $\nabla$. Let $\mleft( e_a \mright)_a$ be a constant global frame of $N \times W$, thence,
+\bas
+\mathrm{d}^\nabla \omega
+&=
+\mathrm{d} \omega^a \otimes e_a
+\eas
+for all $\omega \in \Omega^p(M; W)$, where we write $\omega= \omega^a \otimes e_a$. Hence, we define
+\ba
+\mathrm{d}\omega
+&\coloneqq
+\mathrm{d}^\nabla \omega,
+\ea
+when $\nabla$ is the canonical flat connection. $\mathrm{d}$ is clearly a differential.
+	\item With $\Phi^*V$ we denote the pullback/pull-back of the vector bundle $V$ under a smooth map $\Phi: M \to N$. We will also have sections $F$ as an element of $\Gamma\left( \left(\bigotimes_{m=1}^{l} E_m^*\right) \otimes E_{l+1} \right)$, where $E_1, \dots E_{l+1}$ ($l \in \mathbb{N}$) are real vector bundles of finite rank over $N$. Those pull-back as section, denoted by $\Phi^*F$, we will view as an element of $\Gamma\left( \mleft(\bigotimes_{m=1}^{l} \mleft(\Phi^*E_m\mright)^*\mright) \otimes \Phi^*E_{l+1} \right)$, and it is essentially given by
+\bas
+	(\Phi^*F)(\Phi^*\nu_1, \dotsc , \Phi^*\nu_l)
+	&=
+	\Phi^*\mleft( F\mleft( \nu_1, \dotsc, \nu_l \mright) \mright)
+\eas
+for all $\nu_1 \in \Gamma(E_1), \dotsc, \nu_l \in \Gamma(E_l)$, using that pullbacks of sections generate the sections of a pullback bundle. In general we also make use of that sections of $\Phi^*E$ can be viewed as sections of $E$ along $\Phi$, where $E \stackrel{\pi}{\to} N$ is any vector bundle over $N$. Let $\mu \in \Gamma(\Phi^*E)$, then it has the form $\mu_p = (p, v_p)$ for all $p \in M$, where $v_p \in E_{\Phi(p)}$, the fibre of $E$ at $\Phi(p)$; and a section $\nu$ of $E$ along $\Phi$ is a smooth map $M \to E$ such that $\pi(\nu) \coloneqq \pi \circ \nu = \Phi$. Then on one hand $\mathrm{pr}_2 \circ \mu$ is a section along $\Phi$, where $\mathrm{pr}_2$ is the projection onto the second component, and on the other hand $M \ni p \mapsto (p, \nu_p)$ defines an element of $\Gamma(\Phi^*E)$. With that one can show that there is a 1:1 correspondence of $\Gamma(\Phi^*E)$ with sections along $\Phi$. We do not necessarily mention it when we make use of that identification, it should be clear by the context.
+	\item We will also often make use of that $\Gamma(\Phi^*E)$ is generated by pullbacks of $\Gamma(E)$. If we explicitly use this in calculations, then we take for example a local frame $\mleft( e_a \mright)_a$ of $E$, and then a frame of $\Phi^*E$ is given by $\mleft(\Phi^*e_a\mright)_a$. In such situations we implicitly assume that $\mleft(e_a\mright)_a$ is defined on a part of the image of $\Phi$. Similar for intersections of frames. 
+	\item Furthermore, we will often need frames for bundles like $\Phi^*E$; we will then just write "Let $\mleft(e_a\mright)_a$ be a local frame of $E$" and implicitly mean that we take $\mleft(\Phi^*e_a\mright)_a$ as a frame for $\Phi^*E$.
+	\item Do not confuse the previously discussed pull-back of sections with the pull-back of forms $F \in \Omega^l(N; V)$, here denoted by $\Phi^!F$, which is an element of $\Gamma\left( \mleft(\bigwedge_{m=1}^{l} \mathrm{T}^*M \mright) \otimes \Phi^*V \right) \cong \Omega^l(M; \Phi^*V)$, and not of $\Gamma\left( \mleft(\bigotimes_{m=1}^{l} \mleft(\Phi^*\mathrm{T}N\mright)^*\mright) \otimes \Phi^*E_{l+1} \right)$ like $\Phi^*F$. $\Phi^!F$ is defined by
+\ba
+\mleft.\mleft(\Phi^!F\mright)(Y_1, \dots, Y_l)\mright|_p
+&\coloneqq
+F_{\Phi(p)}\mleft(\mathrm{D}_p\Phi\mleft(\mleft.Y_1\mright|_p\mright), \dots, \mathrm{D}_p\Phi\mleft(\mleft.Y_l\mright|_p\mright)\mright)
+\ea
+for all $p \in M$ and $Y_1, \dots, Y_l \in \mathfrak{X}(M)$. 
+	\item Unless otherwise stated, the considered manifolds and vector bundles are of finite dimension and rank, respectively, and smooth; arising fields are always real numbers, hence, we also view $\mathbb{C}^n$ ($n \in \mathbb{N}$) as $\mathbb{R}^{2n}$. 
+	\item Morphisms of bundles over the same base are always base-preserving ones if not stated otherwise.
+	\item In the case when we explicitly state that we now turn to infinite-dimensional manifolds, we always assume a convenient setting, for example that is, we assume that all the smooth structures \textit{etc.}~are given and well-defined such that we can treat those manifolds and objects as if they would be finite-dimensional for the constructions we are going to study. The tangent bundle of infinite-dimensional manifolds we will define by the approach of using equivalence classes of curves.
+	\item As usual, there will be definitions of certain objects depending on other elements, and for keeping notations simple we will not always explicitly denote all dependencies. It will be clear by context on which it is based on, that is, when we define an object $A$ using the notion of Lie algebra actions $\gamma$ and we write "Let $A$ be [as defined before]", then it will be clear by context which Lie algebra action is going to be used, for example given in a previous sentence writing "Let $\gamma$ be a Lie algebra action".
+	\item We have several identities shown in the Appendix \ref{CalculusIdentitiesNeeded}. We will use them throughout this work, but the thesis will be written in such a way that one only needs to know the appendix when starting to read Chapter \ref{GeneralizedGTfas}, and several notions arising in the appendix will be introduced before that chapter.
+	\item At the very end is also a list of symbols. There we try to list all the needed symbols with page numbers where they got defined. When you read this thesis using its pdf, then all those symbols will be hyperlinked to that glossary. After clicking on such a link you may be able to get immediately back where you were using the return button on your mouse device if available, whether this works may also depend on your pdf reader; otherwise use the hyperlinks of the listed page numbers in the glossary for a quicker navigation.
+	
+	The list of symbols first lists generic symbols, then Greek letters, and afterwards Latin letters.
+	\item References are not only given in the text, the references of referenced statements and definitions are especially given in the title of those statements. The title also mentions whether the statement as written in this thesis is a variation or generalization; when it is a strong generalization, then the reference will be mentioned in a remark after the statement or its proof.
+\end{itemize}

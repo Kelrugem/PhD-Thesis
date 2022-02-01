@@ -1,0 +1,830 @@
+\section{General Lie algebroids}\label{GeneralObstrAoids}
+
+\subsection{General situation}\label{GeneralGeneral}
+
+Let us now go to more general Lie algebroids as also used in the discussion until and around Thm.~\ref{thm:FinallyTheGaugeInvarianceWeWant}.
+
+The previously discussed constancy of the torsion and its relationship to flatness in the case of tangent bundles we also have partially for general Lie algebroids.
+
+\begin{corollaries}{Pre-classical theories have constant torsion}{TorsionConstancyAndFlatnessGeneral}
+Let $E\to N$ be a Lie algebroid over a smooth manifold $N$, equipped with a connection $\nabla$ on $E$ with vanishing basic curvature. Then there is a $\lambda \in \Omega^1(N;E)$ such that $\widetilde{\nabla}^\lambda_\rho$ is flat if and only if there is a $\lambda \in \Omega^1(N;E)$ such that $t_{\mleft(\widetilde{\nabla}^\lambda \mright)^{\mathrm{bas}}} = - t_{\widetilde{\nabla}^\lambda_\rho}$ is constant with respect to $\mleft(\widetilde{\nabla}^\lambda \mright)^{\mathrm{bas}}$, that is, 
+\ba
+\mleft(\widetilde{\nabla}^\lambda \mright)^{\mathrm{bas}} t_{\mleft(\widetilde{\nabla}^\lambda \mright)^{\mathrm{bas}}}
+&= 
+0.
+\ea
+\end{corollaries}
+
+\begin{remark}
+\leavevmode\newline
+As for tangent bundles also recall here Cor.~\ref{cor:TOrsionCanBeLieBracketIfFlat}; in the case of a flat $\nabla_\rho$ (or its field redefinition) its torsion would be another Lie bracket on $E$, but tensorial. One could clearly generalize this statement by just imposing flatness of $\nabla^\mathrm{bas}$ on $E$.
+\end{remark}
+
+\begin{proof}[Proof of Cor.~\ref{cor:TorsionConstancyAndFlatnessGeneral}]
+\leavevmode\newline
+The proof is exactly as in Cor.~\ref{cor:TorsionConstancyAndFlatness}, the only exception is that Cor.~\ref{cor:LemmaCurvatureOfDualConnections} (in combination with Prop.~\ref{prop:SnablamitREnabla}) in general implies
+\bas
+R_{\nabla_\rho}
+&=
+\nabla^{\mathrm{bas}} t_{\nabla^{\mathrm{bas}}},
+\eas
+which is why we can extend Cor.~\ref{cor:TorsionConstancyAndFlatness} only to $\nabla_\rho$ in general.
+\end{proof}
+
+\subsection{Direct products of CYMH GTs}\label{GeneralSitDirectProducts}
+
+As we know, Lie algebroids are the direct product of a tangent bundle and a bundle of Lie algebras around regular points, Thm.~\ref{thm:DirectSplitting}. Hence, there is hope to extend some of the previous results to direct products of Lie algebroids. Therefore let us first define the direct product of CYMH GTs, especially recall Remark \ref{rem:NotationAboutProductStructures}, Lemma \ref{lem:LemmaUniquenessOfDirectProductStructure} and Section \ref{DirectProdsOfLieAlgoids} in general. We will make use of the direct product of Lie algebroids without further explaining again how the anchor and bracket \textit{etc.}~are defined.
+
+\begin{theorems}{Direct products of CYMH GTs is a CYMH GT}{DirectProductsOfCYMHGT}
+Let $i \in \{1,2\}$ and $E_i \to N_i$ be Lie algebroids over smooth manifolds $N_i$, both equipped with a connection $\nabla^i$, a fibre metric $\kappa_i$ on $E_i$ and a Riemannian metric $g_i$ of $N_i$ such that the compatibility conditions are satisfied for each $i$, where we denote the primitives of $R_{\nabla^i}$ by $\zeta^i$. 
+
+Then the direct product of Lie algebroids $E_1 \times E_2$ is a CYMH GT, equipped with $\nabla \coloneqq \nabla^1 \times \nabla^2$, $\kappa_1 \times \kappa_2$, and $g_1 \times g_2$, where the primitive of the curvature $R_{\nabla^1\times\nabla^2}$ is for example given by $\zeta^1\times\zeta^2$.
+\end{theorems}
+
+\begin{proof}
+\leavevmode\newline
+That is trivial to see by recalling Remark \ref{rem:NotationAboutProductStructures}, especially we have
+\bas
+\mleft( \nabla^1 \times \nabla^2 \mright)^{\mathrm{bas}}
+&=
+\mleft(\nabla^1\mright)^{\mathrm{bas}} \times \mleft(\nabla^2\mright)^{\mathrm{bas}},
+\\
+R_{\nabla^1 \times \nabla^2}^{\mathrm{bas}}
+&=
+R_{\nabla^1}^{\mathrm{bas}}
+\times
+R_{\nabla^2}^{\mathrm{bas}},
+\\
+R_{\nabla^1\times\nabla^2}
+&=
+R_{\nabla^1}
+\times
+R_{\nabla^2},
+\\
+\mathrm{d}^{\mleft( \nabla^1 \times \nabla^2 \mright)^{\mathrm{bas}}}
+\mleft( \zeta^1\times\zeta^2 \mright)
+&=
+\mathrm{d}^{\mleft( \nabla^1 \mright)^{\mathrm{bas}}}
+\mleft( \zeta^1\mright)
+\times
+\mathrm{d}^{\mleft( \nabla^2 \mright)^{\mathrm{bas}}}
+\mleft( \zeta^2 \mright)
+\eas
+Hence, using the compatibility conditions on $E_i$,
+\bas
+R_{\nabla}
+&=
+- \nabla^{\mathrm{bas}} \mleft(\zeta^1\times\zeta^2\mright),
+\\
+R_\nabla^{\mathrm{bas}}
+&=
+0,
+\eas
+and
+\bas
+\nabla^{\mathrm{bas}}\mleft( \kappa^1 \times \kappa^2 \mright)
+&=
+\mleft(\mleft(\nabla^1\mright)^{\mathrm{bas}} \kappa^1\mright)
+\times \mleft( \mleft(\nabla^2\mright)^{\mathrm{bas}} \kappa^2\mright)
+=
+0,
+\eas
+similarly for $g^1\times g^2$.
+\end{proof}
+
+\begin{definitions}{Direct product of CYMH GT}{DefinitionDerDirectProdCYMHGT}
+Assume the same as in Thm.~\ref{thm:DirectProductsOfCYMHGT}. Then we call $E_1\times E_2$ with its natural CYMH GT structure defined there the \textbf{direct product of CYMH GTs}.
+\end{definitions}
+
+In the following statement we study a certain CYMH GT, as it is given around regular points, and we will not always denote all the structures; for example, we just denote the connections when we are not going to use the compatibilities with the metrics.
+
+\begin{theorems}{Direct products of CYMHG GTs around regular points are flat}{DirectProductsSadlyAlwaysFlat}
+Let $N \coloneqq \mathbb{R}^n$ ($n \in \mathbb{N}_0$) be a smooth manifold such that its tangent bundle admits a CYMH GT, whose connection satisfying the compatibility conditions we denote by $\nabla^{N}$, and let $K \to S$ be an LAB over a smooth contractible manifold $S$ which also admits a CYMH GT, equipped with a connection $\nabla^K$ satisfying the compatibility conditions.
+
+Then there is a field redefinition with respect to the direct product of CYMH GTs, $E \coloneqq \mathrm{T}N \times K \to N \times S$, such that $\widetilde{\nabla}^\lambda$ is flat, where $\nabla \coloneqq \nabla^{N} \times \nabla^K$ and $\lambda \in \Omega^1(N;E)$ such that $\Lambda = \mathds{1}_E - \lambda \circ \rho \in \sAut(E)$.
+\end{theorems}
+
+\begin{proof}
+\leavevmode\newline
+%We have seen earlier that this is possible when just looking at $N$ or $K$, see Thm.~\ref{thm:LokalLeiderImmerPreklassisch} and \ref{thm:NoGoLocalTangentBundle}. Recall Eq.~\eqref{dievielBessereFormuelFuersRechnenFragezeichen}, that is
+%\bas
+%\widetilde{\nabla}^\lambda_Y \mu
+%&=
+%\Lambda \mleft( 
+	%\nabla_{\widehat{\Lambda}^{-1}(Y)} \mu
+	%- \mleft[ \mleft( \Lambda^{-1} \circ \lambda \mright)(Y), \mu \mright]_E 
+%\mright)
+%+ \lambda \bigl([Y, \rho(\mu)] \bigr)
+%\eas
+%for all $\mu \in \Gamma(E)$ and $Y \in \mathfrak{X}(N)$.
+We need to check whether we can apply Thm.~\ref{thm:LokalLeiderImmerPreklassisch} and \ref{thm:NoGoLocalTangentBundle} separately. We will do so by studying the field redefinition only for $\nabla$ with respect to $\lambda$ of the form
+\bas
+\lambda
+&=
+\lambda^N \times \lambda^K
+=
+\mathrm{pr}_1^!\mleft( \lambda^N \mright)
+	\oplus \mathrm{pr}_2^!\mleft( \lambda^K \mright),
+\eas
+where $\mathrm{pr}_i$ ($i \in \{1,2\}$) is the projection onto the $i$-th factor in $N \times S$, $\lambda^N \in \Omega^1(N; \mathrm{T}N)$, and $\lambda^K \in \Omega^1(S;K)$. Using such a $\lambda$ implies 
+\bas
+\Lambda
+&=
+\underbrace{\mathds{1}_{\mathrm{T}N \times K}}_{\mathclap{ = \mathds{1}_{\mathrm{T}N} \times \mathds{1}_{K} }}
+	- \lambda \circ \underbrace{\rho_{\mathrm{T}N \times K}}_{= \rho_{\mathrm{T}N} \times \rho_{K} = \mathds{1}_{\mathrm{T}N} \times 0 }
+=
+\Lambda^{N} \times \Lambda^K,
+\eas
+where $\Lambda^{N} \coloneqq \mathds{1}_{\mathrm{T}N} - \lambda^{N}$ and $\Lambda^{K} \coloneqq \mathds{1}_{K}$. Therefore
+\bas
+\Lambda^{-1}
+&=
+\mleft(\Lambda^{N}\mright)^{-1} \times \mleft(\Lambda^K\mright)^{-1},
+\eas
+similarly for $\widehat{\Lambda}$. Again by Remark \ref{rem:NotationAboutProductStructures} we have
+\bas
+\nabla^{\mathrm{bas}}
+&=
+\mleft(\nabla^N\mright)^{\mathrm{bas}}
+	\times \mleft(\nabla^K\mright)^{\mathrm{bas}},
+\eas
+and, so, the following completely splits as direct product
+\bas
+\mleft(\Lambda \circ \mathrm{d}^{\nabla^{\mathrm{bas}}} \circ \Lambda^{-1} \mright)\lambda
+&=
+\mleft( \mleft(\Lambda^N \circ \mathrm{d}^{\mleft(\nabla^N\mright)^{\mathrm{bas}}} \circ \mleft(\Lambda^N\mright)^{-1} \mright)\lambda^N  \mright)
+	\times \mleft( \mleft(\Lambda^K \circ \mathrm{d}^{\mleft(\nabla^K\mright)^{\mathrm{bas}}} \circ \mleft(\Lambda^K\mright)^{-1} \mright)\lambda^K  \mright),
+\eas
+%Since curvatures are tensors we just need to locally study Eq.~\eqref{dievielBessereFormuelFuersRechnenFragezeichen} with respect to the following frame (as done previously): The frame on $\mathrm{T}N \times K$ consists of $\mleft( \mathrm{pr}_1^*\mleft( \partial_i \mright) \mright)_i$ and $\mleft( \mathrm{pr}_2^*\mleft( e_a \mright) \mright)_a$, where $\mleft( \partial_i \mright)_i$ is a frame of coordinate vector fields on $N$ and $\mleft( e_a \mright)_a$ a local frame of $K$. We also need a frame of the vector fields of the base $N \times S$, which will consist of $\mleft( \mathrm{pr}_1^*\mleft( \partial_\alpha \mright) \mright)_\alpha$ and also of $\mleft( \mathrm{pr}_2^*\mleft( \partial_i \mright) \mright)_i$, where $\mleft( \partial_\alpha \mright)_\alpha$ are local coordinate vector fields on $S$.\footnote{The following will clearly work for every pullback frame using the projections, this frame is just chosen for convenience.} In the following we are going to omit the notation of the pullbacks using the projections, also when we denote the space of sections, for example, $\Gamma(K)$ means $\mathrm{pr}_2^*\bigl(\Gamma(K)\bigr)$ and \textbf{not} necessarily the set of elements of $\Gamma(E)$ with values in $K$; although many identities can be extended we do not need so.
+%
+%Finally, recall that the anchor $\rho$ of $\mathrm{T}N \times K$ is by definition the product of the anchors of $\mathrm{T}N$ and $K$, such that we also have
+%\bas
+%\rho(\mu) &= \mu, 
+%\\
+%\rho(\nu) &= 0,
+%\\
+%\Lambda(\mu) &= \mleft(\mathds{1} - \lambda^N\mright)(\mu),
+%\\
+%\Lambda(\nu) &= \nu,
+%\\
+%\widehat{\Lambda}(\mu)
+%&=
+%\mu
+	%- \underbrace{\rho\mleft( \lambda^N(\mu) \mright)}_{= \lambda^N(\mu)}
+%= 
+%\mleft(\mathds{1} - \lambda^N\mright)(\mu),
+%\\
+%\widehat{\Lambda}(Z)
+%&=
+%Z
+	%- \underbrace{\rho\mleft( \lambda^K(Z) \mright)}_{=0}
+%=
+%Z
+%\eas
+%for all $\mu \in \mathfrak{X}(N)$, $\nu \in \Gamma(K)$, and $Z \in \mathfrak{X}(S)$,
+%where $\mathds{1}$ denotes the identity operator for which we will omit of what space it is the identity on because that is clear by context. Additionally, observe that $\Lambda(\mu) \in \mathfrak{X}(N)$ and $\Lambda(\nu) = \nu \in \Gamma(K)$, which implies that $\Lambda$ restricts on $\mathrm{T}N$ and $K$. This also induces that $\mathds{1} - \lambda^N$ is invertible on $\mathrm{T}N$ if and only if $\Lambda$ is in invertible. Similar statements for $\widehat{\Lambda}$.
+%
+%Thus, by Eq.~\eqref{dievielBessereFormuelFuersRechnenFragezeichen},
+%\bas
+%\widetilde{\nabla}^\lambda_{\partial_i} \partial_j
+%&=
+%\Lambda \mleft( \nabla^{N}_{\mleft( \mathds{1}-\lambda^N \mright)^{-1}(\partial_i)} \partial_j
+%- \mleft[ \mleft( \mleft( \mathds{1}-\lambda^N \mright)^{-1} \circ \lambda^N \mright)(\partial_j), \partial_i \mright]_E \mright)
+%+ \lambda^N \bigl([\partial_i, \partial_j] \bigr)
+%\\
+%&=
+%\mleft( \mathds{1}-\lambda^N \mright) \mleft( \nabla^{N}_{\mleft( \mathds{1}-\lambda^N \mright)^{-1}(\partial_i)} \partial_j
+%- \mleft[ \mleft( \mleft( \mathds{1}-\lambda^N \mright)^{-1} \circ \lambda^N \mright)(\partial_j), \partial_i \mright]_{\mathrm{T}N} \mright)
+%\\
+%&=
+%\mleft(\widetilde{\nabla}^N\mright)^{\lambda^{N}}_{\partial_i} \partial_j,
+%\eas
+%which is precisely the formula we have when just studying tangent algebroids, or, equivalently, algebroids with invertible anchor.\footnote{Actually, one can show this for general pullbacks of vector fields on $N$; coordinate vector fields are chosen for convenience.} We also have, also making use of Prop.~\ref{prop:PropsOfBigLambdas},
+%\bas
+%\widetilde{\nabla}^\lambda_{\partial_\alpha} \partial_i
+%&=
+%\Lambda \Bigl( 
+	%\underbrace{\nabla_{\partial_\alpha} \partial_i}_{=0}
+	%- \mleft[ \mleft( \lambda \circ \widehat{\Lambda}^{-1} \mright)(\partial_\alpha), \partial_i \mright]_E 
+%\Bigr)
+%+ \lambda \bigl([\partial_\alpha, \partial_i] \bigr)
+%\\
+%&=
+%- \Lambda \mleft( 
+	%\mleft[ \lambda^K(\partial_\alpha), \partial_i \mright]_E 
+%\mright)
+%\\
+%&=
+%0,
+%\\
+%\widetilde{\nabla}^\lambda_{\partial_i} e_a
+%&=
+%\Lambda \biggl( 
+	%\underbrace{\nabla_{\mleft( \mathds{1}-\lambda^N \mright)^{-1}(\partial_i)} e_a}_{=0}
+	%- \mleft[ \mleft( \mleft( \mathds{1}-\lambda^N \mright)^{-1} \circ \lambda^N \mright)(\partial_i), e_a \mright]_E 
+%\biggr)
+%+ \lambda \bigl([\partial_i, \rho(e_a)] \bigr)
+%\\
+%&=
+%0,
+%\eas
+%and finally, in the same manner,
+%\bas
+%\widetilde{\nabla}^\lambda_{\partial_\alpha} e_a
+%&=
+%\Lambda \mleft( 
+	%\nabla_{\partial_\alpha} e_a
+	%- \mleft[ \lambda^K(\partial_\alpha), e_a \mright]_E 
+%\mright)
+%\\
+%&=
+%\Lambda \mleft( 
+	%\nabla^K_{\partial_\alpha} e_a
+	%- \mleft[ \lambda^K(\partial_\alpha), e_a \mright]_K 
+%\mright)
+%\\
+%&=
+%\nabla^K_{\partial_\alpha} e_a
+	%- \mleft[ \lambda^K(\partial_\alpha), e_a \mright]_K
+%\\
+%&=
+%\mleft(\widetilde{\nabla}^K\mright)^{\lambda^K}_{\partial_\alpha} e_a.
+%\eas
+by Def.~\eqref{FieldTrafoOfNabla} we get, using $\nabla= \nabla^N \times \nabla^K$,
+\bas
+\widetilde{\nabla}^\lambda
+&=
+\mleft(\widetilde{\nabla}^N\mright)^{\lambda^N}
+	\times \mleft(\widetilde{\nabla}^K\mright)^{\lambda^K}.
+\eas
+This means that we can calculate the field redefinition of the curvature as if we would just look at either $\mathrm{T}N$ or $K$ as in the previous sections because then the curvature splits, too, as usual. So, define $\lambda^N$ in such a way that $\mleft(\widetilde{\nabla}^N\mright)^{\lambda^{N}}$ is flat by using Thm.~\ref{thm:NoGoLocalTangentBundle}; in the same fashion choose $\lambda^K$ such that $\mleft(\widetilde{\nabla}^K\mright)^{\lambda^K}$ is flat using Thm.~\ref{thm:LokalLeiderImmerPreklassisch}.
+\end{proof}
+
+As one has seen in the proof, the idea is to take a $\lambda = \lambda^N \times \lambda^K$. It is natural to assume that we can extend and generalize previous statements which were just about the existence of a $\lambda$. However, statements about the stability of a CYMH GT under the field redefinition like Thm.~\ref{thm:AbelschIstGeileNeueTheorie} and \ref{thm:UnitOctonionsAreExamples} or the construction of the obstruction class for LABs do not extend naturally. The reason for this are the mixed terms in the formulas of the field redefinition if $\lambda \neq \lambda^N \times \lambda^K$ such that the connection of $K$ could contribute to the curvature of $\mathrm{T}N$, for example assume, using the same notation as in the previous statement and proof, $\lambda \in \Omega^1(N; K)$, so, a form along $N$ but having values in $K$. Then by Eq.~\eqref{dievielBessereFormuelFuersRechnenFragezeichen}, similar calculations as before and using that $\lambda$ has values in $K$,
+\bas
+\mleft(\widetilde{\nabla}^N\mright)^\lambda_{\partial_i} \partial_j
+&=
+\Lambda\mleft(
+	\nabla_{\widehat{\Lambda}^{-1}(\partial_i)}^N \partial_j
+	- \mleft[ \lambda(\partial_i), \partial_j \mright]_E
+\mright)
+\\
+&=
+\mleft( \mathds{1} - \lambda \mright)\mleft(
+	\nabla_{\partial_i}^N \partial_j
+\mright)
+	- \mleft[ \lambda(\partial_i), \partial_j \mright]_E
+\\
+&=
+\nabla_{\partial_i}^N \partial_j
+	- \lambda\mleft(
+	\nabla_{\partial_i}^N \partial_j
+\mright)
+	- \mleft[ \lambda(\partial_i), \partial_j \mright]_E,
+\eas
+observe that $\widehat{\Lambda} = \mathds{1}$ such that every $\lambda \in \Omega^1(N;K)$ is allowed by Sylvester's determinant theorem. The first summand has values in $\mathrm{T}N$ and the second and third in $K$. Hence, in general the formulas will not split anymore for general $\lambda$. However, I personally hope and assume the following conjecture.
+
+\begin{conjectures}{Existence of a splitted field redefinition}{DoesMyFieldRedefSplit}
+Let $N$ be a smooth manifold such that its tangent bundle admits a CYMH GT, and let $K \to S$ be an LAB over a smooth manifold $S$ which also admits a CYMH GT.
+
+If there is a field redefinition such that the direct product of CYMH GTs,  $E \coloneqq \mathrm{T}N \times K \to N \times S$, is pre-classical or classical, then there is also a field redefinition with respect to a $\lambda$ of the form $\lambda^N \times \lambda^K$ such that the direct product of CYMH GTs is pre-classical or classical, respectively, where $\lambda^N \in \Omega^1(N; \mathrm{T}N)$ and $\lambda^K \in \Omega^1(S;K)$ are valid parameters for field redefinitions for each factor.
+\end{conjectures}
+
+If it is possible to show this, then the whole discussion about field redefinition towards pre-classical or classical structures would reduce to parameters of the form $\lambda = \lambda^N \times \lambda^K$, essentially, one could look at both factors separately in a direct product of CYMH GTs.
+
+Due to the fact that the general situation is very difficult to study this is the final conclusion of CYMH GTs. What will follow are loose ideas and ansatzes, very loosely structured, for a possible following discussion and study after the thesis. Hence, the reader can ignore the following subsection if wanted.
+
+\subsection{Loose ideas and ansatzes}\label{LastAnsatzes}
+
+As a first ansatz one may want to assume a connection which can restrict to the isotropy of the anchor, in the hope to generalize the discussion about the LABs; especially recall the discussion about LABs in the context of CYMH GTs, we will strongly refer to that without much further notice.
+
+\begin{lemmata}{Invariance of connection restricting on the isotropy}{lemmaIsotropyInvariant}
+Let $E\to N$ be a Lie algebroid over a smooth manifold $N$, and $L$ a subbundle of $E$ with $\rho(\nu) = 0$ and $\mleft[ \nu, \mu \mright]_E \in \Gamma(L)$ for all $\nu \in \Gamma(L)$ and $\mu \in \Gamma(E)$, \textit{i.e.}~$\Gamma(L)$ is an ideal of $\Gamma(E)$, living in the kernel of $\rho$. Moreover, let $\nabla$ be a connection on $E$ and $L$ with $\nabla \bigl( \Gamma(L) \bigr) \subset \Gamma(L)$.
+
+Then
+\ba
+\widetilde{\nabla}^\lambda \bigl( \Gamma(L) \bigr) \subset \Gamma(L).
+\ea
+\end{lemmata}
+
+\begin{proof}
+\leavevmode\newline
+By Eq.~\eqref{dievielBessereFormuelFuersRechnenFragezeichen} we have
+\bas
+\widetilde{\nabla}^\lambda_Y \mu
+&=
+\Lambda \mleft( \nabla_{\widehat{\Lambda}^{-1}(Y)} \mu
+- \mleft[ \mleft( \Lambda^{-1} \circ \lambda \mright)(Y), \mu \mright]_E \mright)
++ \lambda \big([Y, \rho(\mu)] \big)
+\eas
+for all $\mu\in \Gamma(E)$ and $Y \in \mathfrak{X}(N)$. The statement follows now for $\mu \in \Gamma(L)$ because of the assumptions and $\Lambda|_{\mathrm{Ker}(\rho)} = \mathds{1}_{\mathrm{Ker}(\rho)}$.
+\end{proof}
+
+Let us interpret this algebraically for the flat situation; recall Def.~\ref{def:IsotropyForLieAlgeoids} and its discussion.
+
+\begin{propositions}{Algebraic meaning in the flat situation}{AlgebraicMeaningOfTheFirstInvariantIveFound}
+Let $E= N \times \mathfrak{g}$ be an action Lie algebroid over a smooth manifold $N$ of a Lie algebra $\mathfrak{g}$, whose Lie algebra action is induced by a Lie group action of a Lie group $G$ on $N$, $G \times N \ni (g,p) \mapsto gp \in N$. Moreover, let $\nabla$ be the canonical flat connection for which we assume $\rho(\nabla \nu) = 0$ for all $\nu \in \Gamma(E)$ with $\rho(\nu)=0$.
+
+Then $\mathrm{Ker}(\rho_p) = \mathrm{Ker}(\rho_q)$, and $\mathrm{Ker}(\rho_p)$ is an ideal of $\mathfrak{g}$, where $p, q \in N$ are arbitrary regular points of the same connected component of regular points.
+\end{propositions}
+
+\begin{remark}
+\leavevmode\newline
+%Thanks to my professor of my master thesis, Mark J.~D.~Hamilton, for discussing this proposition.
+Recall Thm.~\ref{thm:ActionLieALgebroid}: Having a flat connection $\nabla$ with vanishing basic curvature implies that locally we have a similar situation as in this proposition, just with additional integrability of the underlying Lie algebra assumed here.
+
+Since every action Lie algebroid can be integrated to a Lie groupoid and due to a generalization of $\mathrm{Ad}$ as in \cite[Section 3.7, especially Prop. 3.7.1 (iii); page 141ff.]{mackenzieGeneralTheory}, one might be able to proof that statement (locally) for any Lie algebroid with a flat CYMH-compatible connection $\nabla$.
+\end{remark}
+
+\begin{proof}[Proof of Prop.~\ref{prop:AlgebraicMeaningOfTheFirstInvariantIveFound}]
+\leavevmode\newline
+%As we already know, $E$ will be locally isomorphic to an action Lie algebroid, see Thm.~\ref{thm:ActionLieALgebroid}. Hence, w.l.o.g.~assume $E \cong N \times \mathfrak{g}$ as an action Lie algebroid for some Lie algebra $\mathfrak{g}$, and the anchor is induced. Hence, we only have to show that $K$ is an ideal of $\mathfrak{g}$.
+By definition parallel sections of $\nabla$ are precisely constant sections, so, fix a basis $\mleft( e_a \mright)_a$ of $\mathfrak{g}$, constantly extended to $E$, such that $\nabla e_a = 0$. W.l.o.g.~assume that $N$ is connected and just consists of regular points (fix \textit{e.g.}~a connected component of regular points on $N$), hence, $K \coloneqq \mathrm{Ker}(\rho)$ has constant rank and describes a bundle of Lie algebras. Then due to $\nabla\bigl( \Gamma(K) \bigr) \subset \Gamma(K)$ by assumption, we know that $\nabla|_K$ is also flat which implies that a subset of the parallel sections (= constant sections) describes a frame of $K$. Thus, we can choose $\mleft(e_a\mright)_a$ in such a way that there is a subframe $\mleft( f_\alpha \mright)_\alpha$ (locally) spanning $K$.\footnote{Technical: A space of parallel sections are finite-dimensional subspaces of, here, $\Gamma(E)$, whose basis is \textit{e.g.}~the frame we choose here. Then one can just apply standard analysis of vector spaces, \textit{i.e.}~take any finite-dimensional basis of parallel sections of $K$, and then extend that basis to a basis of parallel sections of $E$.} Since $\mleft( f_\alpha \mright)_\alpha$ consists of constant sections, we can conclude that the isotropy subalgebra of $\mathfrak{g}$ is the same for all points of $N$, \textit{i.e.}~
+\bas
+K_p=
+\mathfrak{g}_p &= \mathfrak{g}_{q} = K_q
+\eas 
+for all $p, q \in N$, where $K_p= \mathfrak{g}_p$ and $K_q=\mathfrak{g}_q$ is the isotropy algebra at $p$ and $q$, respectively.
+
+Also recall Cor.~\ref{cor:IsotropyVonLieAlgMitAdjoint}, that is, also using the just shown equality $K_p = K_{gp}$ for all $p \in N$ and $g \in G$, we get
+\bas
+&&&
+\mathrm{Ad}(g)(w) \in K_{p}
+\\
+&\Rightarrow&
+&
+\mathrm{Ad}(\exp(tv))(w)
+\in K_p \\
+&\stackrel{\mathclap{\mathfrak{g}_p \text{ closed subalgebra of } \mathfrak{g}}}{\Rightarrow}&
+&
+\mleft[ v, w \mright]_{\mathfrak{g}}
+\in K_p,
+\eas
+for all $p \in N$, $g \in G$, $w \in \mathfrak{g}_p = K_p$, $t \in \mathbb{R}$, and $v \in \mathfrak{g}$.
+Thus, $K_p$ is an ideal of $\mathfrak{g}$.
+\end{proof}
+
+\begin{remark}
+\leavevmode\newline
+For simplicity assume now that the rank of the anchor is constant. Also assume we have an action Lie algebroid, related to a Lie algebra $\mathfrak{g}$, with a non-flat connection $\nabla$ such that we have a CYMH gauge theory and $\nabla(\Gamma(K)) \subset \Gamma(K)$, where $K \coloneqq \mathrm{Ker}(\rho)$. Moreover, assume that the action behind the anchor can be integrated to a Lie group action. If the anchor has a non-trivial kernel (so, nonzero and not all of the Lie algebroid), then one may try the following argument: Assume there is a $\lambda \in \Omega^1(N;E)$ such that $\widetilde{\nabla}^\lambda$ is flat. By Lemma \ref{lem:lemmaIsotropyInvariant} we have $\widetilde{\nabla}^\lambda(\Gamma(K)) \subset \Gamma(K)$. Locally we still have an action Lie algebroid related to a Lie algebra $\mathfrak{g}^\prime$ by Thm.~\ref{thm:ActionLieALgebroid} such that $\widetilde{\nabla}^\lambda$ is the canonical flat connection. Then by Prop.~\ref{prop:AlgebraicMeaningOfTheFirstInvariantIveFound} we know that the kernel of $\rho_p$ at a regular point $p\in N$ is an ideal of the Lie algebra $\mathfrak{g}^\prime$ of the new action Lie algebroid; this ideal is nontrivial (not zero and not $\mathfrak{g}^\prime$) because the anchor's kernel is nontrivial. When we start \textit{e.g.}~with a simple Lie algebra $\mathfrak{g}$, we get clearly a contradicion if the new Lie algebra $\mathfrak{g}^\prime$ is still simple.
+
+However, we cannot expect that $\mathfrak{g}^\prime$ is of a similar type as $\mathfrak{g}$ when the anchor is nonzero. For example take the two dimensional non-abelian Lie algebra $\mathfrak{g} \coloneqq \mathbb{R}^2 = \mathrm{span}\langle e_1, e_2 \rangle$, $[e_1, e_2]_{\mathfrak{g}} = e_2$, equipped with an action $\gamma$ on $N \coloneqq \mathbb{R}^2$ defined by
+\bas
+\gamma(e_1) &\coloneqq \partial_x, 
+\\
+\gamma(e_2) &\coloneqq 0,
+\eas
+where we denote the coordinates of $N$ by $x$ and $y$.
+It is trivial to check that $\gamma$ is a Lie algebra action, hence, we have a corresponding action Lie algebroid $E = N \times \mathfrak{g}$ with anchor $\rho$ induced by $\gamma$ and Lie algebroid bracket $\mleft[ \cdot, \cdot \mright]_E$ induced by $\mleft[ \cdot, \cdot \mright]_{\mathfrak{g}}$. $e_1$ and $e_2$ are a global frame when viewed as constant sections.
+
+Now we make a change of the frame: $\tilde{e}_1 \coloneqq e_1$, and $\tilde{e}_2 \coloneqq \e^{-x} e_2$. We still have $\rho(\tilde{e}_1) = \partial_x$ and $\rho(\tilde{e}_2) = 0$, but by the Leibniz rule we arrive at
+\bas
+\mleft[ \tilde{e}_1, \tilde{e}_2 \mright]_E
+&=
+\e^{-x} \underbrace{[e_1, e_2]_{\mathfrak{g}}}_{= e_2}
+	- \e^{-x} e_2
+=
+0.
+\eas
+Therefore, the frame given by $\tilde{e}_1$ and $\tilde{e}_2$ gives rise to an isomorphism $E \cong N \times \mathfrak{g}^\prime$ as action Lie algebroid, where $\mathfrak{g}^\prime$ is the two-dimensional abelian Lie algebra. So, we could have also started with the abelian Lie algebra instead of the non-abelian one to define precisely the same action Lie algebroid, both equipped with an action inducing the same anchor. 
+
+This ambiguous behaviour depends on the rank of the anchor. For a zero anchor, that is, for bundle of Lie algebras, like the BLA induced by the kernel of an anchor around regular points, that can certainly not happen. But recall the splitting theorem, Section \ref{SectionAboutSplitting}, one part of the Lie algebroid also comes from the tangent bundle of the leaves, and as we know, the structure functions of a tangent bundle can be very arbitrary. For example start with the coordinate vector fields, hence, zero structure functions (abelian). Then there is obviously a non-constant change of the frame such that the structure functions are not zero anymore because of the Leibniz rule in the bracket; for example choose a frame which is not a full set of coordinate vector fields.
+\end{remark}
+
+As in the case of LABs, having a connection restricting to the kernel (or an ideal of it) would imply that we have an LAB structure there due to the vanishing of the basic curvature; recall the the isotropy is a bundle of Lie algebras around regular points.
+
+\begin{corollaries}{Lie derivation laws and vanishing basic curvature}{LieDerivationGleichVanishingBasicCurvature}
+Let $E \to N$ be a Lie algebroid, where $N$ is a connected manifold just consisting of regular points, $L$ be a subbundle of Lie algebras of $K \coloneqq \mathrm{Ker}(\rho)$, and $\nabla$ a connection on $E$ with $\nabla \bigl( \Gamma(L) \bigr) \subset \Gamma(K)$. Then
+\ba
+\nabla^{\mathrm{bas}}_\nu Y
+&=
+0
+\ea
+for all $\nu \in \Gamma(L)$ and $Y \in \mathfrak{X}(N)$.
+
+If we additionally have $\nabla \bigl( \Gamma(L) \bigr) \subset \Gamma(L)$, then the following are equivalent:
+\begin{enumerate}
+	\item $\nabla$ a Lie derivation law on $L$.
+	\item The basic curvature of $\nabla$ restricted on $L$ is zero, \textit{i.e.}~
+	\bas
+	R_\nabla^{\mathrm{bas}}(\mu, \nu) Y
+	&=
+	0
+	\eas
+	for all $\mu, \nu \in \Gamma(L)$ and $Y \in \mathfrak{X}(N)$.
+\end{enumerate}
+\end{corollaries}
+
+\begin{proof}
+\leavevmode\newline
+Those are trivial consequences of $\nabla \bigl( \Gamma(L) \bigr) \subset \Gamma(K)$, \textit{i.e.}~
+\bas
+\rho (\nabla \nu)
+&=
+0
+\eas
+for all $\nu \in \Gamma(L)$, hence,
+\bas
+\nabla^{\mathrm{bas}}_\nu Y
+&=
+[\underbrace{\rho(\nu)}_{=0}, Y]
+	+ \underbrace{\rho\bigl( \nabla_Y \nu \bigr)}_{=0}
+=
+0
+\eas
+for all $\nu \in \Gamma(L)$ and $Y \in \mathfrak{X}(N)$. With additionally $\nabla \bigl( \Gamma(L) \bigr) \subset \Gamma(L)$ then also
+\bas
+R_\nabla^{\mathrm{bas}}(\mu, \nu)Y
+&=
+\nabla_Y\mleft(\mleft[\mu, \nu\mright]_E\mright) 
+	- \mleft[ \smash{\underbrace{\nabla_Y \mu}_{\in \Gamma(L)}}, \nu \mright]_E 
+	- \mleft[ \mu, \nabla_Y \nu \mright]_E 
+	\underbrace{- \nabla_{\nabla^{\mathrm{bas}}_\nu Y} \mu 
+	+ \nabla_{\nabla^{\mathrm{bas}}_\mu Y} \nu}
+	_{= 0}
+\\
+&=
+\nabla_Y\mleft(\mleft[\mu, \nu\mright]_L\mright) 
+	- \mleft[ \nabla_Y \mu, \nu \mright]_L 
+	- \mleft[ \mu, \nabla_Y \nu \mright]_L
+\eas
+for all $\mu, \nu \in \Gamma(L)$ and $Y \in \mathfrak{X}(N)$. Therefore, $\nabla$ has a vanishing basic curvature restricted on $L$ if and only if it is a Lie derivation law on $L$ (a Lie bracket derivation of $L$).
+\end{proof}
+
+Using Thm.~\ref{thm:BLALAB}, $L$ has to be an LAB in such a case; hence having such an $L$ and $\nabla$ there is hope to generalize our results with respect to LABs. In the study about LABs, the obstruction class was given by $\mathrm{d}^\nabla \zeta$ and we have argued that this is exact with respect to $\mathrm{d}^\Xi$ in the case of flatness, which was the differential for centre-valued forms induced by a pairing $\Xi$ of an LAB with a tangent bundle, induced by $\nabla$ which restricted to centre-valued forms by the vanishing of the basic curvature. The essential argument about the exactness of $\mathrm{d}^\nabla \zeta$ was the compatibility condition for $\zeta$, implying that $\zeta$ is centre-valued in the case of LABs and flatness, and another argument was that $\nabla$ restricts to such centre-valued sections. In general, flatness now implies closedness of $\zeta$ with respect to the basic connection. Therefore let us study whether $\nabla$ restricts to closed forms also in general.
+
+\begin{corollaries}{$\nabla$ preserving $\nabla^{\mathrm{bas}}$-closedness}{NablaErhaeltBasicConnKonstanz}
+Let $E \to N$ be a Lie algebroid over a smooth manifold $N$, and $\nabla$ a connection on $E$ with vanishing basic curvature. Then we have
+\ba
+\mathrm{d}^{\nabla^{\mathrm{bas}}} \mathrm{d}^\nabla \omega
+&=
+0
+\ea
+for all $\omega \in \Omega^q(E;E)$ ($q \in \mathbb{N}_0$) with $\mathrm{d}^{\nabla^{\mathrm{bas}}} \omega = 0$ and $\rho (\omega) = 0$.
+\end{corollaries}
+
+\begin{remark}
+\leavevmode\newline
+By Cor.~\ref{cor:commutationS=0} we immediately have
+\ba
+\mathrm{d}^{\nabla^{\mathrm{bas}}} \mathrm{d}^\nabla \omega
+&=
+\mathrm{d}^\nabla \mathrm{d}^{\nabla^{\mathrm{bas}}} \omega
+\ea
+for all $\omega \in \Omega^{p,q}(N,E;E)$ ($p,q \in \mathbb{N}_0$), when $\nabla$ is flat. Thus, 
+\ba
+\mathrm{d}^{\nabla^{\mathrm{bas}}} \mathrm{d}^\nabla \omega
+&=
+0
+\ea
+for all $\nabla^{\mathrm{bas}}$-closed $\omega \in \Omega^{p,q}(N,E;E)$ and flat $\nabla$ with vanishing basic curvature.
+\end{remark}
+
+\begin{proof}[Proof of Cor.~\ref{cor:NablaErhaeltBasicConnKonstanz}]
+\leavevmode\newline
+That is a trivial consquence of Cor.~\ref{cor:commutationS=0}, using $\Omega^q(E;E) \cong \Omega^{(p=0,q)}(N,E;E)$,
+\bas
+\mathrm{d}^{\nabla^{\mathrm{bas}}} \mathrm{d}^\nabla \omega
+&\stackrel{\rho (\omega) = 0}{=}
+\mathrm{d}^\nabla \underbrace{\mathrm{d}^{\nabla^{\mathrm{bas}}} \omega}_{=0}
+=
+0.
+\eas
+\end{proof}
+
+
+ Hence, in general it is natural to assume that it is about exactness with respect to the basic connection, a replacement of the centre-valued forms in the study about LABs.
+However, in order to define a differential on such parallel sections similar to $\mathrm{d}^\Xi$, we require flatness of $\nabla$ restricted to these sections, regardless whether $\nabla$ itself was flat; otherwise it is difficult to study non-flat $\nabla$ similar to the discussion for LABs. In the case of LABs this was trivially given by the compatibility condition between the curvature and $\zeta$, which immediately implied that $R_\nabla(\cdot, \cdot)\nu = 0$ for all centre-value sections $\nu$. But in general this would mean
+\bas
+0
+&=
+R_\nabla(\cdot, \cdot)\nu 
+=
+- \nabla^{\mathrm{bas}}_\nu \zeta
+\eas
+for all $\nu$. Hence, centre-valued sections, onto which $\nabla$ shall restrict, seems not only be about closed sections, but also about sections $\nu$ with $\nabla^{\mathrm{bas}}_\nu = 0$,\footnote{Recall the similarity to the condition in Lemma \ref{lem:ParallelFramesForEConnections}.} which makes sense, because the basic connection on $E$ is in the case of LABs an adjoint representation in both arguments, so, there is an ambiguity in how to generalize centre-valued sections in this context.
+
+\begin{definitions}{The centre of basic connections}{CentreOfBasicConnections}
+Let $E \to N$ be a Lie algebroid over a smooth manifold $N$, $V\to N$ a vector bundle, and ${}^E\nabla$ an $E$-connection on $V$. Then we define the \textbf{centre $\gls{ZENabla}$ of ${}^E\nabla$} by
+\ba
+Z\mleft( {}^E\nabla \mright)
+&\coloneqq
+\left\{
+	\nu \in E ~ \middle| ~
+	{}^E\nabla_\nu = 0
+\right\}.
+\ea
+In the case of ${}^E\nabla = \nabla^{\mathrm{bas}}$ we mean both, $\nabla^{\mathrm{bas}}$ on $E$ and $\mathrm{T}N$, \textit{i.e.}~$\nabla^{\mathrm{bas}}_\nu = 0$ for both connections simultaneously when $\nu \in Z \mleft( \nabla^{\mathrm{bas}} \mright)$.
+\end{definitions}
+
+\begin{remark}
+\leavevmode\newline
+Since ${}^E\nabla_\nu$ is tensorial in $\nu$, we can restrict this definition to a point $p \in N$, giving rise to a definition of the centre at $p$, denoted by $Z_p \mleft( {}^E\nabla \mright)$; the tensorial behaviour clearly also implies that this is a vector space. Similarly, sections with values in $Z\mleft( {}^E\nabla \mright)$ are a vector space subset of $\Gamma(E)$ by definition, but it is not necessarily a module with constant rank as we are going to see.
+
+Thus, for the following proofs about the structure of $Z \mleft( \nabla^{\mathrm{bas}} \mright)$ we will often use (local) sections $\nu \in \Gamma(E)$ with values in $Z \mleft( \nabla^{\mathrm{bas}} \mright)$, extending a certain element of $E$. That is mainly for convenience due to the fact how connections are normally denoted, and in order to use the definition of $\nabla^{\mathrm{bas}}$.
+\end{remark}
+
+Recall that the kernel of the anchor $\rho$ at a point $p \in N$ is a Lie algebra, whose Lie algebra is inherited by $\mleft[ \cdot, \cdot \mright]_E$, and that we denote centres of Lie algebras $\mathfrak{g}$ by $Z(\mathfrak{g})$ (similar for Lie algebra bundles). We denote the Lie bracket of $\mleft[ \cdot, \cdot \mright]_E$ on the kernel by $\mleft[ \cdot, \cdot \mright]_{\mathrm{Ker}(\rho)}$ (similar for the Lie algebra structure on each fibre or for any subalgebras). Around regular points of $E$ the kernel of the anchor is a bundle of Lie algebras as previously mentioned, and by Thm.~\ref{thm:BLALAB} it will be a Lie algebra bundle (LAB) when there is a Lie derivation law.
+
+
+\begin{propositions}{Properties of the centre}{PropsofCentreOfBasicConnections}
+Let $E \to N$ be a Lie algebroid over a smooth manifold $N$, $V\to N$ a vector bundle of at least rank 1, and ${}^E\nabla$ an $E$-connection on $V$. Then $Z_p \mleft( {}^E\nabla \mright)$ is a subset of $\mathrm{Ker}\mleft(\rho_p\mright)$ for all $p \in N$.
+
+If we have a vector bundle connection $\nabla$ on $E$, then $Z_p \mleft( \nabla^{\mathrm{bas}} \mright)$ is an abelian subalgebra of $Z \mleft(\mathrm{Ker}\mleft(\rho_p\mright)\mright)$. Moreover, we have
+\ba\label{NablaZenterIstImKernyippie}
+\rho(\nabla \nu)
+&=0
+\ea
+for all (local) sections $\nu$ of $E$ with values in $Z\mleft( \nabla^{\mathrm{bas}} \mright)$, that is $\nabla \nu$ is an element of the kernel of the anchor.
+\end{propositions}
+
+\begin{remark}
+\leavevmode\newline
+The dimension of the kernel of $\rho$ is in general not constant such that we cannot expect that $Z\mleft( {}^E\nabla \mright)$ gives rise to a module with constant rank; but even if we just look at neighbourhoods around regular points of $E$ we cannot expect a constant rank. For example take $E = \mathrm{T}N \times K \to N \times S$, where we mean the direct sum of Lie algebroids of $\mathrm{T}N \to N$ and $K \to S$, where $K \to S$ is a Lie algebra bundle (zero-anchor) over a manifold $S$. Then take a coordinate frame $\mleft( \partial_i \mright)_i$ of $\mathrm{T}N$ and $\mleft( f_\alpha \mright)_\alpha$ of $K$, both constantly extended to $E$ such that $\mleft[ \partial_i, f_\alpha \mright]_E = 0$ and the total collection is denoted by $\mleft( e_a \mright)_a$. 
+%For simplicity assume that this is a global frame such that we can take its canonical flat connection $\nabla$, defined by $\nabla e_a = 0$.
+Let us look at $Z \mleft( \nabla^{\mathrm{bas}} \mright) \ni \nu = \nu^\alpha f_\alpha$ (using Prop.~\ref{prop:PropsofCentreOfBasicConnections}, especially $\nu$ is an element of the kernel)
+\bas
+0
+&=
+\nabla^{\mathrm{bas}}_\nu \partial_i
+=
+\nu^\alpha ~ \nabla^{\mathrm{bas}}_{f_\alpha} \partial_i
+=
+\nu^\alpha ~ \underbrace{\nabla_{\partial_i} f_\alpha}_{\mathclap{\eqqcolon \omega^a_{\alpha i} ~ e_a}}
+=
+\nu^\alpha \omega^a_{\alpha i} ~ e_a,
+\eas
+where we viewed $\partial_i$ as an element of the tangent bundle as Lie algebroid, \textit{i.e.}~we took the definition of $\nabla^{\mathrm{bas}}$ on Lie algebroids (denoted by $E$ usually). Hence, this is then a purely algebraic equation and depends also on the kernel of $\omega^a_{i \alpha}$ such that a general statement about the rank of the centre is not possible without further information about $\nabla$.
+\end{remark}
+
+\begin{proof}[Proof of Prop.~\ref{prop:PropsofCentreOfBasicConnections}]
+\leavevmode\newline
+We have, using the definition of $E$-Lie derivatives,
+\bas
+0
+&=
+{}^E\nabla_\nu (f v)
+=
+\mathcal{L}_\nu (f) ~ v
+	+ f ~ \underbrace{{}^E\nabla_\nu v}_{=0}
+=
+\mathcal{L}_\nu (f) ~ v
+=
+\mathcal{L}_{\rho(\nu)} (f) ~ v
+\eas
+for all $v \in \Gamma(V)$, $\nu \in Z \mleft( {}^E\nabla \mright)$ and $f \in C^\infty(N)$. Since $V$ has at least rank 1, we can conclude that $\rho(\nu) = 0$. Hence, $\nu_p \in \mathrm{Ker}(\rho_p)$ for all $p \in N$. 
+
+Furthermore, in the case of $\nabla^{\mathrm{bas}}$ we get additionally
+\bas
+0
+&=
+\nabla^{\mathrm{bas}}_{\nu_p} \mu_p
+=
+\mleft[ \nu_p, \mu_p \mright]_E
+=
+\mleft[ \nu_p, \mu_p \mright]_{\mathrm{Ker}(\rho_p)}
+\eas
+for all $\mu_p \in \mathrm{Ker}(\rho_p)$ and $p \in N$, where we used that $\nabla^{\mathrm{bas}}_{\nu_p}$ is tensorial due to $\rho(\nu_p)=0$ such that $\nabla^{\mathrm{bas}}_{\nu_p}$ can be viewed as a tensor (similar for $\mleft[ \cdot, \cdot \mright]_E$), and that the basic connection on $E$ is just the Lie bracket when acting on the kernel of the anchor. Hence, $\nu_p \in Z_p \mleft( \mathrm{Ker}(\rho_p) \mright)$, and, since $Z_p \mleft( \mathrm{Ker}(\rho_p) \mright)$ is abelian, it immediately follows that $Z_p\mleft(\nabla^{\mathrm{bas}}\mright)$ is an abelian subalgebra.
+
+Finally, let $\nu \in \Gamma(E)$ with values in $Z\mleft( \nabla^{\mathrm{bas}} \mright)$, then we have
+\bas
+0
+&=
+\nabla^{\mathrm{bas}}_\nu Y
+=
+[\rho(\nu), Y]
+	+ \rho(\nabla_Y \nu)
+\eas
+for all $Y \in \mathfrak{X}(N)$. Previously we have shown that $\rho(\nu) = 0$, this implies $\rho(\nabla_Y \nu) = 0$, which finishes the proof.
+\end{proof}
+
+Around regular points we can say a bit more, recall Thm.~\ref{thm:DirectSplitting}.
+
+\begin{lemmata}{Centre of the basic connection around regular points}{CentreOfBasicConnectionForRegularPointsPlusFlatness}
+Let $N$ be a smooth manifold and $K \to S$ be a bundle of Lie algebras over a smooth manifold $S$ such that $Z(K)$ is a subbundle of abelian Lie algebras, that is $Z(K)$ has constant rank. Then define the Lie algebroid $E$ as the direct product of Lie algebroids, $E \coloneqq \mathrm{T}N \times K \to N \times S$, equipped with a connection $\nabla = \nabla^{\mathrm{T}N} \times \nabla^K$, where $\nabla^{\mathrm{T}N}$ and $\nabla^K$ are connections on $\mathrm{T}N$ and $K$, respectively.
+Then
+%\begin{enumerate}
+	%\item 
+\ba
+Z\mleft( \nabla^{\mathrm{bas}} \mright)= Z \mleft( K \mright).
+\ea
+	%\item $\nabla \nu \in \Gamma(Z(K))$ for all $\nu \in \Gamma(Z(K))$.
+%\end{enumerate}
+%With $\Gamma(Z(K))$ we mean sections of $E$ with values in $Z(K)$.
+\end{lemmata}
+
+\begin{remark}
+\leavevmode\newline
+In that case, $Z\mleft( \nabla^{\mathrm{bas}} \mright)$ has constant rank and is independent of the choice of $\nabla$.
+\end{remark}
+
+\begin{proof}[Proof of Lemma \ref{lem:CentreOfBasicConnectionForRegularPointsPlusFlatness}]
+\leavevmode\newline
+By definition of $E$, there are coordinates $\mleft( \partial_i \mright)_i$ of $N$ and a frame of $E$ consisting of two parts, $\mleft( f_i \mright)_i$ locally spanning $\mathrm{T}N$ (as Lie algebroid) and $\mleft( f_\alpha \mright)_\alpha$ locally spanning $K$, both (locally) constantly extended along the base of the other factor in $E = \mathrm{T}N \times K$, such that
+\bas
+\rho(f_i) &= \partial_i, &
+\rho(f_\alpha) &= 0, \\
+\mleft[ f_i, f_j \mright]_E &= 0, &
+\mleft[ f_i, f_\alpha \mright]_E &= 0.
+\eas
+Since $Z(K)$ is a subbundle of Lie subalgebras of $K$ we can assume that $\mleft( f_\alpha\mright)_\alpha$ contains a subframe $\mleft( f_{\mathcal{r}} \mright)_{\mathcal{r}}$ spanning $Z(K)$.
+Then for all $\nu = \nu^{\mathcal{r}} f_{\mathcal{r}} \in \Gamma(E)$ ($\nu^\alpha \in C^\infty(N\times S)$) with values in $Z(K)$ we then have by definition,
+\ba\label{GesplitteteFormelVonNablaBas2}
+\nabla^{\mathrm{bas}}_\nu f_i
+&=
+\nu^{\mathcal{r}} ~ \nabla^{\mathrm{bas}}_{f_{\mathcal{r}}} f_i
+=
+\nu^{\mathcal{r}} ~ \mleft(
+	\mleft[ f_{\mathcal{r}}, f_i \mright]
+	+ \nabla_{\rho(f_i)} f_{\mathcal{r}}
+\mright)
+=
+\nu^{\mathcal{r}} ~ \nabla_{\partial_i} f_{\mathcal{r}},&
+\nabla^{\mathrm{bas}}_\nu f_\alpha
+&=
+\mleft[ \nu, f_\alpha \mright]_K
+=
+0.
+\ea
+Similar to before, $\nabla^{\mathrm{bas}}_\nu$ is a tensor due to $\rho(\nu)=0$ such that Eq.~\eqref{GesplitteteFormelVonNablaBas2} are fully encoding $\nabla^{\mathrm{bas}}_\nu$ on $E$. Therefore we are interested into whether $\nabla^{\mathrm{bas}}_\nu f_i$ is zero. By definition $\nabla_\rho$ is flat when restricted onto $Z(K)$, \textit{i.e.}~on $Z(K)$-valued sections of $K$ which are constantly extended along $N$, that is, we have
+\bas
+\nabla_{\rho} f_{\mathcal{r}} &= 0.
+\eas
+Then for all $\nu = \nu^\mathcal{r} f_\mathcal{r}$ ($\nu^\mathcal{r}$ can depend on $N$) we get by Eq.~\eqref{GesplitteteFormelVonNablaBas2}
+\bas
+\nabla^{\mathrm{bas}}_\nu f_i
+&=
+\nu^\mathcal{r}  ~ \nabla_{\partial_i} f_\mathcal{r}
+=
+0
+\eas
+for all $i$. 
+%\underline{\textbf{"2. $\Rightarrow$ 1.":}} 
+By definition we also have 
+\bas
+\nabla \nu &\in \Gamma(K)
+\eas
+for all sections $\nu$ with values in the centre of $K$.
+ %since $\nabla$ restricts on $\Gamma(Z(K))$ and since $Z(K)$ is abelian, it follows that $\nabla$ is a Lie derivation law on $Z(K)$, thus, we can apply Thm.~\ref{thm:BLALAB}, that is, $Z(K)$ is an LAB. That $Z(K)$ is abelian, is clear. 
+Therefore, by Cor.~\ref{cor:LieDerivationGleichVanishingBasicCurvature}, we know
+\bas
+\nabla^{\mathrm{bas}}_\nu Y &= 0
+\eas
+for all $\nu \in \Gamma(E)$ with values in $Z(K)$ and $Y \in \mathfrak{X}(N)$. 
+
+Hence,
+\bas
+\nabla^{\mathrm{bas}}_\nu &= 0
+\eas
+for all section $\nu$ with values in $Z(K)$. So, $Z(K) \subset Z \mleft( \nabla^{\mathrm{bas}} \mright)$. Recall Prop.~\ref{prop:PropsofCentreOfBasicConnections} such that we already know that
+\bas
+Z \mleft( \nabla^{\mathrm{bas}} \mright)
+&\subset
+Z \mleft( K \mright),
+\eas
+hence, $Z \mleft( \nabla^{\mathrm{bas}} \mright) = Z(K)$.
+%
+%\underline{\textbf{"1. $\Rightarrow$ 2.":}} Now we assume that $Z \mleft( \nabla^{\mathrm{bas}} \mright) = Z(K)$, and that it is an LAB, that means that the rank is constant. Hence, we can now again assume that $\mleft( f_\alpha\mright)_\alpha$ contains a subframe $\mleft( f_{\mathcal{r}} \mright)_{\mathcal{r}}$ spanning $Z(K)$. By Eq.~\eqref{GesplitteteFormelVonNablaBas2} we get
+%\bas
+%0
+%&=
+%\nabla^{\mathrm{bas}}_\nu f_i
+%=
+%\nu^{\mathcal{r}} ~ \nabla_{\partial_i} f_{\mathcal{r}}
+%\eas
+%for all $\nu \in \Gamma(Z(K))$. Therefore also
+%\bas
+%\nabla_\rho \nu
+%&=
+%\mleft(\mathrm{d}\nu^{\mathcal{r}} \circ \rho \mright) ~ f_{\mathcal{r}}
+%\in \Gamma(Z(K)).
+%\eas
+\end{proof}
+
+As already motivated, we have then a flat curvature in the case of CYMH GT.
+
+\begin{corollaries}{Zero curvature on the centre}{FlacheKruemmungBeiNablaBasZentrum}
+Let $E \to N$ be a Lie algebroid over a smooth manifold $N$, and $\nabla$ a connection on $E$ such that $R_\nabla$ is exact with respect to $\mathrm{d}^{\nabla^{\mathrm{bas}}}$, \textit{i.e.}~there is a $\zeta \in \Omega^2(N;E)$ with $R_\nabla(\cdot, \cdot) \mu = - \nabla^{\mathrm{bas}}_\mu \zeta$ for all $\mu \in \Gamma(E)$.\footnote{Here $\mathrm{d}^{\nabla^{\mathrm{bas}}}$ is not necessarily a differential.} Then
+\ba
+R_\nabla(\cdot, \cdot) \nu
+&=
+0
+\ea
+for all $\nu \in Z \mleft( \nabla^{\mathrm{bas}} \mright)$.
+\end{corollaries}
+
+\begin{proof}
+\leavevmode\newline
+That is a simple consequence of the $\mathrm{d}^{\nabla^{\mathrm{bas}}}$-exactness and $\nabla_\nu^{\mathrm{bas}} = 0$ for all $\nu \in Z \mleft( \nabla^{\mathrm{bas}} \mright)$.
+\end{proof}
+
+The vanishing of the basic curvature also implies in the general situation that $\nabla$ preserves such centres, similar to LABs.
+
+\begin{lemmata}{Stability of the kernel of the adjoint representation}{StableKernelOfAdjointRepresentation}
+Let $E \to N$ be a Lie algebroid over a smooth manifold $N$, and $\nabla$ a connection on $E$ with vanishing basic curvature and such that $R_\nabla$ is exact with respect to $\mathrm{d}^{\nabla^{\mathrm{bas}}}$. Moreover, we require
+\bas
+\rho(\nabla \nu)
+&=
+0
+\eas
+for all $\nu \in \Gamma(E)$ with $\rho(\nu) = 0$.
+
+Then
+\ba
+\nabla^{\mathrm{bas}}_{\nabla \nu}
+&=
+0
+\ea
+for all $\nu \in \Gamma(E)$ with $\nabla^{\mathrm{bas}}_\nu = 0$, where we mean with $\nabla^{\mathrm{bas}}$ both connections, on $E$ and on $\mathrm{T}N$.
+\end{lemmata}
+
+\begin{proof}
+\leavevmode\newline
+We have, using Cor.~\ref{cor:FlacheKruemmungBeiNablaBasZentrum} and the vanishing basic curvature,
+\bas
+\nabla^{\mathrm{bas}}_{\nabla_Y \nu} \mu
+&=
+\mleft[ \nabla_Y \nu, \mu \mright]_E
+	+ \nabla_{\rho(\mu)} \nabla_Y \nu
+\\
+&=
+\mleft[ \nabla_Y \nu, \mu \mright]_E
+	+ \nabla_Y \underbrace{\nabla_{\rho(\mu)} \nu}_{= \mleft[ \mu, \nu \mright]_E}
+	+ \nabla_{[\rho(\mu), Y]} \nu
+\\
+&=
+\underbrace{\mleft[ \nabla_Y \nu, \mu \mright]_E
+	+ \mleft[ \mu, \nabla_Y \nu \mright]_E}
+		_{=0}
+	+ \mleft[ \nabla_Y \mu, \nu \mright]_E
+	+ \underbrace{\nabla_{\nabla^{\mathrm{bas}}_\nu Y} \mu}
+		_{=0}
+	\underbrace{- \nabla_{\nabla^{\mathrm{bas}}_\mu Y} \nu
+	+ \nabla_{[\rho(\mu), Y]} \nu}
+		_{= - \nabla_{\rho\mleft( \nabla_Y \mu \mright)} \nu}
+\\
+&=
+- \nabla^{\mathrm{bas}}_{\nu} \nabla_Y \mu
+\\
+&=
+0
+\eas
+for all $\mu, \nu \in \Gamma(E)$, where $\nabla^{\mathrm{bas}}_\nu = 0$, and $Y \in \mathfrak{X}(N)$. Hence, only the basic connection on $\mathrm{T}N$ is left. We know $\rho(\nabla \nu) = 0$ by Eq.~\eqref{NablaZenterIstImKernyippie}, hence, by the condition on $\nabla$ about kernel-valued sections we have 
+\bas
+\rho\mleft( \nabla_X \nabla_Y \nu \mright)
+&=
+0
+\eas
+for all $X \in \mathfrak{X}(N)$, and so
+\bas
+\nabla^{\mathrm{bas}}_{\nabla_Y \nu} X
+&=
+[ \underbrace{\rho(\nabla_Y \nu)}_{=0}, X ]
+	+ \rho(\nabla_X \nabla_Y \nu).
+\eas
+This proves the claim.
+\end{proof}
+
+With Cor.~\ref{cor:NablaErhaeltBasicConnKonstanz}, Lemma \ref{lem:StableKernelOfAdjointRepresentation} and Cor.~\ref{cor:FlacheKruemmungBeiNablaBasZentrum} we may have everything for doing something similar as for LABs. However, another important result for LABs was that $\mathrm{d}^\nabla\zeta$ is centre-valued; this was given by the Bianchi identity \ref{thm:BianchiIdentityForZeta}. This identity does now not immediately imply that $\mathrm{d}^\nabla \zeta$ is closed with respect to the basic connection; and even if, for example because it has values in the isotropy, we would still need that $\mathrm{d}^\nabla \zeta$ has also values in the centre of the basic connection in order to use Cor.~\ref{cor:FlacheKruemmungBeiNablaBasZentrum} to define a cohomology class. This is not given, not even by the Bianchi identity.
+
+Summarizing, the problem is that we cannot simply generalize the discussion about LABs. The Bianchi identity for $\zeta$ suggests that a possible differential for a cohomology is a differential induced by $\nabla$ restricted on $\nabla^{\mathrm{bas}}$-closed forms. But the compatibility condition on $R_\nabla$ and $\zeta$ only implies flatness on sections with values in the centre of the basic connection. Even if we are able to construct suitable $\zeta$, satisfying all of that for $\mathrm{d}^\nabla \zeta$, it is not given that this construction is "stable enough" under the field redefinition, which is important in order to show that $\mathrm{d}^\nabla \zeta$ is an invariant of the field redefinition.
+
+Concluding, this means one needs in general a (completely?) different construction; maybe hoping for that Conjecture \ref{conj:DoesMyFieldRedefSplit} holds. Nevertheless, one may see that the general situation is highly more complicated.
+
+%\begin{theorem}[Transformation formulas]\label{thm:transformationformulas}
+%\leavevmode\newline
+%Let $\gls{1lambda} \in \Omega^1(M;E)$ such that $\gls{1Lambda} \coloneqq \mathds{1}_E - \lambda \circ \rho \in \mathrm{Aut}(E)$; then also $\gls{1Lambdatilde} \coloneqq \mathds{1}_{\mathrm{T}M} - \rho \circ \lambda \in \mathrm{Aut}(\mathrm{T}M)$ by Sylvester's determinant theorem (\textbf{Referenz nicht vergessen!}). Then we define new gauge fields by
+%\ba
+%\widetilde{A} \coloneqq A + \lambda_X \left( \mathrm{D}^A X \right),
+%\ea
+%while the anchor shall not transform. By demanding that the field strength transforms like
+%\ba
+%\widetilde{G} \coloneqq \Lambda_X (G)
+%\ea
+%we get the following unique transformation formulas
+%\ba
+%\widetilde{B}
+%&=
+%\Lambda \circ B \circ \left(\widehat{\Lambda}^{-1}, \widehat{\Lambda}^{-1}\right)
+%- \Lambda \circ \mathrm{d}^\nabla\left(\Lambda^{-1} \circ \lambda \right)
+%+ \Lambda \circ t_{\nabla^{\mathrm{bas}}} \circ \left( \Lambda^{-1} \circ \lambda, \Lambda^{-1} \circ \lambda \right), \\
+%\widetilde{\nabla}
+%&=
+%\Lambda \circ \nabla \circ \Lambda^{-1}
+%- \Lambda \circ \mathrm{d}^\nabla\left( \Lambda^{-1} \circ \lambda \right) \circ (\mathds{1}_{\mathrm{T}M}, \rho)
+%- \Lambda \circ t_{\nabla^{\mathrm{bas}}} \circ \left( \Lambda^{-1} \circ \lambda, \mathds{1}_E \right), \\
+%\widetilde{t}_{\widetilde{\nabla}^{\mathrm{bas}}}
+%&=
+%\Lambda \circ t_{\nabla^{\mathrm{bas}}} \circ \left( \Lambda^{-1}, \Lambda^{-1} \right)
+%- \Lambda \circ t_{\nabla^{\mathrm{bas}}} \circ \left(\Lambda^{-1} \circ \lambda \circ \rho, \Lambda^{-1} \circ \lambda \circ \rho \right) \nonumber\\
+%&\quad+ 
+%\Lambda \circ \mathrm{d}^{\nabla}\left( \Lambda^{-1} \circ \lambda \right) \circ (\rho, \rho).
+%\ea
+%As consequences the Lie bracket $\left[\cdot, \cdot\right]_E$ does not transform and
+%\ba
+%&\mathrm{on} ~ E:&
+%\widetilde{\nabla}^{\mathrm{bas}} &= \Lambda \circ \nabla^{\mathrm{bas}} \circ \Lambda^{-1}, \label{eq:Ebasictrafo}\\
+%&\mathrm{on} ~ \mathrm{T}M:&
+%\widetilde{\nabla}^{\mathrm{bas}} &= \widehat{\Lambda} \circ \nabla^{\mathrm{bas}} \circ \widehat{\Lambda}^{-1}.
+%\ea
+%\end{theorem}
